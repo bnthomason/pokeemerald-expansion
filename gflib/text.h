@@ -7,6 +7,14 @@
 // loaded at once but not copied to vram yet.
 #define TEXT_SKIP_DRAW 0xFF
 
+enum
+{
+    TEXT_MODE_UNKNOWN0,
+    TEXT_MODE_MONOSPACE,
+    TEXT_MODE_UNKNOWN2,  // variable width?
+};
+
+
 enum {
     FONT_SMALL,
     FONT_NORMAL,

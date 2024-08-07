@@ -43,6 +43,7 @@ enum
 
 enum
 {
+    PAGE_SCREEN,
     AREA_SCREEN,
     CRY_SCREEN,
     SIZE_SCREEN,
@@ -195,6 +196,7 @@ struct PokedexView
     u8 currentPageBackup;
     bool8 isSearchResults:1;
     u8 selectedScreen;
+    u8 descriptionPageNum;
     u8 screenSwitchState;
     u8 menuIsOpen;
     u16 menuCursorPos;
@@ -275,6 +277,7 @@ static void SpriteCB_SlideCaughtMonToCenter(struct Sprite *sprite);
 static void PrintMonInfo(u32 num, u32, u32 owned, u32 newEntry);
 static void PrintMonHeight(u16 height, u8 left, u8 top);
 static void PrintMonWeight(u16 weight, u8 left, u8 top);
+static void sub_8090C68(void);
 static void ResetOtherVideoRegisters(u16);
 static u8 PrintCryScreenSpeciesName(u8, u16, u8, u8);
 static void PrintDecimalNum(u8 windowId, u16 num, u8 left, u8 top);
@@ -1621,7 +1624,8 @@ void CB2_OpenPokedex(void)
         sPokedexView->dexOrder = gSaveBlock2Ptr->pokedex.order;
         sPokedexView->selectedPokemon = sLastSelectedPokemon;
         sPokedexView->pokeBallRotation = sPokeBallRotation;
-        sPokedexView->selectedScreen = AREA_SCREEN;
+        sPokedexView->selectedScreen = PAGE_SCREEN;
+        sPokedexView->descriptionPageNum = 0;
         if (!IsNationalPokedexEnabled())
         {
             sPokedexView->seenCount = GetHoennPokedexCount(FLAG_GET_SEEN);
@@ -3233,6 +3237,7 @@ static void Task_LoadInfoScreen(u8 taskId)
             u16 r2;
 
             sPokedexView->currentPage = PAGE_INFO;
+            sPokedexView->descriptionPageNum = 0;
             gPokedexVBlankCB = gMain.vblankCallback;
             SetVBlankCallback(NULL);
             r2 = 0;
@@ -3358,6 +3363,7 @@ static void Task_HandleInfoScreenInput(u8 taskId)
 {
     if (gTasks[taskId].tScrolling)
     {
+
         // Scroll up/down
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_LoadInfoScreenWaitForFade;
@@ -3375,6 +3381,9 @@ static void Task_HandleInfoScreenInput(u8 taskId)
     {
         switch (sPokedexView->selectedScreen)
         {
+        case PAGE_SCREEN:
+            sub_8090C68();
+            break;
         case AREA_SCREEN:
             BeginNormalPaletteFade(PALETTES_ALL & ~(0x14), 0, 0, 16, RGB_BLACK);
             sPokedexView->screenSwitchState = 1;
@@ -4139,10 +4148,53 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
         PrintInfoScreenText(gText_UnkWeight, 0x81, 0x49);
     }
     if (owned)
-        description = gPokedexEntries[num].description;
+        description = gPokedexEntries[num].descriptionPage1;
+        
     else
         description = sExpandedPlaceholder_PokedexDescription;
     PrintInfoScreenText(description, GetStringCenterAlignXOffset(FONT_NORMAL, description, DISPLAY_WIDTH), 95);
+}
+
+
+static void sub_8090A3C(u8 taskId)
+{
+
+    const u8 *description;
+
+    if (gMain.newKeys & B_BUTTON)
+    {
+        BeginNormalPaletteFade(0xFFFC, 0, 0, 16, RGB(0, 0, 0));
+        gSprites[gTasks[taskId].data[3]].callback = SpriteCB_SlideCaughtMonToCenter;
+        gTasks[taskId].func = Task_ExitCaughtMonPage;
+        return;
+    }
+    else if (gMain.newKeys & A_BUTTON)
+    {
+        if (gTasks[taskId].data[4] == 0)
+        {
+            u16 r4 = gTasks[taskId].data[1];
+
+
+//            Menu_EraseWindowRect(2, 13, 27, 19);
+            PrintInfoScreenText(description, GetStringCenterAlignXOffset(FONT_NORMAL, description, DISPLAY_WIDTH), 95);
+            (*(u16 *)(BG_VRAM + 0x7ACA))++;
+            (*(u16 *)(BG_VRAM + 0x7B0A))++;
+            gTasks[taskId].data[4] = 1;
+            PlaySE(SE_PIN);
+        }
+        else
+        {
+            BeginNormalPaletteFade(0xFFFC, 0, 0, 16, RGB(0, 0, 0));
+            gSprites[gTasks[taskId].data[3]].callback = SpriteCB_SlideCaughtMonToCenter;
+            gTasks[taskId].func = Task_ExitCaughtMonPage;
+            return;
+        }
+    }
+    gTasks[taskId].data[2]++;
+    if (gTasks[taskId].data[2] & 0x10)
+        LoadPalette(gPokedexMenu_Gfx + 1, 0x51, 14);
+    else
+        LoadPalette(gPokedexMenu_Gfx + 1, 0x51, 14);
 }
 
 static void PrintMonHeight(u16 height, u8 left, u8 top)
@@ -4235,6 +4287,40 @@ static void PrintMonWeight(u16 weight, u8 left, u8 top)
     buffer[i++] = EOS;
     PrintInfoScreenText(buffer, left, top);
 }
+
+
+static void sub_8090C68(void)
+{
+
+        const u8 *description;
+
+
+    if (sPokedexListItem->owned)
+    {
+        
+        if (sPokedexView->descriptionPageNum == 0)
+        {
+            description = gPokedexEntries[sPokedexListItem->dexNum].descriptionPage1;
+//          Menu_EraseWindowRect(2, 13, 27, 19);
+            PrintInfoScreenText(description, GetStringCenterAlignXOffset(FONT_NORMAL, description, DISPLAY_WIDTH), 95);
+            sPokedexView->descriptionPageNum = 1;
+            (*(u16 *)(BG_VRAM + 0x7ACA))++;
+            (*(u16 *)(BG_VRAM + 0x7B0A))++;
+            PlaySE(SE_PIN);
+        }
+        else
+        {
+            description = gPokedexEntries[sPokedexListItem->dexNum].descriptionPage2;
+//          Menu_EraseWindowRect(2, 13, 27, 19);
+            PrintInfoScreenText(description, GetStringCenterAlignXOffset(FONT_NORMAL, description, DISPLAY_WIDTH), 95);
+            sPokedexView->descriptionPageNum = 0;
+            (*(u16 *)(BG_VRAM + 0x7ACA))--;
+            (*(u16 *)(BG_VRAM + 0x7B0A))--;
+            PlaySE(SE_PIN);
+        }
+    }
+}
+
 
 const u8 *GetPokedexCategoryName(u16 dexNum) // unused
 {

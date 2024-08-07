@@ -1510,11 +1510,19 @@ const u8 gCelebiPokedexText[] = _(
     "long as CELEBI appears, a bright and\n"
     "shining future awaits us.");
 
-const u8 gTreeckoPokedexText[] = _(
-    "It makes its nest in a giant tree in the\n"
-    "forest. It ferociously guards against\n"
-    "anything nearing its territory. It is said\n"
-    "to be the protector of the forest's trees.");
+static const u8 DexDescription_Treecko_1[] = _(
+  "TREECKO has small hooks on the bottom\n"
+  "of its feet that enable it to scale\n"
+  "vertical walls.");
+static const u8 DexDescription_Treecko_2[] = _(
+  "This POKéMON attacks by slamming foes\n"
+  "with its thick tail.");
+
+// const u8 gTreeckoPokedexText[] = _(
+//     "It makes its nest in a giant tree in the\n"
+//     "forest. It ferociously guards against\n"
+//     "anything nearing its territory. It is said\n"
+//     "to be the protector of the forest's trees.");
 
 const u8 gGrovylePokedexText[] = _(
     "Leaves grow out of this POKéMON's body.\n"
@@ -1528,11 +1536,20 @@ const u8 gSceptilePokedexText[] = _(
     "plants. It regulates its body temperature\n"
     "by basking in sunlight.");
 
-const u8 gTorchicPokedexText[] = _(
-    "If attacked, it strikes back by spitting\n"
-    "balls of fire it forms in its stomach.\n"
-    "A TORCHIC dislikes darkness because it\n"
-    "can't see its surroundings.");
+// const u8 gTorchicPokedexText[] = _(
+//     "If attacked, it strikes back by spitting\n"
+//     "balls of fire it forms in its stomach.\n"
+//     "A TORCHIC dislikes darkness because it\n"
+//     "can't see its surroundings.");
+
+static const u8 DexDescription_Torchic_1[] = _(
+  "TORCHIC sticks with its TRAINER,\n"
+  "following behind with unsteady\n"
+  "steps.");
+static const u8 DexDescription_Torchic_2[] = _(
+  "This POKéMON breathes fire of over\n"
+  "1,800 degrees F, including fireballs\n"
+  "that leave the foe scorched black.");
 
 const u8 gCombuskenPokedexText[] = _(
     "It lashes out with 10 kicks per second.\n"
@@ -1546,11 +1563,19 @@ const u8 gBlazikenPokedexText[] = _(
     "feathers burn off, and new, supple\n"
     "feathers grow back in their place.");
 
-const u8 gMudkipPokedexText[] = _(
-    "On land, it can powerfully lift large\n"
-    "boulders by planting its four feet and\n"
-    "heaving. It sleeps by burying itself in soil\n"
-    "at the water's edge.");
+// const u8 gMudkipPokedexText[] = _(
+//     "On land, it can powerfully lift large\n"
+//     "boulders by planting its four feet and\n"
+//     "heaving. It sleeps by burying itself in soil\n"
+//     "at the water's edge.");
+
+static const u8 DexDescription_Mudkip_1[] = _(
+  "The fin on MUDKIP's head acts as highly\n"
+  "sensitive radar. Using this fin to sense\n"
+  "movements of water and air, this");
+static const u8 DexDescription_Mudkip_2[] = _(
+  "POKéMON can determine what is taking\n"
+  "place around it without using its eyes.");
 
 const u8 gMarshtompPokedexText[] = _(
     "Its toughened hind legs enable it to stand\n"

@@ -13,6 +13,7 @@
 #include "dynamic_placeholder_text_util.h"
 #include "fonts.h"
 
+static u16 GetBlankTileNum(struct Window *);
 static u16 RenderText(struct TextPrinter *);
 static u32 RenderFont(struct TextPrinter *);
 static u16 FontFunc_Small(struct TextPrinter *);

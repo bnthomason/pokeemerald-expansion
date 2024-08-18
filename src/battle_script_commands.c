@@ -3390,6 +3390,11 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     gBattlescriptCurrInstr = BattleScript_StatDown;
                 }
                 break;
+            case MOVE_EFFECT_HP_UP_1:
+            case MOVE_EFFECT_HP_DOWN_1:
+            case MOVE_EFFECT_HP_UP_2:
+            case MOVE_EFFECT_HP_DOWN_2:
+                break;
             case MOVE_EFFECT_RECHARGE:
                 gBattleMons[gEffectBattler].status2 |= STATUS2_RECHARGE;
                 gDisableStructs[gEffectBattler].rechargeTimer = 2;
@@ -10344,6 +10349,20 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;   // can heal
         return;
     }
+    case VARIOUS_TRY_HEAL_HALF_HP:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 2;
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+        gBattleMoveDamage *= -1;
+
+        if (gBattleMons[battler].hp == gBattleMons[battler].maxHP)
+            gBattlescriptCurrInstr = cmd->failInstr;    // fail
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;   // can heal
+        return;
+    }
     case VARIOUS_REMOVE_TERRAIN:
     {
         VARIOUS_ARGS();
@@ -13891,6 +13910,9 @@ static bool32 CheckIfCanFireTwoTurnMoveNow(u8 battler, bool8 checkChargeTurnEffe
     // Certain two-turn moves may fire on the first turn in the right weather (Solar Beam, Electro Shot)
     // By default, all two-turn moves have the option of adding weather to their argument
     if (IsBattlerWeatherAffected(battler, HIHALF(gMovesInfo[gCurrentMove].argument)))
+        return TRUE;
+
+    if (IsBattlerTerrainAffected(battler, HIHALF(gMovesInfo[gCurrentMove].argument)))
         return TRUE;
 
     return FALSE;

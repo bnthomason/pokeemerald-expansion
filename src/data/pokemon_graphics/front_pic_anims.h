@@ -10150,6 +10150,85 @@ static const union AnimCmd sAnim_Egg_1[] =
     ANIMCMD_END,
 };
 
+#if P_FAMILY_DRACOCEROS_HERO
+static const union AnimCmd sAnim_DracocerosHolyChild_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DracocerosHolyJuvenile_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DracocerosHolyAdult_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+#endif //P_FAMILY_DRACOEROS_HERO
+
+#if P_FAMILY_FAERIAL_HERO
+static const union AnimCmd sAnim_FaerialBeautyChild_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FaerialBeautyJuvenile_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FaerialBeautyAdult_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+#endif //P_FAMILY_FAERIAL_HERO
+
+
 #define SINGLE_ANIMATION(name)                      \
 static const union AnimCmd *const sAnims_##name[] = \
 {                                                   \
@@ -12814,4 +12893,14 @@ SINGLE_ANIMATION(TerapagosStellar);
 #if P_FAMILY_PECHARUNT
 SINGLE_ANIMATION(Pecharunt);
 #endif //P_FAMILY_PECHARUNT
+#if P_FAMILY_DRACOCEROS_HERO
+SINGLE_ANIMATION(DracocerosHolyChild);
+SINGLE_ANIMATION(DracocerosHolyJuvenile);
+SINGLE_ANIMATION(DracocerosHolyAdult);
+#endif
+#if P_FAMILY_FAERIAL_HERO
+SINGLE_ANIMATION(FaerialBeautyChild);
+SINGLE_ANIMATION(FaerialBeautyJuvenile);
+SINGLE_ANIMATION(FaerialBeautyAdult);
+#endif
 SINGLE_ANIMATION(Egg);

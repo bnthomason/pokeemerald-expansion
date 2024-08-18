@@ -2424,6 +2424,16 @@ gCryTable::
 .if P_FAMILY_PECHARUNT == TRUE
 	cry Cry_Pecharunt
 .endif @ P_FAMILY_PECHARUNT
+.if P_FAMILY_DRACOCEROS_HOLY == TRUE
+	cry Cry_DracocerosHolyChild
+	cry Cry_DracocerosHolyJuvenile
+	cry Cry_DracocerosHolyAdult
+.endif @ P_FAMILY_DRACOCEROS_HOLY
+.if P_FAMILY_DRACOCEROS_HOLY == TRUE
+	cry Cry_FaerialBeautyChild
+	cry Cry_FaerialBeautyJuvenile
+	cry Cry_FaerialBeautyAdult
+.endif @ P_FAMILY_DRACOCEROS_HOLY
 .endif @ P_CRIES_ENABLED
 
 	.align 2
@@ -4852,4 +4862,14 @@ gCryTable_Reverse::
 .if P_FAMILY_PECHARUNT == TRUE
 	cry_reverse Cry_Pecharunt
 .endif @ P_FAMILY_PECHARUNT
+.if P_FAMILY_DRACOCEROS_HERO == TRUE
+	cry_reverse Cry_DracocerosHolyChild
+	cry_reverse Cry_DracocerosHolyJuvenile
+	cry_reverse Cry_DracocerosHolyAdult
+.endif @ P_FAMILY_DRACOCEROS_HERO
+.if P_FAMILY_FAERIAL_HERO == TRUE
+	cry_reverse Cry_FaerialBeautyChild
+	cry_reverse Cry_FaerialBeautyJuvenile
+	cry_reverse Cry_FaerialBeautyAdult
+.endif @ P_FAMILY_DRACOCEROS_HERO
 .endif @ P_CRIES_ENABLED

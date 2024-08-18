@@ -10393,264 +10393,104 @@ const struct Item gItemsInfo[] =
 
 // TMs/HMs. They don't have a set flingPower, as that's handled by GetFlingPowerFromItemId.
 
-    [ITEM_TM_FOCUS_PUNCH] =
+    [ITEM_TM_TAKE_DOWN] = 
     {
-        .name = _("TM01"),
-        .price = 3000,
+        .name = _("TM001"),
+        .price = 2500,
         .description = COMPOUND_STRING(
-            "Powerful, but makes\n"
-            "the user flinch if\n"
-            "hit by the foe."),
+			"A reckless charge\n"
+			"attack that also\n"
+			"hurts the user."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FOCUS_PUNCH,
+        .secondaryId = MOVE_TAKE_DOWN,
     },
 
-    [ITEM_TM_DRAGON_CLAW] =
+    [ITEM_TM_CHARM] = 
     {
-        .name = _("TM02"),
-        .price = 3000,
+        .name = _("TM002"),
+        .price = 1500,
         .description = COMPOUND_STRING(
-            "Hooks and slashes\n"
-            "the foe with long,\n"
-            "sharp claws."),
+			"Charms the foe\n"
+			"and sharply reduces\n"
+			"its Attack."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DRAGON_CLAW,
+        .secondaryId = MOVE_CHARM,
     },
 
-    [ITEM_TM_WATER_PULSE] =
+    [ITEM_TM_FAKE_TEARS] = 
     {
-        .name = _("TM03"),
-        .price = 3000,
+        .name = _("TM003"),
+        .price = 1500,
         .description = COMPOUND_STRING(
-            "Generates an\n"
-            "ultrasonic wave\n"
-            "that may confuse."),
+			"Feigns crying to\n"
+			"lower the foe's\n"
+			"Sp. Def."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_WATER_PULSE,
+        .secondaryId = MOVE_FAKE_TEARS,
     },
 
-    [ITEM_TM_CALM_MIND] =
+    [ITEM_TM_AGILITY] = 
     {
-        .name = _("TM04"),
-        .price = 3000,
+        .name = _("TM004"),
+        .price = 1500,
         .description = COMPOUND_STRING(
-            "Raises Sp. Atk and\n"
-            "Sp. Def by focusing\n"
-            "the mind."),
+			"Relaxes the body to\n"
+			"sharply boost\n"
+			"Speed."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_CALM_MIND,
+        .secondaryId = MOVE_AGILITY,
     },
 
-    [ITEM_TM_ROAR] =
+    [ITEM_TM_MUD_SLAP] = 
     {
-        .name = _("TM05"),
-        .price = 1000,
+        .name = _("TM005"),
+        .price = 500,
         .description = COMPOUND_STRING(
-            "A savage roar that\n"
-            "makes the foe flee \n"
-            "to end the battle."),
+			"Hurls mud in the\n"
+			"foe's face to reduce\n"
+			"its accuracy."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ROAR,
+        .secondaryId = MOVE_MUD_SLAP,
     },
 
-    [ITEM_TM_TOXIC] =
+    [ITEM_TM_SCARY_FACE] = 
     {
-        .name = _("TM06"),
-        .price = 3000,
+        .name = _("TM006"),
+        .price = 1500,
         .description = COMPOUND_STRING(
-            "Poisons the foe\n"
-            "with a toxin that\n"
-            "gradually worsens."),
+			"Frightens with a\n"
+			"scary face to reduce\n"
+			"reduce Speed."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TOXIC,
+        .secondaryId = MOVE_SCARY_FACE,
     },
 
-    [ITEM_TM_HAIL] =
+    [ITEM_TM_PROTECT] = 
     {
-        .name = _("TM07"),
-        .price = 3000,
+        .name = _("TM007"),
+        .price = 1250,
         .description = COMPOUND_STRING(
-            "Creates a hailstorm\n"
-            "that damages all\n"
-            "types except Ice."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HAIL,
-    },
-
-    [ITEM_TM_BULK_UP] =
-    {
-        .name = _("TM08"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Bulks up the body\n"
-            "to boost both\n"
-            "Attack & Defense."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BULK_UP,
-    },
-
-    [ITEM_TM_BULLET_SEED] =
-    {
-        .name = _("TM09"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Shoots 2 to 5 seeds\n"
-            "in a row to strike\n"
-            "the foe."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BULLET_SEED,
-    },
-
-    [ITEM_TM_HIDDEN_POWER] =
-    {
-        .name = _("TM10"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "The attack power\n"
-            "varies among\n"
-            "different Pokémon."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HIDDEN_POWER,
-    },
-
-    [ITEM_TM_SUNNY_DAY] =
-    {
-        .name = _("TM11"),
-        .price = 2000,
-        .description = COMPOUND_STRING(
-            "Raises the power of\n"
-            "Fire-type moves\n"
-            "for 5 turns."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SUNNY_DAY,
-    },
-
-    [ITEM_TM_TAUNT] =
-    {
-        .name = _("TM12"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Enrages the foe so\n"
-            "it can only use\n"
-            "attack moves."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TAUNT,
-    },
-
-    [ITEM_TM_ICE_BEAM] =
-    {
-        .name = _("TM13"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Fires an icy cold\n"
-            "beam that may\n"
-        #if B_USE_FROSTBITE == TRUE
-            "inflict frostbite."),
-        #else
-            "freeze the foe."),
-        #endif
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ICE_BEAM,
-    },
-
-    [ITEM_TM_BLIZZARD] =
-    {
-        .name = _("TM14"),
-        .price = 5500,
-        .description = COMPOUND_STRING(
-        #if B_USE_FROSTBITE == TRUE
-            "A snow-and-wind\n"
-            "attack that may\n"
-            "inflict frostbite."),
-        #else
-            "A brutal snow-and-\n"
-            "wind attack that\n"
-            "may freeze the foe."),
-        #endif
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BLIZZARD,
-    },
-
-    [ITEM_TM_HYPER_BEAM] =
-    {
-        .name = _("TM15"),
-        .price = 7500,
-        .description = COMPOUND_STRING(
-            "Powerful, but needs\n"
-            "recharging the\n"
-            "next turn."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HYPER_BEAM,
-    },
-
-    [ITEM_TM_LIGHT_SCREEN] =
-    {
-        .name = _("TM16"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Creates a wall of\n"
-            "light that lowers\n"
-            "Sp. Atk damage."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_LIGHT_SCREEN,
-    },
-
-    [ITEM_TM_PROTECT] =
-    {
-        .name = _("TM17"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Negates all damage,\n"
-            "but may fail if used\n"
-            "in succession."),
+			"Negates all damage,\n"
+			"but may fail if used\n"
+			"in succession."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -10658,434 +10498,163 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_PROTECT,
     },
 
-    [ITEM_TM_RAIN_DANCE] =
+    [ITEM_TM_FIRE_FANG] = 
     {
-        .name = _("TM18"),
-        .price = 2000,
-        .description = COMPOUND_STRING(
-            "Raises the power of\n"
-            "Water-type moves\n"
-            "for 5 turns."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_RAIN_DANCE,
-    },
-
-    [ITEM_TM_GIGA_DRAIN] =
-    {
-        .name = _("TM19"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Recovers half the\n"
-            "HP of the damage \n"
-            "this move inflicts."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GIGA_DRAIN,
-    },
-
-    [ITEM_TM_SAFEGUARD] =
-    {
-        .name = _("TM20"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Prevents status\n"
-            "abnormality with a\n"
-            "mystical power."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SAFEGUARD,
-    },
-
-    [ITEM_TM_FRUSTRATION] =
-    {
-        .name = _("TM21"),
+        .name = _("TM008"),
         .price = 1000,
         .description = COMPOUND_STRING(
-            "The less the user\n"
-            "likes you, the more\n"
-            "powerful this move."),
+			"May cause flinching\n"
+			"or leave the foe\n"
+			"with a burn."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FRUSTRATION,
+        .secondaryId = MOVE_FIRE_FANG,
     },
 
-    [ITEM_TM_SOLAR_BEAM] =
+    [ITEM_TM_THUNDER_FANG] = 
     {
-        .name = _("TM22"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Absorbs sunlight in\n"
-            "the 1st turn, then\n"
-            "attacks next turn."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SOLAR_BEAM,
-    },
-
-    [ITEM_TM_IRON_TAIL] =
-    {
-        .name = _("TM23"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Slams the foe with\n"
-            "a hard tail. It may\n"
-            "lower Defense."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_IRON_TAIL,
-    },
-
-    [ITEM_TM_THUNDERBOLT] =
-    {
-        .name = _("TM24"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "A powerful electric\n"
-            "attack that may\n"
-            "cause paralysis."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_THUNDERBOLT,
-    },
-
-    [ITEM_TM_THUNDER] =
-    {
-        .name = _("TM25"),
-        .price = 5500,
-        .description = COMPOUND_STRING(
-            "Strikes the foe\n"
-            "with a thunderbolt.\n"
-            "It may paralyze."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_THUNDER,
-    },
-
-    [ITEM_TM_EARTHQUAKE] =
-    {
-        .name = _("TM26"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Causes a quake\n"
-            "that has no effect\n"
-            "on flying foes."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_EARTHQUAKE,
-    },
-
-    [ITEM_TM_RETURN] =
-    {
-        .name = _("TM27"),
+        .name = _("TM009"),
         .price = 1000,
         .description = COMPOUND_STRING(
-            "The more the user\n"
-            "likes you, the more\n"
-            "powerful this move."),
+			"May cause flinching\n"
+			"or leave the foe\n"
+			"paralyzed."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_RETURN,
+        .secondaryId = MOVE_THUNDER_FANG,
     },
 
-    [ITEM_TM_DIG] =
+    [ITEM_TM_ICE_FANG] = 
     {
-        .name = _("TM28"),
-        .price = 2000,
-        .description = COMPOUND_STRING(
-            "Digs underground\n"
-            "the 1st turn, then\n"
-            "strikes next turn."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DIG,
-    },
-
-    [ITEM_TM_PSYCHIC] =
-    {
-        .name = _("TM29"),
-        .price = 2000,
-        .description = COMPOUND_STRING(
-            "A powerful psychic\n"
-            "attack that may\n"
-            "lower Sp. Def."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PSYCHIC,
-    },
-
-    [ITEM_TM_SHADOW_BALL] =
-    {
-        .name = _("TM30"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Hurls a dark lump\n"
-            "at the foe. It may\n"
-            "lower Sp. Def."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SHADOW_BALL,
-    },
-
-    [ITEM_TM_BRICK_BREAK] =
-    {
-        .name = _("TM31"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Destroys barriers\n"
-            "like Light Screen\n"
-            "and causes damage."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BRICK_BREAK,
-    },
-
-    [ITEM_TM_DOUBLE_TEAM] =
-    {
-        .name = _("TM32"),
-        .price = 2000,
-        .description = COMPOUND_STRING(
-            "Creates illusory\n"
-            "copies to enhance\n"
-            "elusiveness."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DOUBLE_TEAM,
-    },
-
-    [ITEM_TM_REFLECT] =
-    {
-        .name = _("TM33"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Creates a wall of\n"
-            "light that weakens\n"
-            "physical attacks."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_REFLECT,
-    },
-
-    [ITEM_TM_SHOCK_WAVE] =
-    {
-        .name = _("TM34"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Zaps the foe with a\n"
-            "jolt of electricity\n"
-            "that never misses."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SHOCK_WAVE,
-    },
-
-    [ITEM_TM_FLAMETHROWER] =
-    {
-        .name = _("TM35"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Looses a stream of\n"
-            "fire that may burn\n"
-            "the foe."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FLAMETHROWER,
-    },
-
-    [ITEM_TM_SLUDGE_BOMB] =
-    {
-        .name = _("TM36"),
+        .name = _("TM010"),
         .price = 1000,
         .description = COMPOUND_STRING(
-            "Hurls sludge at the\n"
-            "foe. It may poison\n"
-            "the foe."),
+			"May cause flinching\n"
+			"or leave the foe\n"
+			"frozen"),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SLUDGE_BOMB,
+        .secondaryId = MOVE_ICE_FANG,
     },
 
-    [ITEM_TM_SANDSTORM] =
+    [ITEM_TM_WATER_PULSE] = 
     {
-        .name = _("TM37"),
+        .name = _("TM011"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Generates an\n"
+			"ultrasonic wave\n"
+			"that may confuse."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WATER_PULSE,
+    },
+
+    [ITEM_TM_LOW_KICK] = 
+    {
+        .name = _("TM012"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"A kick that inflicts\n"
+			"more damage on\n"
+			"heavier foes."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_LOW_KICK,
+    },
+
+    [ITEM_TM_ACID_SPRAY] = 
+    {
+        .name = _("TM013"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Sprays a hide-\n"
+			"melting acid.\n"
+			"Reduces Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ACID_SPRAY,
+    },
+
+    [ITEM_TM_ACROBATICS] = 
+    {
+        .name = _("TM014"),
         .price = 2000,
         .description = COMPOUND_STRING(
-            "Causes a sandstorm\n"
-            "that hits the foe\n"
-            "over several turns."),
+			"Does double damage\n"
+			"if the user has no\n"
+			"item."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SANDSTORM,
+        .secondaryId = MOVE_ACROBATICS,
     },
 
-    [ITEM_TM_FIRE_BLAST] =
+    [ITEM_TM_STRUGGLE_BUG] = 
     {
-        .name = _("TM38"),
-        .price = 5500,
+        .name = _("TM015"),
+        .price = 1500,
         .description = COMPOUND_STRING(
-            "A powerful fire\n"
-            "attack that may\n"
-            "burn the foe."),
+			"Resisting, the user\n"
+			"attacks the foe.\n"
+			"Lowers Sp. Atk."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FIRE_BLAST,
+        .secondaryId = MOVE_STRUGGLE_BUG,
     },
 
-    [ITEM_TM_ROCK_TOMB] =
+    [ITEM_TM_PSYBEAM] = 
     {
-        .name = _("TM39"),
-        .price = 3000,
+        .name = _("TM016"),
+        .price = 1100,
         .description = COMPOUND_STRING(
-            "Stops the foe from\n"
-            "moving with rocks.\n"
-            "May lower Speed."),
+			"Fires a peculiar ray\n"
+			"that may confuse the\n"
+			"foe."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ROCK_TOMB,
+        .secondaryId = MOVE_PSYBEAM,
     },
 
-    [ITEM_TM_AERIAL_ACE] =
+    [ITEM_TM_CONFUSE_RAY] = 
     {
-        .name = _("TM40"),
-        .price = 3000,
+        .name = _("TM017"),
+        .price = 2000,
         .description = COMPOUND_STRING(
-            "An extremely fast\n"
-            "attack that can't\n"
-            "be avoided."),
+			"A sinister ray that\n"
+			"confuses the foe."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_AERIAL_ACE,
+        .secondaryId = MOVE_CONFUSE_RAY,
     },
 
-    [ITEM_TM_TORMENT] =
+    [ITEM_TM_THIEF] = 
     {
-        .name = _("TM41"),
-        .price = 3000,
+        .name = _("TM018"),
+        .price = 1050,
         .description = COMPOUND_STRING(
-            "Prevents the foe\n"
-            "from using the same\n"
-            "move in a row."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TORMENT,
-    },
-
-    [ITEM_TM_FACADE] =
-    {
-        .name = _("TM42"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Raises Attack when\n"
-            "poisoned, burned,\n"
-            "or paralyzed."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FACADE,
-    },
-
-    [ITEM_TM_SECRET_POWER] =
-    {
-        .name = _("TM43"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Adds an effect to\n"
-            "attack depending\n"
-            "on the location."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SECRET_POWER,
-    },
-
-    [ITEM_TM_REST] =
-    {
-        .name = _("TM44"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "The user sleeps for\n"
-            "2 turns to restore\n"
-            "health and status."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_REST,
-    },
-
-    [ITEM_TM_ATTRACT] =
-    {
-        .name = _("TM45"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "Makes it tough to\n"
-            "attack a foe of the\n"
-            "opposite gender."),
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ATTRACT,
-    },
-
-    [ITEM_TM_THIEF] =
-    {
-        .name = _("TM46"),
-        .price = 3000,
-        .description = COMPOUND_STRING(
-            "While attacking,\n"
-            "it may steal the\n"
-            "foe's held item."),
+			"While attacking, it\n"
+			"may steal the foe's\n"
+			"held item."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -11093,29 +10662,1165 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_THIEF,
     },
 
-    [ITEM_TM_STEEL_WING] =
+    [ITEM_TM_DISARMING_VOICE] = 
     {
-        .name = _("TM47"),
-        .price = 3000,
+        .name = _("TM019"),
+        .price = 1250,
         .description = COMPOUND_STRING(
-            "Spreads hard-\n"
-            "edged wings and\n"
-            "slams into the foe."),
+			"Lets out a charming\n"
+			"cry that cannot be\n"
+			"evaded."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_STEEL_WING,
+        .secondaryId = MOVE_DISARMING_VOICE,
     },
 
-    [ITEM_TM_SKILL_SWAP] =
+    [ITEM_TM_TRAILBLAZE] = 
     {
-        .name = _("TM48"),
+        .name = _("TM020"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"The user attacks\n"
+			"suddenly, raising\n"
+			"its Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TRAILBLAZE,
+    },
+
+    [ITEM_TM_POUNCE] = 
+    {
+        .name = _("TM021"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"The user pounces on\n"
+			"the foe, lowering\n"
+			"its Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_POUNCE,
+    },
+
+    [ITEM_TM_CHILLING_WATER] = 
+    {
+        .name = _("TM022"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"A shower with ice-\n"
+			"cold water lowers\n"
+			"the target's Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CHILLING_WATER,
+    },
+
+    [ITEM_TM_CHARGE_BEAM] = 
+    {
+        .name = _("TM023"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Fires a beam of\n"
+			"electricity. May\n"
+			"raise Sp. Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CHARGE_BEAM,
+    },
+
+    [ITEM_TM_FIRE_SPIN] = 
+    {
+        .name = _("TM024"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Traps the foe in a\n"
+			"ring of fire for 5\n"
+			"turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FIRE_SPIN,
+    },
+
+    [ITEM_TM_FACADE] = 
+    {
+        .name = _("TM025"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Boosts Attack when\n"
+			"burned, paralyzed,\n"
+			"or poisoned."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FACADE,
+    },
+
+    [ITEM_TM_POISON_TAIL] = 
+    {
+        .name = _("TM026"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Has a high critical\n"
+			"-hit ratio. May\n"
+			"also poison."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_POISON_TAIL,
+    },
+
+    [ITEM_TM_AERIAL_ACE] = 
+    {
+        .name = _("TM027"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"An extremely speedy\n"
+			"and unavoidable\n"
+			"attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AERIAL_ACE,
+    },
+
+    [ITEM_TM_BULLDOZE] = 
+    {
+        .name = _("TM028"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Stomps down on the\n"
+			"ground. Lowers\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BULLDOZE,
+    },
+
+    [ITEM_TM_HEX] = 
+    {
+        .name = _("TM029"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Does double damage\n"
+			"if the foe has a\n"
+			"status problem."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HEX,
+    },
+
+    [ITEM_TM_SNARL] = 
+    {
+        .name = _("TM030"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Yells and rants at\n"
+			"the foe lowering its\n"
+			"Sp. Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SNARL,
+    },
+
+    [ITEM_TM_METAL_CLAW] = 
+    {
+        .name = _("TM031"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"A claw attack that\n"
+			"may raise the user's\n"
+			"Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_METAL_CLAW,
+    },
+
+    [ITEM_TM_SWIFT] = 
+    {
+        .name = _("TM032"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Sprays star-shaped\n"
+			"rays that never\n"
+			"miss."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SWIFT,
+    },
+
+    [ITEM_TM_MAGICAL_LEAF] = 
+    {
+        .name = _("TM033"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"strange leaf that\n"
+			"cannot be evaded."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MAGICAL_LEAF,
+    },
+
+    [ITEM_TM_ICY_WIND] = 
+    {
+        .name = _("TM034"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"A chilling attack\n"
+			"that lowers the\n"
+			"foe's Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ICY_WIND,
+    },
+
+    [ITEM_TM_MUD_SHOT] = 
+    {
+        .name = _("TM035"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Hurls mud at the\n"
+			"foe and reduces\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MUD_SHOT,
+    },
+
+    [ITEM_TM_ROCK_TOMB] = 
+    {
+        .name = _("TM036"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Stops the foe from\n"
+			"moving with rocks\n"
+			"and cuts Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROCK_TOMB,
+    },
+
+    [ITEM_TM_DRAINING_KISS] = 
+    {
+        .name = _("TM037"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"absorbs over half\n"
+			"the damage inflicted."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAINING_KISS,
+    },
+
+    [ITEM_TM_FLAME_CHARGE] = 
+    {
+        .name = _("TM038"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Attacks in a cloak\n"
+			"of flames. Raises\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FLAME_CHARGE,
+    },
+
+    [ITEM_TM_LOW_SWEEP] = 
+    {
+        .name = _("TM039"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Attacks the foe's\n"
+			"legs lowering its\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_LOW_SWEEP,
+    },
+
+    [ITEM_TM_AIR_CUTTER] = 
+    {
+        .name = _("TM040"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Hacks with razorlike\n"
+			"wind. High critical-\n"
+			"hit ratio."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AIR_CUTTER,
+    },
+
+    [ITEM_TM_STORED_POWER] = 
+    {
+        .name = _("TM041"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Deals more damage\n"
+			"when the user's\n"
+			"stats are higher."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_STORED_POWER,
+    },
+
+    [ITEM_TM_NIGHT_SHADE] = 
+    {
+        .name = _("TM042"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Inflicts damage\n"
+			"identical to the\n"
+			"user's level."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_NIGHT_SHADE,
+    },
+
+    [ITEM_TM_FLING] = 
+    {
+        .name = _("TM043"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"The effectiveness\n"
+			"varies with the\n"
+			"held item."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FLING,
+    },
+
+    [ITEM_TM_DRAGON_TAIL] = 
+    {
+        .name = _("TM044"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Knocks the foe away\n"
+			"to end the battle."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAGON_TAIL,
+    },
+
+    [ITEM_TM_VENOSHOCK] = 
+    {
+        .name = _("TM045"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Does double damage\n"
+			"if the foe is\n"
+			"poisoned."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_VENOSHOCK,
+    },
+
+    [ITEM_TM_AVALANCHE] = 
+    {
+        .name = _("TM046"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"An attack that gains\n"
+			"power if injured by\n"
+			"the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AVALANCHE,
+    },
+
+    [ITEM_TM_ENDURE] = 
+    {
+        .name = _("TM047"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Endures any attack\n"
+			"for 1 turn, leaving\n"
+			"at least 1HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ENDURE,
+    },
+
+    [ITEM_TM_VOLT_SWITCH] = 
+    {
+        .name = _("TM048"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Does damage then\n"
+			"switches out the\n"
+			"user."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_VOLT_SWITCH,
+    },
+
+    [ITEM_TM_SUNNY_DAY] = 
+    {
+        .name = _("TM049"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Boosts the power of\n"
+			"Fire-type moves for\n"
+			"5 turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SUNNY_DAY,
+    },
+
+    [ITEM_TM_RAIN_DANCE] = 
+    {
+        .name = _("TM050"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Boosts the power of\n"
+			"Water-type moves for\n"
+			"5 turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_RAIN_DANCE,
+    },
+
+    [ITEM_TM_SANDSTORM] = 
+    {
+        .name = _("TM051"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Causes a sandstorm\n"
+			"that rages for\n"
+			"several turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SANDSTORM,
+    },
+
+    [ITEM_TM_SNOWSCAPE] = 
+    {
+        .name = _("TM052"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Summons a snowstorm\n"
+			"that lasts for five\n"
+			"turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SNOWSCAPE,
+    },
+
+    [ITEM_TM_SMART_STRIKE] = 
+    {
+        .name = _("TM053"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Hits with an\n"
+			"accurate horn that\n"
+			"never misses."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SMART_STRIKE,
+    },
+
+    [ITEM_TM_PSYSHOCK] = 
+    {
+        .name = _("TM054"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"psychic wave that\n"
+			"does physical damage"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYSHOCK,
+    },
+
+    [ITEM_TM_DIG] = 
+    {
+        .name = _("TM055"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Digs underground the\n"
+			"first turn and\n"
+			"strikes next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DIG,
+    },
+
+    [ITEM_TM_BULLET_SEED] = 
+    {
+        .name = _("TM056"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Shoots 2 to 5 seeds\n"
+			"in a row to strike\n"
+			"the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BULLET_SEED,
+    },
+
+    [ITEM_TM_FALSE_SWIPE] = 
+    {
+        .name = _("TM057"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"leaves the foe with\n"
+			"at least 1 HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FALSE_SWIPE,
+    },
+
+    [ITEM_TM_BRICK_BREAK] = 
+    {
+        .name = _("TM058"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Destroys barriers\n"
+			"such as REFLECT and\n"
+			"causes damage."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BRICK_BREAK,
+    },
+
+    [ITEM_TM_ZEN_HEADBUTT] = 
+    {
+        .name = _("TM059"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Hits with a strong\n"
+			"head-butt. May cause\n"
+			"flinching."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ZEN_HEADBUTT,
+    },
+
+    [ITEM_TM_U_TURN] = 
+    {
+        .name = _("TM060"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Does damage then\n"
+			"switches out the\n"
+			"user"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_U_TURN,
+    },
+
+    [ITEM_TM_SHADOW_CLAW] = 
+    {
+        .name = _("TM061"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Strikes with a\n"
+			"shadow claw. High\n"
+			"critical-hit ratio."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SHADOW_CLAW,
+    },
+
+    [ITEM_TM_FOUL_PLAY] = 
+    {
+        .name = _("TM062"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "Switches abilities\n"
-            "with the foe on the\n"
-            "turn this is used."),
+			"The higher the foe's\n"
+			"Attack the more\n"
+			"damage caused."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FOUL_PLAY,
+    },
+
+    [ITEM_TM_PSYCHIC_FANGS] = 
+    {
+        .name = _("TM063"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Chomps with psychic\n"
+			"fangs. Destroys any\n"
+			"barriers."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYCHIC_FANGS,
+    },
+
+    [ITEM_TM_BULK_UP] = 
+    {
+        .name = _("TM064"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Bulks up the body to\n"
+			"boost both Attack\n"
+			"and Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BULK_UP,
+    },
+
+    [ITEM_TM_AIR_SLASH] = 
+    {
+        .name = _("TM065"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Attacks with a blade\n"
+			"of air. May cause\n"
+			"flinching."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AIR_SLASH,
+    },
+
+    [ITEM_TM_BODY_SLAM] = 
+    {
+        .name = _("TM066"),
+        .price = 3250,
+        .description = COMPOUND_STRING(
+			"A full-body slam\n"
+			"that may cause\n"
+			"paralysis."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BODY_SLAM,
+    },
+
+    [ITEM_TM_FIRE_PUNCH] = 
+    {
+        .name = _("TM067"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"A fiery punch that\n"
+			"may burn the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FIRE_PUNCH,
+    },
+
+    [ITEM_TM_THUNDER_PUNCH] = 
+    {
+        .name = _("TM068"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"An electrified punch\n"
+			"that may paralyze\n"
+			"the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_THUNDER_PUNCH,
+    },
+
+    [ITEM_TM_ICE_PUNCH] = 
+    {
+        .name = _("TM069"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"An icy punch that\n"
+			"may freeze the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ICE_PUNCH,
+    },
+
+    [ITEM_TM_SLEEP_TALK] = 
+    {
+        .name = _("TM070"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"Uses an available\n"
+			"move randomly while\n"
+			"asleep."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SLEEP_TALK,
+    },
+
+    [ITEM_TM_SEED_BOMB] = 
+    {
+        .name = _("TM071"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"A barrage of hard\n"
+			"seeds is fired at\n"
+			"the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SEED_BOMB,
+    },
+
+    [ITEM_TM_ELECTRO_BALL] = 
+    {
+        .name = _("TM072"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Hurls an orb that\n"
+			"does more damage to\n"
+			"slower foes."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ELECTRO_BALL,
+    },
+
+    [ITEM_TM_DRAIN_PUNCH] = 
+    {
+        .name = _("TM073"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"absorbs half the\n"
+			"damage inflicted."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAIN_PUNCH,
+    },
+
+    [ITEM_TM_REFLECT] = 
+    {
+        .name = _("TM074"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Creates a wall of\n"
+			"light that weakens\n"
+			"physical attacks."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_REFLECT,
+    },
+
+    [ITEM_TM_LIGHT_SCREEN] = 
+    {
+        .name = _("TM075"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Creates a wall of\n"
+			"light that lowers\n"
+			"Sp. Atk damage."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_LIGHT_SCREEN,
+    },
+
+    [ITEM_TM_ROCK_BLAST] = 
+    {
+        .name = _("TM076"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Hurls boulders at\n"
+			"the foe 2 to 5 times\n"
+			"in a row."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROCK_BLAST,
+    },
+
+    [ITEM_TM_DRAGON_CLAW] = 
+    {
+        .name = _("TM077"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Slashes the foe with\n"
+			"sharp claws."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAGON_CLAW,
+    },
+
+    [ITEM_TM_DAZZLING_GLEAM] = 
+    {
+        .name = _("TM078"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Damages foes by\n"
+			"emitting a bright\n"
+			"flash."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DAZZLING_GLEAM,
+    },
+
+    [ITEM_TM_METRONOME] = 
+    {
+        .name = _("TM079"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"Waggles a finger to\n"
+			"use any Pokémon move\n"
+			"at random."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_METRONOME,
+    },
+
+    [ITEM_TM_GRASS_KNOT] = 
+    {
+        .name = _("TM080"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"A snare attack that\n"
+			"does more damage to\n"
+			"heavier foes."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GRASS_KNOT,
+    },
+
+    [ITEM_TM_THUNDER_WAVE] = 
+    {
+        .name = _("TM081"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"A weak jolt of\n"
+			"electricity that\n"
+			"paralyzes the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_THUNDER_WAVE,
+    },
+
+    [ITEM_TM_POISON_JAB] = 
+    {
+        .name = _("TM082"),
+        .price = 2750,
+        .description = COMPOUND_STRING(
+			"A stabbing attack\n"
+			"that may poison the\n"
+			"foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_POISON_JAB,
+    },
+
+    [ITEM_TM_STOMPING_TANTRUM] = 
+    {
+        .name = _("TM083"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Stomps around\n"
+			"angrily. Stronger\n"
+			"after a failure."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_STOMPING_TANTRUM,
+    },
+
+    [ITEM_TM_REST] = 
+    {
+        .name = _("TM084"),
+        .price = 3000,
+        .description = COMPOUND_STRING(
+			"The user sleeps for\n"
+			"2 turns, restoring\n"
+			"HP and status."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_REST,
+    },
+
+    [ITEM_TM_ROCK_SLIDE] = 
+    {
+        .name = _("TM085"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Large boulders are\n"
+			"hurled. May cause\n"
+			"flinching."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROCK_SLIDE,
+    },
+
+    [ITEM_TM_TAUNT] = 
+    {
+        .name = _("TM086"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Taunts the foe into\n"
+			"only using attack\n"
+			"moves."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TAUNT,
+    },
+
+    [ITEM_TM_SWORDS_DANCE] = 
+    {
+        .name = _("TM087"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"A fighting dance\n"
+			"that sharply raises\n"
+			"Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SWORDS_DANCE,
+    },
+
+    [ITEM_TM_BODY_PRESS] = 
+    {
+        .name = _("TM088"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Does more damage the\n"
+			"higher the user's\n"
+			"Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BODY_PRESS,
+    },
+
+    [ITEM_TM_SPIKES] = 
+    {
+        .name = _("TM089"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Sets spikes that\n"
+			"hurt a foe switching\n"
+			"in."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SPIKES,
+    },
+
+    [ITEM_TM_TOXIC_SPIKES] = 
+    {
+        .name = _("TM090"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Sets spikes that\n"
+			"poison a foe\n"
+			"switching in."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TOXIC_SPIKES,
+    },
+
+    [ITEM_TM_IMPRISON] = 
+    {
+        .name = _("TM091"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Prevents foes from\n"
+			"using moves known\n"
+			"by the user."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_IMPRISON,
+    },
+
+    [ITEM_TM_FLASH_CANNON] = 
+    {
+        .name = _("TM092"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Releases a blast of\n"
+			"light that may lower\n"
+			"Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FLASH_CANNON,
+    },
+
+    [ITEM_TM_DARK_PULSE] = 
+    {
+        .name = _("TM093"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"horrible aura. May\n"
+			"cause flinching."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DARK_PULSE,
+    },
+
+    [ITEM_TM_LEECH_LIFE] = 
+    {
+        .name = _("TM094"),
+        .price = 3000,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"steals half the\n"
+			"damage inflicted."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_LEECH_LIFE,
+    },
+
+    [ITEM_TM_EERIE_IMPULSE] = 
+    {
+        .name = _("TM095"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Exposes the foe to a\n"
+			"pulse that sharply\n"
+			"cuts Sp. Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EERIE_IMPULSE,
+    },
+
+    [ITEM_TM_SKILL_SWAP] = 
+    {
+        .name = _("TM096"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"The user swaps\n"
+			"special abilities\n"
+			"with the target."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -11123,29 +11828,868 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_SKILL_SWAP,
     },
 
-    [ITEM_TM_SNATCH] =
+    [ITEM_TM_IRON_HEAD] = 
     {
-        .name = _("TM49"),
-        .price = 3000,
+        .name = _("TM097"),
+        .price = 2750,
         .description = COMPOUND_STRING(
-            "Steals the effects\n"
-            "of the move the foe\n"
-            "is trying to use."),
+			"Slams the foe with a\n"
+			"hard head. May cause\n"
+			"flinching."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SNATCH,
+        .secondaryId = MOVE_IRON_HEAD,
     },
 
-    [ITEM_TM_OVERHEAT] =
+    [ITEM_TM_DRAGON_DANCE] = 
     {
-        .name = _("TM50"),
+        .name = _("TM098"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"A mystical dance\n"
+			"that ups Attack and\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAGON_DANCE,
+    },
+
+    [ITEM_TM_POWER_GEM] = 
+    {
+        .name = _("TM099"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Attacks with rays of\n"
+			"light that sparkle\n"
+			"like diamonds."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_POWER_GEM,
+    },
+
+    [ITEM_TM_GUNK_SHOT] = 
+    {
+        .name = _("TM100"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Shoots filthy\n"
+			"garbage at the foe.\n"
+			"May also poison."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GUNK_SHOT,
+    },
+
+    [ITEM_TM_SUBSTITUTE] = 
+    {
+        .name = _("TM101"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Creates a decoy\n"
+			"using 1/4 of the\n"
+			"user's maximum HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SUBSTITUTE,
+    },
+
+    [ITEM_TM_IRON_DEFENSE] = 
+    {
+        .name = _("TM102"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Hardens the body's\n"
+			"surface to sharply\n"
+			"raise Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_IRON_DEFENSE,
+    },
+
+    [ITEM_TM_X_SCISSOR] = 
+    {
+        .name = _("TM103"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Slashes the foe with\n"
+			"crossed scythes,\n"
+			"claws, etc."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_X_SCISSOR,
+    },
+
+    [ITEM_TM_DRILL_RUN] = 
+    {
+        .name = _("TM104"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Spins its body like\n"
+			"a drill. High\n"
+			"critical-hit ratio."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRILL_RUN,
+    },
+
+    [ITEM_TM_WILL_O_WISP] = 
+    {
+        .name = _("TM105"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Inflicts a burn on\n"
+			"the foe with intense\n"
+			"fire."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WILL_O_WISP,
+    },
+
+    [ITEM_TM_CRUNCH] = 
+    {
+        .name = _("TM106"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Crunches with sharp\n"
+			"fangs. May lower\n"
+			"Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CRUNCH,
+    },
+
+    [ITEM_TM_TRICK] = 
+    {
+        .name = _("TM107"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Tricks the foe into\n"
+			"trading held items."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TRICK,
+    },
+
+    [ITEM_TM_LIQUIDATION] = 
+    {
+        .name = _("TM108"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "Enables full-power\n"
-            "attack, but sharply\n"
-            "lowers Sp. Atk."),
+			"Slams the foe with\n"
+			"water. Can lower\n"
+			"Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_LIQUIDATION,
+    },
+
+    [ITEM_TM_GIGA_DRAIN] = 
+    {
+        .name = _("TM109"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"steals half the\n"
+			"damage inflicted."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GIGA_DRAIN,
+    },
+
+    [ITEM_TM_AURA_SPHERE] = 
+    {
+        .name = _("TM110"),
+        .price = 3000,
+        .description = COMPOUND_STRING(
+			"Attacks with an aura\n"
+			"blast that cannot\n"
+			"be evaded."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AURA_SPHERE,
+    },
+
+    [ITEM_TM_TAILWIND] = 
+    {
+        .name = _("TM111"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Whips up a turbulent\n"
+			"breeze that raises\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TAILWIND,
+    },
+
+    [ITEM_TM_SHADOW_BALL] = 
+    {
+        .name = _("TM112"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Hurls a black blob\n"
+			"that may lower the\n"
+			"foe's Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SHADOW_BALL,
+    },
+
+    [ITEM_TM_DRAGON_PULSE] = 
+    {
+        .name = _("TM113"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Generates a shock\n"
+			"wave to damage the\n"
+			"foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAGON_PULSE,
+    },
+
+    [ITEM_TM_STEALTH_ROCK] = 
+    {
+        .name = _("TM114"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Sets floating stones\n"
+			"that hurt a foe\n"
+			"switching in."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_STEALTH_ROCK,
+    },
+
+    [ITEM_TM_HYPER_VOICE] = 
+    {
+        .name = _("TM115"),
+        .price = 3250,
+        .description = COMPOUND_STRING(
+			"A loud attack that\n"
+			"uses sound waves\n"
+			"to injure."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HYPER_VOICE,
+    },
+
+    [ITEM_TM_HEAT_WAVE] = 
+    {
+        .name = _("TM116"),
+        .price = 3750,
+        .description = COMPOUND_STRING(
+			"Exhales a hot breath\n"
+			"on the foe. May\n"
+			"inflict a burn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HEAT_WAVE,
+    },
+
+    [ITEM_TM_ENERGY_BALL] = 
+    {
+        .name = _("TM117"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Draws power from\n"
+			"nature to attack.\n"
+			"May lower Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ENERGY_BALL,
+    },
+
+    [ITEM_TM_PSYCHIC] = 
+    {
+        .name = _("TM118"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"A powerful psychic\n"
+			"attack that may\n"
+			"lower Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYCHIC,
+    },
+
+    [ITEM_TM_HEAVY_SLAM] = 
+    {
+        .name = _("TM119"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Does more damage if\n"
+			"the user outweighs\n"
+			"the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HEAVY_SLAM,
+    },
+
+    [ITEM_TM_ENCORE] = 
+    {
+        .name = _("TM120"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Makes the foe repeat\n"
+			"its last move over 2\n"
+			"to 6 turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ENCORE,
+    },
+
+    [ITEM_TM_ICE_SPINNER] = 
+    {
+        .name = _("TM121"),
+        .price = 2400,
+        .description = COMPOUND_STRING(
+			"Ice-covered feet hit\n"
+			"a foe and destroy\n"
+			"the terrain."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ICE_SPINNER,
+    },
+
+    [ITEM_TM_FLAMETHROWER] = 
+    {
+        .name = _("TM122"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"A powerful fire\n"
+			"attack that\n"
+			"may inflict a burn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FLAMETHROWER,
+    },
+
+    [ITEM_TM_THUNDERBOLT] = 
+    {
+        .name = _("TM123"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"A strong electrical\n"
+			"attack that may\n"
+			"paralyze the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_THUNDERBOLT,
+    },
+
+    [ITEM_TM_PLAY_ROUGH] = 
+    {
+        .name = _("TM124"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Plays rough with\n"
+			"the foe. May lower\n"
+			"Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PLAY_ROUGH,
+    },
+
+    [ITEM_TM_AMNESIA] = 
+    {
+        .name = _("TM125"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Forgets about\n"
+			"something and\n"
+			"raises Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AMNESIA,
+    },
+
+    [ITEM_TM_CALM_MIND] = 
+    {
+        .name = _("TM126"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Raises Sp. Atk and\n"
+			"Sp. Def by focusing\n"
+			"the mind."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CALM_MIND,
+    },
+
+    [ITEM_TM_HELPING_HAND] = 
+    {
+        .name = _("TM127"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Boosts the power\n"
+			"of the recipient's\n"
+			"moves."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HELPING_HAND,
+    },
+
+    [ITEM_TM_POLLEN_PUFF] = 
+    {
+        .name = _("TM128"),
+        .price = 4000,
+        .description = COMPOUND_STRING(
+			"Explodes on foes,\n"
+			"but restores ally's\n"
+			"HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_POLLEN_PUFF,
+    },
+
+    [ITEM_TM_BATON_PASS] = 
+    {
+        .name = _("TM129"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Switches out the\n"
+			"user while keeping\n"
+			"effects in play."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BATON_PASS,
+    },
+
+    [ITEM_TM_EARTH_POWER] = 
+    {
+        .name = _("TM130"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Makes the ground\n"
+			"erupt with power.\n"
+			"May lower Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EARTH_POWER,
+    },
+
+    [ITEM_TM_REVERSAL] = 
+    {
+        .name = _("TM131"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Inflicts more\n"
+			"damage when the\n"
+			"user's HP is down."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_REVERSAL,
+    },
+
+    [ITEM_TM_ICE_BEAM] = 
+    {
+        .name = _("TM132"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Blasts the foe with\n"
+			"an icy beam that\n"
+			"may freeze it."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ICE_BEAM,
+    },
+
+    [ITEM_TM_ELECTRIC_TERRAIN] = 
+    {
+        .name = _("TM133"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Electrifies the\n"
+			"ground for 5 turns.\n"
+			"Prevents sleep."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ELECTRIC_TERRAIN,
+    },
+
+    [ITEM_TM_GRASSY_TERRAIN] = 
+    {
+        .name = _("TM134"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"The ground turns to\n"
+			"grass for 5 turns.\n"
+			"Restores HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GRASSY_TERRAIN,
+    },
+
+    [ITEM_TM_PSYCHIC_TERRAIN] = 
+    {
+        .name = _("TM135"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Type and power\n"
+			"changes depending\n"
+			"on the terrain."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYCHIC_TERRAIN,
+    },
+
+    [ITEM_TM_MISTY_TERRAIN] = 
+    {
+        .name = _("TM136"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Covers the ground\n"
+			"with mist for 5\n"
+			"turns. Blocks status"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MISTY_TERRAIN,
+    },
+
+    [ITEM_TM_NASTY_PLOT] = 
+    {
+        .name = _("TM137"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Thinks bad thoughts\n"
+			"to sharply boost\n"
+			"Sp. Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_NASTY_PLOT,
+    },
+
+    [ITEM_TM_FIRE_BLAST] = 
+    {
+        .name = _("TM138"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"A powerful fire\n"
+			"attack that may\n"
+			"burn the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FIRE_BLAST,
+    },
+
+    [ITEM_TM_HYDRO_PUMP] = 
+    {
+        .name = _("TM139"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Blasts water at\n"
+			"high power to\n"
+			"strike the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HYDRO_PUMP,
+    },
+
+    [ITEM_TM_BLIZZARD] = 
+    {
+        .name = _("TM140"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Hits the foe with an\n"
+			"icy storm that may\n"
+			"freeze it."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BLIZZARD,
+    },
+
+    [ITEM_TM_FIRE_PLEDGE] = 
+    {
+        .name = _("TM141"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"column of fire. May\n"
+			"burn the grass."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FIRE_PLEDGE,
+    },
+
+    [ITEM_TM_WATER_PLEDGE] = 
+    {
+        .name = _("TM142"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"column of water. May\n"
+			"make a rainbow."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WATER_PLEDGE,
+    },
+
+    [ITEM_TM_GRASS_PLEDGE] = 
+    {
+        .name = _("TM143"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"column of grass. May\n"
+			"create a swamp."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GRASS_PLEDGE,
+    },
+
+    [ITEM_TM_WILD_CHARGE] = 
+    {
+        .name = _("TM144"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"An electrical tackle\n"
+			"that also hurts the\n"
+			"user."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WILD_CHARGE,
+    },
+
+    [ITEM_TM_SLUDGE_BOMB] = 
+    {
+        .name = _("TM145"),
+        .price = 4000,
+        .description = COMPOUND_STRING(
+			"Sludge is hurled to\n"
+			"inflict damage. May\n"
+			"also poison."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SLUDGE_BOMB,
+    },
+
+    [ITEM_TM_EARTHQUAKE] = 
+    {
+        .name = _("TM146"),
+        .price = 4000,
+        .description = COMPOUND_STRING(
+			"A powerful quake,\n"
+			"but has no effect on\n"
+			"flying foes."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EARTHQUAKE,
+    },
+
+    [ITEM_TM_STONE_EDGE] = 
+    {
+        .name = _("TM147"),
+        .price = 4000,
+        .description = COMPOUND_STRING(
+			"Stabs the foe with\n"
+			"stones. High\n"
+			"critical-hit ratio."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_STONE_EDGE,
+    },
+
+    [ITEM_TM_PHANTOM_FORCE] = 
+    {
+        .name = _("TM148"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"Vanishes on the\n"
+			"first turn then\n"
+			"strikes the next turn"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PHANTOM_FORCE,
+    },
+
+    [ITEM_TM_GIGA_IMPACT] = 
+    {
+        .name = _("TM149"),
+        .price = 12500,
+        .description = COMPOUND_STRING(
+			"Powerful, but leaves\n"
+			"the user immobile\n"
+			"the next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GIGA_IMPACT,
+    },
+
+    [ITEM_TM_BLAST_BURN] = 
+    {
+        .name = _("TM150"),
+        .price = 12500,
+        .description = COMPOUND_STRING(
+			"Powerful, but leaves\n"
+			"the user immobile\n"
+			"the next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BLAST_BURN,
+    },
+
+    [ITEM_TM_HYDRO_CANNON] = 
+    {
+        .name = _("TM151"),
+        .price = 12500,
+        .description = COMPOUND_STRING(
+			"Powerful, but leaves\n"
+			"the user immobile\n"
+			"the next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HYDRO_CANNON,
+    },
+
+    [ITEM_TM_FRENZY_PLANT] = 
+    {
+        .name = _("TM152"),
+        .price = 12500,
+        .description = COMPOUND_STRING(
+			"Powerful, but leaves\n"
+			"the user immobile\n"
+			"the next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FRENZY_PLANT,
+    },
+
+    [ITEM_TM_OUTRAGE] = 
+    {
+        .name = _("TM153"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"A rampage of 2 to 3\n"
+			"turns that confuses\n"
+			"the user."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_OUTRAGE,
+    },
+
+    [ITEM_TM_OVERHEAT] = 
+    {
+        .name = _("TM154"),
+        .price = 7500,
+        .description = COMPOUND_STRING(
+			"Allows a full-power\n"
+			"attack but sharply\n"
+			"lowers Sp. Atk."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -11153,607 +12697,2338 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_OVERHEAT,
     },
 
-    [ITEM_TM51] =
+    [ITEM_TM_FOCUS_BLAST] = 
     {
-        .name = _("TM51"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM155"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"Attacks at full\n"
+			"power. May lower Sp.\n"
+			"Def."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FOCUS_BLAST,
     },
 
-    [ITEM_TM52] =
+    [ITEM_TM_LEAF_STORM] = 
     {
-        .name = _("TM52"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM156"),
+        .price = 7500,
+        .description = COMPOUND_STRING(
+			"Whips up a storm\n"
+			"of leaves. Harshly\n"
+			"lowers the Sp. Atk."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_LEAF_STORM,
     },
 
-    [ITEM_TM53] =
+    [ITEM_TM_HURRICANE] = 
     {
-        .name = _("TM53"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM157"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Traps the foe in a\n"
+			"wind. May cause\n"
+			"fierce confusion."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HURRICANE,
     },
 
-    [ITEM_TM54] =
+    [ITEM_TM_TRICK_ROOM] = 
     {
-        .name = _("TM54"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM158"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Slower Pokémon get\n"
+			"to move first for 5\n"
+			"turns."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TRICK_ROOM,
     },
 
-    [ITEM_TM55] =
+    [ITEM_TM_BUG_BUZZ] = 
     {
-        .name = _("TM55"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM159"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"A damaging sound\n"
+			"wave that may lower\n"
+			"Sp. Def."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_BUG_BUZZ,
     },
 
-    [ITEM_TM56] =
+    [ITEM_TM_HYPER_BEAM] = 
     {
-        .name = _("TM56"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM160"),
+        .price = 12500,
+        .description = COMPOUND_STRING(
+			"Powerful, but leaves\n"
+			"the user immobile\n"
+			"the next turn."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HYPER_BEAM,
     },
 
-    [ITEM_TM57] =
+    [ITEM_TM_BRAVE_BIRD] = 
     {
-        .name = _("TM57"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM161"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"A low altitude\n"
+			"charge that also\n"
+			"hurts the user."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_BRAVE_BIRD,
     },
 
-    [ITEM_TM58] =
+    [ITEM_TM_FLARE_BLITZ] = 
     {
-        .name = _("TM58"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM162"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"A charge that may\n"
+			"burn the foe. Also\n"
+			"hurts the user."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FLARE_BLITZ,
     },
 
-    [ITEM_TM59] =
+    [ITEM_TM_THUNDER] = 
     {
-        .name = _("TM59"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM163"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"A lightning attack\n"
+			"that may cause\n"
+			"paralysis."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_THUNDER,
     },
 
-    [ITEM_TM60] =
+    [ITEM_TM_CLOSE_COMBAT] = 
     {
-        .name = _("TM60"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM164"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"A strong attack but\n"
+			"lowers the defensive\n"
+			"stats."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_CLOSE_COMBAT,
     },
 
-    [ITEM_TM61] =
+    [ITEM_TM_SOLAR_BEAM] = 
     {
-        .name = _("TM61"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM165"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Absorbs light in\n"
+			"one turn, then\n"
+			"attacks next turn."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SOLAR_BEAM,
     },
 
-    [ITEM_TM62] =
+    [ITEM_TM_DRACO_METEOR] = 
     {
-        .name = _("TM62"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM166"),
+        .price = 7500,
+        .description = COMPOUND_STRING(
+			"Casts comets onto\n"
+			"the foe. Harshly\n"
+			"lowers the Sp. Atk."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DRACO_METEOR,
     },
 
-    [ITEM_TM63] =
+    [ITEM_TM_STEEL_BEAM] = 
     {
-        .name = _("TM63"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM167"),
+        .price = 7500,
+        .description = COMPOUND_STRING(
+			"Fires a beam of\n"
+			"steel from its body.\n"
+			"It hurts the user."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_STEEL_BEAM,
     },
 
-    [ITEM_TM64] =
+    [ITEM_TM_TERA_BLAST] = 
     {
-        .name = _("TM64"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM168"),
+        .price = 4000,
+        .description = COMPOUND_STRING(
+			"If the user's is\n"
+			"Terastallized, it\n"
+			"uses its Tera-type."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TERA_BLAST,
     },
 
-    [ITEM_TM65] =
+    [ITEM_TM_ROAR] = 
     {
-        .name = _("TM65"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM169"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Makes the foe flee\n"
+			"to end the battle."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ROAR,
     },
 
-    [ITEM_TM66] =
+    [ITEM_TM_CHARGE] = 
     {
-        .name = _("TM66"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM170"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Charges power to\n"
+			"boost the electric\n"
+			"move used next."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_CHARGE,
     },
 
-    [ITEM_TM67] =
+    [ITEM_TM_HAZE] = 
     {
-        .name = _("TM67"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM171"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Creates a black haze\n"
+			"that eliminates all\n"
+			"stat changes."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HAZE,
     },
 
-    [ITEM_TM68] =
+    [ITEM_TM_TOXIC] = 
     {
-        .name = _("TM68"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM172"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Poisons the foe with\n"
+			"an intensifying""\n"
+			"toxin."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TOXIC,
     },
 
-    [ITEM_TM69] =
+    [ITEM_TM_SAND_TOMB] = 
     {
-        .name = _("TM69"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM173"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Traps and hurts the\n"
+			"foe quicksand for 5\n"
+			"turns."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SAND_TOMB,
     },
 
-    [ITEM_TM70] =
+    [ITEM_TM_SPITE] = 
     {
-        .name = _("TM70"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM174"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Spitefully cuts the\n"
+			"PP of the foe's last\n"
+			"move."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SPITE,
     },
 
-    [ITEM_TM71] =
+    [ITEM_TM_GRAVITY] = 
     {
-        .name = _("TM71"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM175"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Gravity is\n"
+			"intensified negating\n"
+			"levitation."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_GRAVITY,
     },
 
-    [ITEM_TM72] =
+    [ITEM_TM_SMACK_DOWN] = 
     {
-        .name = _("TM72"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM176"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Throws a rock to\n"
+			"knock the foe down\n"
+			"to the ground."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SMACK_DOWN,
     },
 
-    [ITEM_TM73] =
+    [ITEM_TM_GYRO_BALL] = 
     {
-        .name = _("TM73"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM177"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"A fast spin that\n"
+			"does more damage\n"
+			"to faster foes."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_GYRO_BALL,
     },
 
-    [ITEM_TM74] =
+    [ITEM_TM_KNOCK_OFF] = 
     {
-        .name = _("TM74"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM178"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Knocks down the\n"
+			"foe's held item to\n"
+			"prevent its use."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_KNOCK_OFF,
     },
 
-    [ITEM_TM75] =
+    [ITEM_TM_BUG_BITE] = 
     {
-        .name = _("TM75"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM179"),
+        .price = 1050,
+        .description = COMPOUND_STRING(
+			"Eats the foe's\n"
+			"held Berry gaining\n"
+			"its effect."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_BUG_BITE,
     },
 
-    [ITEM_TM76] =
+    [ITEM_TM_SUPER_FANG] = 
     {
-        .name = _("TM76"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM180"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Attacks with sharp\n"
+			"fangs and cuts half\n"
+			"the foe's HP."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SUPER_FANG,
     },
 
-    [ITEM_TM77] =
+    [ITEM_TM_VACUUM_WAVE] = 
     {
-        .name = _("TM77"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM181"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Whirls its fists\n"
+			"to send a wave that\n"
+			"strikes first."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_VACUUM_WAVE,
     },
 
-    [ITEM_TM78] =
+    [ITEM_TM_LUNGE] = 
     {
-        .name = _("TM78"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM182"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Lunges at the foe\n"
+			"to lower its Attack\n"
+			"stat."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_LUNGE,
     },
 
-    [ITEM_TM79] =
+    [ITEM_TM_HIGH_HORSEPOWER] = 
     {
-        .name = _("TM79"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM183"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Slams hard into the\n"
+			"foe with its entire\n"
+			"body."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HIGH_HORSEPOWER,
     },
 
-    [ITEM_TM80] =
+    [ITEM_TM_ICICLE_SPEAR] = 
     {
-        .name = _("TM80"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM184"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Attacks the foe\n"
+			"by firing 2 to 5\n"
+			"icicles in a row."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ICICLE_SPEAR,
     },
 
-    [ITEM_TM81] =
+    [ITEM_TM_SCALD] = 
     {
-        .name = _("TM81"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM185"),
+        .price = 2750,
+        .description = COMPOUND_STRING(
+			"Shoots boiling water\n"
+			"at the foe. May\n"
+			"inflict a burn."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SCALD,
     },
 
-    [ITEM_TM82] =
+    [ITEM_TM_HEAT_CRASH] = 
     {
-        .name = _("TM82"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM186"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Does more damage if\n"
+			"the user outweighs\n"
+			"the foe."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HEAT_CRASH,
     },
 
-    [ITEM_TM83] =
+    [ITEM_TM_SOLAR_BLADE] = 
     {
-        .name = _("TM83"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM187"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Charges first turn,\n"
+			"then chops with a\n"
+			"blade of light."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SOLAR_BLADE,
     },
 
-    [ITEM_TM84] =
+    [ITEM_TM_UPROAR] = 
     {
-        .name = _("TM84"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM188"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Causes an uproar\n"
+			"for 2 to 5 turns and\n"
+			"prevents sleep."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_UPROAR,
     },
 
-    [ITEM_TM85] =
+    [ITEM_TM_FOCUS_PUNCH] = 
     {
-        .name = _("TM85"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM189"),
+        .price = 10000,
+        .description = COMPOUND_STRING(
+			"A powerful loyalty\n"
+			"attack. The user\n"
+			"flinches if hit."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FOCUS_PUNCH,
     },
 
-    [ITEM_TM86] =
+    [ITEM_TM_WEATHER_BALL] = 
     {
-        .name = _("TM86"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM190"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"The move's type\n"
+			"and power change\n"
+			"with the weather."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_WEATHER_BALL,
     },
 
-    [ITEM_TM87] =
+    [ITEM_TM_GRASSY_GLIDE] = 
     {
-        .name = _("TM87"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM191"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Gliding on ground,\n"
+			"hits. Goes first on\n"
+			"Grassy Terrain."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_GRASSY_GLIDE,
     },
 
-    [ITEM_TM88] =
+    [ITEM_TM_BURNING_JEALOUSY] = 
     {
-        .name = _("TM88"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM192"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Foes that have stats\n"
+			"upped during the\n"
+			"turn get burned."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_BURNING_JEALOUSY,
     },
 
-    [ITEM_TM89] =
+    [ITEM_TM_FLIP_TURN] = 
     {
-        .name = _("TM89"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM193"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Attacks and rushes\n"
+			"back to switch with\n"
+			"a party Pokémon."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FLIP_TURN,
     },
 
-    [ITEM_TM90] =
+    [ITEM_TM_DUAL_WINGBEAT] = 
     {
-        .name = _("TM90"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM194"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"User slams the\n"
+			"target with wings\n"
+			"twice in a row."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DUAL_WINGBEAT,
     },
 
-    [ITEM_TM91] =
+    [ITEM_TM_POLTERGEIST] = 
     {
-        .name = _("TM91"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM195"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"Control foe's item\n"
+			"to attack. Fails if\n"
+			"foe has no item."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_POLTERGEIST,
     },
 
-    [ITEM_TM92] =
+    [ITEM_TM_LASH_OUT] = 
     {
-        .name = _("TM92"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM196"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"If stats lowered\n"
+			"during this turn,\n"
+			"power is doubled."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_LASH_OUT,
     },
 
-    [ITEM_TM93] =
+    [ITEM_TM_SCALE_SHOT] = 
     {
-        .name = _("TM93"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM197"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Shoots scales 2 to 5\n"
+			"times. Ups Speed,\n"
+			"lowers defense."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SCALE_SHOT,
     },
 
-    [ITEM_TM94] =
+    [ITEM_TM_MISTY_EXPLOSION] = 
     {
-        .name = _("TM94"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM198"),
+        .price = 3750,
+        .description = COMPOUND_STRING(
+			"Hit everything and\n"
+			"faint. Powers up\n"
+			"on Misty Terrain."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_MISTY_EXPLOSION,
     },
 
-    [ITEM_TM95] =
+    [ITEM_TM_PAIN_SPLIT] = 
     {
-        .name = _("TM95"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM199"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Adds the user and\n"
+			"foe's HP, then\n"
+			"shares them equally."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PAIN_SPLIT,
     },
 
-    [ITEM_TM96] =
+    [ITEM_TM_PSYCH_UP] = 
     {
-        .name = _("TM96"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM200"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"Copies the foe's\n"
+			"effect(s) and gives\n"
+			"to the user."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PSYCH_UP,
     },
 
-    [ITEM_TM97] =
+    [ITEM_TM_DOUBLE_EDGE] = 
     {
-        .name = _("TM97"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM201"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"A life-risking\n"
+			"tackle that also\n"
+			"hurts the user."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DOUBLE_EDGE,
     },
 
-    [ITEM_TM98] =
+    [ITEM_TM_ENDEAVOR] = 
     {
-        .name = _("TM98"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM202"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Gains power if the\n"
+			"user's HP is lower\n"
+			"than the foe's HP."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ENDEAVOR,
     },
 
-    [ITEM_TM99] =
+    [ITEM_TM_PETAL_BLIZZARD] = 
     {
-        .name = _("TM99"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM203"),
+        .price = 5500,
+        .description = COMPOUND_STRING(
+			"Stirs up a violent\n"
+			"storm of petals to\n"
+			"attack."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PETAL_BLIZZARD,
     },
 
-    [ITEM_TM100] =
+    [ITEM_TM_TEMPER_FLARE] = 
     {
-        .name = _("TM100"),
-        .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .name = _("TM204"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"Power doubles if\n"
+			"last move failed."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TEMPER_FLARE,
     },
 
-    [ITEM_HM_CUT] =
+    [ITEM_TM_WHIRLPOOL] = 
+    {
+        .name = _("TM205"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Traps and hurts the\n"
+			"foe in a whirlpool\n"
+			"for 5 turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WHIRLPOOL,
+    },
+
+    [ITEM_TM_MUDDY_WATER] = 
+    {
+        .name = _("TM206"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Attacks with muddy\n"
+			"water. May lower\n"
+			"accuracy."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MUDDY_WATER,
+    },
+
+    [ITEM_TM_SUPERCELL_SLAM] = 
+    {
+        .name = _("TM207"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"An electrified slam.\n"
+			"If it misses, the\n"
+			"user is hurt."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SUPERCELL_SLAM,
+    },
+
+    [ITEM_TM_ELECTROWEB] = 
+    {
+        .name = _("TM208"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Snares the foe with\n"
+			"an electric net.\n"
+			"Lowers Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ELECTROWEB,
+    },
+
+    [ITEM_TM_TRIPLE_AXEL] = 
+    {
+        .name = _("TM209"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"A 3-kick attack that\n"
+			"gets more powerful\n"
+			"with each hit."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TRIPLE_AXEL,
+    },
+
+    [ITEM_TM_COACHING] = 
+    {
+        .name = _("TM210"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Properly coaches\n"
+			"allies to up their\n"
+			"Attack and Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_COACHING,
+    },
+
+    [ITEM_TM_SLUDGE_WAVE] = 
+    {
+        .name = _("TM211"),
+        .price = 3750,
+        .description = COMPOUND_STRING(
+			"Swamps the foe with\n"
+			"a wave of sludge.\n"
+			"May also poison."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SLUDGE_WAVE,
+    },
+
+    [ITEM_TM_SCORCHING_SANDS] = 
+    {
+        .name = _("TM212"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Throws scorching\n"
+			"sand at the target.\n"
+			"May leave a burn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SCORCHING_SANDS,
+    },
+
+    [ITEM_TM_FEATHER_DANCE] = 
+    {
+        .name = _("TM213"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Envelops the foe\n"
+			"with down to sharply\n"
+			"reduce Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FEATHER_DANCE,
+    },
+
+    [ITEM_TM_FUTURE_SIGHT] = 
+    {
+        .name = _("TM214"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"Heightens inner\n"
+			"power to strike 2\n"
+			"turns later."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FUTURE_SIGHT,
+    },
+
+    [ITEM_TM_EXPANDING_FORCE] = 
+    {
+        .name = _("TM215"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Power goes up and\n"
+			"damages all foes on\n"
+			"Psychic Terrain."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EXPANDING_FORCE,
+    },
+
+    [ITEM_TM_SKITTER_SMACK] = 
+    {
+        .name = _("TM216"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"User skitters behind\n"
+			"foe to attack.\n"
+			"Lowers foe's Sp. Atk"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SKITTER_SMACK,
+    },
+
+    [ITEM_TM_METEOR_BEAM] = 
+    {
+        .name = _("TM217"),
+        .price = 6500,
+        .description = COMPOUND_STRING(
+			"A 2-turn move that\n"
+			"raises Sp. Attack\n"
+			"before attacking."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_METEOR_BEAM,
+    },
+
+    [ITEM_TM_THROAT_CHOP] = 
+    {
+        .name = _("TM218"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Chops the throat to\n"
+			"disable sound moves\n"
+			"for a while."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_THROAT_CHOP,
+    },
+
+    [ITEM_TM_BREAKING_SWIPE] = 
+    {
+        .name = _("TM219"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Swings its tail to\n"
+			"attack. Lowers the\n"
+			"Atk of those hit."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BREAKING_SWIPE,
+    },
+
+    [ITEM_TM_METAL_SOUND] = 
+    {
+        .name = _("TM220"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Emits a horrible\n"
+			"that sharply screech\n"
+			"lowers Sp. Def."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_METAL_SOUND,
+    },
+
+    [ITEM_TM_CURSE] = 
+    {
+        .name = _("TM221"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"A move that works\n"
+			"differently for\n"
+			"GHOSTS."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CURSE,
+    },
+
+    [ITEM_TM_HARD_PRESS] = 
+    {
+        .name = _("TM222"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"The higher the foe's\n"
+			"HP the more damage\n"
+			"caused."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HARD_PRESS,
+    },
+
+    [ITEM_TM_DRAGON_CHEER] = 
+    {
+        .name = _("TM223"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Increases allies'\n"
+			"critical hit ratio,\n"
+			"greatly if Dragons."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DRAGON_CHEER,
+    },
+
+    [ITEM_TM_ALLURING_VOICE] = 
+    {
+        .name = _("TM224"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Confuses the target\n"
+			"if their stats were\n"
+			"boosted this turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ALLURING_VOICE,
+    },
+
+    [ITEM_TM_PSYCHIC_NOISE] = 
+    {
+        .name = _("TM225"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Unpleasant sound\n"
+			"waves that damage\n"
+			"and prevent healing."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYCHIC_NOISE,
+    },
+
+    [ITEM_TM_UPPER_HAND] = 
+    {
+        .name = _("TM226"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Makes the target\n"
+			"flinch if readying\n"
+			"a priority move."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_UPPER_HAND,
+    },
+
+    [ITEM_TM_REVENGE] = 
+    {
+        .name = _("TM227"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"An attack that gains\n"
+			"power if injured\n"
+			"by the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_REVENGE,
+    },
+
+    [ITEM_TM_SCREECH] = 
+    {
+        .name = _("TM228"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Emits a screech to\n"
+			"sharply reduce the\n"
+			"foe's Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SCREECH,
+    },
+
+    [ITEM_TM_BUBBLEBEAM] = 
+    {
+        .name = _("TM229"),
+        .price = 1100,
+        .description = COMPOUND_STRING(
+			"Forcefully sprays\n"
+			"bubbles that may\n"
+			"lower Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BUBBLEBEAM,
+    },
+
+    [ITEM_TM_HORN_DRILL] = 
+    {
+        .name = _("TM230"),
+        .price = 8750,
+        .description = COMPOUND_STRING(
+			"A one-hit KO attack\n"
+			"that uses a horn\n"
+			"like a drill."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HORN_DRILL,
+    },
+
+    [ITEM_TM_EXPLOSION] = 
+    {
+        .name = _("TM231"),
+        .price = 25000,
+        .description = COMPOUND_STRING(
+			"Inflicts severe\n"
+			"damage but makes\n"
+			"the user faint."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EXPLOSION,
+    },
+
+    [ITEM_TM_MIMIC] = 
+    {
+        .name = _("TM232"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Copies a move used\n"
+			"by the foe during\n"
+			"one battle."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MIMIC,
+    },
+
+    [ITEM_TM_SAFEGUARD] = 
+    {
+        .name = _("TM233"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"A mystical force\n"
+			"prevents all status\n"
+			"problems."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SAFEGUARD,
+    },
+
+    [ITEM_TM_FRUSTRATION] = 
+    {
+        .name = _("TM234"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"An attack that is\n"
+			"stronger if the\n"
+			"Trainer is disliked."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FRUSTRATION,
+    },
+
+    [ITEM_TM_SWEET_SCENT] = 
+    {
+        .name = _("TM235"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Allures the foe to\n"
+			"reduce evasiveness."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SWEET_SCENT,
+    },
+
+    [ITEM_TM_QUASH] = 
+    {
+        .name = _("TM236"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Suppresses the foe,\n"
+			"making it move last."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_QUASH,
+    },
+
+    [ITEM_TM_WORK_UP] = 
+    {
+        .name = _("TM237"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"The user is roused.\n"
+			"Ups Attack and Sp.\n"
+			"Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WORK_UP,
+    },
+
+    [ITEM_TM_SUBMISSION] = 
+    {
+        .name = _("TM238"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"A reckless body slam\n"
+			"that also hurts the\n"
+			"user."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SUBMISSION,
+    },
+
+    [ITEM_TM_DREAM_EATER] = 
+    {
+        .name = _("TM239"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Absorbs one half the\n"
+			"damage inflicted on\n"
+			"a sleeping foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DREAM_EATER,
+    },
+
+    [ITEM_TM_SECRET_POWER] = 
+    {
+        .name = _("TM240"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"An attack with\n"
+			"effects that vary by\n"
+			"location."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SECRET_POWER,
+    },
+
+    [ITEM_TM_CROSS_POISON] = 
+    {
+        .name = _("TM241"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"A slash that may\n"
+			"poison a foe and do\n"
+			"critical damage."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CROSS_POISON,
+    },
+
+    [ITEM_TM_SKY_DROP] = 
+    {
+        .name = _("TM242"),
+        .price = 3000,
+        .description = COMPOUND_STRING(
+			"Takes the foe into\n"
+			"the sky then drops\n"
+			"it the next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SKY_DROP,
+    },
+
+    [ITEM_TM_TAIL_SLAP] = 
+    {
+        .name = _("TM243"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Strikes the foe with\n"
+			"its tail 2 to 5\n"
+			"times."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TAIL_SLAP,
+    },
+
+    [ITEM_TM_WHIRLWIND] = 
+    {
+        .name = _("TM244"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Blows away the foe\n"
+			"with wind and ends\n"
+			"the battle."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WHIRLWIND,
+    },
+
+    [ITEM_TM_SELF_DESTRUCT] = 
+    {
+        .name = _("TM245"),
+        .price = 20000,
+        .description = COMPOUND_STRING(
+			"Inflicts severe\n"
+			"damage but makes the\n"
+			"user faint."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SELF_DESTRUCT,
+    },
+
+    [ITEM_TM_SOFTBOILED] = 
+    {
+        .name = _("TM246"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Recovers up to half\n"
+			"the user's maximum\n"
+			"HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SOFTBOILED,
+    },
+
+    [ITEM_TM_HEADBUTT] = 
+    {
+        .name = _("TM247"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"A ramming attack\n"
+			"that may cause\n"
+			"flinching."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HEADBUTT,
+    },
+
+    [ITEM_TM_PLUCK] = 
+    {
+        .name = _("TM248"),
+        .price = 1050,
+        .description = COMPOUND_STRING(
+			"Eats the foe's held\n"
+			"Berry gaining its\n"
+			"effect."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PLUCK,
+    },
+
+    [ITEM_TM_RAZOR_SHELL] = 
+    {
+        .name = _("TM249"),
+        .price = 3000,
+        .description = COMPOUND_STRING(
+			"Tears at the foe\n"
+			"with sharp shells.\n"
+			"May lower Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_RAZOR_SHELL,
+    },
+
+    [ITEM_TM_FROST_BREATH] = 
+    {
+        .name = _("TM250"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"This attack always\n"
+			"results in a\n"
+			"critical hit."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FROST_BREATH,
+    },
+
+    [ITEM_TM_MEGAHORN] = 
+    {
+        .name = _("TM251"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"A brutal ramming\n"
+			"attack using out-\n"
+			"thrust horns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MEGAHORN,
+    },
+
+    [ITEM_TM_NIGHTMARE] = 
+    {
+        .name = _("TM252"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Inflicts 1/4 damage\n"
+			"on a sleeping foe\n"
+			"every turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_NIGHTMARE,
+    },
+
+    [ITEM_TM_NATURAL_GIFT] = 
+    {
+        .name = _("TM253"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"The effectiveness\n"
+			"varies with the held\n"
+			"Berry."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_NATURAL_GIFT,
+    },
+
+    [ITEM_TM_MEGA_PUNCH] = 
+    {
+        .name = _("TM254"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"A strong punch\n"
+			"thrown with\n"
+			"incredible power."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MEGA_PUNCH,
+    },
+
+    [ITEM_TM_HIDDEN_POWER] = 
+    {
+        .name = _("TM255"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"The effectiveness\n"
+			"varies with the\n"
+			"user."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HIDDEN_POWER,
+    },
+
+    [ITEM_TM_STEEL_WING] = 
+    {
+        .name = _("TM256"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Strikes the foe\n"
+			"with hard wings\n"
+			"spread wide."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_STEEL_WING,
+    },
+
+    [ITEM_TM_ROCK_CLIMB] = 
+    {
+        .name = _("TM257"),
+        .price = 3750,
+        .description = COMPOUND_STRING(
+			"A charging attack\n"
+			"that may confuse the\n"
+			"foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROCK_CLIMB,
+    },
+
+    [ITEM_TM_ROCK_POLISH] = 
+    {
+        .name = _("TM258"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Polishes the body\n"
+			"to sharply raise\n"
+			"Speed."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROCK_POLISH,
+    },
+
+    [ITEM_TM_MYSTICAL_FIRE] = 
+    {
+        .name = _("TM259"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"Breathes a special,\n"
+			"hot fire. Lowers\n"
+			"Sp. Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MYSTICAL_FIRE,
+    },
+
+    [ITEM_TM_SNATCH] = 
+    {
+        .name = _("TM260"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Steals the effects\n"
+			"of the move the\n"
+			"target uses next."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SNATCH,
+    },
+
+    [ITEM_TM_RETALIATE] = 
+    {
+        .name = _("TM261"),
+        .price = 3500,
+        .description = COMPOUND_STRING(
+			"An attack that does\n"
+			"more damage if an\n"
+			"ally fainted."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_RETALIATE,
+    },
+
+    [ITEM_TM_DYNAMICPUNCH] = 
+    {
+        .name = _("TM262"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"Powerful and sure\n"
+			"to cause confusion,\n"
+			"but inaccurate."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DYNAMICPUNCH,
+    },
+
+    [ITEM_TM_AURORA_VEIL] = 
+    {
+        .name = _("TM263"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Weakens all attacks,\n"
+			"but only usable with\n"
+			"hail."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AURORA_VEIL,
+    },
+
+    [ITEM_TM_IRON_TAIL] = 
+    {
+        .name = _("TM264"),
+        .price = 4750,
+        .description = COMPOUND_STRING(
+			"Attacks with a rock\n"
+			"-hard tail. May\n"
+			"lower Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_IRON_TAIL,
+    },
+
+    [ITEM_TM_TORMENT] = 
+    {
+        .name = _("TM265"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Torments the foe and\n"
+			"stops successive use\n"
+			"of a move."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TORMENT,
+    },
+
+    [ITEM_TM_SPEED_SWAP] = 
+    {
+        .name = _("TM266"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Swaps user's Speed\n"
+			"with the target's."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SPEED_SWAP,
+    },
+
+    [ITEM_TM_INFESTATION] = 
+    {
+        .name = _("TM267"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"The foe is infested\n"
+			"and attacked for 5\n"
+			"turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_INFESTATION,
+    },
+
+    [ITEM_TM_BRUTAL_SWING] = 
+    {
+        .name = _("TM268"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Violently swings\n"
+			"around to hurt\n"
+			"everyone nearby."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BRUTAL_SWING,
+    },
+
+    [ITEM_TM_DETECT] = 
+    {
+        .name = _("TM269"),
+        .price = 1250,
+        .description = COMPOUND_STRING(
+			"Evades attack, but\n"
+			"may fail if used in\n"
+			"succession."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DETECT,
+    },
+
+    [ITEM_TM_TELEPORT] = 
+    {
+        .name = _("TM270"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"A psychic move for\n"
+			"fleeing from battle\n"
+			"instantly."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TELEPORT,
+    },
+
+    [ITEM_TM_DOUBLE_TEAM] = 
+    {
+        .name = _("TM271"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Creates illusory\n"
+			"copies to raise\n"
+			"evasiveness."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DOUBLE_TEAM,
+    },
+
+    [ITEM_TM_DEFENSE_CURL] = 
+    {
+        .name = _("TM272"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Curls up to conceal\n"
+			"weak spots and raise\n"
+			"Defense."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DEFENSE_CURL,
+    },
+
+    [ITEM_TM_HAIL] = 
+    {
+        .name = _("TM273"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Summons a hailstorm\n"
+			"that strikes every\n"
+			"turn"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HAIL,
+    },
+
+    [ITEM_TM_FISSURE] = 
+    {
+        .name = _("TM274"),
+        .price = 8750,
+        .description = COMPOUND_STRING(
+			"A one-hit KO move\n"
+			"that drops the foe\n"
+			"in a fissure."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_FISSURE,
+    },
+
+    [ITEM_TM_WONDER_ROOM] = 
+    {
+        .name = _("TM275"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Defense and Sp. Def\n"
+			"stats are swapped\n"
+			"for 5 turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WONDER_ROOM,
+    },
+
+    [ITEM_TM_ROUND] = 
+    {
+        .name = _("TM276"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"A song that inflicts\n"
+			"damage. Others can\n"
+			"join in too."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROUND,
+    },
+
+    [ITEM_TM_SHOCK_WAVE] = 
+    {
+        .name = _("TM277"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"A fast and\n"
+			"unavoidable electric\n"
+			"attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SHOCK_WAVE,
+    },
+
+    [ITEM_TM_BRINE] = 
+    {
+        .name = _("TM278"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Does double damage\n"
+			"to foes with half\n"
+			"HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BRINE,
+    },
+
+    [ITEM_TM_CAPTIVATE] = 
+    {
+        .name = _("TM279"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Makes the opposite\n"
+			"gender sharply\n"
+			"reduce its Sp. Atk."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_CAPTIVATE,
+    },
+
+    [ITEM_TM_HONE_CLAWS] = 
+    {
+        .name = _("TM280"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Sharpens its claws\n"
+			"to raise Attack and\n"
+			"Accuracy."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_HONE_CLAWS,
+    },
+
+    [ITEM_TM_MAGIC_ROOM] = 
+    {
+        .name = _("TM281"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Hold items lose\n"
+			"their effects for 5\n"
+			"turns."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MAGIC_ROOM,
+    },
+
+    [ITEM_TM_SNORE] = 
+    {
+        .name = _("TM282"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"A loud attack that\n"
+			"can be used only\n"
+			"while asleep."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SNORE,
+    },
+
+    [ITEM_TM_ATTRACT] = 
+    {
+        .name = _("TM283"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Makes the opposite\n"
+			"gender less likely\n"
+			"to attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ATTRACT,
+    },
+
+    [ITEM_TM_SKULL_BASH] = 
+    {
+        .name = _("TM284"),
+        .price = 6500,
+        .description = COMPOUND_STRING(
+			"Tucks in the head,\n"
+			"then attacks on the\n"
+			"next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SKULL_BASH,
+    },
+
+    [ITEM_TM_POWER_UP_PUNCH] = 
+    {
+        .name = _("TM285"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"A hard punch that\n"
+			"raises the user's\n"
+			"Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_POWER_UP_PUNCH,
+    },
+
+    [ITEM_TM_PAYBACK] = 
+    {
+        .name = _("TM286"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"An attack that gains\n"
+			"power if the user\n"
+			"moves last."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PAYBACK,
+    },
+
+    [ITEM_TM_SWAGGER] = 
+    {
+        .name = _("TM287"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"Confuses the foe,\n"
+			"but also sharply\n"
+			"raises Attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SWAGGER,
+    },
+
+    [ITEM_TM_COUNTER] = 
+    {
+        .name = _("TM288"),
+        .price = 2500,
+        .description = COMPOUND_STRING(
+			"Counters the foe's\n"
+			"physical attack at\n"
+			"double the power."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_COUNTER,
+    },
+
+    [ITEM_TM_INCINERATE] = 
+    {
+        .name = _("TM289"),
+        .price = 1050,
+        .description = COMPOUND_STRING(
+			"Burns up Berries and\n"
+			"Gems preventing\n"
+			"their use."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_INCINERATE,
+    },
+
+    [ITEM_TM_TRI_ATTACK] = 
+    {
+        .name = _("TM290"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"Fires three types of\n"
+			"beams at the same\n"
+			"time."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_TRI_ATTACK,
+    },
+
+    [ITEM_TM_PSYWAVE] = 
+    {
+        .name = _("TM291"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Attacks with a\n"
+			"psychic wave of\n"
+			"varying intensity."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYWAVE,
+    },
+
+    [ITEM_TM_PSYCHO_CUT] = 
+    {
+        .name = _("TM292"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Tears with psychic\n"
+			"blades. High\n"
+			"critical-hit ratio."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PSYCHO_CUT,
+    },
+
+    [ITEM_TM_BIDE] = 
+    {
+        .name = _("TM293"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Endures attack for 2\n"
+			"turns to retaliate\n"
+			"double."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BIDE,
+    },
+
+    [ITEM_TM_EGG_BOMB] = 
+    {
+        .name = _("TM294"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"An egg is forcibly\n"
+			"hurled at the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EGG_BOMB,
+    },
+
+    [ITEM_TM_GUARD_SWAP] = 
+    {
+        .name = _("TM295"),
+        .price = 1750,
+        .description = COMPOUND_STRING(
+			"Swaps changes to\n"
+			"Defense and Sp. Def.\n"
+			"with the foe."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_GUARD_SWAP,
+    },
+
+    [ITEM_TM_RECYCLE] = 
+    {
+        .name = _("TM296"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Recycles a used item\n"
+			"for one more use."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_RECYCLE,
+    },
+
+    [ITEM_TM_MEGA_DRAIN] = 
+    {
+        .name = _("TM297"),
+        .price = 750,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"absorbs half the\n"
+			"damage inflicted."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MEGA_DRAIN,
+    },
+
+    [ITEM_TM_ASSURANCE] = 
+    {
+        .name = _("TM298"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"An attack that gains\n"
+			"power if the foe has\n"
+			"been hurt."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ASSURANCE,
+    },
+
+    [ITEM_TM_BEAT_UP] = 
+    {
+        .name = _("TM299"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Summons party\n"
+			"Pokémon to join\n"
+			"in the attack."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_BEAT_UP,
+    },
+
+    [ITEM_TM_ROOST] = 
+    {
+        .name = _("TM300"),
+        .price = 1500,
+        .description = COMPOUND_STRING(
+			"Restores the user's\n"
+			"HP by half of its\n"
+			"max HP."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ROOST,
+    },
+
+    [ITEM_TM_WATER_GUN] = 
+    {
+        .name = _("TM301"),
+        .price = 500,
+        .description = COMPOUND_STRING(
+			"Squirts water to\n"
+			"attack the foe"),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_WATER_GUN,
+    },
+
+    [ITEM_TM_EMBARGO] = 
+    {
+        .name = _("TM302"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Prevents the foe\n"
+			"from using any\n"
+			"items."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_EMBARGO,
+    },
+
+    [ITEM_TM_RETURN] = 
+    {
+        .name = _("TM303"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"An attack that\n"
+			"increases in power\n"
+			"with friendship."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_RETURN,
+    },
+
+    [ITEM_TM_ZAP_CANNON] = 
+    {
+        .name = _("TM304"),
+        .price = 5000,
+        .description = COMPOUND_STRING(
+			"Powerful and sure\n"
+			"to cause paralysis,\n"
+			"but inaccurate."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ZAP_CANNON,
+    },
+
+    [ITEM_TM_DEFOG] = 
+    {
+        .name = _("TM305"),
+        .price = 250,
+        .description = COMPOUND_STRING(
+			"Removes obstacles\n"
+			"and lowers evasion."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_DEFOG,
+    },
+
+    [ITEM_TM_PAY_DAY] = 
+    {
+        .name = _("TM306"),
+        .price = 2000,
+        .description = COMPOUND_STRING(
+			"Throws coins at the\n"
+			"foe. Money is\n"
+			"recovered after."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_PAY_DAY,
+    },
+
+    [ITEM_TM_MEGA_KICK] = 
+    {
+        .name = _("TM307"),
+        .price = 4500,
+        .description = COMPOUND_STRING(
+			"An extremely\n"
+			"powerful kick with\n"
+			"intense force."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_MEGA_KICK,
+    },
+
+    [ITEM_TM_ECHOED_VOICE] = 
+    {
+        .name = _("TM308"),
+        .price = 1000,
+        .description = COMPOUND_STRING(
+			"Does more damage\n"
+			"every turn it is\n"
+			"used."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_ECHOED_VOICE,
+    },
+
+    [ITEM_TM_SEISMIC_TOSS] = 
+    {
+        .name = _("TM309"),
+        .price = 2250,
+        .description = COMPOUND_STRING(
+			"Inflicts damage\n"
+			"identical to the \n"
+			"user's level."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SEISMIC_TOSS,
+    },
+
+    [ITEM_TM_SKY_ATTACK] = 
+    {
+        .name = _("TM310"),
+        .price = 7500,
+        .description = COMPOUND_STRING(
+			"Searches out weak\n"
+			"spots, then strikes\n"
+			"the next turn."),
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_SKY_ATTACK,
+    },
+
+    [ITEM_HM_CUT] = 
     {
         .name = _("HM01"),
         .price = 0,
@@ -11768,7 +15043,7 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_CUT,
     },
 
-    [ITEM_HM_FLY] =
+    [ITEM_HM_FLY] = 
     {
         .name = _("HM02"),
         .price = 0,

@@ -10,7 +10,7 @@ ASSUMPTIONS
 
     // Solar Beam - check for sun
     ASSUME(gMovesInfo[MOVE_SOLAR_BEAM].effect == EFFECT_SOLAR_BEAM);
-    ASSUME(HIHALF(gMovesInfo[MOVE_SOLAR_BLADE].argument) == B_WEATHER_SUN);
+    ASSUME(HIHALF(gMovesInfo[MOVE_SOLAR_BEAM].argument) == B_WEATHER_SUN);
     ASSUME(gMovesInfo[MOVE_SOLAR_BLADE].effect == EFFECT_SOLAR_BEAM);
     ASSUME(HIHALF(gMovesInfo[MOVE_SOLAR_BLADE].argument) == B_WEATHER_SUN);
 
@@ -18,6 +18,10 @@ ASSUMPTIONS
     ASSUME(HIHALF(gMovesInfo[MOVE_ELECTRO_SHOT].argument) == B_WEATHER_RAIN);
     ASSUME(gMovesInfo[MOVE_ELECTRO_SHOT].effect == EFFECT_TWO_TURNS_ATTACK);
     ASSUME(MoveHasAdditionalEffectSelf(MOVE_ELECTRO_SHOT, MOVE_EFFECT_SP_ATK_PLUS_1) == TRUE);
+
+    // Mystic Beam - check for Misty Terrain
+    ASSUME(gMovesInfo[MOVE_MYSTIC_BEAM].effect == EFFECT_MYSTIC_BEAM);
+    ASSUME(gMovesInfo[MOVE_MYSTIC_BEAM].argument == STATUS_FIELD_MISTY_TERRAIN);    
 }
 
 SINGLE_BATTLE_TEST("Razor Wind needs a charging turn")
@@ -447,3 +451,38 @@ SINGLE_BATTLE_TEST("Electro Shot doesn't need to charge with Power Herb")
         HP_BAR(opponent);
     }
 }
+
+SINGLE_BATTLE_TEST("Mystic Beam can be used instantly in Misty Terrain")
+{
+    u32 move1, move2;
+    PARAMETRIZE { move1 = MOVE_SPLASH; move2 = MOVE_MYSTIC_BEAM; }
+    PARAMETRIZE { move1 = MOVE_MISTY_TERRAIN; move2 = MOVE_MYSTIC_BEAM; }
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, move1); MOVE(player, move2); }
+        TURN { SKIP_TURN(player); }
+    } SCENE {
+        if (move1 == MOVE_MYSTIC_BEAM) {
+            NOT MESSAGE("Wobbuffet gathered mysticism/nfrom the field!");
+        } else {
+            if (move2 == MOVE_SOLAR_BEAM) {
+                if (B_UPDATED_MOVE_DATA >= GEN_5)
+                {
+                    MESSAGE("Wobbuffet used Mystic Beam!");
+                    MESSAGE("Wobbuffet gathered mysticism/nfrom the field!");
+                    ANIMATION(ANIM_TYPE_MOVE, move2, player);
+                } else {
+                    NOT MESSAGE("Wobbuffet used Mystic Beam!");
+                    ANIMATION(ANIM_TYPE_MOVE, move2, player);
+                    MESSAGE("Wobbuffet gathered mysticism/nfrom the field!");
+                }
+                MESSAGE("Wobbuffet used Mystic Beam!");
+
+            ANIMATION(ANIM_TYPE_MOVE, move2, player);
+            HP_BAR(opponent);
+        }
+    }
+}
+

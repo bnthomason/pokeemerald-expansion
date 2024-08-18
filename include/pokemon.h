@@ -442,6 +442,8 @@ struct SpeciesInfo /*0xC4*/
             u32 tmIlliterate:1;     // This species will be unable to learn the universal moves.
             u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.
             u32 padding4:14;
+            // New code here
+            u32 isStatBoosted:1; //Applies to specific pokemon.
             // Move Data
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;

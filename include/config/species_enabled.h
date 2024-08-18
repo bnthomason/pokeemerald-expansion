@@ -1,5 +1,5 @@
-#ifndef GUARD_CONFIG_SPECIES_ENABLED_H
-#define GUARD_CONFIG_SPECIES_ENABLED_H
+#ifndef GUARD_CONFIG_P_SPECIES_ENABLED_H
+#define GUARD_CONFIG_P_SPECIES_ENABLED_H
 
 // WARNING: For some reason, using 1/0 instead of TRUE/FALSE causes cry IDs to be shifted.
 // Please use TRUE/FALSE when using the family toggles.
@@ -18,6 +18,7 @@
 #define P_GEN_7_POKEMON                  TRUE // Generation 7 Pokémon (SM, USUM, LGPE)
 #define P_GEN_8_POKEMON                  TRUE // Generation 8 Pokémon (SwSh, BDSP, LA)
 #define P_GEN_9_POKEMON                  TRUE // Generation 9 Pokémon (SV)
+#define P_GEN_X_POKEMON                  TRUE // Fakemon (GX)
 
 // Setting this to TRUE will add the new evolutions to the Regional Dex.
 #define P_NEW_EVOS_IN_REGIONAL_DEX       TRUE
@@ -604,4 +605,124 @@
 #define P_FAMILY_TERAPAGOS               P_GEN_9_POKEMON
 #define P_FAMILY_PECHARUNT               P_GEN_9_POKEMON
 
-#endif // GUARD_CONFIG_SPECIES_ENABLED_H
+#define P_GEN_X_DRAGONS                  P_GEN_X_POKEMON
+
+#define P_GEN_X_STARTER_POKEMON                 P_GEN_X_POKEMON
+#define P_GEN_X_BASIC_POKEMON                   P_GEN_X_POKEMON
+#define P_GEN_X_ROCK_POKEMON                    P_GEN_X_POKEMON
+#define P_GEN_X_ELEMENTAL_POKEMON               P_GEN_X_POKEMON
+#define P_GEN_X_LIGHT_POKEMON                   P_GEN_X_POKEMON
+#define P_GEN_X_MAJESTIC_POKEMON                P_GEN_X_POKEMON
+#define P_GEN_X_CROSS_EVOS_POKEMON              P_GEN_X_POKEMON
+#define P_GEN_X_EEVEE_CROSS_EVO_POKEMON         P_GEN_X_CROSS_EVOS_POKEMON
+#define P_GEN_X_COUNTERPART_POKEMON             P_GEN_X_POKEMON
+#define P_GEN_X_END_OF_DEX_COUNTERPART_POKEMON  P_GEN_X_COUNTERPART_POKEMON
+
+#define P_DRAGON_HERO_POKEMON            P_GEN_X_DRAGONS
+#define P_DRAGON_ROYALTY_POKEMON         P_GEN_X_DRAGONS
+#define P_DRAGON_VILLAIN_POKEMON         P_GEN_X_DRAGONS
+#define P_DRAGON_KAIJU_POKEMON           P_GEN_X_DRAGONS
+
+//Phase 4.4
+#define	P_FAMILY_GRASS_STARTER          P_GEN_X_STARTER_POKEMON
+#define	P_FAMILY_FIRE_STARTER           P_GEN_X_STARTER_POKEMON
+#define	P_FAMILY_WATER_STARTER          P_GEN_X_STARTER_POKEMON
+#define	P_FAMILY_GX_POISON              P_GEN_X_BASIC_POKEMON
+#define P_FAMILY_GX_ROCK_PSYCHIC        P_GEN_X_ROCK_POKEMON
+#define	P_FAMILY_GX_ROCK_FAIRY          P_GEN_X_ROCK_POKEMON
+#define	P_FAMILY_GX_ROCK_FIGHTNING      P_GEN_X_ROCK_POKEMON
+#define	P_FAMILY_LIGHT                  P_GEN_X_POKEMON
+#define	P_FAMILY_GX_FLYING              P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_GROUND              P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_ELECTRIC            P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_ICE                 P_GEN_X_ELEMENTAL_POKEMON               
+#define	P_FAMILY_GX_LIGHT               P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_DARK                P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_PSYCHIC             P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_FAIRY               P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_FIGHTING            P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_GHOST               P_GEN_X_ELEMENTAL_POKEMON
+#define	P_FAMILY_GX_STEEL               P_GEN_X_ELEMENTAL_POKEMON
+
+//Phase 4.3
+#define	P_FAMILY_CHERUBUS               P_GEN_X_LIGHT_POKEMON
+#define	P_FAMILY_GX_LIGHT_GHOST         P_GEN_X_LIGHT_POKEMON
+#define	P_FAMILY_GX_LIGHT_PSYCHIC       P_GEN_X_LIGHT_POKEMON
+#define	P_FAMILY_GX_LIGHT_ELECTRIC      P_GEN_X_LIGHT_POKEMON
+#define	P_FAMILY_GX_LIGHT_FIRE          P_GEN_X_LIGHT_POKEMON
+
+
+//Phase 4.0 - Majestic Pokemon
+#define	P_FAMILY_CELPHIE                P_GEN_X_MAJESTIC_POKEMON
+#define	P_FAMILY_SPHOX                  P_GEN_X_MAJESTIC_POKEMON
+#define	P_FAMILY_GRUFF                  P_GEN_X_MAJESTIC_POKEMON
+#define	P_FAMILY_MAJESTEED              P_GEN_X_MAJESTIC_POKEMON
+
+//Phase 4.1 - Cross Evos and
+#define	P_FAMILY_IX                 P_GEN_X_CROSS_EVOS_POKEMON
+#define	P_FAMILY_DRACEON            P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_CLOUDEON           P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_QUAKEON            P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_AUREON             P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_WISPEON            P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_RADEON             P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_MAGNEON            P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define P_FAMILY_IRONEON            P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_BELLEON            P_GEN_X_EEVEE_CROSS_EVO_POKEMON
+#define	P_FAMILY_NOCTOWL_EVOLUTION  P_GEN_X_CROSS_EVOS_POKEMON
+#define	P_FAMILY_SWELLOW_EVOLUTION  P_GEN_X_CROSS_EVOS_POKEMON
+
+//Phase 4.2 - Counterparts
+// --> Rodent Counterparts
+#define	P_FAMILY_GLIDEAF                P_GEN_X_BASIC_POKEMON
+// --> Bird Counterparts
+#define P_FAMILY_FLYING_NORMAL          P_GEN_X_BASIC_POKEMON
+// --> Beast Counterparts
+#define	P_FAMILY_LAMBI                  P_GEN_X_BASIC_POKEMON
+// --> Magikarp and Feebas Counterparts
+#define	P_FAMILY_SQUEEFISH              P_GEN_X_COUNTERPART_POKEMON
+// --> Swablu and Noibat Counterparts
+#define	P_FAMILY_FLYDRA                 P_GEN_X_COUNTERPART_POKEMON
+// --> Electrike and Houndour Counterparts
+#define	P_FAMILY_ICEPUP                 P_GEN_X_COUNTERPART_POKEMON
+// --> Absol Counterpart
+#define	P_FAMILY_DEFIN                  P_GEN_X_COUNTERPART_POKEMON
+// --> End-of-Dex Dragon Counterparts
+#define	P_FAMILY_DRAIR                  P_GEN_X_END_OF_DEX_COUNTERPART_POKEMON
+#define	P_FAMILY_MUSHI                  P_GEN_X_END_OF_DEX_COUNTERPART_POKEMON
+#define	P_FAMILY_HYDRA                  P_GEN_X_END_OF_DEX_COUNTERPART_POKEMON
+
+
+//Phase 1
+#define P_FAMILY_DRACOCEROS_HERO          P_DRAGON_HERO_POKEMON
+#define P_FAMILY_NEBUGON_HERO             P_DRAGON_HERO_POKEMON
+#define P_FAMILY_RAIKYU_HERO              P_DRAGON_HERO_POKEMON
+#define P_FAMILY_FAERIAL_HERO             P_DRAGON_HERO_POKEMON
+#define P_FAMILY_IMPYRIAN_HERO            P_DRAGON_HERO_POKEMON
+#define P_FAMILY_WINTEGO_HERO             P_DRAGON_HERO_POKEMON
+#define P_FAMILY_PROTOYPE_HERO            P_DRAGON_HERO_POKEMON //Phase 2
+
+//Phase 1.5
+#define P_FAMILY_PRINCESSION             P_DRAGON_ROYALTY_POKEMON
+#define P_FAMILY_TECHNIQUEEN             P_DRAGON_ROYALTY_POKEMON
+#define P_FAMILY_TEMPERORY               P_DRAGON_ROYALTY_POKEMON
+
+//Phase 2
+#define P_FAMILY_DRACOCEROS_VILLAIN       P_DRAGON_HERO_POKEMON
+#define P_FAMILY_NEBUGON_VILLAIN          P_DRAGON_HERO_POKEMON
+#define P_FAMILY_RAIKYU_VILLAIN           P_DRAGON_HERO_POKEMON
+#define P_FAMILY_FAERIAL_VILLAIN          P_DRAGON_HERO_POKEMON
+#define P_FAMILY_IMPYRIAN_VILLAIN         P_DRAGON_HERO_POKEMON
+#define P_FAMILY_WINTEGO_VILLAIN          P_DRAGON_HERO_POKEMON
+#define P_FAMILY_PROTOYPE_VILLAIN         P_DRAGON_HERO_POKEMON //Phase 1
+
+
+#define P_FAMILY_KAISEIRYU               P_DRAGON_KAIJU_POKEMON
+#define P_FAMILY_CEASAURIAN              P_DRAGON_KAIJU_POKEMON
+#define P_FAMILY_DISASTZAR               P_DRAGON_KAIJU_POKEMON
+
+//Phase 3
+#define P_FAMILY_GRANDMAIA               P_DRAGON_ROYALTY_POKEMON
+#define P_FAMILY_MALCIPHER               P_DRAGON_KAIJU_POKEMON
+
+#endif // GUARD_CONFIG_P_SPECIES_ENABLED_H

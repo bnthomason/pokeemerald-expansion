@@ -6301,3 +6301,17 @@ static const u16 sFrigibaxEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_FRIGIBAX
+
+#if P_FAMILY_DRACOCEROS_HERO
+static const u16 sDraocerosHolyEggMoveLearnset[] = {
+    MOVE_QUICK_ATTACK,
+    MOVE_FURY_ATTACK,
+    MOVE_EXTREME_SPEED,
+    MOVE_DRAGON_BREATH,
+    MOVE_LEER,
+    MOVE_HISS,
+    MOVE_AGILITY,
+    MOVE_RECOVER,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_BULBASAUR

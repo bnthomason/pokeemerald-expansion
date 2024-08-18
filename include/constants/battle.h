@@ -264,7 +264,9 @@
 #define STATUS_FIELD_PSYCHIC_TERRAIN                (1 << 9)
 #define STATUS_FIELD_ION_DELUGE                     (1 << 10)
 #define STATUS_FIELD_FAIRY_LOCK                     (1 << 11)
-#define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 12)   // Overworld thunderstorm generates electric terrain
+#define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 12) // Overworld thunderstorm generates electric terrain
+#define STATUS_FIGHTING_TERRAIN                     (1 << 13)
+#define STATUS_MYSTIC_TERRAIN                       (1 << 14) 
 
 #define STATUS_FIELD_TERRAIN_ANY        (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN)
 
@@ -402,8 +404,12 @@
 #define MOVE_EFFECT_SECRET_POWER        77
 #define MOVE_EFFECT_PSYCHIC_NOISE       78
 #define MOVE_EFFECT_TERA_BLAST          79
+#define MOVE_EFFECT_HP_UP_1             80
+#define MOVE_EFFECT_HP_UP_2             81
+#define MOVE_EFFECT_HP_DOWN_1           82
+#define MOVE_EFFECT_HP_DOWN_2           83
 
-#define NUM_MOVE_EFFECTS                80
+#define NUM_MOVE_EFFECTS                84
 
 #define MOVE_EFFECT_AFFECTS_USER        0x2000
 #define MOVE_EFFECT_CERTAIN             0x4000

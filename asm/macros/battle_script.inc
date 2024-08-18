@@ -1584,6 +1584,10 @@
 	callnative BS_UpdateDynamax
 	.endm
 
+	.macro updatestats
+	callnative BS_UpdateStats
+	.endm
+
 	.macro jumpiftargetdynamaxed, ptr:req
 	callnative BS_JumpIfDynamaxed
 	.4byte \ptr
@@ -2151,6 +2155,11 @@
 
 	.macro tryhealquarterhealth battler:req, failInstr:req
 	various \battler, VARIOUS_TRY_HEAL_QUARTER_HP
+	.4byte \failInstr
+	.endm
+
+	.macro tryhealhalfhealth battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_HEAL_HALF_HP
 	.4byte \failInstr
 	.endm
 

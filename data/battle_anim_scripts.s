@@ -17053,6 +17053,27 @@ Move_SUPERCELL_SLAM::
 Move_MALIGNANT_CHAIN::
 	end @to do
 
+Move_FLASH_GLEAM::
+Move_HEALING_TOUCH::
+Move_LIGHT_PULSE::
+Move_ALICORN_CHARGE::
+Move_TORNADO::
+Move_HEALING_CIRCLE::
+Move_FEATHER_STORM::
+Move_PHOTON_BLAST::
+Move_LIGHT_OF_REVIVAL::
+Move_HOLY_SONG::
+Move_TAIL_ATTACK::
+Move_HISS::
+Move_TAIL_SLAM::
+Move_MAELSTROM::
+Move_MYSTIC_BEAM::
+Move_PIXIE_BLAST::
+Move_SPRING_OF_REBIRTH::
+Move_MASS_ATTRACTION::
+Move_GROOM::
+	end @new todo
+
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@
 Move_NONE::
 Move_MIRROR_MOVE::

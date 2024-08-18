@@ -23,7 +23,9 @@
 #define TYPE_DARK             18
 #define TYPE_FAIRY            19
 #define TYPE_STELLAR          20
-#define NUMBER_OF_MON_TYPES   21
+#define TYPE_LIGHT            21
+#define TYPE_MAJESTIC		  22
+#define NUMBER_OF_MON_TYPES   23
 
 // Pokémon egg groups
 #define EGG_GROUP_NONE                0
@@ -298,6 +300,11 @@
 #define EVO_ITEM_COUNT_999                50     // Pokémon levels up after trainer has collected 999 of a specific item
 #define EVO_DEFEAT_THREE_WITH_ITEM        51     // Pokémon levels up after having defeat 3 Pokémon of the same species holding the specified item
 #define EVO_OVERWORLD_STEPS               52     // Pokémon levels up after having taken a specific amount of steps in the overworld (or as the party lead if OW_FOLLOWERS_ENABLED is FALSE) without switching
+#define EVO_FRIENDSHIP_ATK_GT_SPATK       53     // Pokémon levels up with friendship ≥ 220 with attack > special attack
+#define EVO_MOVE_ATK_EQ_SPATK             54     // Pokémon levels up with friendship ≥ 220 with attack = special attack
+#define EVO_MOVE_ATK_LT_SPATK             55     // Pokémon levels up with friendship ≥ 220 with attack < special attack
+
+
 
 // Evolution 'modes,' for GetEvolutionTargetSpecies
 #define EVO_MODE_NORMAL            0

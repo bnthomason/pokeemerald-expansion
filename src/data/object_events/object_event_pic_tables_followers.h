@@ -6146,6 +6146,33 @@ static const struct SpriteFrameImage sPicTable_TerapagosStellar[] = {
 };*/
 #endif //P_FAMILY_TERAPAGOS
 
+
+#if P_FAMILY_DRACOCEROS_HERO
+static const struct SpriteFrameImage sPicTable_DracocerosHolyChild[] = {
+    overworld_ascending_frames(gObjectEventPic_DracocerosHolyChild, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_DracocerosHolyJuvenile[] = {
+    overworld_ascending_frames(gObjectEventPic_DracocerosHolyJuvenile, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_DracocerosHolyAdult[] = {
+    overworld_ascending_frames(gObjectEventPic_DracocerosHolyAdult, 4, 4),
+};
+#endif //P_FAMILY_DRACOCEROS_HERO
+
+
+#if P_FAMILY_FAERIAL_HERO
+/*static const Astruct SpriteFrameImage sPicTable_FaerialBeautyChild[] = {
+    overworld_ascending_frames(gObjectEventPic_FaerialBeautyChild, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_FaerialBeautyJuvenile[] = {
+    overworld_ascending_frames(gObjectEventPic_FaerialBeautyJuvenile, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_FaerialBeautyAdult[] = {
+    overworld_ascending_frames(gObjectEventPic_FaerialBeautyAdult, 4, 4),
+};*/
+#endif //P_FAMILY_FAERIAL_HERO
+
+
 #if P_FAMILY_PECHARUNT
 /*static const struct SpriteFrameImage sPicTable_Pecharunt[] = {
     overworld_ascending_frames(gObjectEventPic_Pecharunt, 4, 4),

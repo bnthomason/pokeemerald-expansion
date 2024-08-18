@@ -22001,6 +22001,117 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_PECHARUNT
 
+#if P_FAMILY_DRACOCEROS_HERO
+    const u32 gMonFrontPic_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/anim_front.4bpp.lz");
+    const u32 gMonPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/normal.gbapal.lz");
+    const u32 gMonBackPic_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/back.4bpp.lz");
+    const u32 gMonShinyPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/shiny.gbapal.lz");
+    const u8 gMonIcon_DracocerosHolyChild[] = INCBIN_U8("graphics/pokemon/dracocerosholychild/icon.4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_DracocerosHolyChild[] = INCBIN_U8("graphics/pokemon/dracocerosholychild/footprint.1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_DracocerosHolyChild[] = INCBIN_COMP("graphics/pokemon/dracocerosholychild/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const u32 gOverworldPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/overworld_normal.gbapal.lz");
+    const u32 gShinyOverworldPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+
+    const u32 gMonFrontPic_DracocerosHolyChildF[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/anim_frontf.4bpp.lz");
+    const u32 gMonBackPic_DracocerosHolyChildF[] = INCBIN_U32("graphics/pokemon/dracocerosholychild/backf.4bpp.lz");
+
+    const u32 gMonFrontPic_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/anim_front.4bpp.lz");
+    const u32 gMonPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/normal.gbapal.lz");
+    const u32 gMonBackPic_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/back.4bpp.lz");
+    const u32 gMonShinyPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/shiny.gbapal.lz");
+    const u8 gMonIcon_DracocerosHolyJuvenile[] = INCBIN_U8("graphics/pokemon/dracocerosholyjuvenile/icon.4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_DracocerosHolyJuvenile[] = INCBIN_U8("graphics/pokemon/dracocerosholyjuvenile/footprint.1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_DracocerosHolyJuvenile[] = INCBIN_COMP("graphics/pokemon/dracocerosholyjuvenile/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const u32 gOverworldPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/overworld_normal.gbapal.lz");
+    const u32 gShinyOverworldPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+
+    const u32 gMonFrontPic_DracocerosHolyJuvenileF[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/anim_frontf.4bpp.lz");
+    const u32 gMonBackPic_DracocerosHolyJuvenileF[] = INCBIN_U32("graphics/pokemon/dracocerosholyjuvenile/backf.4bpp.lz");
+
+    const u32 gMonFrontPic_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/anim_front.4bpp.lz");
+    const u32 gMonPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/normal.gbapal.lz");
+    const u32 gMonBackPic_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/back.4bpp.lz");
+    const u32 gMonShinyPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/shiny.gbapal.lz");
+    const u8 gMonIcon_DracocerosHolyAdult[] = INCBIN_U8("graphics/pokemon/dracocerosholyadult/icon.4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_DracocerosHolyAdult[] = INCBIN_U8("graphics/pokemon/dracocerosholyadult/footprint.1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_DracocerosHolyAdult[] = INCBIN_COMP("graphics/pokemon/dracocerosholyadult/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const u32 gOverworldPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/overworld_normal.gbapal.lz");
+    const u32 gShinyOverworldPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+    const u32 gMonFrontPic_DracocerosHolyAdultF[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/anim_frontf.4bpp.lz");
+    const u32 gMonBackPic_DracocerosHolyAdultF[] = INCBIN_U32("graphics/pokemon/dracocerosholyadult/backf.4bpp.lz");
+#endif //P_FAMILY_DRACOCEROS_HERO
+
+#if P_FAMILY_FAERIAL_HERO
+    const u32 gMonFrontPic_FaerialBeautyChild[] = INCBIN_U32("graphics/pokemon/faerialbeautychild/anim_front.4bpp.lz");
+    const u32 gMonPalette_FaerialBeautyChild[] = INCBIN_U32("graphics/pokemon/faerialbeautychild/normal.gbapal.lz");
+    const u32 gMonBackPic_FaerialBeautyChild[] = INCBIN_U32("graphics/pokemon/faerialbeautychild/back.4bpp.lz");
+    const u32 gMonShinyPalette_FaerialBeautyChild[] = INCBIN_U32("graphics/pokemon/faerialbeautychild/shiny.gbapal.lz");
+    const u8 gMonIcon_FaerialBeautyChild[] = INCBIN_U8("graphics/pokemon/faerialbeautychild/icon.4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_FaerialBeautyChild[] = INCBIN_U8("graphics/pokemon/faerialbeautychild/footprint.1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+//  const u32 gObjectEventPic_FaerialBeautyChild[] = INCBIN_COMP("graphics/pokemon/faerialbeautychild/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+//  const u32 gOverworldPalette_FaerialBeautyChild[] = INCBIN_U32("graphics/pokemon/faerialbeautychild/overworld_normal.gbapal.lz");
+//  const u32 gShinyOverworldPalette_FaerialBeautyChild[] = INCBIN_U32("graphics/pokemon/faerialbeautychild/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+    const u32 gMonFrontPic_FaerialBeautyJuvenile[] = INCBIN_U32("graphics/pokemon/faerialbeautyjuvenile/anim_front.4bpp.lz");
+    const u32 gMonPalette_FaerialBeautyJuvenile[] = INCBIN_U32("graphics/pokemon/faerialbeautyjuvenile/normal.gbapal.lz");
+    const u32 gMonBackPic_FaerialBeautyJuvenile[] = INCBIN_U32("graphics/pokemon/faerialbeautyjuvenile/back.4bpp.lz");
+    const u32 gMonShinyPalette_FaerialBeautyJuvenile[] = INCBIN_U32("graphics/pokemon/faerialbeautyjuvenile/shiny.gbapal.lz");
+    const u8 gMonIcon_FaerialBeautyJuvenile[] = INCBIN_U8("graphics/pokemon/faerialbeautyjuvenile/icon.4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_FaerialBeautyJuvenile[] = INCBIN_U8("graphics/pokemon/faerialbeautyjuvenile/footprint.1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+//  const u32 gObjectEventPic_FaerialBeautyJuvenile[] = INCBIN_COMP("graphics/pokemon/faerialbeautyjuvenile/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+//  const u32 gOverworldPalette_FaerialBeautyJuvenile[] = INCBIN_U32("graphics/pokemon/faerialbeautyjuvenile/overworld_normal.gbapal.lz");
+//  const u32 gShinyOverworldPalette_FaerialBeautyJuvenile[] = INCBIN_U32("graphics/pokemon/faerialbeautyjuvenile/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+    const u32 gMonFrontPic_FaerialBeautyAdult[] = INCBIN_U32("graphics/pokemon/faerialbeautyadult/anim_front.4bpp.lz");
+    const u32 gMonPalette_FaerialBeautyAdult[] = INCBIN_U32("graphics/pokemon/faerialbeautyadult/normal.gbapal.lz");
+    const u32 gMonBackPic_FaerialBeautyAdult[] = INCBIN_U32("graphics/pokemon/faerialbeautyadult/back.4bpp.lz");
+    const u32 gMonShinyPalette_FaerialBeautyAdult[] = INCBIN_U32("graphics/pokemon/faerialbeautyadult/shiny.gbapal.lz");
+    const u8 gMonIcon_FaerialBeautyAdult[] = INCBIN_U8("graphics/pokemon/faerialbeautyadult/icon.4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_FaerialBeautyAdult[] = INCBIN_U8("graphics/pokemon/faerialbeautyadult/footprint.1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+//  const u32 gObjectEventPic_FaerialBeautyAdult[] = INCBIN_COMP("graphics/pokemon/faerialbeautyadult/overworld.4bpp");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+//  const u32 gOverworldPalette_FaerialBeautyAdult[] = INCBIN_U32("graphics/pokemon/faerialbeautyadult/overworld_normal.gbapal.lz");
+//  const u32 gShinyOverworldPalette_FaerialBeautyAdult[] = INCBIN_U32("graphics/pokemon/faerialbeautyadult/overworld_shiny.gbapal.lz");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+#endif //P_FAMILY_FAERIAL_HERO
+
     const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/anim_front.4bpp.lz");
     const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
     const u8 gMonIcon_Egg[] = INCBIN_U8("graphics/pokemon/egg/icon.4bpp");

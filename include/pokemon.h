@@ -340,6 +340,7 @@ struct BattlePokemon
     /*0x55*/ u32 otId;
     /*0x59*/ u8 metLevel;
     /*0x5A*/ bool8 isShiny;
+             u32 isStatBoosted:1; //Applies to specific pokemon. 
 };
 
 struct Evolution
@@ -440,9 +441,8 @@ struct SpeciesInfo /*0xC4*/
             u32 allPerfectIVs:1;
             u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.
             u32 tmIlliterate:1;     // This species will be unable to learn the universal moves.
-            u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.
-            u32 isStatBoosted:1; //Applies to specific pokemon.            
-            u32 padding4:13;
+            u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.           
+            u32 padding4:14;
             // New code here
             // Move Data
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;

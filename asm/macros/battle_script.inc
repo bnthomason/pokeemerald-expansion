@@ -2158,11 +2158,6 @@
 	.4byte \failInstr
 	.endm
 
-	.macro tryhealhalfhealth battler:req, failInstr:req
-	various \battler, VARIOUS_TRY_HEAL_HALF_HP
-	.4byte \failInstr
-	.endm
-
 	.macro removeterrain
 	various BS_ATTACKER, VARIOUS_REMOVE_TERRAIN
 	.endm

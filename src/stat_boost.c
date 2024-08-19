@@ -30,9 +30,10 @@ void ApplyStatMultiplier(u32 battler, struct Pokemon* mon)
         {
             u32 speed = (GetMonData(mon, MON_DATA_SPEED) * 2);
             SetMonData(mon, MON_DATA_SPEED, &speed);
-            gSpeciesInfo[gBattleMons[battler].species].isStatBoosted = TRUE;
+            gBattleMons[battler].isStatBoosted = TRUE;
         }
     if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
+    {
         if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
             return;
         else
@@ -41,8 +42,9 @@ void ApplyStatMultiplier(u32 battler, struct Pokemon* mon)
             u32 maxHP = (GetMonData(mon, MON_DATA_MAX_HP) * 2);
             SetMonData(mon, MON_DATA_HP, &hp);
             SetMonData(mon, MON_DATA_MAX_HP, &maxHP);
-            gSpeciesInfo[gBattleMons[battler].species].isStatBoosted = TRUE;
+            gBattleMons[battler].isStatBoosted = TRUE;
         }
+    }
 }
 
 
@@ -64,8 +66,9 @@ void BS_UpdateStats(void)
 // Returns whether a battler is transformed into a Gigantamax form.
 bool32 IsStatBoosted(u32 battler)
 {
-    struct Pokemon *mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
-    if ((gSpeciesInfo[gBattleMons[battler].species].isStatBoosted))
+//    struct Pokemon *mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
+
+    if ((gBattleMons[battler].isStatBoosted))
         return TRUE;
     return FALSE;
 }
@@ -94,5 +97,5 @@ void UndoStatBoost(u32 battler)
                     CalculateMonStats(mon);
                 }
     }
-    gSpeciesInfo[gBattleMons[battler].species].isStatBoosted = FALSE;
+    gBattleMons[battler].isStatBoosted = FALSE;
 }

@@ -1090,7 +1090,7 @@ JungleHealing_RestoreTargetHealth:
 	goto BattleScript_JungleHealing_TryCureStatus
 HealingCircle_RestoreTargetHealth:
 	copybyte gBattlerAttacker, gBattlerTarget
-	tryhealhalfhealth BS_TARGET, BattleScript_JungleHealing_TryCureStatus
+	tryhealhalfhealth BattleScript_JungleHealing_TryCureStatus, BS_TARGET
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
@@ -10051,7 +10051,7 @@ BattleScript_EffectSnow::
 
 @@@ New abilities @@@
 
-BattleScript_LightWingActivates::
+BattleScript_LightwingActivates::
 	savetarget
 .if B_ABILITY_POP_UP == TRUE
 	showabilitypopup BS_ATTACKER
@@ -10109,7 +10109,7 @@ BattleScript_EffectSleep2::
 	waitanimation
 	seteffectprimary MOVE_EFFECT_SLEEP
 	goto BattleScript_MoveEnd
-BattleScript_IntimidateLoopIncrement:
+BattleScript_HoylSongLoopIncrement:
 @	addbyte gBattlerTarget, 1
 @	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_HolySongLoop
 @	copybyte sBATTLER, gBattlerAttacker

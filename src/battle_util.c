@@ -424,7 +424,7 @@ void HandleAction_Switch(void)
     if (gBattleResults.playerSwitchesCounter < 255)
         gBattleResults.playerSwitchesCounter++;
 
-    if ((gSpeciesInfo[gBattleMons[gBattlerAttacker].species].isStatBoosted))
+    if (gBattleMons[gBattlerAttacker].isStatBoosted)
         UndoStatBoost(gBattlerAttacker); // this is better performed here instead of SwitchInClearSetData
 
     if (GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX)

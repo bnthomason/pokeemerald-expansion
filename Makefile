@@ -322,7 +322,7 @@ $(C_BUILDDIR)/berry_crush.o: override CFLAGS += -Wno-address-of-packed-member
 endif
 
 ifneq ($(MODERN),0)
-$(C_BUILDDIR)/item.o: override CFLAGS += -Werror=override-init
+$(C_BUILDDIR)/item.o: override CFLAGS += -Wno-error=override-init
 endif
 
 include graphics_file_rules.mk

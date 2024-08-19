@@ -2183,7 +2183,7 @@ static const u16 sTerapagosFormSpeciesIdTable[] = {
 #endif //P_FAMILY_TERAPAGOS
 
 #if P_FAMILY_DRACOCEROS_HERO
-static const u16 sMDracocerosHolyFormSpeciesIdTable[] = {
+static const u16 sDracocerosHolyFormSpeciesIdTable[] = {
 //    SPECIES_DRACOCEROS_HOLY_JUVENILE,
     SPECIES_DRACOCEROS_HOLY_ADULT,
 //#if P_MEGA_EVOLUTIONS
@@ -2194,7 +2194,7 @@ static const u16 sMDracocerosHolyFormSpeciesIdTable[] = {
 #endif //P_FAMILY_DRACOCEROS_HERO
 
 #if P_FAMILY_FAERIAL_HERO
-static const u16 sMDracocerosHolyFormSpeciesIdTable[] = {
+static const u16 sFaerialBeautyFormSpeciesIdTable[] = {
 //    SPECIES_FAERIAL_BEAUTY_JUVENILE,
     SPECIES_FAERIAL_BEAUTY_ADULT,
 //#if P_MEGA_EVOLUTIONS

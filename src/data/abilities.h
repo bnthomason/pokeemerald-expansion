@@ -2607,4 +2607,32 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_LONGEVITY] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Longevity"),
+    #else
+        .name = _("Longevity"),
+    #endif
+        .description = COMPOUND_STRING("Doubles HP in battle."),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_LIGHTWING] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Lightwing"),
+    #else
+        .name = _("Lightwing"),
+    #endif
+        .description = COMPOUND_STRING("Doubles SPEED in battle."),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
 };

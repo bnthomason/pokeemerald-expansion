@@ -323,9 +323,5 @@ F(SKY_ATTACK)
     F(ROCK_SMASH) \
     F(WATERFALL) \
     F(DIVE)
-
-#define FOREACH_TMHM(F) \
-    FOREACH_TM(F) \
-    FOREACH_HM(F)
-
+    
 #endif

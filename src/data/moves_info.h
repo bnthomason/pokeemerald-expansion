@@ -20880,12 +20880,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .metronomeBanned = TRUE,
         .healingMove = TRUE,
         .sketchBanned = (B_SKETCH_BANS >= GEN_9),
-        .battleAnimScript = Move_LIGHT_OF_REVIVAL,
         .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_GROWTH, COMBO_STARTER_SUNNY_DAY, COMBO_STARTER_FLASH},
-        .battleAnimScript = Move_PHOTON_BLAST,
+        .battleAnimScript = Move_LIGHT_OF_REVIVAL,
     },
 
     [MOVE_HOLY_SONG] =
@@ -20935,7 +20934,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = COMBO_STARTER_HISS,
         .contestComboMoves = {COMBO_STARTER_LEER},
-        .battleAnimScript = Move_HOLY_SONG,
+        .battleAnimScript = Move_HISS ,
     },
 
     [MOVE_TAIL_ATTACK] =
@@ -21073,7 +21072,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .metronomeBanned = TRUE,
         .healingMove = TRUE,
         .sketchBanned = (B_SKETCH_BANS >= GEN_9),
-        .battleAnimScript = Move_LIGHT_OF_REVIVAL,
         .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .contestComboStarterId = 0,

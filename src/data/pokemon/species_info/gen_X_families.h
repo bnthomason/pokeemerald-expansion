@@ -4,7 +4,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
 #endif
 
 #if P_FAMILY_DRACOCEROS_HERO
-    [SPECIES_DRACOCEROS_HOLY_CHILD]
+    [SPECIES_DRACOCEROS_HOLY_CHILD] = 
     {
         .baseHP        = 30,
         .baseAttack    = 30,
@@ -24,7 +24,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .abilities = { ABILITY_LIGHTWING, ABILITY_NONE, ABILITY_LIGHTWING },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Dracoceros"),
-        .cryId = CRY_MILOTIC,
+        .cryId = CRY_DRACOCEROSHOLYCHILD,
         .natDexNum = NATIONAL_DEX_DRACOCEROS_CHILD,
         .categoryName = _("Dragon Hero"),
         .height = 62,
@@ -67,11 +67,11 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         )
         .levelUpLearnset = sDracocerosHolyChildLevelUpLearnset,
         .teachableLearnset = sDracocerosHolyChildTeachableLearnset,
-        .eggMoveLearnset = sDracocerosHolyChildEggMoveLearnset,
+        .eggMoveLearnset = sDracocerosHolyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DRACOCEROS_HOLY_JUVENILE}),
     },
 
-    [SPECIES_DRACOCEROS_HOLY_JUVENILE]
+    [SPECIES_DRACOCEROS_HOLY_JUVENILE] = 
     {
         .baseHP        = 45,
         .baseAttack    = 45,
@@ -87,59 +87,59 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
         .abilities = { ABILITY_LIGHTWING, ABILITY_NONE, ABILITY_LIGHTWING },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Dracoceros"),
-        .cryId = CRY_MILOTIC,
+        .cryId = CRY_DRACOCEROSHOLYJUVENILE,
         .natDexNum = NATIONAL_DEX_DRACOCEROS_JUVENILE,
         .categoryName = _("Dragon Hero"),
         .height = 62,
         .weight = 1620,
         .description = COMPOUND_STRING(
-            "The young are playful, naive, and\n"
-            "innocent. They are quick to trust\n"
-            "strangers and will frolick around\n"
-            "them as a sign of friendship."),
-        .pokemonScale = 356,
-        .pokemonOffset = 17,
+            "They are timid and reserved towards\n"
+            "humans. They love to bask in the\n"
+            "sunlight at day, and sing beautiful\n"
+            "songs in the moonlight at night."),
+        .pokemonScale = 306,
+        .pokemonOffset = 9,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_DracocerosHolyChild,
-        .frontPicFemale = gMonFrontPic_DracocerosHolyChildF,
+        .frontPic = gMonFrontPic_DracocerosHolyJuvenile,
+        .frontPicFemale = gMonFrontPic_DracocerosHolyJuvenileF,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicSizeFemale = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .frontAnimFrames = sAnims_DracocerosHolyChild,
+        .frontAnimFrames = sAnims_DracocerosHolyJuvenile,
         .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
         .frontAnimDelay = 45,
-        .backPic = gMonBackPic_DracocerosHolyChild,
-        .backPicFemale = gMonBackPic_DracocerosHolyChildF,
+        .backPic = gMonBackPic_DracocerosHolyJuvenile,
+        .backPicFemale = gMonBackPic_DracocerosHolyJuvenileF,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicSizeFemale = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
-        .palette = gMonPalette_DracocerosHolyChild,
-        .shinyPalette = gMonShinyPalette_DracocerosHolyChild,
-        .iconSprite = gMonIcon_DracocerosHolyChild,
+        .palette = gMonPalette_DracocerosHolyJuvenile,
+        .shinyPalette = gMonShinyPalette_DracocerosHolyJuvenile,
+        .iconSprite = gMonIcon_DracocerosHolyJuvenile,
         .iconPalIndex = 2,
-        FOOTPRINT(DracocerosHolyChild)
+        FOOTPRINT(DracocerosHolyJuvenile)
         OVERWORLD(
-            sPicTable_DracocerosHolyChild,
+            sPicTable_DracocerosHolyJuvenile,
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
-            gOverworldPalette_DracocerosHolyChild,
-            gShinyOverworldPalette_DracocerosHolyChild
+            gOverworldPalette_DracocerosHolyJuvenile,
+            gShinyOverworldPalette_DracocerosHolyJuvenile
         )
-        .levelUpLearnset = sDracocerosHolyChildLevelUpLearnset,
-        .teachableLearnset = sDracocerosHolyChildTeachableLearnset,
-        .eggMoveLearnset = sDracocerosHolyChildEggMoveLearnset,
+        .levelUpLearnset = sDracocerosHolyJuvenileLevelUpLearnset,
+        .teachableLearnset = sDracocerosHolyJuvenileTeachableLearnset,
+        .eggMoveLearnset = sDracocerosHolyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DRACOCEROS_HOLY_JUVENILE}),
 },
 
 
-    [SPECIES_DRACOCEROS_HOLY_ADULT]
+    [SPECIES_DRACOCEROS_HOLY_ADULT] = 
     {
             .baseHP        = 30,
             .baseAttack    = 30,
@@ -155,54 +155,248 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             .eggCycles = 20,
             .friendship = STANDARD_FRIENDSHIP,
             .growthRate = GROWTH_SLOW,
-            .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
+            .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
             .abilities = { ABILITY_LIGHTWING, ABILITY_NONE, ABILITY_LIGHTWING },
             .bodyColor = BODY_COLOR_WHITE,
             .speciesName = _("Dracoceros"),
-            .cryId = CRY_MILOTIC,
-            .natDexNum = NATIONAL_DEX_DRACOCEROS_JUVENILE,
+            .cryId = CRY_DRACOCEROSHOLYADULT,
+            .natDexNum = NATIONAL_DEX_DRACOCEROS_ADULT,
             .categoryName = _("Dragon Hero"),
             .height = 62,
             .weight = 1620,
             .description = COMPOUND_STRING(
-                "The young are playful, naive, and\n"
-                "innocent. They are quick to trust\n"
-                "strangers and will frolick around\n"
-                "them as a sign of friendship."),
-            .pokemonScale = 356,
-            .pokemonOffset = 17,
+                "They are a holy draconic pokemon.\n"
+                "They have the power of photo-\n"
+                "synthesis through their hair. They\n"
+                "glow and radiate with light."),
+            .pokemonScale = 256,
+            .pokemonOffset = 0,
             .trainerScale = 256,
             .trainerOffset = 0,
-            .frontPic = gMonFrontPic_DracocerosHolyChild,
-            .frontPicFemale = gMonFrontPic_DracocerosHolyChildF,
+            .frontPic = gMonFrontPic_DracocerosHolyAdult,
+            .frontPicFemale = gMonFrontPic_DracocerosHolyAdultF,
             .frontPicSize = MON_COORDS_SIZE(64, 64),
             .frontPicSizeFemale = MON_COORDS_SIZE(64, 64),
             .frontPicYOffset = 2,
-            .frontAnimFrames = sAnims_DracocerosHolyChild,
+            .frontAnimFrames = sAnims_DracocerosHolyAdult,
             .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
             .frontAnimDelay = 45,
-            .backPic = gMonBackPic_DracocerosHolyChild,
-            .backPicFemale = gMonBackPic_DracocerosHolyChildF,
+            .backPic = gMonBackPic_DracocerosHolyAdult,
+            .backPicFemale = gMonBackPic_DracocerosHolyAdultF,
             .backPicSize = MON_COORDS_SIZE(64, 64),
             .backPicSizeFemale = MON_COORDS_SIZE(64, 64),
             .backPicYOffset = 0,
             .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
-            .palette = gMonPalette_DracocerosHolyChild,
-            .shinyPalette = gMonShinyPalette_DracocerosHolyChild,
-            .iconSprite = gMonIcon_DracocerosHolyChild,
+            .palette = gMonPalette_DracocerosHolyAdult,
+            .shinyPalette = gMonShinyPalette_DracocerosHolyAdult,
+            .iconSprite = gMonIcon_DracocerosHolyAdult,
             .iconPalIndex = 2,
-            FOOTPRINT(DracocerosHolyChild)
+            FOOTPRINT(DracocerosHolyAdult)
             OVERWORLD(
-                sPicTable_DracocerosHolyChild,
+                sPicTable_DracocerosHolyAdult,
                 SIZE_32x32,
                 SHADOW_SIZE_M,
                 TRACKS_FOOT,
-                gOverworldPalette_DracocerosHolyChild,
-                gShinyOverworldPalette_DracocerosHolyChild
+                gOverworldPalette_DracocerosHolyAdult,
+                gShinyOverworldPalette_DracocerosHolyAdult
             )
-            .levelUpLearnset = sDracocerosHolyChildLevelUpLearnset,
-            .teachableLearnset = sDracocerosHolyChildTeachableLearnset,
-            .eggMoveLearnset = sDracocerosHolyChildEggMoveLearnset,
+            .levelUpLearnset = sDracocerosHolyAdultLevelUpLearnset,
+            .teachableLearnset = sDracocerosHolyAdultTeachableLearnset,
+            .eggMoveLearnset = sDracocerosHolyEggMoveLearnset,
             .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DRACOCEROS_HOLY_JUVENILE}),
     },
-},
+
+#endif
+#if P_FAMILY_FAERIAL_HERO
+    [SPECIES_FAERIAL_BEAUTY_CHILD] = 
+    {
+        .baseHP        = 120,
+        .baseAttack    = 15,
+        .baseDefense   = 60,
+        .baseSpeed     = 30,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 45,
+            .types = MON_TYPES(TYPE_FAIRY, TYPE_WATER),
+        .catchRate = 60,
+        .expYield = 318,
+        .evYield_Speed = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
+        .abilities = { ABILITY_LONGEVITY, ABILITY_NONE, ABILITY_LONGEVITY },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Faerial"),
+        .cryId = CRY_FAERIALBEAUTYCHILD,
+        .natDexNum = NATIONAL_DEX_FAERIAL_CHILD,
+        .categoryName = _("Dragon Hero"),
+        .height = 62,
+        .weight = 1620,
+        .description = COMPOUND_STRING(
+            "They are playful and tricky in\n"
+            "their youth. They love blowing\n"
+            "bubbles and wagging their tails.\n"
+            "They are found in the deep."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_FaerialBeautyChild,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_FaerialBeautyChild,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+        .frontAnimDelay = 45,
+        .backPic = gMonBackPic_FaerialBeautyChild,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicSizeFemale = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+        .palette = gMonPalette_FaerialBeautyChild,
+        .shinyPalette = gMonShinyPalette_FaerialBeautyChild,
+        .iconSprite = gMonIcon_FaerialBeautyChild,
+        .iconPalIndex = 2,
+        FOOTPRINT(FaerialBeautyChild)
+/*        OVERWORLD(
+            sPicTable_FaerialBeautyChild,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_FaerialBeautyChild,
+            gShinyOverworldPalette_FaerialBeautyChild
+        ) */
+        .levelUpLearnset = sFaerialBeautyChildLevelUpLearnset,
+        .teachableLearnset = sFaerialBeautyChildTeachableLearnset,
+        .eggMoveLearnset = sFaerialBeautyEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_FAERIAL_BEAUTY_JUVENILE}),
+    },
+
+    [SPECIES_FAERIAL_BEAUTY_JUVENILE] = 
+    {
+        .baseHP        = 180,
+        .baseAttack    = 20,
+        .baseDefense   = 90,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 45,
+        .baseSpDefense = 75,
+            .types = MON_TYPES(TYPE_FAIRY, TYPE_WATER),
+        .catchRate = 60,
+        .expYield = 318,
+        .evYield_Speed = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
+        .abilities = { ABILITY_LONGEVITY, ABILITY_NONE, ABILITY_LONGEVITY },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Faerial"),
+        .cryId = CRY_FAERIALBEAUTYJUVENILE,
+        .natDexNum = NATIONAL_DEX_FAERIAL_JUVENILE,
+        .categoryName = _("Dragon Hero"),
+        .height = 62,
+        .weight = 1620,
+        .description = COMPOUND_STRING(
+            "They are very vain and particular\n"
+            "about their appearance. They are\n"
+            "often seen in front of mirrors,\n"
+            "grooming themselves."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_FaerialBeautyJuvenile,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_FaerialBeautyJuvenile,
+        .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+        .frontAnimDelay = 45,
+        .backPic = gMonBackPic_FaerialBeautyJuvenile,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+        .palette = gMonPalette_FaerialBeautyJuvenile,
+        .shinyPalette = gMonShinyPalette_FaerialBeautyJuvenile,
+        .iconSprite = gMonIcon_FaerialBeautyJuvenile,
+        .iconPalIndex = 2,
+        FOOTPRINT(FaerialBeautyJuvenile)
+/*        OVERWORLD(
+            sPicTable_FaerialBeautyJuvenile,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_FaerialBeautyJuvenile,
+            gShinyOverworldPalette_FaerialBeautyJuvenile
+        ) */
+        .levelUpLearnset = sFaerialBeautyJuvenileLevelUpLearnset,
+        .teachableLearnset = sFaerialBeautyJuvenileTeachableLearnset,
+        .eggMoveLearnset = sFaerialBeautyEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_FAERIAL_BEAUTY_JUVENILE}),
+    },
+
+
+    [SPECIES_FAERIAL_BEAUTY_ADULT] = 
+    {
+            .baseHP        = 240,
+            .baseAttack    = 30,
+            .baseDefense   = 120,
+            .baseSpeed     = 60,
+            .baseSpAttack  = 60,
+            .baseSpDefense = 90, 
+            .types = MON_TYPES(TYPE_FAIRY, TYPE_WATER),
+            .catchRate = 60,
+            .expYield = 318,
+            .evYield_Speed = 2,
+            .genderRatio = PERCENT_FEMALE(50),
+            .eggCycles = 20,
+            .friendship = STANDARD_FRIENDSHIP,
+            .growthRate = GROWTH_SLOW,
+            .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
+            .abilities = { ABILITY_LONGEVITY, ABILITY_NONE, ABILITY_LONGEVITY },
+            .bodyColor = BODY_COLOR_WHITE,
+            .speciesName = _("Faerial"),
+            .cryId = CRY_FAERIALBEAUTYADULT,
+            .natDexNum = NATIONAL_DEX_FAERIAL_ADULT,
+            .categoryName = _("Dragon Hero"),
+            .height = 62,
+            .weight = 1620,
+            .description = COMPOUND_STRING(
+                "They model their image after\n"
+                "Milotic. Rumors have it that\n"
+                "this is not their true form.\n"
+                "It is hard to bond with one."),
+            .pokemonScale = 356,
+            .pokemonOffset = 17,
+            .trainerScale = 256,
+            .trainerOffset = 0,
+            .frontPic = gMonFrontPic_FaerialBeautyAdult,
+            .frontPicSize = MON_COORDS_SIZE(64, 64),
+            .frontPicYOffset = 2,
+            .frontAnimFrames = sAnims_FaerialBeautyAdult,
+            .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+            .frontAnimDelay = 45,
+            .backPic = gMonBackPic_FaerialBeautyAdult,
+            .backPicSize = MON_COORDS_SIZE(64, 64),
+            .backPicYOffset = 0,
+            .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+            .palette = gMonPalette_FaerialBeautyAdult,
+            .shinyPalette = gMonShinyPalette_FaerialBeautyAdult,
+            .iconSprite = gMonIcon_FaerialBeautyAdult,
+            .iconPalIndex = 2,
+            FOOTPRINT(FaerialBeautyAdult)
+/*            OVERWORLD(
+                sPicTable_FaerialBeautyAdult,
+                SIZE_32x32,
+                SHADOW_SIZE_M,
+                TRACKS_FOOT,
+                gOverworldPalette_FaerialBeautyAdult,
+                gShinyOverworldPalette_FaerialBeautyAdult
+            )*/
+            .levelUpLearnset = sFaerialBeautyAdultLevelUpLearnset,
+            .teachableLearnset = sFaerialBeautyAdultTeachableLearnset,
+            .eggMoveLearnset = sFaerialBeautyEggMoveLearnset,
+            .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_FAERIAL_BEAUTY_JUVENILE}),
+    },
+
+#endif

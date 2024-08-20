@@ -848,8 +848,6 @@ extern const u8 BattleScript_EffectUpperHand[];
 extern const u8 BattleScript_EffectTidyUp[];
 extern const u8 BattleScript_EffectSpicyExtract[];
 extern const u8 BattleScript_DamageToQuarterTargetHP[];
-extern const u8 BattleScript_EffectSunlightHit[];
-extern const u8 BattleScript_EffectMistyHit[];
 extern const u8 BattleScript_EffectHolySong[];
 extern const u8 BattleScript_EffectMassAttraction[];
 extern const u8 BattleScript_EffectHPUp2[];

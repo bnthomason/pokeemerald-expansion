@@ -6155,7 +6155,7 @@ Cry_Pecharunt::
 	.incbin "sound/direct_sound_samples/cries/pecharunt.bin"
 .endif @ P_FAMILY_PECHARUNT
 
-.if P_FAMILY_DRACOCEROS == TRUE
+.if P_FAMILY_DRACOCEROS_HERO == TRUE
 	.align 2
 Cry_DracocerosHolyChild::
 	.incbin "sound/direct_sound_samples/cries/dracocerosholychild.bin"
@@ -6167,21 +6167,21 @@ Cry_DracocerosHolyJuvenile::
 	.align 2
 Cry_DracocerosHolyAdult::
 	.incbin "sound/direct_sound_samples/cries/dracocerosholyadult.bin"
-.endif @ P_FAMILY_DRACOCEROS
+.endif @ P_FAMILY_DRACOCEROS_HERO
 
-.if P_FAMILY_FAERIAL == TRUE
+.if P_FAMILY_FAERIAL_HERO == TRUE
 	.align 2
-Cry_DracocerosHolyChild::
+Cry_FaerialBeautyChild::
 	.incbin "sound/direct_sound_samples/cries/faerialbeautychild.bin"
 
 	.align 2
-Cry_DracocerosHolyJuvenile::
+Cry_FaerialBeautyJuvenile::
 	.incbin "sound/direct_sound_samples/cries/faerialbeautyjuvenile.bin"
 
 	.align 2
-Cry_DracocerosHolyAdult::
+Cry_FaerialBeautyAdult::
 	.incbin "sound/direct_sound_samples/cries/faerialbeautyadult.bin"
-.endif @ P_FAMILY_FAERIAL
+.endif @ P_FAMILY_FAERIAL_HERO
 .endif @ P_CRIES_ENABLED
 
 	.align 2

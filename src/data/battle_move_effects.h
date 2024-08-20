@@ -2258,13 +2258,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_SUNLIGHT_HIT] =
     {
-        .battleScript = BattleScript_EffectSunlightHit,
+        .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0,
     },
 
     [EFFECT_MISTY_HIT] =
     {
-        .battleScript = BattleScript_EffectMistyHit,
+        .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0,
     },
 

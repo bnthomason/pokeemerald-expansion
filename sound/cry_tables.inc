@@ -2429,11 +2429,11 @@ gCryTable::
 	cry Cry_DracocerosHolyJuvenile
 	cry Cry_DracocerosHolyAdult
 .endif @ P_FAMILY_DRACOCEROS_HOLY
-.if P_FAMILY_DRACOCEROS_HOLY == TRUE
+.if P_FAMILY_FAERIAL_HERO == TRUE
 	cry Cry_FaerialBeautyChild
 	cry Cry_FaerialBeautyJuvenile
 	cry Cry_FaerialBeautyAdult
-.endif @ P_FAMILY_DRACOCEROS_HOLY
+.endif @ P_FAMILY_FAERIAL_HERO
 .endif @ P_CRIES_ENABLED
 
 	.align 2
@@ -4871,5 +4871,5 @@ gCryTable_Reverse::
 	cry_reverse Cry_FaerialBeautyChild
 	cry_reverse Cry_FaerialBeautyJuvenile
 	cry_reverse Cry_FaerialBeautyAdult
-.endif @ P_FAMILY_DRACOCEROS_HERO
+.endif @ P_FAMILY_FAERIAL_HERO
 .endif @ P_CRIES_ENABLED

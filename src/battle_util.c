@@ -4916,6 +4916,28 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_LIGHTWING:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_LIGHTWING;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                //SET_STATCHANGER(STAT_SPEED, 1, TRUE);
+                BattleScriptPushCursorAndCallback(BattleScript_LightwingActivates);
+                effect++;
+            }
+            break;                
+        case ABILITY_LONGEVITY:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_LONGEVITY;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                //SET_STATCHANGER(STAT_HP, 1, TRUE);
+                BattleScriptPushCursorAndCallback(BattleScript_LongevityActivates);
+                effect++;
+            }
+            break;
         }
         break;
     case ABILITYEFFECT_ENDTURN:
@@ -5104,26 +5126,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gLastUsedItem = gBattleStruct->usedHeldItems[gBattlerPartyIndexes[battler]][GetBattlerSide(battler)];
                     gBattleStruct->usedHeldItems[gBattlerPartyIndexes[battler]][GetBattlerSide(battler)] = ITEM_NONE;
                     BattleScriptPushCursorAndCallback(BattleScript_CudChewActivates);
-                    effect++;
-                }
-                break;
-            case ABILITY_LIGHTWING:
-                if (!gSpecialStatuses[battler].switchInAbilityDone)
-                {
-                    gBattlerAttacker = battler;
-                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
-                    SET_STATCHANGER(STAT_ATK, 1, TRUE);
-                    BattleScriptPushCursorAndCallback(BattleScript_LightwingActivates);
-                    effect++;
-                }
-                break;                
-            case ABILITY_LONGEVITY:
-                if (!gSpecialStatuses[battler].switchInAbilityDone)
-                {
-                    gBattlerAttacker = battler;
-                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
-                    SET_STATCHANGER(STAT_ATK, 1, TRUE);
-                    BattleScriptPushCursorAndCallback(BattleScript_LongevityActivates);
                     effect++;
                 }
                 break;

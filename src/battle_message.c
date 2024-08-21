@@ -456,6 +456,8 @@ static const u8 sText_SpDefense[] = _("Sp. Def");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
 static const u8 sText_PkmnGatheredMysticism[] = _("{B_ATK_NAME_WITH_PREFIX} gathered\nin mysticism from the field!");
+static const u8 sText_LongLifeActivates[] = _("{B_ATK_NAME_WITH_PREFIX} has a long life!");
+static const u8 sText_LightwingActivates[] = _("{B_ATK_NAME_WITH_PREFIX} is super fast!");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -1555,6 +1557,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ATTACKERLOSTITSTYPE - BATTLESTRINGS_TABLE_START] = sText_AttackerLostItsType,
     [STRINGID_CLOAKEDINAHARSHLIGHT - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCloakedInAHarshLight,
     [STRINGID_PKMNGATHEREDMYSTICISM - BATTLESTRINGS_TABLE_START] = sText_PkmnGatheredMysticism,
+    [STRINGID_LONGLIFEENTERS - BATTLESTRINGS_TABLE_START] = sText_LongLifeActivates,
+    [STRINGID_SUPERSPEEDENTERS - BATTLESTRINGS_TABLE_START] = sText_LightwingActivates,   
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1654,6 +1658,8 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_CURIOUS_MEDICINE] = STRINGID_CURIOUSMEDICINEENTERS,
     [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
+    [B_MSG_SWITCHIN_LONGEVITY] = STRINGID_LONGLIFEENTERS,
+    [B_MSG_SWITCHIN_LIGHTWING] = STRINGID_SUPERSPEEDENTERS,
 };
 
 const u16 gMissStringIds[] =

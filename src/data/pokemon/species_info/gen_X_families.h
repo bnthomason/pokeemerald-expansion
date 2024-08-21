@@ -55,7 +55,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .palette = gMonPalette_DracocerosHolyChild,
         .shinyPalette = gMonShinyPalette_DracocerosHolyChild,
         .iconSprite = gMonIcon_DracocerosHolyChild,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         FOOTPRINT(DracocerosHolyChild)
         OVERWORLD(
             sPicTable_DracocerosHolyChild,
@@ -122,7 +122,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .palette = gMonPalette_DracocerosHolyJuvenile,
         .shinyPalette = gMonShinyPalette_DracocerosHolyJuvenile,
         .iconSprite = gMonIcon_DracocerosHolyJuvenile,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         FOOTPRINT(DracocerosHolyJuvenile)
         OVERWORLD(
             sPicTable_DracocerosHolyJuvenile,
@@ -190,7 +190,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             .palette = gMonPalette_DracocerosHolyAdult,
             .shinyPalette = gMonShinyPalette_DracocerosHolyAdult,
             .iconSprite = gMonIcon_DracocerosHolyAdult,
-            .iconPalIndex = 2,
+            .iconPalIndex = 0,
             FOOTPRINT(DracocerosHolyAdult)
             OVERWORLD(
                 sPicTable_DracocerosHolyAdult,
@@ -256,7 +256,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .palette = gMonPalette_FaerialBeautyChild,
         .shinyPalette = gMonShinyPalette_FaerialBeautyChild,
         .iconSprite = gMonIcon_FaerialBeautyChild,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         FOOTPRINT(FaerialBeautyChild)
 /*        OVERWORLD(
             sPicTable_FaerialBeautyChild,
@@ -319,7 +319,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .palette = gMonPalette_FaerialBeautyJuvenile,
         .shinyPalette = gMonShinyPalette_FaerialBeautyJuvenile,
         .iconSprite = gMonIcon_FaerialBeautyJuvenile,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         FOOTPRINT(FaerialBeautyJuvenile)
 /*        OVERWORLD(
             sPicTable_FaerialBeautyJuvenile,
@@ -383,7 +383,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             .palette = gMonPalette_FaerialBeautyAdult,
             .shinyPalette = gMonShinyPalette_FaerialBeautyAdult,
             .iconSprite = gMonIcon_FaerialBeautyAdult,
-            .iconPalIndex = 2,
+            .iconPalIndex = 0,
             FOOTPRINT(FaerialBeautyAdult)
 /*            OVERWORLD(
                 sPicTable_FaerialBeautyAdult,

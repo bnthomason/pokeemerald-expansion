@@ -1771,6 +1771,7 @@ void CalculateMonStats(struct Pokemon *mon)
 {
     s32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP, NULL);
     s32 currentHP = GetMonData(mon, MON_DATA_HP, NULL);
+    s32 oldSpeed = GetMonData(mon, MON_DATA_SPEED, NULL);
     s32 hpIV = GetMonData(mon, MON_DATA_HYPER_TRAINED_HP) ? MAX_PER_STAT_IVS : GetMonData(mon, MON_DATA_HP_IV, NULL);
     s32 hpEV = GetMonData(mon, MON_DATA_HP_EV, NULL);
     s32 attackIV = GetMonData(mon, MON_DATA_HYPER_TRAINED_ATK) ? MAX_PER_STAT_IVS : GetMonData(mon, MON_DATA_ATK_IV, NULL);
@@ -1787,6 +1788,7 @@ void CalculateMonStats(struct Pokemon *mon)
     u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
+    s32 newSpeed;
 
     u8 nature = GetMonData(mon, MON_DATA_HIDDEN_NATURE, NULL);
 
@@ -1805,6 +1807,19 @@ void CalculateMonStats(struct Pokemon *mon)
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
     if (gBattleScripting.levelUpHP == 0)
         gBattleScripting.levelUpHP = 1;
+    
+    if (GetMonAbility(mon) == ABILITY_LIGHTWING)
+    {
+        u8 baseStat = gSpeciesInfo[species].baseSpeed;                   
+        s32 n = (((2 * baseStat + speedIV + speedEV / 4) * level) / 100) + 5; 
+        n = ModifyStatByNature(nature, n, STAT_SPEED);               
+        if (B_FRIENDSHIP_BOOST == TRUE)                             
+            n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));
+        newSpeed = n;
+        gBattleScripting.levelUpSpeed = newSpeed - oldSpeed;
+        if (gBattleScripting.levelUpSpeed == 0)
+            gBattleScripting.levelUpSpeed = 1;
+    }
 
     SetMonData(mon, MON_DATA_MAX_HP, &newMaxHP);
 

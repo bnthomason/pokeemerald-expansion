@@ -584,6 +584,13 @@ struct DynamaxData
     u16 levelUpHP;
 };
 
+struct StatBoostData
+{
+    u16 levelUpHP;
+    u16 levelUpSpeed;
+};
+
+
 struct BattleGimmickData
 {
     u8 usableGimmick[MAX_BATTLERS_COUNT];                // first usable gimmick that can be selected for each battler
@@ -801,6 +808,7 @@ struct BattleStruct
     u8 distortedTypeMatchups;
     u8 categoryOverride; // for Z-Moves and Max Moves
     u32 stellarBoostFlags[NUM_BATTLE_SIDES]; // stored as a bitfield of flags for all types for each side
+    struct StatBoostData statboost;    
     u8 ryukubattle:1; // if set, it will change type matchup chart entirely.
 };
 
@@ -912,6 +920,7 @@ struct BattleScripting
     u8 switchCase;  // Special switching conditions, eg. red card
     u8 overrideBerryRequirements;
     u8 stickyWebStatDrop; // To prevent Defiant activating on a Court Change'd Sticky Web
+    u8 levelUpSpeed;
 };
 
 struct BattleSpriteInfo

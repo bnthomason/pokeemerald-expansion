@@ -11559,7 +11559,7 @@ void RecalcBattlerStats(u32 battler, struct Pokemon *mon)
     if (gBattleMons[battler].ability == ABILITY_LIGHTWING || gBattleMons[battler].ability == ABILITY_LONGEVITY)
         {
             ApplyStatMultiplier(battler, mon);
-            DebugPrintf("We are in the loop!");
+//            DebugPrintf("We are in the loop!");
         }
 //    if (gBattleMons[battler].statStages[STAT_HP] != 0)
 //        ApplyHPStageMultiplier(battler, mon);

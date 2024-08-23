@@ -2424,11 +2424,11 @@ gCryTable::
 .if P_FAMILY_PECHARUNT == TRUE
 	cry Cry_Pecharunt
 .endif @ P_FAMILY_PECHARUNT
-.if P_FAMILY_DRACOCEROS_HOLY == TRUE
+.if P_FAMILY_DRACOCEROS_HERO == TRUE
 	cry Cry_DracocerosHolyChild
 	cry Cry_DracocerosHolyJuvenile
 	cry Cry_DracocerosHolyAdult
-.endif @ P_FAMILY_DRACOCEROS_HOLY
+.endif @ P_FAMILY_DRACOCEROS_HERO
 .if P_FAMILY_FAERIAL_HERO == TRUE
 	cry Cry_FaerialBeautyChild
 	cry Cry_FaerialBeautyJuvenile

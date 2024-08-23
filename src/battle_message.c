@@ -456,8 +456,7 @@ static const u8 sText_SpDefense[] = _("Sp. Def");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
 static const u8 sText_PkmnGatheredMysticism[] = _("{B_ATK_NAME_WITH_PREFIX} gathered\nin mysticism from the field!");
-static const u8 sText_LongLifeActivates[] = _("{B_ATK_NAME_WITH_PREFIX} has a long life!");
-static const u8 sText_LightwingActivates[] = _("{B_ATK_NAME_WITH_PREFIX} is super fast!");
+
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -852,6 +851,8 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_PkmnTerastallizedInto[] = _("{B_ATK_NAME_WITH_PREFIX} terastallized\ninto the {B_BUFF1} type!");
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
+static const u8 sText_LongLifeActivates[] = _("{B_ATK_NAME_WITH_PREFIX} has a long life!");
+static const u8 sText_LightwingActivates[] = _("{B_ATK_NAME_WITH_PREFIX} is super fast!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {

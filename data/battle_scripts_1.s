@@ -10054,9 +10054,9 @@ BattleScript_EffectSnow::
 BattleScript_LightwingActivates::
 	savetarget
 .if B_ABILITY_POP_UP == TRUE
-	showabilitypopup BS_ATTACKER
-	pause B_WAIT_TIME_LONG
-	destroyabilitypopup
+	call BattleScript_AbilityPopUp
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
 .endif
 	updatestats
 	end3
@@ -10065,9 +10065,9 @@ BattleScript_LightwingActivates::
 BattleScript_LongevityActivates::
 	savetarget
 .if B_ABILITY_POP_UP == TRUE
-	showabilitypopup BS_ATTACKER
-	pause B_WAIT_TIME_LONG
-	destroyabilitypopup
+	call BattleScript_AbilityPopUp
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
 .endif
 	updatestats
 	end3

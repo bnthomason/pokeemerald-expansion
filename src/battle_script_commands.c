@@ -7327,6 +7327,7 @@ static bool32 DoSwitchInEffectsForBattler(u32 battler)
         return FALSE;
     }
 
+
     return TRUE; // Effect's script plays.
 }
 

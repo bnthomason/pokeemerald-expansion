@@ -11557,9 +11557,12 @@ void RecalcBattlerStats(u32 battler, struct Pokemon *mon)
     if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX && gChosenActionByBattler[battler] != B_ACTION_SWITCH)
         ApplyDynamaxHPMultiplier(battler, mon);
     if (gBattleMons[battler].ability == ABILITY_LIGHTWING || gBattleMons[battler].ability == ABILITY_LONGEVITY)
-        ApplyStatMultiplier(battler, mon);
+        {
+            ApplyStatMultiplier(battler, mon);
+            DebugPrintf("We are in the loop!");
+        }
 //    if (gBattleMons[battler].statStages[STAT_HP] != 0)
-    ApplyHPStageMultiplier(battler, mon);
+//        ApplyHPStageMultiplier(battler, mon);
     CopyMonLevelAndBaseStatsToBattleMon(battler, mon);
     CopyMonAbilityAndTypesToBattleMon(battler, mon);
 }

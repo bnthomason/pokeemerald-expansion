@@ -1428,11 +1428,13 @@ static void Task_GiveExpToMon(u8 taskId)
                 ApplyStatMultiplier(battler, mon);
                 if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
                 {
+                    DebugPrintf ("gBattleStruct StatBoost LevelUpHp %d", gBattleStruct->statboost.levelUpHP);
                     gBattleMons[battler].hp = gBattleStruct->statboost.levelUpHP;
                     SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
                 }
                 if (gBattleMons[battler].ability == ABILITY_LIGHTWING)
                 {
+                   DebugPrintf ("gBattleStruct StatBoost LevelUpSpeed %d", gBattleStruct->statboost.levelUpSpeed);
                     gBattleMons[battler].speed = gBattleStruct->statboost.levelUpSpeed;
                     SetMonData(mon, MON_DATA_SPEED, &gBattleMons[battler].speed);
                 }

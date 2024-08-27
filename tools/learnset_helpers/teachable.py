@@ -61,6 +61,9 @@ def construct_compatibility_dict(force_custom_check):
             for move in data[mon]['LevelMoves']:
                 if not move['Move'] in dict_out[mon]:
                     dict_out[mon].append(move['Move'])
+            #for move in data[mon]['SpecialMoves']:
+            #    if not move in dict_out[mon]:
+            #        dict_out[mon].append(move)
             #for move in data[mon]['PreEvoMoves']:
             #    if not move in dict_out[mon]:
             #        dict_out[mon].append(move)
@@ -112,7 +115,7 @@ def construct_compatibility_dict(force_custom_check):
                 if len(custom_teachable_compatibilities[x]) == 0:
                     continue
                 if not x in custom_json:
-                    custom_json[x] = {"LevelMoves": [], "PreEvoMoves": [], "TMMoves": [], "EggMoves": [], "TutorMoves": []}
+                    custom_json[x] = {"LevelMoves": [], "SpecialMoves": [], "PreEvoMoves": [], "TMMoves": [], "EggMoves": [], "TutorMoves": [], }
                 for move in custom_teachable_compatibilities[x]:
                     custom_json[x]["TutorMoves"].append(move)
                 f2 = open("./tools/learnset_helpers/porymoves_files/custom.json", "w")

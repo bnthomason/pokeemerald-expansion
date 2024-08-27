@@ -703,6 +703,7 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 
 #include "data/pokemon/teachable_learnsets.h"
 #include "data/pokemon/egg_moves.h"
+#include "data/pokemon/special_moves.h"
 #include "data/pokemon/form_species_tables.h"
 #include "data/pokemon/form_change_tables.h"
 #include "data/pokemon/form_change_table_pointers.h"
@@ -3607,6 +3608,14 @@ const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
     return learnset;
 }
 
+const u16 *GetSpeciesSpecialLearnset(u16 species)
+{
+    const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].specialLearnset;
+    if (learnset == NULL)
+        return gSpeciesInfo[SPECIES_NONE].specialLearnset;
+    return learnset;
+}
+
 const u16 *GetSpeciesTeachableLearnset(u16 species)
 {
     const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].teachableLearnset;
@@ -5624,6 +5633,7 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
+
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
 {
     u8 numMoves = 0;
@@ -5634,6 +5644,27 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
          moves[numMoves++] = learnset[i].move;
 
      return numMoves;
+}
+
+u8 GetSpecialMovesBySpecies(u16 species, u16 moveNum)
+{
+    u16 move;
+    int i;
+
+    if (moveNum < NUM_SPECIAL_MOVES)
+        move = gSpeciesInfo[species].specialLearnset[moveNum];
+    else
+        move = MOVE_UNAVAILABLE;
+
+
+    for (i = 0; i < NUM_SPECIAL_MOVES && move == MOVE_UNAVAILABLE; i++) // look for any non-empty move
+    {
+        move = gSpeciesInfo[species].specialLearnset[i];
+    }
+
+    DebugPrintf("Assigned move is %x", move);
+
+    return move;
 }
 
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)

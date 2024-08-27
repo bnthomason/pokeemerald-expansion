@@ -445,6 +445,7 @@ struct SpeciesInfo /*0xC4*/
             u32 padding4:14;
             // New code here
             // Move Data
+            const u16 *specialLearnset;
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;
  /* 0x88 */ const u16 *eggMoveLearnset;
@@ -781,6 +782,7 @@ const u8 *GetSpeciesPokedexDescription(u16 species);
 u16 GetSpeciesHeight(u16 species);
 u16 GetSpeciesWeight(u16 species);
 const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species);
+const u16 *GetSpeciesSpecialLearnset(u16 species);
 const u16 *GetSpeciesTeachableLearnset(u16 species);
 const u16 *GetSpeciesEggMoves(u16 species);
 const struct Evolution *GetSpeciesEvolutions(u16 species);
@@ -823,6 +825,7 @@ void PartySpreadPokerus(struct Pokemon *party);
 bool8 TryIncrementMonLevel(struct Pokemon *mon);
 u8 CanLearnTeachableMove(u16 species, u16 move);
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves);
+u8 GetSpecialMovesBySpecies(u16 species, u16 move);
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves);
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon);
 u16 SpeciesToPokedexNum(u16 species);

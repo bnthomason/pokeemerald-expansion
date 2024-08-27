@@ -65,6 +65,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             gOverworldPalette_DracocerosHolyChild,
             gShinyOverworldPalette_DracocerosHolyChild
         )
+        .specialLearnset = sDracocerosHolySpecialMoveLearnset,
         .levelUpLearnset = sDracocerosHolyChildLevelUpLearnset,
         .teachableLearnset = sDracocerosHolyChildTeachableLearnset,
         .eggMoveLearnset = sDracocerosHolyEggMoveLearnset,
@@ -132,6 +133,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             gOverworldPalette_DracocerosHolyJuvenile,
             gShinyOverworldPalette_DracocerosHolyJuvenile
         )
+        .specialLearnset = sDracocerosHolySpecialMoveLearnset,
         .levelUpLearnset = sDracocerosHolyJuvenileLevelUpLearnset,
         .teachableLearnset = sDracocerosHolyJuvenileTeachableLearnset,
         .eggMoveLearnset = sDracocerosHolyEggMoveLearnset,
@@ -200,6 +202,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
                 gOverworldPalette_DracocerosHolyAdult,
                 gShinyOverworldPalette_DracocerosHolyAdult
             )
+            .specialLearnset = sDracocerosHolySpecialMoveLearnset,
             .levelUpLearnset = sDracocerosHolyAdultLevelUpLearnset,
             .teachableLearnset = sDracocerosHolyAdultTeachableLearnset,
             .eggMoveLearnset = sDracocerosHolyEggMoveLearnset,
@@ -266,6 +269,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             gOverworldPalette_FaerialBeautyChild,
             gShinyOverworldPalette_FaerialBeautyChild
         ) */
+        .specialLearnset = sFaerialBeautySpecialMoveLearnset,
         .levelUpLearnset = sFaerialBeautyChildLevelUpLearnset,
         .teachableLearnset = sFaerialBeautyChildTeachableLearnset,
         .eggMoveLearnset = sFaerialBeautyEggMoveLearnset,
@@ -329,6 +333,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             gOverworldPalette_FaerialBeautyJuvenile,
             gShinyOverworldPalette_FaerialBeautyJuvenile
         ) */
+        .specialLearnset = sFaerialBeautySpecialMoveLearnset,
         .levelUpLearnset = sFaerialBeautyJuvenileLevelUpLearnset,
         .teachableLearnset = sFaerialBeautyJuvenileTeachableLearnset,
         .eggMoveLearnset = sFaerialBeautyEggMoveLearnset,
@@ -393,6 +398,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
                 gOverworldPalette_FaerialBeautyAdult,
                 gShinyOverworldPalette_FaerialBeautyAdult
             )*/
+            .specialLearnset = sFaerialBeautySpecialMoveLearnset,
             .levelUpLearnset = sFaerialBeautyAdultLevelUpLearnset,
             .teachableLearnset = sFaerialBeautyAdultTeachableLearnset,
             .eggMoveLearnset = sFaerialBeautyEggMoveLearnset,

@@ -43,7 +43,10 @@
 #define EGG_GROUP_WATER_2             12
 #define EGG_GROUP_DITTO               13
 #define EGG_GROUP_DRAGON              14
-#define EGG_GROUP_NO_EGGS_DISCOVERED  15
+// Special-Case Egg Groups
+#define EGG_GROUP_DRACOCEROS          15 
+#define EGG_GROUP_FAERIAL             16
+#define EGG_GROUP_NO_EGGS_DISCOVERED  17
 
 #define EGG_GROUPS_PER_MON            2
 
@@ -171,6 +174,7 @@
 #define LEVEL_UP_MOVE_END  0xFFFF
 
 #define MAX_LEVEL_UP_MOVES       20
+#define NUM_SPECIAL_MOVES       3
 
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE

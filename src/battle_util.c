@@ -9963,7 +9963,12 @@ static inline uq4_12_t GetBurnOrFrostBiteModifier(u32 battlerAtk, u32 move, u32 
 static inline uq4_12_t GetCriticalModifier(bool32 isCrit)
 {
     if (isCrit)
-        return B_CRIT_MULTIPLIER >= GEN_6 ? UQ_4_12(1.5) : UQ_4_12(2.0);
+        {
+            if (B_CRIT_MULTIPLIER == ( GEN_6 | GEN_7 | GEN_8 | GEN_9 ))
+                return UQ_4_12(1.5);
+            else
+                return UQ_4_12(2.0);
+        }
     return UQ_4_12(1.0);
 }
 

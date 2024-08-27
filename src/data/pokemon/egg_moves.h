@@ -6304,26 +6304,15 @@ static const u16 sFrigibaxEggMoveLearnset[] = {
 
 #if P_FAMILY_DRACOCEROS_HERO
 static const u16 sDracocerosHolyEggMoveLearnset[] = {
-    MOVE_QUICK_ATTACK,
-    MOVE_FURY_ATTACK,
-    MOVE_EXTREME_SPEED,
-    MOVE_DRAGON_BREATH,
-    MOVE_LEER,
-    MOVE_HISS,
-    MOVE_AGILITY,
-    MOVE_RECOVER,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_DRACOCEROS_HERO
 
 #if P_FAMILY_FAERIAL_HERO
 static const u16 sFaerialBeautyEggMoveLearnset[] = {
-    MOVE_DRAGON_BREATH,
-    MOVE_AQUA_TAIL,
     MOVE_CHARM,
     MOVE_TAIL_WHIP,
     MOVE_GROOM,
-    MOVE_RECOVER,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_FAERIAL_HERO

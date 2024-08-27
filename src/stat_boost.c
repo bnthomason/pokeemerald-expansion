@@ -44,19 +44,19 @@ void ApplyStatMultiplier(u32 battler, struct Pokemon *mon)
             hp = (GetMonData(mon, MON_DATA_HP) * 2);
             maxHP = (GetMonData(mon, MON_DATA_MAX_HP) * 2);
 
-//            DebugPrintf("Mon HP was %d", GetMonData(mon, MON_DATA_HP));
-//            DebugPrintf("Mon HP should be %d", GetMonData(mon, MON_DATA_HP) * 2);
-//            DebugPrintf("Mon HP shouldn't be %d", &hp);
+            DebugPrintf("Mon HP was %d", GetMonData(mon, MON_DATA_HP));
+            DebugPrintf("Mon HP should be %d", GetMonData(mon, MON_DATA_HP) * 2);
+            DebugPrintf("Mon HP shouldn't be %d", &hp);
 
-//            DebugPrintf("Mon Max HP was %d", GetMonData(mon, MON_DATA_MAX_HP));
-//            DebugPrintf("Mon Max HP should be %d", GetMonData(mon, MON_DATA_MAX_HP) * 2);
-//            DebugPrintf("Mon Max HP shouldn't be %d", &maxHP);
+            DebugPrintf("Mon Max HP was %d", GetMonData(mon, MON_DATA_MAX_HP));
+            DebugPrintf("Mon Max HP should be %d", GetMonData(mon, MON_DATA_MAX_HP) * 2);
+            DebugPrintf("Mon Max HP shouldn't be %d", &maxHP);
 
             SetMonData(mon, MON_DATA_HP, &hp);
             SetMonData(mon, MON_DATA_MAX_HP, &maxHP);
 
-//            DebugPrintf("Mon HP is now %d", GetMonData(mon, MON_DATA_HP));
-//            DebugPrintf("Mon Max HP is now %d", GetMonData(mon, MON_DATA_MAX_HP));
+            DebugPrintf("Mon HP is now %d", GetMonData(mon, MON_DATA_HP));
+            DebugPrintf("Mon Max HP is now %d", GetMonData(mon, MON_DATA_MAX_HP));
             gBattleMons[battler].isStatBoosted = TRUE;
         }
     }

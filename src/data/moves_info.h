@@ -20918,7 +20918,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Hiss"),
         .description = COMPOUND_STRING(
-            "Hisses agitatedly at the,\n"
+            "Hisses agitatedly at the\n"
             "target, lowering its SPDEF."),
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
         .power = 0,

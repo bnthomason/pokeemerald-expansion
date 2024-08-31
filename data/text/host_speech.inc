@@ -2,7 +2,7 @@ gText_Host_Welcome::
 	.string "Hi! Sorry to keep you waiting!\p"
 	.string "Welcome to Survival Island!\n"
 	.string "I am DONATHAN, your host.\p"
-	.string "Survival Island is a timed-”\n"
+	.string "Survival Island is a timed-\n"
 	.string "attack survival-based game\l"
 	.string "involving POKéMON and trainers.\p"
 	.string "$"
@@ -47,10 +47,9 @@ gText_Host_SoItsPlayer::
 
 gText_Host_YourePlayer::
 	.string "Alright. Spectators and viewers,\n"
-	.string "let's welcome {PLAYER}{KUN}\l"
-	.string "to the gameshow\l" 
-	.string "SURVIVAL ISLAND!\p"
-	.string "$"
+	.string "let's welcome {PLAYER}{KUN} to the\l"
+	.string "gameshow SURVIVAL ISLAND!\p" 
+    .string "$"
 
 gText_Host_AreYouReady::
 	.string "All right, are you ready?\p"

@@ -1710,6 +1710,70 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_INSIDEBOAT",
+      "name": "INSIDE BOAT",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    }
+    {
+      "map_section": "MAPSEC_HOME_BASE",
+      "name": "HOME BASE",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_AREA_1",
+      "name": "AREA 1",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_AREA_2",
+      "name": "AREA 2",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    }
+    {
+      "map_section": "MAPSEC_AREA_3",
+      "name": "AREA 3",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_AREA_4",
+      "name": "AREA 4",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BOSS",
+      "name": "FINAL AREA",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    }
+    {
+      "map_section": "MAPSEC_BOSS",
+      "name": "FINAL AREA",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

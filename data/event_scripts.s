@@ -1074,3 +1074,12 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+	.include "data/text/host_speech.inc"
+
+	.include "data/maps/HomeBase/scripts.inc"
+
+	.include "data/maps/Area1_Zone1/scripts.inc"
+
+	.include "data/maps/InsideBoat/scripts.inc"
+
+	.include "data/maps/InsideBoat_Room/scripts.inc"

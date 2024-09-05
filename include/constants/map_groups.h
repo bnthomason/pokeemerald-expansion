@@ -591,6 +591,37 @@
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
-#define MAP_GROUPS_COUNT 34
+// gMapGroup_SurvivalIsland
+#define MAP_INSIDE_BOAT_ROOM (0 | (34 << 8))
+#define MAP_INSIDE_BOAT      (1 | (34 << 8))
+#define MAP_HOME_BASE        (2 | (34 << 8))
+#define MAP_AREA1_ZONE1      (3 | (34 << 8))
+#define MAP_AREA1_ZONE2      (4 | (34 << 8))
+#define MAP_AREA1_ZONE3      (5 | (34 << 8))
+#define MAP_AREA1_ZONE4      (6 | (34 << 8))
+#define MAP_AREA1_ZONE5      (7 | (34 << 8))
+#define MAP_AREA2_ZONE1      (8 | (34 << 8))
+#define MAP_AREA2_ZONE2      (9 | (34 << 8))
+#define MAP_AREA2_ZONE3      (10 | (34 << 8))
+#define MAP_AREA2_ZONE4      (11 | (34 << 8))
+#define MAP_AREA2_ZONE5      (12 | (34 << 8))
+#define MAP_AREA3_ZONE1      (13 | (34 << 8))
+#define MAP_AREA3_ZONE2      (14 | (34 << 8))
+#define MAP_AREA3_ZONE3      (15 | (34 << 8))
+#define MAP_AREA3_ZONE4      (16 | (34 << 8))
+#define MAP_AREA3_ZONE5      (17 | (34 << 8))
+#define MAP_AREA4_ZONE1      (18 | (34 << 8))
+#define MAP_AREA4_ZONE2      (19 | (34 << 8))
+#define MAP_AREA4_ZONE3      (20 | (34 << 8))
+#define MAP_AREA4_ZONE4      (21 | (34 << 8))
+#define MAP_AREA4_ZONE5      (22 | (34 << 8))
+#define MAP_AREA5_ZONE1      (23 | (34 << 8))
+#define MAP_AREA5_ZONE2      (24 | (34 << 8))
+#define MAP_AREA5_ZONE3      (25 | (34 << 8))
+#define MAP_AREA5_ZONE4      (26 | (34 << 8))
+#define MAP_AREA5_ZONE5      (27 | (34 << 8))
+#define MAP_FINAL_AREA       (28 | (34 << 8))
+
+#define MAP_GROUPS_COUNT 35
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

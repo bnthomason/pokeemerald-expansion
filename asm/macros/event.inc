@@ -420,6 +420,8 @@
 	.endm
 
 
+
+
 	@ Warps the player to the specified map.
 	@ Warp commands can be given either the id of which warp location to go to on the destination map
 	@ or a pair of x/y coordinates to go to directly on the destination map.
@@ -2320,4 +2322,47 @@
 	@ When OW_USE_FAKE_RTC and OW_FLAG_PAUSE_TIME is assigned, this macro will resume the flow of time if paused, and stop the flow of time otherwise.
 	.macro togglefakertc
 	callnative Script_ToggleFakeRtc
+	.endm
+
+	@ Helper macro for warp commands that formats their arguments.
+	@ It allows warp macros to either provide 1. a valid id for which warp location to use,
+	@ or 2. a pair of x/y coordinates to use. Both may be provided but at least one will be
+	@ ignored by SetPlayerCoordsFromWarp. If none are provided it will use dummy arguments,
+	@ and the warp will send the player to the center of the map.
+	@ Examples of valid inputs for a warp command:
+	@ - warp MAP, x, y
+	@ - warp MAP, varwarpid
+	@ - warp MAP
+	@ - warp MAP, varwarpid, x, y
+	.macro formatwarpspecial var:req, a, b, c
+	var \var
+	.ifb \a @ No arguments provided, use dummy warpId and coords.
+		.byte \VAR_ISLAND_DUMMY_MAP
+		.2byte -1 @ x
+		.2byte -1 @ y
+	.else
+	.ifb \b @ Only one argument provided, treat it as a warpId and use dummy coords.
+		.byte \a   @ varwarpid
+		.2byte -1  @ x
+		.2byte -1  @ y
+	.else
+	.ifb \c @ Only two arguments provided, treat them as a coord pair and use dummy warpId.
+		.byte \VAR_ISLAND_DUMMY_MAP
+		.2byte \a  @ x
+		.2byte \b  @ y
+	.else @ All three arguments provided. Output them and let the warp sort out which to use.
+		.byte \a  @ varwarpid
+		.2byte \b @ x
+		.2byte \c @ y
+	.endif
+	.endif
+	.endif
+	.endm
+
+	@ Warps the player to the specified map.
+	@ Warp commands can be given either the id of which warp location to go to on the destination map
+	@ or a pair of x/y coordinates to go to directly on the destination map.
+	.macro warpspecial map:req, a, b, c
+	callnative ScriptContext_WarpToVarMap
+	formatwarp \map, \a, \b, \c
 	.endm

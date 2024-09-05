@@ -125,6 +125,9 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_ISOLATED_HORIZONTAL_RAIL]        = TILE_FLAG_UNUSED,
     [MB_VERTICAL_RAIL]                   = TILE_FLAG_UNUSED,
     [MB_HORIZONTAL_RAIL]                 = TILE_FLAG_UNUSED,
+    [MB_SURVIVAL_ISLAND_WARP_NEXT]       = TILE_FLAG_UNUSED,
+    [MB_SURVIVAL_ISLAND_WARP_PREVIOUS]   = TILE_FLAG_UNUSED,
+    [MB_SURVIVAL_ISLAND_ENCOUNTER]       = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
 };
 
 bool8 MetatileBehavior_IsATile(u8 metatileBehavior)
@@ -1348,6 +1351,32 @@ bool8 MetatileBehavior_IsBattlePyramidWarp(u8 metatileBehavior)
     else
         return FALSE;
 }
+
+bool8 MetatileBehavior_IsSurvivalIslandWarp(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SURVIVAL_ISLAND_WARP_NEXT || metatileBehavior == MB_SURVIVAL_ISLAND_WARP_PREVIOUS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsPreviousWarp(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SURVIVAL_ISLAND_WARP_PREVIOUS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsNextWarp(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SURVIVAL_ISLAND_WARP_NEXT)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+
 
 bool8 MetatileBehavior_IsPlayerFacingWirelessBoxResults(u8 tile, u8 playerDir)
 {

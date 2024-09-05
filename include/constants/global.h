@@ -51,6 +51,13 @@
                                         FRONTIER_MULTI_PARTY_SIZE)))
 #define UNION_ROOM_PARTY_SIZE       2
 
+#define ISLAND_PARTY_SIZE         PARTY_SIZE
+#define ISLAND_DOUBLES_PARTY_SIZE PARTY_SIZE
+#define ISLAND_MULTI_PARTY_SIZE   MULTI_PARTY_SIZE
+#define MAX_ISLAND_PARTY_SIZE    (max(ISLAND_PARTY_SIZE,        \
+                                    max(ISLAND_DOUBLES_PARTY_SIZE,\
+                                        ISLAND_MULTI_PARTY_SIZE)))
+
 // capacities of various saveblock objects
 #define DAYCARE_MON_COUNT 2
 #define POKEBLOCKS_COUNT 40

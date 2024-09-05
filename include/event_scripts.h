@@ -603,6 +603,7 @@ extern const u8 BattlePyramid_WarpToNextFloor[];
 extern const u8 BattlePyramid_TrainerBattle[];
 extern const u8 BattlePyramid_FindItemBall[];
 
+
 // fldeff misc
 extern const u8 SecretBase_EventScript_CaveUseSecretPower[];
 extern const u8 SecretBase_EventScript_TreeUseSecretPower[];
@@ -646,5 +647,10 @@ extern const u8 EventScript_VsSeekerChargingDone[];
 
 extern const u8 Common_Movement_FollowerSafeStart[];
 extern const u8 Common_Movement_FollowerSafeEnd[];
+
+// Battle Pyramid.
+extern const u8 SurvivalMaster_WarpToPreviousFloor[];
+extern const u8 SurvivalMaster_WarpToNextFloor[];
+extern const u8 SurvivalMaster_TrainerBattle[];
 
 #endif // GUARD_EVENT_SCRIPTS_H

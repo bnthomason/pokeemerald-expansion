@@ -542,6 +542,20 @@ static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior)
         ScriptContext_SetupScript(BattlePyramid_WarpToNextFloor);
         return TRUE;
     }
+    else if (MetatileBehavior_IsSurvivalMasterWarp(metatileBehavior))
+    {
+        if {MetatileBehavior_IsNextWarp}
+        {
+            ScriptContext_SetupScript(SurvivalMaster_WarpToNextFloor);
+            return TRUE;
+        }
+        else if (MetatileBehavior_IsPreviousWarp)
+        {
+            ScriptContext_SetupScript(SurvivalMaster_WarpToPreviousFloor);
+            return TRUE;
+        }
+        
+    }
     else if (MetatileBehavior_IsSecretBaseGlitterMat(metatileBehavior) == TRUE)
     {
         DoSecretBaseGlitterMatSparkle();

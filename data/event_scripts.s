@@ -1076,10 +1076,60 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 	.include "data/text/host_speech.inc"
 
+	.include "data/maps/InsideBoat_Room/scripts.inc"
+
+	.include "data/maps/InsideBoat/scripts.inc"
+
 	.include "data/maps/HomeBase/scripts.inc"
 
 	.include "data/maps/Area1_Zone1/scripts.inc"
 
-	.include "data/maps/InsideBoat/scripts.inc"
+	.include "data/maps/Area1_Zone2/scripts.inc"
 
-	.include "data/maps/InsideBoat_Room/scripts.inc"
+	.include "data/maps/Area1_Zone3/scripts.inc"
+
+	.include "data/maps/Area1_Zone4/scripts.inc"
+
+	.include "data/maps/Area1_Zone5/scripts.inc"
+
+	.include "data/maps/Area2_Zone1/scripts.inc"
+
+	.include "data/maps/Area2_Zone2/scripts.inc"
+
+	.include "data/maps/Area2_Zone3/scripts.inc"
+
+	.include "data/maps/Area2_Zone4/scripts.inc"
+
+	.include "data/maps/Area2_Zone5/scripts.inc"
+
+	.include "data/maps/Area3_Zone1/scripts.inc"
+
+	.include "data/maps/Area3_Zone2/scripts.inc"
+
+	.include "data/maps/Area3_Zone3/scripts.inc"
+
+	.include "data/maps/Area3_Zone4/scripts.inc"
+
+	.include "data/maps/Area3_Zone5/scripts.inc"
+
+	.include "data/maps/Area4_Zone1/scripts.inc"
+
+	.include "data/maps/Area4_Zone2/scripts.inc"
+
+	.include "data/maps/Area4_Zone3/scripts.inc"
+
+	.include "data/maps/Area4_Zone4/scripts.inc"
+
+	.include "data/maps/Area4_Zone5/scripts.inc"
+
+	.include "data/maps/Area5_Zone1/scripts.inc"
+
+	.include "data/maps/Area5_Zone2/scripts.inc"
+
+	.include "data/maps/Area5_Zone3/scripts.inc"
+
+	.include "data/maps/Area5_Zone4/scripts.inc"
+
+	.include "data/maps/Area5_Zone5/scripts.inc"
+
+	.include "data/maps/Final_Area/scripts.inc"

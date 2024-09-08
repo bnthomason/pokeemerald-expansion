@@ -1,0 +1,44 @@
+{
+  "id": "MAP_AREA1_ZONE2",
+  "name": "Area1_Zone2",
+  "layout": "LAYOUT_AREA1_ZONE2",
+  "music": "MUS_MT_CHIMNEY",
+  "region_map_section": "MAPSEC_AREA1",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_AREA1_ZONE1",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_AREA1_ZONE4",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_AREA1_ZONE6",
+      "offset": -70,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -596,6 +596,11 @@
 #define MAP_INSIDE_BOAT      (1 | (34 << 8))
 #define MAP_HOME_BASE        (2 | (34 << 8))
 #define MAP_AREA1_ZONE1      (3 | (34 << 8))
+#define MAP_AREA1_ZONE2      (4 | (34 << 8))
+#define MAP_AREA1_ZONE3      (5 | (34 << 8))
+#define MAP_AREA1_ZONE4      (6 | (34 << 8))
+#define MAP_AREA1_ZONE5      (7 | (34 << 8))
+#define MAP_AREA1_ZONE6      (8 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

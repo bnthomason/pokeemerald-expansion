@@ -1074,3 +1074,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/Area1_Zone2/scripts.inc"
+
+	.include "data/maps/Area1_Zone3/scripts.inc"
+
+	.include "data/maps/Area1_Zone4/scripts.inc"
+
+	.include "data/maps/Area1_Zone5/scripts.inc"
+
+	.include "data/maps/Area1_Zone6/scripts.inc"

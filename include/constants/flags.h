@@ -1221,7 +1221,7 @@
 #define FLAG_HIDE_HOMEBASE_STARTERS_BAG                             0x493 // Unused Flag
 #define FLAG_HIDE_HOMEBASE_ITEMBALL                                 0x494 // Unused Flag
 #define FLAG_HIDE_SURVIVALISLAND_SAILOR                             0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_HIDE_SURVIVALISLAND_BOAT                               0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag

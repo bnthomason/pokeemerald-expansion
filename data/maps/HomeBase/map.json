@@ -17,7 +17,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MR_BRINEYS_BOAT",
       "x": 18,
-      "y": 23,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SURVIVALISLAND_BOAT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SurvivalIsland_Beach_EventScript_DoorGuard",
+      "script": "SurvivalIsland_HomeBase_ForestGuard",
       "flag": "0"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SurvivalIsland_HomeBase_Sailor",
+      "script": "SurvivalIsland_HomeBase_SailorAdvice",
       "flag": "FLAG_HIDE_SURVIVALISLAND_SAILOR"
     },
     {

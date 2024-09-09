@@ -2,18 +2,32 @@
 .set LOCALID_GUARD_2, 3
 
 HomeBase_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_Pokecenter_OnTransition
 	.byte 0
+
+SurvivalIsland_HomeBase_Pokecenter_OnTransition:
+	setrespawn HEAL_LOCATION_SURVIVAL_ISLAND_HOMEBASE
+	call_if_unset FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorFirstVisit
+	call_if_set FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorHide
+	call_if_unset FLAG_STARTED_CHALLENGE, SurvivalIsland_HomeBase_EventScript_GuardsBlockDoor
+	end
+
+SurvivalIsland_HomeBase_SailorHide::
+	setflag FLAG_HIDE_SURVIVALISLAND_SAILOR
+	setflag FLAG_HIDE_SURVIVALISLAND_BOAT
+	return
+
+SurvivalIsland_HomeBase_EventScript_GuardsBlockDoor::
+	setobjectxyperm LOCALID_GUARD_1, 17, 14
+	setobjectxyperm LOCALID_GUARD_2, 18, 14
+	return
 
 SurvivalIsland_HomeBase_Pokebag::
 	lock
 	faceplayer
 	setflag FLAG_SYS_PICKED_SIX_POKEMON
 	fadescreen FADE_TO_BLACK
-	removeobject LOCALID_ZIGZAGOON
-	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	special ChooseStarter
+	special ChooseStarters
 	waitstate
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
@@ -34,15 +48,25 @@ SurvivalIsland_HomeBase_Pokebag::
 	end
 
 SurvivalIsland_HomeBase_ItemBall::
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	end
 
-SurvivalIsland_HomeBase_Sailor::
+SurvivalIsland_HomeBase_SailorFirstVisit::
+	msgbox SurvivalIsland_HomeBase_Text_Sailor1 MSGBOX_DEFAULT
+	return
+
+SurvivalIsland_HomeBase_SailorAdvice::
+	msgbox SurvivalIsland_HomeBase_Text_SailorHint MSGBOX_DEFAULT
+	end
+
 
 SurvivalIsland_HomeBase_ForestGuard::
 	lockall
-	goto_if_set FLAG_STARTED_CHALLENGE, EverGrandeCity_PokemonLeague_1F_EventScript_GoForth
+	goto_if_set FLAG_STARTED_CHALLENGE, SurvivalIsland_HomeBase_Text_GoForth
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-	call_if_ge VAR_TEMP_0, 11, SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromRight
-	call_if_le VAR_TEMP_0, 8, SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromLeft
+	call_if_ge VAR_TEMP_0, 19, SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromRight
+	call_if_le VAR_TEMP_0, 16, SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromLeft
 	message SurvivalIsland_HomeBase_Text_MustHaveSixStarterPokemon
 	waitmessage
 	delay 120
@@ -110,6 +134,18 @@ EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay:
 	walk_right
 	walk_in_place_faster_down
 	step_end
+
+SurvivalIsland_HomeBase_Text_Sailor1:
+	.string "Ahoy, matey! We have landed!\p"
+	.string "I assume you're off to take the\n"
+	.string "challenge now?$"
+
+SurvivalIsland_HomeBase_Text_SailorHint:
+	.string "Weren't you going to take the\n"
+	.string "challenge? I assume you've already\l"
+	.string "picked your six starting POKéMON.\p"
+	.string "If not, look for the bag, should be\n"
+	.string "over there.$"
 
 SurvivalIsland_HomeBase_Text_MustHaveSixStarterPokemon:
 	.string "Beyond this point lies dangerous POKéMON\n"

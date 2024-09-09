@@ -2,10 +2,10 @@
 .set LOCALID_GUARD_2, 3
 
 HomeBase_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_Pokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_HomeBase_OnTransition
 	.byte 0
 
-SurvivalIsland_HomeBase_Pokecenter_OnTransition:
+SurvivalIsland_HomeBase_OnTransition:
 	setrespawn HEAL_LOCATION_SURVIVAL_ISLAND_HOMEBASE
 	call_if_unset FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorFirstVisit
 	call_if_set FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorHide
@@ -25,24 +25,12 @@ SurvivalIsland_HomeBase_EventScript_GuardsBlockDoor::
 SurvivalIsland_HomeBase_Pokebag::
 	lock
 	faceplayer
-	setflag FLAG_SYS_PICKED_SIX_POKEMON
+	setflag FLAG_PICKED_STARTER_POKEMON
 	fadescreen FADE_TO_BLACK
 	special ChooseStarters
 	waitstate
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
-	waitmovement 0
-	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
 	special HealPlayerParty
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-	setvar VAR_BIRCH_LAB_STATE, 2
-	setvar VAR_ROUTE101_STATE, 3
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
-	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
+	setflag FLAG_HIDE_HOMEBASE_STARTERS_BAG
 	waitstate
 	release
 	end
@@ -63,23 +51,21 @@ SurvivalIsland_HomeBase_SailorAdvice::
 
 SurvivalIsland_HomeBase_ForestGuard::
 	lockall
-	goto_if_set FLAG_STARTED_CHALLENGE, SurvivalIsland_HomeBase_Text_GoForth
+	goto_if_set FLAG_STARTED_CHALLENGE, SurvivalIsland_HomeBase_EventScript_GoForth
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_ge VAR_TEMP_0, 19, SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromRight
 	call_if_le VAR_TEMP_0, 16, SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromLeft
 	message SurvivalIsland_HomeBase_Text_MustHaveSixStarterPokemon
 	waitmessage
 	delay 120
-	goto_if_unset FLAG_PICKED_SIX_POKEMON, SurvivalIsland_HomeBase_Text_DontHaveSixPokemon
+	goto_if_unset FLAG_PICKED_STARTER_POKEMON, SurvivalIsland_HomeBase_EventScript_DontHaveSixPokemon
 	closemessage
 	applymovement LOCALID_GUARD_1, SurvivalIsland_HomeBase_Movement_LeftGuardOutOfWay
 	applymovement LOCALID_GUARD_2, SurvivalIsland_HomeBase_Movement_RightGuardOutOfWay
 	waitmovement 0
 	delay 10
-	playfanfare MUS_OBTAIN_BADGE
 	message SurvivalIsland_HomeBase_Text_GoForth
 	waitmessage
-	waitfanfare
 	closemessage
 	copyobjectxytoperm LOCALID_GUARD_1
 	copyobjectxytoperm LOCALID_GUARD_2
@@ -87,23 +73,23 @@ SurvivalIsland_HomeBase_ForestGuard::
 	releaseall
 	end
 
-SurvivalIsland_HomeBase_Movement_LeftGuardOutOfWay::
-	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_PokemonLeague_1F_Movement_MoveToFrontFromRight
+SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromRight::
+	applymovement OBJ_EVENT_ID_PLAYER, SurvivalIsland_HomeBase_Movement_MoveToFrontFromRight
 	waitmovement 0
 	return
 
-SurvivalIsland_HomeBase_Movement_RightGuardOutOfWay::
-	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_PokemonLeague_1F_Movement_MoveToFrontFromLeft
+SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromLeft::
+	applymovement OBJ_EVENT_ID_PLAYER, SurvivalIsland_HomeBase_Movement_MoveToFrontFromLeft
 	waitmovement 0
 	return
 
-EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges::
+SurvivalIsland_HomeBase_EventScript_DontHaveSixPokemon::
 	playse SE_FAILURE
-	msgbox EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges, MSGBOX_DEFAULT
+	msgbox SurvivalIsland_HomeBase_Text_DontHaveSixPokemon, MSGBOX_DEFAULT
 	releaseall
 	end
 
-EverGrandeCity_PokemonLeague_1F_EventScript_GoForth::
+SurvivalIsland_HomeBase_EventScript_GoForth::
 	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox EverGrandeCity_PokemonLeague_1F_Text_GoForth, MSGBOX_DEFAULT
@@ -113,24 +99,24 @@ EverGrandeCity_PokemonLeague_1F_EventScript_GoForth::
 	releaseall
 	end
 
-EverGrandeCity_PokemonLeague_1F_Movement_MoveToFrontFromRight:
+SurvivalIsland_HomeBase_Movement_MoveToFrontFromRight:
 	walk_down
 	walk_left
 	walk_in_place_faster_up
 	step_end
 
-EverGrandeCity_PokemonLeague_1F_Movement_MoveToFrontFromLeft:
+SurvivalIsland_HomeBase_Movement_MoveToFrontFromLeft:
 	walk_down
 	walk_right
 	walk_in_place_faster_up
 	step_end
 
-EverGrandeCity_PokemonLeague_1F_Movement_LeftGuardOutOfWay:
+SurvivalIsland_HomeBase_Movement_LeftGuardOutOfWay:
 	walk_left
 	walk_in_place_faster_down
 	step_end
 
-EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay:
+SurvivalIsland_HomeBase_Movement_RightGuardOutOfWay:
 	walk_right
 	walk_in_place_faster_down
 	step_end
@@ -162,4 +148,3 @@ SurvivalIsland_HomeBase_Text_DontHaveSixPokemon:
 SurvivalIsland_HomeBase_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
-

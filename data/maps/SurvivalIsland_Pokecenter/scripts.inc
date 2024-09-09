@@ -1,7 +1,7 @@
 .set LOCALID_NURSE, 1
 
 SurvivalIsland_HomeBase_Pokecenter_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_Pokecenter_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_HomeBase_Pokecenter_OnTransition
 	.byte 0
 
 SurvivalIsland_HomeBase_Pokecenter_OnTransition:
@@ -21,7 +21,7 @@ SurvivalIsland_HomeBase_Pokecenter_Nurse::
 	message SurvivalIsland_HomeBase_Pokecenter_Text_MustHavePokemonToUsePC
 	waitmessage
 	delay 120
-	goto_if_unset FLAG_PICKED_SIX_POKEMON, SurvivalIsland_HomeBase_Pokecenter_Text_NeedAtLeastOnePokemon
+	goto_if_unset FLAG_PICKED_STARTER_POKEMON, SurvivalIsland_HomeBase_Pokecenter_Text_NeedAtLeastOnePokemon
 	closemessage
 	applymovement LOCALID_NURSE, SurvivalIsland_HomeBase_PokeCenter_Movement_NurseOutOfWay
 	waitmovement 0
@@ -33,6 +33,11 @@ SurvivalIsland_HomeBase_Pokecenter_Nurse::
 	setflag FLAG_STARTED_CHALLENGE
 	releaseall
 	end
+
+SurvivalIsland_HomeBase_PokeCenter_Movement_NurseOutOfWay::
+	walk_right
+	walk_in_place_faster_down
+	step_end
 
 SurvivalIsland_HomeBase_Pokecenter_Text_MustHavePokemonToUsePC:
 	.string "To use the PC, you must have obtained\n"

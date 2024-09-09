@@ -3,7 +3,7 @@
   "name": "HomeBase",
   "layout": "LAYOUT_HOME_BASE",
   "music": "MUS_AQUA_MAGMA_HIDEOUT",
-  "region_map_section": "MAPSEC_HOME_BASE",
+  "region_map_section": "MAPSEC_BEACH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -26,6 +26,71 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "x": 17,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SurvivalIsland_Beach_EventScript_DoorGuard",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "x": 18,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SurvivalIsland_HomeBase_ForestGuard",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 12,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SurvivalIsland_HomeBase_ItemBall",
+      "flag": "FLAG_HIDE_HOMEBASE_ITEMBALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "x": 18,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SurvivalIsland_HomeBase_Sailor",
+      "flag": "FLAG_HIDE_SURVIVALISLAND_SAILOR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
+      "x": 23,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SurvivalIsland_HomeBase_Pokebag",
+      "flag": "FLAG_HIDE_HOMEBASE_STARTERS_BAG"
     }
   ],
   "warp_events": [
@@ -45,10 +110,24 @@
     },
     {
       "x": 18,
-      "y": 21,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_HOME_BASE",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_SURVIVAL_ISLAND_POKECENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_SURVIVAL_ISLAND_POKEMART",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

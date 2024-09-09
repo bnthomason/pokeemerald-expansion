@@ -19,24 +19,13 @@
 #include "constants/moves.h"
 #include "constants/items.h"
 
-void DoSurvivalIslandSelectScreen(void)
-{
-    sIslandSelectScreen = NULL;
-    SetMainCallback2(CB2_Island_InitSelectScreen);
-}
-
-static void SelectInitialRentalMons(void)
-{
-    ZeroPlayerPartyMons();
-    DoSurvivalIslandSelectScreen();
-}
 
 static const u8 sFixedIVTable2[] =
 {
-    {8},
-    {15},
-    {24},
-    {31},
+    8,
+    15,
+    24,
+    31,
 };
 
 

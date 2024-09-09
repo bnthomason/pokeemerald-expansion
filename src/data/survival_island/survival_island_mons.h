@@ -105,25 +105,46 @@ const struct TrainerMon gSurvivalIslandMons[NUM_FRONTIER_MONS] =
         .ev = TRAINER_PARTY_EVS(6, 252, 252, 0, 0, 0),
         .nature = NATURE_SERIOUS
     },
-    [ISLAND_MON_SNIVY] = {
-        .species = SPECIES_SNIVY,
-        .moves = {MOVE_TACKLE, MOVE_LEER, MOVE_VINE_WHIP, MOVE_TWISTER},
+    [ISLAND_MON_CHESPIN] = {
+        .species = SPECIES_CHESPIN,
+        .moves = {MOVE_GROWL, MOVE_VINE_WHIP, MOVE_TACKLE, MOVE_QUICK_GUARD},
         .heldItem = ITEM_NONE,
         .ev = TRAINER_PARTY_EVS(6, 0, 252, 0, 0, 252),
-        .nature = NATURE_SERIOUS
+        .nature = NATURE_IMPISH
     },
-    [ISLAND_MON_TEPIG] = {
-        .species = SPECIES_TEPIG,
-        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_EMBER, MOVE_SUCKER_PUNCH},
+    [ISLAND_MON_FENNEKIN] = {
+        .species = SPECIES_FENNEKIN,
+        .moves = {MOVE_SCRATCH, MOVE_TAIL_WHIP, MOVE_EMBER, MOVE_HYPNOSIS},
         .heldItem = ITEM_NONE,
         .ev = TRAINER_PARTY_EVS(0, 252, 0, 6, 252, 0),
-        .nature = NATURE_HARDY
+        .nature = NATURE_MILD
     },
-    [ISLAND_MON_OSHAWOTT] = {
-        .species = SPECIES_OSHAWOTT,
-        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_WATER_GUN, MOVE_SACRED_SWORD},
+    [ISLAND_MON_FROAKIE] = {
+        .species = SPECIES_FROAKIE,
+        .moves = {MOVE_GROWL, MOVE_POUND, MOVE_WATER_GUN, MOVE_SACRED_SWORD},
         .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(6, 252, 252, 0, 0, 0),
+        .ev = TRAINER_PARTY_EVS(0, 3, 3, 168, 168, 168),
         .nature = NATURE_SERIOUS
+    },
+    [ISLAND_MON_ROWLET] = {
+        .species = SPECIES_ROWLET,
+        .moves = {MOVE_TACKLE, MOVE_LEAFAGE, MOVE_ROOST, MOVE_DOUBLE_TEAM},
+        .heldItem = ITEM_NONE,
+        .ev = TRAINER_PARTY_EVS(3, 252, 0, 3, 252, 0),
+        .nature = NATURE_QUIRKY
+    },
+    [ISLAND_MON_LITTLEN] = {
+        .species = SPECIES_LITTEN,
+        .moves = {MOVE_SCRATCH, MOVE_EMBER, MOVE_POWER_TRIP, MOVE_PARTING_SHOT},
+        .heldItem = ITEM_NONE,
+        .ev = TRAINER_PARTY_EVS(0, 252, 0, 6, 252, 0),
+        .nature = NATURE_NAUGHTY
+    },
+    [ISLAND_MON_POPPLIO] = {
+        .species = SPECIES_POPPLIO,
+        .moves = {MOVE_POUND, MOVE_WATER_GUN, MOVE_LIFE_DEW, MOVE_AQUA_RING},
+        .heldItem = ITEM_NONE,
+        .ev = TRAINER_PARTY_EVS(6, 0, 252, 0, 0, 252),
+        .nature = NATURE_CALM
     },
 };

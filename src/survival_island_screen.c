@@ -167,6 +167,7 @@ static void Task_OpenMonPic(u8);
 static void Task_CloseMonPic(u8);
 
 // Select screen
+static void SelectInitialRentalMons(void);
 static void CB2_Island_InitSelectScreen(void);
 static void Island_SelectSetWinRegs(s16, s16, s16, s16);
 static void Island_SelectInitMonsData(void);
@@ -633,7 +634,7 @@ static const struct SpriteTemplate sSpriteTemplate_Island_SelectMonPicBgAnim =
     .callback = SpriteCallbackDummy
 };
 
-/*
+
 static const struct SpriteSheet sSwap_SpriteSheets[] =
 {
     {sArrow_Gfx,                 sizeof(sArrow_Gfx),                 GFXTAG_ARROW},
@@ -651,6 +652,8 @@ static const struct SpriteSheet sSwap_SpriteSheets[] =
     {sMonPicBgAnim_Gfx,          sizeof(sMonPicBgAnim_Gfx),          GFXTAG_MON_PIC_BG_ANIM},
     {},
 };
+
+/*
 
 static const struct CompressedSpriteSheet sSwap_BallGfx[] =
 {
@@ -1062,6 +1065,8 @@ static const struct SwapScreenAction sSwap_EnemyScreenActions[] =
 
 */
 
+
+
 static void SpriteCB_Pokeball(struct Sprite *sprite)
 {
     if (sprite->oam.paletteNum == IndexOfSpritePaletteTag(PALTAG_BALL_SELECTED))
@@ -1095,7 +1100,7 @@ static void SpriteCB_Pokeball(struct Sprite *sprite)
     }
 }
 
-static void CB2_SelectScreen(void)
+static void CB2_Island_SelectScreen(void)
 {
     AnimateSprites();
     BuildOamBuffer();
@@ -1111,10 +1116,16 @@ static void VBlankCB_SelectScreen(void)
     TransferPlttBuffer();
 }
 
-void DoBattleIslandSelectScreen(void)
+void DoSurvivalIslandSelectScreen(void)
 {
     sIslandSelectScreen = NULL;
     SetMainCallback2(CB2_Island_InitSelectScreen);
+}
+
+static void SelectInitialRentalMons(void)
+{
+    ZeroPlayerPartyMons();
+    DoSurvivalIslandSelectScreen();
 }
 
 // Main select states
@@ -1306,10 +1317,10 @@ static void Island_SelectInitMonsData(void)
     for (i = 0; i < SELECTABLE_MONS_COUNT; i++)
         sIslandSelectScreen->mons[i].selectedId = 0;
 
-    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+//    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
         CreateSurvivalIslandSelectableMons(0);
-    else
-        CreateSlateportTentSelectableMons(0);
+//    else
+//        CreateSlateportTentSelectableMons(0);
 }
 
 static void Island_SelectInitAllSprites(void)
@@ -4054,6 +4065,7 @@ static void Swap_ActionMon(u8 taskId)
 #define sIsSwapScreen data[7]
 */
 
+/*
 static void OpenMonPic(u8 *spriteId, bool8 *animating, bool8 swapScreen)
 {
     *spriteId = CreateSprite(&sSpriteTemplate_Swap_MonPicBgAnim, 120, 64, 1);
@@ -4061,6 +4073,7 @@ static void OpenMonPic(u8 *spriteId, bool8 *animating, bool8 swapScreen)
     gSprites[*spriteId].sIsSwapScreen = swapScreen;
     *animating = TRUE;
 }
+*/
 
 /*
 static void Swap_ShowSummaryMonSprite(void)
@@ -4086,6 +4099,8 @@ static void Swap_ShowSummaryMonSprite(void)
 }
 */
 
+/*
+
 static void CloseMonPic(struct IslandMonPic pic, bool8 *animating, bool8 swapScreen)
 {
     u8 taskId;
@@ -4097,6 +4112,8 @@ static void CloseMonPic(struct IslandMonPic pic, bool8 *animating, bool8 swapScr
     gTasks[taskId].func(taskId);
     *animating = TRUE;
 }
+
+*/
 
 static void HideMonPic(struct IslandMonPic pic, bool8 *animating)
 {

@@ -4510,6 +4510,16 @@
       "secondary_tileset": "gTileset_TrainerIsland",
       "border_filepath": "data/layouts/Area1_Zone6/border.bin",
       "blockdata_filepath": "data/layouts/Area1_Zone6/map.bin"
+    },
+    {
+      "id": "LAYOUT_AREA1_BOSS",
+      "name": "Area1_Boss_Layout",
+      "width": 18,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrainerIsland",
+      "border_filepath": "data/layouts/Area1_Boss/border.bin",
+      "blockdata_filepath": "data/layouts/Area1_Boss/map.bin"
     }
   ]
 }

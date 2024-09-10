@@ -84,7 +84,6 @@ SurvivalIsland_HomeBase_ForestGuard_EventScript_PlayerMoveToFrontFromLeft::
 	return
 
 SurvivalIsland_HomeBase_EventScript_DontHaveSixPokemon::
-	playse SE_FAILURE
 	msgbox SurvivalIsland_HomeBase_Text_DontHaveSixPokemon, MSGBOX_DEFAULT
 	releaseall
 	end

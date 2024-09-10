@@ -1,7 +1,12 @@
 Area1_Zone1_MapScripts::
 	.byte 0
 
-SurvivalMaster_WarpToNextFloor::
+Area1_HiddenItem_Potion::
+	giveitem ITEM_POTION
+	addvar VAR_BATTLE_ITEMS_FOUND, 1
+	setflag FLAG_ITEM_AREA1_POTION
 
-SurvivalMaster_WarpToPreviousFloor::
-
+Area1_HiddenItem_Pokeball::
+	giveitem ITEM_POKE_BALL
+	addvar VAR_BALL_ITEMS_FOUND, 1
+	setflag FLAG_ITEM_AREA1_POKEBALL

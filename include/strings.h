@@ -42,6 +42,10 @@ extern const u8 gText_Super[];
 extern const u8 gText_Hyper[];
 extern const u8 gText_Master[];
 
+extern const u8 gText_Easy[];
+extern const u8 gText_Hard[];
+extern const u8 gText_Ultimate[];
+
 extern const u8 gText_Cool2[];
 extern const u8 gText_Beauty2[];
 extern const u8 gText_Cute2[];
@@ -1312,6 +1316,8 @@ extern const u8 gText_TrainerHill1F[];
 extern const u8 gText_TrainerHill2F[];
 extern const u8 gText_TrainerHill3F[];
 extern const u8 gText_TrainerHill4F[];
+extern const u8 gText_BerryJuiceAndPrice[];
+extern const u8 gText_MoomooMilkAndPrice[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];

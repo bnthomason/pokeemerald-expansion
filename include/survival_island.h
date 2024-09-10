@@ -3,7 +3,7 @@
 
 //void CallBattleFactoryFunction(void);
 //bool8 InBattleFactory(void);
-u8 GetSurvivalIslandMonFixedIV(u8 challengeNum, bool8 isLastBattle);
+void CreateIslandMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32 otID, u32 flags, struct Pokemon *dst);
 void FillIslandBossParties(void);
 //u8 GetNumPastRentalsRank(u8 battleMode, u8 lvlMode);
 //u32 GetAiScriptsInBattleFactory(void);

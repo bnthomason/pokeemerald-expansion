@@ -1,0 +1,26 @@
+#ifndef GUARD_CONSTANTS_SURVIVAL_ISLAND_MONS_H
+#define GUARD_CONSTANTS_SURVIVAL_ISLAND_MONS_H
+
+#define ISLAND_MON_BULBASAUR        0
+#define ISLAND_MON_CHARMANDER       1
+#define ISLAND_MON_SQUIRTLE         2
+#define ISLAND_MON_CHIKORITA        3
+#define ISLAND_MON_CYNDAQUIL       4
+#define ISLAND_MON_TOTODILE        5
+#define ISLAND_MON_TREECKO        6
+#define ISLAND_MON_TORCHIC       7
+#define ISLAND_MON_MUDKIP         8
+#define ISLAND_MON_TURTWIG        9
+#define ISLAND_MON_CHIMCHAR       10
+#define ISLAND_MON_PINLUP         11
+#define ISLAND_MON_SNIVY           12
+#define ISLAND_MON_TEPIG           13
+#define ISLAND_MON_OSHAWOTT         14
+#define ISLAND_MON_CHESPIN          15
+#define ISLAND_MON_FENNEKIN         16
+#define ISLAND_MON_FROAKIE          17
+#define ISLAND_MON_ROWLET           18
+#define ISLAND_MON_LITTLEN          19
+#define ISLAND_MON_POPPLIO          20
+
+#endif //GUARD_CONSTANTS_SURVIVAL_ISLAND_MONS_H

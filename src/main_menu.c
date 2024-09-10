@@ -244,6 +244,13 @@ static void MainMenu_FormatSavegamePokedex(void);
 static void MainMenu_FormatSavegameTime(void);
 static void MainMenu_FormatSavegameBadges(void);
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
+static void Task_DisplayNewGameDifficulty(u8);
+static void Task_HighlightSelectedNewGameDifficultyItem(u8);
+static bool8 HandleNewGameDifficultyInput(u8);
+static void Task_HandleNewGameDifficultyInput(u8);
+static void Task_HandleNewGameDifficultyAPressed(u8);
+static void Task_HandleNewGameDifficultyBPressed(u8);
+static void HighlightSelectedNewGameDifficultyItem(u8, u8, s16);
 
 // .rodata
 
@@ -524,8 +531,13 @@ enum
     ACTION_MYSTERY_GIFT,
     ACTION_MYSTERY_EVENTS,
     ACTION_EREADER,
-    ACTION_INVALID
+    ACTION_INVALID,
+    ACTION_EASY,
+    ACTION_NORMAL,
+    ACTION_HARD,
+    ACTION_ULTIMATE
 };
+
 
 #define MAIN_MENU_BORDER_TILE   0x1D5
 
@@ -1059,7 +1071,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
             default:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                gTasks[taskId].func = Task_DisplayNewGameDifficulty;
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -1158,15 +1170,6 @@ static void Task_DisplayMainMenuInvalidActionError(u8 taskId)
     }
 }
 
-#undef tMenuType
-#undef tCurrItem
-#undef tItemCount
-#undef tScrollArrowTaskId
-#undef tIsScrolled
-#undef tWirelessAdapterConnected
-
-#undef tArrowTaskIsScrolled
-
 static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 isScrolled)
 {
     SetGpuReg(REG_OFFSET_WIN0H, MENU_WIN_HCOORDS);
@@ -1251,6 +1254,269 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
             break;
     }
 }
+
+static void Task_DisplayNewGameDifficulty(u8 taskId)
+{
+//    s16 *data = gTasks[taskId].data;
+    u16 palette;
+
+    if (!gPaletteFade.active)
+    {
+        SetGpuReg(REG_OFFSET_WIN0H, 0);
+        SetGpuReg(REG_OFFSET_WIN0V, 0);
+        SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG0 | WININ_WIN0_OBJ);
+        SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG0 | WINOUT_WIN01_OBJ | WINOUT_WIN01_CLR);
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_EFFECT_DARKEN | BLDCNT_TGT1_BG0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        SetGpuReg(REG_OFFSET_BLDY, 7);
+
+        palette = RGB_BLACK;
+        LoadPalette(&palette, BG_PLTT_ID(15) + 14, PLTT_SIZEOF(1));
+
+        palette = RGB_WHITE;
+        LoadPalette(&palette, BG_PLTT_ID(15) + 10, PLTT_SIZEOF(1));
+
+        palette = RGB(12, 12, 12);
+        LoadPalette(&palette, BG_PLTT_ID(15) + 11, PLTT_SIZEOF(1));
+
+        palette = RGB(26, 26, 25);
+        LoadPalette(&palette, BG_PLTT_ID(15) + 12, PLTT_SIZEOF(1));
+
+        // Note: If there is no save file, the save block is zeroed out,
+        // so the default gender is MALE.
+        if (gSaveBlock2Ptr->playerGender == MALE)
+        {
+            palette = RGB(4, 16, 31);
+            LoadPalette(&palette, BG_PLTT_ID(15) + 1, PLTT_SIZEOF(1));
+        }
+        else
+        {
+            palette = RGB(31, 3, 21);
+            LoadPalette(&palette, BG_PLTT_ID(15) + 1, PLTT_SIZEOF(1));
+
+                FillWindowPixelBuffer(2, PIXEL_FILL(0xA));
+                FillWindowPixelBuffer(3, PIXEL_FILL(0xA));
+                FillWindowPixelBuffer(4, PIXEL_FILL(0xA));
+                FillWindowPixelBuffer(5, PIXEL_FILL(0xA));
+                AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_Easy);
+                AddTextPrinterParameterized3(3, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_Normal);
+                AddTextPrinterParameterized3(4, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_Hard);
+                AddTextPrinterParameterized3(5, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_Ultimate);
+                MainMenu_FormatSavegameText();
+                PutWindowTilemap(2);
+                PutWindowTilemap(3);
+                PutWindowTilemap(4);
+                PutWindowTilemap(5);
+                CopyWindowToVram(2, COPYWIN_GFX);
+                CopyWindowToVram(3, COPYWIN_GFX);
+                CopyWindowToVram(4, COPYWIN_GFX);
+                CopyWindowToVram(5, COPYWIN_GFX);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[2], MAIN_MENU_BORDER_TILE);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[3], MAIN_MENU_BORDER_TILE);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[4], MAIN_MENU_BORDER_TILE);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[5], MAIN_MENU_BORDER_TILE);
+        }
+        gTasks[taskId].func = Task_HighlightSelectedNewGameDifficultyItem;
+    }
+}
+
+static void Task_HighlightSelectedNewGameDifficultyItem(u8 taskId)
+{
+    HighlightSelectedNewGameDifficultyItem(gTasks[taskId].tMenuType, gTasks[taskId].tCurrItem, gTasks[taskId].tIsScrolled);
+    gTasks[taskId].func = Task_HandleNewGameDifficultyInput;
+}
+
+static bool8 HandleNewGameDifficultyInput(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        IsWirelessAdapterConnected();   // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+        gTasks[taskId].func = Task_HandleNewGameDifficultyAPressed;
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
+        SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0, DISPLAY_WIDTH));
+        SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(0, DISPLAY_HEIGHT));
+        gTasks[taskId].func = Task_HandleNewGameDifficultyBPressed;
+    }
+    else if ((JOY_NEW(DPAD_UP)) && tCurrItem > 0)
+    {
+        if (tMenuType == HAS_MYSTERY_EVENTS && tIsScrolled == TRUE && tCurrItem == 1)
+        {
+            ChangeBgY(0, 0x2000, BG_COORD_SUB);
+            ChangeBgY(1, 0x2000, BG_COORD_SUB);
+            gTasks[tScrollArrowTaskId].tArrowTaskIsScrolled = tIsScrolled = FALSE;
+        }
+        tCurrItem--;
+        sCurrItemAndOptionMenuCheck = tCurrItem;
+        return TRUE;
+    }
+    else if ((JOY_NEW(DPAD_DOWN)) && tCurrItem < tItemCount - 1)
+    {
+        if (tMenuType == HAS_MYSTERY_EVENTS && tCurrItem == 3 && tIsScrolled == FALSE)
+        {
+            ChangeBgY(0, 0x2000, BG_COORD_ADD);
+            ChangeBgY(1, 0x2000, BG_COORD_ADD);
+            gTasks[tScrollArrowTaskId].tArrowTaskIsScrolled = tIsScrolled = TRUE;
+        }
+        tCurrItem++;
+        sCurrItemAndOptionMenuCheck = tCurrItem;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+
+static void Task_HandleNewGameDifficultyInput(u8 taskId)
+{
+    if (HandleNewGameDifficultyInput(taskId))
+        gTasks[taskId].func = Task_HighlightSelectedNewGameDifficultyItem;
+}
+
+static void Task_HandleNewGameDifficultyAPressed(u8 taskId)
+{
+//    bool8 wirelessAdapterConnected;
+    u8 action = ACTION_ULTIMATE;
+
+    if (!gPaletteFade.active)
+    {
+        if (gTasks[taskId].tMenuType == HAS_MYSTERY_EVENTS)
+            RemoveScrollIndicatorArrowPair(gTasks[taskId].tScrollArrowTaskId);
+        ClearStdWindowAndFrame(0, TRUE);
+        ClearStdWindowAndFrame(1, TRUE);
+        ClearStdWindowAndFrame(2, TRUE);
+        ClearStdWindowAndFrame(3, TRUE);
+        ClearStdWindowAndFrame(4, TRUE);
+        ClearStdWindowAndFrame(5, TRUE);
+        ClearStdWindowAndFrame(6, TRUE);
+        ClearStdWindowAndFrame(7, TRUE);
+//        wirelessAdapterConnected = IsWirelessAdapterConnected();
+                switch (gTasks[taskId].tCurrItem)
+                {
+                    case 0:
+                    default:
+                        action = ACTION_EASY;
+                        break;
+                    case 1:
+                        action = ACTION_NORMAL;
+                        break;
+                    case 2:
+                        action = ACTION_HARD;
+                        break;
+                    case 3:
+                        action = ACTION_ULTIMATE;
+                        break;
+                }
+        }
+        ChangeBgY(0, 0, BG_COORD_SET);
+        ChangeBgY(1, 0, BG_COORD_SET);
+        switch (action)
+        {
+            case ACTION_EASY:
+            default:
+                gPlttBufferUnfaded[0] = RGB_BLACK;
+                gPlttBufferFaded[0] = RGB_BLACK;
+                gSaveBlock1Ptr->difficulty = DIFFICULTY_EASY;
+                VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_EASY);
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                break;
+            case ACTION_NORMAL:
+                gPlttBufferUnfaded[0] = RGB_BLACK;
+                gPlttBufferFaded[0] = RGB_BLACK;
+                gSaveBlock1Ptr->difficulty = DIFFICULTY_NORMAL;
+                VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_NORMAL);
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                break;
+            case ACTION_HARD:
+                gPlttBufferUnfaded[0] = RGB_BLACK;
+                gPlttBufferFaded[0] = RGB_BLACK;
+                gSaveBlock1Ptr->difficulty = DIFFICULTY_HARD;
+                VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_HARD);
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                break;
+            case ACTION_ULTIMATE:
+                gPlttBufferUnfaded[0] = RGB_BLACK;
+                gPlttBufferFaded[0] = RGB_BLACK;
+                gSaveBlock1Ptr->difficulty = DIFFICULTY_ULTIMATE;
+                VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_ULTIMATE);
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                break;
+/*
+            case ACTION_INVALID:
+                gTasks[taskId].tCurrItem = 0;
+                gTasks[taskId].func = Task_DisplayMainMenuInvalidActionError;
+                gPlttBufferUnfaded[BG_PLTT_ID(15) + 1] = RGB_WHITE;
+                gPlttBufferFaded[BG_PLTT_ID(15) + 1] = RGB_WHITE;
+                SetGpuReg(REG_OFFSET_BG2HOFS, 0);
+                SetGpuReg(REG_OFFSET_BG2VOFS, 0);
+                SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+                SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+                SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+                SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+                return;
+*/
+        }
+        FreeAllWindowBuffers();
+        if (action != ACTION_OPTION)
+            sCurrItemAndOptionMenuCheck = 0;
+        else
+            sCurrItemAndOptionMenuCheck |= OPTION_MENU_FLAG;  // entering the options menu
+}
+
+
+static void Task_HandleNewGameDifficultyBPressed(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        if (gTasks[taskId].tMenuType == HAS_MYSTERY_EVENTS)
+            RemoveScrollIndicatorArrowPair(gTasks[taskId].tScrollArrowTaskId);
+        sCurrItemAndOptionMenuCheck = 0;
+        FreeAllWindowBuffers();
+        SetMainCallback2(CB2_MainMenu);
+        DestroyTask(taskId);
+    }
+}
+
+static void HighlightSelectedNewGameDifficultyItem(u8 menuType, u8 selectedMenuItem, s16 isScrolled)
+{
+    SetGpuReg(REG_OFFSET_WIN0H, MENU_WIN_HCOORDS);
+
+            switch (selectedMenuItem)
+            {
+                case 0:
+                default:
+                    SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(2));
+                    break;
+                case 1:
+                    SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(3));
+                    break;
+                case 2:
+                    SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(4));
+                    break;
+                case 3:
+                    SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(5));
+                    break;
+            }
+
+}
+
+#undef tMenuType
+#undef tCurrItem
+#undef tItemCount
+#undef tScrollArrowTaskId
+#undef tIsScrolled
+#undef tWirelessAdapterConnected
+
+#undef tArrowTaskIsScrolled
+
+
 
 #define tPlayerSpriteId data[2]
 #define tBG1HOFS data[4]
@@ -2304,3 +2570,4 @@ static void Task_NewGameBirchSpeech_ReturnFromNamingScreenShowTextbox(u8 taskId)
 }
 
 #undef tTimer
+

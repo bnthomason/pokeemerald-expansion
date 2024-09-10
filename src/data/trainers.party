@@ -16873,3 +16873,287 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+
+=== ISLAND_BOSS_SETH_EASY ===
+Name: SETH
+Class: Leader
+Pic: Boss Seth
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Poochyena
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 6 SpA / 0 SpD / 252 Spe
+Nature: NATURE_NAUGHTY
+- MOVE_BITE
+- MOVE_TACKLE
+- MOVE_HOWL
+- MOVE_DOUBLE_TEAM
+
+Purrloin
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 0 Atk / 252 Def / 0 SpA / 6 SpD / 0 Spe
+Nature: NATURE_IMPISH
+- MOVE_BITE
+- MOVE_TACKLE
+- MOVE_FOCUS_ENERGY
+- MOVE_DOUBLE_TEAM
+
+Electrike
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 6 Atk / 0 Def / 0 SpA / 252 SpD / 252 Spe
+Nature: NATURE_CAREFUL
+- MOVE_BITE
+- MOVE_SPARK
+- MOVE_ICE_FANG
+- MOVE_DOUBLE_TEAM
+
+Houndour
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 0 SpA / 6 SpD / 252 Spe
+Nature: NATURE_LONELY
+- MOVE_BITE
+- MOVE_FLAME_WHEEL
+- MOVE_PSYCHIC_FANGS
+- MOVE_DOUBLE_TEAM
+
+Absol
+Level: 20
+Ability: ABILITY_SUPER_LUCK
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 126 SpA / 6 SpD / 126 Spe
+Nature: NATURE_LONELY
+- MOVE_NIGHT_SLASH
+- MOVE_FOCUS_ENERGY
+- MOVE_SWORDS_DANCE
+- MOVE_DOUBLE_TEAM
+
+Umbreon
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 0 Atk / 252 Def / 0 SpA / 252 SpD / 0 Spe
+Nature: NATURE_CALM
+- MOVE_DARK_PULSE
+- MOVE_AMNESIA
+- MOVE_DOUBLE_TEAM
+- MOVE_MOONLIGHT
+
+=== ISLAND_BOSS_SETH_NORMAL ===
+Name: SETH
+Class: Leader
+Pic: Boss Seth
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Mightyena
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 6 SpA / 0 SpD / 252 Spe
+Nature: NATURE_NAUGHTY
+- MOVE_CRUNCH
+- MOVE_TAKE_DOWN
+- MOVE_HOWL
+- MOVE_DOUBLE_TEAM
+
+Liepard
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 0 Atk / 252 Def / 0 SpA / 6 SpD / 0 Spe
+Nature: NATURE_IMPISH
+- MOVE_NIGHT_SLASH
+- MOVE_TAKE_DOWN
+- MOVE_FOCUS_ENERGY
+- MOVE_DOUBLE_TEAM
+
+Manectric
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 6 Atk / 0 Def / 0 SpA / 252 SpD / 252 Spe
+Nature: NATURE_CAREFUL
+- MOVE_CRUNCH
+- MOVE_WILD_CHARGE
+- MOVE_ICE_FANG
+- MOVE_DOUBLE_TEAM
+
+Houndoom
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 0 SpA / 6 SpD / 252 Spe
+Nature: NATURE_LONELY
+- MOVE_CRUNCH
+- MOVE_FLAME_CHARGE
+- MOVE_PSYCHIC_FANGS
+- MOVE_DOUBLE_TEAM
+
+Absol
+Level: 20
+Ability: ABILITY_SUPER_LUCK
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 126 SpA / 6 SpD / 126 Spe
+Nature: NATURE_LONELY
+- MOVE_NIGHT_SLASH
+- MOVE_DOUBLE_TEAM
+- MOVE_FOCUS_ENERGY
+- MOVE_SWORDS_DANCE
+
+Umbreon
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 0 Atk / 252 Def / 0 SpA / 252 SpD / 0 Spe
+Nature: NATURE_CALM
+- MOVE_DARK_PULSE
+- MOVE_AMNESIA
+- MOVE_DOUBLE_TEAM
+- MOVE_MOONLIGHT
+
+=== ISLAND_BOSS_SETH_HARD ===
+Name: SETH
+Class: Leader
+Pic: Boss Seth
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Absol
+Level: 20
+Ability: ABILITY_SUPER_LUCK
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 252 Atk / 0 Def / 126 SpA / 6 SpD / 126 Spe
+Nature: NATURE_LONELY
+- MOVE_NIGHT_SLASH
+- MOVE_DOUBLE_TEAM
+- MOVE_FOCUS_ENERGY
+- MOVE_SWORDS_DANCE
+
+Umbreon
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 0 Atk / 252 Def / 0 SpA / 252 SpD / 0 Spe
+Nature: NATURE_CALM
+- MOVE_DARK_PULSE
+- MOVE_AMNESIA
+- MOVE_DOUBLE_TEAM
+- MOVE_MOONLIGHT
+
+Impidimp
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 3 Atk / 3 Def / 252 SpA / 252 SpD / 0 Spe
+Nature: NATURE_SERIOUS
+- MOVE_DARK_PULSE
+- MOVE_DAZZLING_GLEAM
+- MOVE_NASTY_PLOT
+- MOVE_FAKE_TEARS
+
+
+Gastly
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 252 Atk / 3 Def / 252 SpA / 3 SpD / 0 Spe
+Nature: NATURE_SERIOUS
+- MOVE_HYPNOSIS
+- MOVE_SLUDGE_BOMB
+- MOVE_DREAM_EATER
+- MOVE_HEX
+
+Dreepy
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 126 Atk / 6 Def / 126 SpA / 0 SpD / 252 Spe
+Nature: NATURE_MILD
+- MOVE_DRACO_METEOR
+- MOVE_ASTONISH
+- MOVE_DOUBLE_TEAM
+- MOVE_BITE
+
+Deino
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 126 Atk / 0 Def / 252 SpA / 6 SpD / 126 Spe
+Nature: NATURE_NAIVE
+- MOVE_DRAGON_BREATH
+- MOVE_SNARL
+- MOVE_EARTH_POWER
+- MOVE_DOUBLE_TEAM
+
+=== ISLAND_BOSS_SETH_ULTIMATE ===
+Name: SETH
+Class: Leader
+Pic: Boss Seth
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Dreepy
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 126 Atk / 6 Def / 126 SpA / 0 SpD / 252 Spe
+Nature: NATURE_MILD
+- MOVE_DRACO_METEOR
+- MOVE_ASTONISH
+- MOVE_DOUBLE_TEAM
+- MOVE_BITE
+
+Deino
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 126 Atk / 0 Def / 252 SpA / 6 SpD / 126 Spe
+Nature: NATURE_NAIVE
+- MOVE_DRAGON_BREATH
+- MOVE_SNARL
+- MOVE_EARTH_POWER
+- MOVE_DOUBLE_TEAM
+
+Darkrai
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 6 HP / 0 Atk / 0 Def / 252 SpA / 252 SpD / 0 Spe
+Nature: NATURE_MILD
+- MOVE_DARK_VOID
+- MOVE_DREAM_EATER
+- MOVE_DARK_PULSE
+- MOVE_DOUBLE_TEAM
+
+Yveltal
+Level: 20
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 6 Atk / 0 Def / 252 SpA / 0 SpD / 252 Spe
+Nature: NATURE_MILD
+- MOVE_OBLIVION_WING
+- MOVE_DRAGON_PULSE
+- MOVE_DARK_PULSE
+- MOVE_DOUBLE_TEAM
+
+Lunala
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 0 HP / 0 Atk / 3 Def / 6 SpA / 252 SpD / 252 Spe
+Nature: NATURE_CALM
+- MOVE_PSYCHIC
+- MOVE_MOONGEIST_BEAM
+- MOVE_MOONLIGHT
+- MOVE_DOUBLE_TEAM
+
+Giratina
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 126 HP / 189 Atk / 189 Def / 3 SpA / 3 SpD / 0 Spe
+Nature: NATURE_SERIOUS
+- MOVE_DRAGON_CLAW
+- MOVE_SHADOW_FORCE
+- MOVE_IRON_HEAD
+- MOVE_DOUBLE_TEAM
+

@@ -239,6 +239,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Biker;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Beauty2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MasterThomas;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Boss;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist3;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sailor2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HiddenItem;
  
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hipster;
@@ -490,6 +498,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
+    [OBJ_EVENT_GFX_BIKER] =                    &gObjectEventGraphicsInfo_Biker,
+    [OBJ_EVENT_GFX_BEAUTY2] =                  &gObjectEventGraphicsInfo_Beauty2,
+    [OBJ_EVENT_GFX_SCIENTIST3] =               &gObjectEventGraphicsInfo_Scientist3,
+    [OBJ_EVENT_GFX_CAPTAIN] =                  &gObjectEventGraphicsInfo_Sailor2,
+    [OBJ_EVENT_GFX_MAN_IN_SUIT] =              &gObjectEventGraphicsInfo_Boss,
+    [OBJ_EVENT_GFX_DRAGON_MASTER] =            &gObjectEventGraphicsInfo_MasterThomas,
+    [OBJ_EVENT_GFX_HIDDEN_ITEM] =              &gObjectEventGraphicsInfo_HiddenItem,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

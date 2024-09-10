@@ -28,7 +28,7 @@
       "flag": "FLAG_HIDE_SURVIVALISLAND_BOAT"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 17,
       "y": 14,
       "elevation": 0,
@@ -41,7 +41,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 18,
       "y": 14,
       "elevation": 0,
@@ -67,7 +67,7 @@
       "flag": "FLAG_HIDE_HOMEBASE_ITEMBALL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAPTAIN",
       "x": 18,
       "y": 21,
       "elevation": 3,

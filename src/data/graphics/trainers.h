@@ -292,6 +292,25 @@ const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steve
 const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics/red.gbapal.lz");
 const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/back_pics/leaf.gbapal.lz");
 
+const u32 gTrainerFrontPic_Beauty2[] = INCBIN_U32("graphics/trainers/front_pics/beauty_2.4bpp.lz");
+const u32 gTrainerPalette_Beauty2[] = INCBIN_U32("graphics/trainers/front_pics/beauty_2.gbapal.lz");
+
+const u32 gTrainerFrontPic_Biker[] = INCBIN_U32("graphics/trainers/front_pics/biker.4bpp.lz");
+const u32 gTrainerPalette_Biker[] = INCBIN_U32("graphics/trainers/front_pics/biker.gbapal.lz");
+
+const u32 gTrainerFrontPic_Scientist[] = INCBIN_U32("graphics/trainers/front_pics/scientist3.4bpp.lz");
+const u32 gTrainerPalette_Scientist[] = INCBIN_U32("graphics/trainers/front_pics/scientist3.gbapal.lz");
+
+const u32 gTrainerFrontPic_Bodybuilder[] = INCBIN_U32("graphics/trainers/front_pics/black_belt_2.4bpp.lz");
+const u32 gTrainerPalette_Bodybuilder[] = INCBIN_U32("graphics/trainers/front_pics/black_Belt_2.gbapal.lz");
+
+const u32 gTrainerFrontPic_BossThomas[] = INCBIN_U32("graphics/trainers/front_pics/elite_four_lance.4bpp.lz");
+const u32 gTrainerPalette_BossThomas[] = INCBIN_U32("graphics/trainers/front_pics/elite_four_lance.gbapal.lz");
+
+
+const u32 gTrainerFrontPic_BossSeth[] = INCBIN_U32("graphics/trainers/front_pics/leader_giovanni.4bpp.lz");
+const u32 gTrainerPalette_BossSeth[] = INCBIN_U32("graphics/trainers/front_pics/leader_giovanni.gbapal.lz");
+
 // The first two parameters invoke a front pic and palette by
 // calling a "TRAINER_PIC" constant (e.g. TRAINER_PIC_HIKER), and
 // gTrainerFrontPic/gTrainerPalette pointers, (e.g "gTrainerFrontPic_Hiker" and "gTrainerPalette_Hiker").
@@ -401,6 +420,13 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(LEAF, Leaf),
     TRAINER_SPRITE(RS_BRENDAN, RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, RubySapphireMay),
+    TRAINER_SPRITE(BOSS_ANNABEL, Beauty2),
+    TRAINER_SPRITE(BOSS_JOSHUA, Bodybuilder),
+    TRAINER_SPRITE(BOSS_VOLIVIA, DomeAceTucker),
+    TRAINER_SPRITE(BOSS_RODERICK, Biker),
+    TRAINER_SPRITE(BOSS_DAVID, Scientist),
+    TRAINER_SPRITE(BOSS_THOMAS, BossThomas),
+    TRAINER_SPRITE(BOSS_SETH, BossSeth),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

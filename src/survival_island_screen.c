@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "survival_island_screen.h"
 #include "battle_factory_screen.h"
 #include "battle_factory.h"
 #include "sprite.h"
@@ -27,13 +28,14 @@
 #include "starter_choose.h"
 #include "strings.h"
 #include "graphics.h"
+#include "constants/survival_island_mons.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_tent.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
 // Island_Select refers to the first Pokémon selection screen where you choose your initial 3 rental Pokémon.
-// Swap_   refers to the subsequent selection screens where you can swap a Pokémon with one from the beaten trainer
+// Island_Swap_   refers to the subsequent selection screens where you can swap a Pokémon with one from the beaten trainer
 
 // Note that, generally, "Action" will refer to the immediate actions that can be taken on each screen,
 // i.e. selecting a Pokémon or selecting the Cancel button
@@ -168,7 +170,7 @@ static void Task_CloseMonPic(u8);
 
 // Select screen
 static void SelectInitialRentalMons(void);
-static void CB2_Island_InitSelectScreen(void);
+static void CB2_IslandInitSelectScreen(void);
 static void Island_SelectSetWinRegs(s16, s16, s16, s16);
 static void Island_SelectInitMonsData(void);
 static void Island_SelectInitAllSprites(void);
@@ -188,6 +190,7 @@ static void Island_SelectTask_FadeSpeciesName(u8);
 static void Island_SelectTask_OpenChosenMonPics(u8);
 static void Island_SelectTask_HandleChooseMons(u8);
 static void Island_SelectTask_HandleMenu(u8);
+//static u8 GetSurvivalIslandMonFixedIV(void);
 static void CreateSurvivalIslandSelectableMons(u8);
 //static void CreateSlateportTentSelectableMons(u8);
 static void Island_SelectSetBallSpritePaletteNum(u8);
@@ -202,61 +205,63 @@ static bool32 Island_SelectAreSpeciesValid(u16);
 // Swap screen
 /*
 static void CB2_InitSwapScreen(void);
-static void Swap_DestroyAllSprites(void);
-static void Swap_ShowYesNoOptions(void);
-static void Swap_HideActionButtonHighlights(void);
-static void Swap_EraseSpeciesWindow(void);
-static void Swap_UpdateYesNoCursorPosition(s8);
-static void Swap_UpdateMenuCursorPosition(s8);
-static void Swap_ErasePopupMenu(u8);
-static void Swap_Task_ScreenInfoTransitionIn(u8);
-static void Swap_Task_HandleChooseMons(u8);
-static void Swap_Task_ScreenInfoTransitionOut(u8);
-static void Swap_PrintOnInfoWindow(const u8 *);
-static void Swap_ShowMenuOptions(void);
-static void Swap_PrintMenuOptions(void);
-static void Swap_PrintYesNoOptions(void);
-static void Swap_PrintMonSpecies(void);
-static void Swap_PrintMonSpeciesAtFade(void);
-static void Swap_PrintMonSpeciesForTransition(void);
-static void Swap_PrintMonCategory(void);
-static void Swap_InitAllSprites(void);
-static void Swap_PrintPkmnSwap(void);
-static void Swap_EraseSpeciesAtFadeWindow(void);
-static void Swap_EraseActionFadeWindow(void);
-static void Swap_ShowSummaryMonSprite(void);
-static void Swap_UpdateActionCursorPosition(s8);
-static void Swap_UpdateBallCursorPosition(s8);
-static void Swap_RunMenuOptionFunc(u8);
-static void Swap_OptionSwap(u8);
-static void Swap_OptionSummary(u8);
-static void Swap_OptionRechoose(u8);
-static void Swap_RunActionFunc(u8);
-static void Swap_TaskCantHaveSameMons(u8);
-static void Swap_CreateMonSprite(void);
-static void Swap_PrintActionStrings(void);
-static void Swap_PrintActionStrings2(void);
-static void Swap_PrintOneActionString(u8);
-static void Swap_InitActions(u8);
-static void Swap_HighlightActionButton(u8);
-static bool8 Swap_AlreadyHasSameSpecies(u8);
-static void Swap_ActionMon(u8);
-static void Swap_ActionCancel(u8);
-static void Swap_ActionPkmnForSwap(u8);
+static void Island_Swap_DestroyAllSprites(void);
+static void Island_Swap_ShowYesNoOptions(void);
+static void Island_Swap_HideActionButtonHighlights(void);
+static void Island_Swap_EraseSpeciesWindow(void);
+static void Island_Swap_UpdateYesNoCursorPosition(s8);
+static void Island_Swap_UpdateMenuCursorPosition(s8);
+static void Island_Swap_ErasePopupMenu(u8);
+static void Island_Swap_Task_ScreenInfoTransitionIn(u8);
+static void Island_Swap_Task_HandleChooseMons(u8);
+static void Island_Swap_Task_ScreenInfoTransitionOut(u8);
+static void Island_Swap_PrintOnInfoWindow(const u8 *);
+static void Island_Swap_ShowMenuOptions(void);
+static void Island_Swap_PrintMenuOptions(void);
+static void Island_Swap_PrintYesNoOptions(void);
+static void Island_Swap_PrintMonSpecies(void);
+static void Island_Swap_PrintMonSpeciesAtFade(void);
+static void Island_Swap_PrintMonSpeciesForTransition(void);
+static void Island_Swap_PrintMonCategory(void);
+static void Island_Swap_InitAllSprites(void);
+static void Island_Swap_PrintPkmnSwap(void);
+static void Island_Swap_EraseSpeciesAtFadeWindow(void);
+static void Island_Swap_EraseActionFadeWindow(void);
+static void Island_Swap_ShowSummaryMonSprite(void);
+static void Island_Swap_UpdateActionCursorPosition(s8);
+static void Island_Swap_UpdateBallCursorPosition(s8);
+static void Island_Swap_RunMenuOptionFunc(u8);
+static void Island_Swap_OptionSwap(u8);
+static void Island_Swap_OptionSummary(u8);
+static void Island_Swap_OptionRechoose(u8);
+static void Island_Swap_RunActionFunc(u8);
+static void Island_Swap_TaskCantHaveSameMons(u8);
+*/
+static void Island_Swap_CreateMonSprite(void);
+/*
+static void Island_Swap_PrintActionStrings(void);
+static void Island_Swap_PrintActionStrings2(void);
+static void Island_Swap_PrintOneActionString(u8);
+static void Island_Swap_InitActions(u8);
+static void Island_Swap_HighlightActionButton(u8);
+static bool8 Island_Swap_AlreadyHasSameSpecies(u8);
+static void Island_Swap_ActionMon(u8);
+static void Island_Swap_ActionCancel(u8);
+static void Island_Swap_ActionPkmnForSwap(u8);
 */
 
-static EWRAM_DATA u8 *sSelectMenuTilesetBuffer = NULL;
+static EWRAM_DATA u8 *sSelectIslandMenuTilesetBuffer = NULL;
 static EWRAM_DATA u8 *sSelectMonPicBgTilesetBuffer = NULL;
 static EWRAM_DATA u8 *sSelectMenuTilemapBuffer = NULL;
 static EWRAM_DATA u8 *sSelectMonPicBgTilemapBuffer = NULL;
 static EWRAM_DATA struct Pokemon *sIslandSelectMons = NULL;
-//static EWRAM_DATA u8 *sSwapMenuTilesetBuffer = NULL;
-//static EWRAM_DATA u8 *sSwapMonPicBgTilesetBuffer = NULL;
-//static EWRAM_DATA u8 *sSwapMenuTilemapBuffer = NULL;
-//static EWRAM_DATA u8 *sSwapMonPicBgTilemapBuffer = NULL;
+//static EWRAM_DATA u8 *sIslandSwapMenuTilesetBuffer = NULL;
+//static EWRAM_DATA u8 *sIslandSwapMonPicBgTilesetBuffer = NULL;
+//static EWRAM_DATA u8 *sIslandSwapMenuTilemapBuffer = NULL;
+//static EWRAM_DATA u8 *sIslandSwapMonPicBgTilemapBuffer = NULL;
 
 static struct IslandSelectScreen *sIslandSelectScreen;
-//static void (*sSwap_CurrentOptionFunc)(u8 taskId);
+//static void (*sIsland_Swap_CurrentOptionFunc)(u8 taskId);
 //static struct IslandSwapScreen *sIslandSwapScreen;
 
 u8 (*gIslandIsland_SelectCurrentOptionFunc)(void);
@@ -635,7 +640,7 @@ static const struct SpriteTemplate sSpriteTemplate_Island_SelectMonPicBgAnim =
 };
 
 
-static const struct SpriteSheet sSwap_SpriteSheets[] =
+static const struct SpriteSheet sIsland_Swap_SpriteSheets[] =
 {
     {sArrow_Gfx,                 sizeof(sArrow_Gfx),                 GFXTAG_ARROW},
     {sMenuHighlightLeft_Gfx,     sizeof(sMenuHighlightLeft_Gfx),     GFXTAG_MENU_HIGHLIGHT_LEFT},
@@ -653,15 +658,15 @@ static const struct SpriteSheet sSwap_SpriteSheets[] =
     {},
 };
 
-/*
 
-static const struct CompressedSpriteSheet sSwap_BallGfx[] =
+
+static const struct CompressedSpriteSheet sIsland_Swap_BallGfx[] =
 {
     {gPokeballSelection_Gfx, 0x800, GFXTAG_BALL},
     {},
 };
 
-static const struct SpritePalette sSwap_SpritePalettes[] =
+static const struct SpritePalette sIsland_Swap_SpritePalettes[] =
 {
     {sPokeballGray_Pal,     PALTAG_BALL_GRAY},
     {sPokeballSelected_Pal, PALTAG_BALL_SELECTED},
@@ -670,7 +675,7 @@ static const struct SpritePalette sSwap_SpritePalettes[] =
     {},
 };
 
-static const struct OamData sOam_Swap_Pokeball =
+static const struct OamData sOam_Island_Swap_Pokeball =
 {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -687,7 +692,7 @@ static const struct OamData sOam_Swap_Pokeball =
     .affineParam = 0,
 };
 
-static const struct OamData sOam_Swap_Arrow =
+static const struct OamData sOam_Island_Swap_Arrow =
 {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -704,7 +709,7 @@ static const struct OamData sOam_Swap_Arrow =
     .affineParam = 0,
 };
 
-static const struct OamData sOam_Swap_MenuHighlight =
+static const struct OamData sOam_Island_Swap_MenuHighlight =
 {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -721,7 +726,7 @@ static const struct OamData sOam_Swap_MenuHighlight =
     .affineParam = 0,
 };
 
-static const struct OamData sOam_Swap_MonPicBgAnim =
+static const struct OamData sOam_Island_Swap_MonPicBgAnim =
 {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_DOUBLE,
@@ -738,25 +743,25 @@ static const struct OamData sOam_Swap_MonPicBgAnim =
     .affineParam = 1,
 };
 
-static const union AnimCmd sAnim_Swap_Interface[] =
+static const union AnimCmd sAnim_Island_Swap_Interface[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Swap_MonPicBgAnim[] =
+static const union AnimCmd sAnim_Island_Swap_MonPicBgAnim[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Swap_Pokeball_Still[] =
+static const union AnimCmd sAnim_Island_Swap_Pokeball_Still[] =
 {
     ANIMCMD_FRAME(0, 30),
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Swap_Pokeball_Moving[] =
+static const union AnimCmd sAnim_Island_Swap_Pokeball_Moving[] =
 {
     ANIMCMD_FRAME(16, 4),
     ANIMCMD_FRAME(0, 4),
@@ -778,23 +783,23 @@ static const union AnimCmd sAnim_Swap_Pokeball_Moving[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd * const sAnims_Swap_Interface[] =
+static const union AnimCmd * const sAnims_Island_Swap_Interface[] =
 {
-    sAnim_Swap_Interface,
+    sAnim_Island_Swap_Interface,
 };
 
-static const union AnimCmd * const sAnims_Swap_MonPicBgAnim[] =
+static const union AnimCmd * const sAnims_Island_Swap_MonPicBgAnim[] =
 {
-    sAnim_Swap_MonPicBgAnim,
+    sAnim_Island_Swap_MonPicBgAnim,
 };
 
-static const union AnimCmd * const sAnims_Swap_Pokeball[] =
+static const union AnimCmd * const sAnims_Island_Swap_Pokeball[] =
 {
-    sAnim_Swap_Pokeball_Still,
-    sAnim_Swap_Pokeball_Moving,
+    sAnim_Island_Swap_Pokeball_Still,
+    sAnim_Island_Swap_Pokeball_Moving,
 };
 
-static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Opening[] =
+static const union AffineAnimCmd sAffineAnim_Island_Swap_MonPicBg_Opening[] =
 {
     AFFINEANIMCMD_FRAME(5, 5, 0, 0),
     AFFINEANIMCMD_FRAME(0, 0, 0, 1),
@@ -810,7 +815,7 @@ static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Opening[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Closing[] =
+static const union AffineAnimCmd sAffineAnim_Island_Swap_MonPicBg_Closing[] =
 {
     AFFINEANIMCMD_FRAME(128, 5, 0, 0),
     AFFINEANIMCMD_FRAME(0, 0, 0, 1),
@@ -824,82 +829,84 @@ static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Closing[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Open[] =
+static const union AffineAnimCmd sAffineAnim_Island_Swap_MonPicBg_Open[] =
 {
     AFFINEANIMCMD_FRAME(256, 256, 0, 0),
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd * const sAffineAnims_Swap_MonPicBgAnim[] =
+static const union AffineAnimCmd * const sAffineAnims_Island_Swap_MonPicBgAnim[] =
 {
-    sAffineAnim_Swap_MonPicBg_Opening,
-    sAffineAnim_Swap_MonPicBg_Closing,
-    sAffineAnim_Swap_MonPicBg_Open,
+    sAffineAnim_Island_Swap_MonPicBg_Opening,
+    sAffineAnim_Island_Swap_MonPicBg_Closing,
+    sAffineAnim_Island_Swap_MonPicBg_Open,
 };
 
-static const struct SpriteTemplate sSpriteTemplate_Swap_Pokeball =
+static const struct SpriteTemplate sSpriteTemplate_Island_Swap_Pokeball =
 {
     .tileTag = GFXTAG_BALL,
     .paletteTag = PALTAG_BALL_GRAY,
-    .oam = &sOam_Swap_Pokeball,
-    .anims = sAnims_Swap_Pokeball,
+    .oam = &sOam_Island_Swap_Pokeball,
+    .anims = sAnims_Island_Swap_Pokeball,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_Pokeball
 };
 
-static const struct SpriteTemplate sSpriteTemplate_Swap_Arrow =
+static const struct SpriteTemplate sSpriteTemplate_Island_Swap_Arrow =
 {
     .tileTag = GFXTAG_ARROW,
     .paletteTag = PALTAG_INTERFACE,
-    .oam = &sOam_Swap_Arrow,
-    .anims = sAnims_Swap_Interface,
+    .oam = &sOam_Island_Swap_Arrow,
+    .anims = sAnims_Island_Swap_Interface,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
 
-static const struct SpriteTemplate sSpriteTemplate_Swap_MenuHighlightLeft =
+static const struct SpriteTemplate sSpriteTemplate_Island_Swap_MenuHighlightLeft =
 {
     .tileTag = GFXTAG_MENU_HIGHLIGHT_LEFT,
     .paletteTag = PALTAG_INTERFACE,
-    .oam = &sOam_Swap_MenuHighlight,
-    .anims = sAnims_Swap_Interface,
+    .oam = &sOam_Island_Swap_MenuHighlight,
+    .anims = sAnims_Island_Swap_Interface,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
 
-static const struct SpriteTemplate sSpriteTemplate_Swap_MenuHighlightRight =
+static const struct SpriteTemplate sSpriteTemplate_Island_Swap_MenuHighlightRight =
 {
     .tileTag = GFXTAG_MENU_HIGHLIGHT_RIGHT,
     .paletteTag = PALTAG_INTERFACE,
-    .oam = &sOam_Swap_MenuHighlight,
-    .anims = sAnims_Swap_Interface,
+    .oam = &sOam_Island_Swap_MenuHighlight,
+    .anims = sAnims_Island_Swap_Interface,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
 
-static const struct SpriteTemplate sSpriteTemplate_Swap_MonPicBgAnim =
+static const struct SpriteTemplate sSpriteTemplate_Island_Swap_MonPicBgAnim =
 {
     .tileTag = GFXTAG_MON_PIC_BG_ANIM,
     .paletteTag = PALTAG_MON_PIC_BG,
-    .oam = &sOam_Swap_MonPicBgAnim,
-    .anims = sAnims_Swap_MonPicBgAnim,
+    .oam = &sOam_Island_Swap_MonPicBgAnim,
+    .anims = sAnims_Island_Swap_MonPicBgAnim,
     .images = NULL,
-    .affineAnims = sAffineAnims_Swap_MonPicBgAnim,
+    .affineAnims = sAffineAnims_Island_Swap_MonPicBgAnim,
     .callback = SpriteCallbackDummy
 };
 
-void static (* const sSwap_MenuOptionFuncs[])(u8 taskId) =
+/*
+void static (* const sIsland_Swap_MenuOptionFuncs[])(u8 taskId) =
 {
-    Swap_OptionSummary,
-    Swap_OptionSwap,
-    Swap_OptionRechoose,
+    Island_Swap_OptionSummary,
+    Island_Swap_OptionSwap,
+    Island_Swap_OptionRechoose,
 };
+*/
 
-static const struct BgTemplate sSwap_BgTemplates[4] =
+static const struct BgTemplate sIsland_Swap_BgTemplates[4] =
 {
     {
         .bg = 0,
@@ -951,7 +958,7 @@ enum {
     SWAP_WIN_MON_CATEGORY,
 };
 
-static const struct WindowTemplate sSwap_WindowTemplates[] =
+static const struct WindowTemplate sIsland_Swap_WindowTemplates[] =
 {
     [SWAP_WIN_TITLE] = {
         .bg = 0,
@@ -1037,30 +1044,30 @@ static const struct WindowTemplate sSwap_WindowTemplates[] =
     DUMMY_WIN_TEMPLATE,
 };
 
-static const u16 sSwapText_Pal[] = INCBIN_U16("graphics/battle_frontier/factory_screen/text.gbapal"); // Identical to sSelectText_Pal
-static const u8 sSwapMenuOptionsTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_TRANSPARENT};
-static const u8 sSwapSpeciesNameTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_TRANSPARENT};
+static const u16 sIslandSwapText_Pal[] = INCBIN_U16("graphics/battle_frontier/factory_screen/text.gbapal"); // Identical to sSelectText_Pal
+static const u8 sIslandSwapMenuOptionsTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_TRANSPARENT};
+static const u8 sIslandSwapSpeciesNameTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_TRANSPARENT};
 
 #define SWAPACTION_MON           1
 #define SWAPACTION_PKMN_FOR_SWAP 2
 #define SWAPACTION_CANCEL        3
 
-
-static const struct SwapScreenAction sSwap_PlayerScreenActions[] =
+/*
+static const struct SwapScreenAction sIsland_Swap_PlayerScreenActions[] =
 {
-    {.id = SWAPACTION_MON, .func = Swap_ActionMon},
-    {.id = SWAPACTION_MON, .func = Swap_ActionMon},
-    {.id = SWAPACTION_MON, .func = Swap_ActionMon},
-    {.id = SWAPACTION_CANCEL, .func = Swap_ActionCancel},
+    {.id = SWAPACTION_MON, .func = Island_Swap_ActionMon},
+    {.id = SWAPACTION_MON, .func = Island_Swap_ActionMon},
+    {.id = SWAPACTION_MON, .func = Island_Swap_ActionMon},
+    {.id = SWAPACTION_CANCEL, .func = Island_Swap_ActionCancel},
 };
 
-static const struct SwapScreenAction sSwap_EnemyScreenActions[] =
+static const struct SwapScreenAction sIsland_Swap_EnemyScreenActions[] =
 {
-    {.id = SWAPACTION_MON, .func = Swap_ActionMon},
-    {.id = SWAPACTION_MON, .func = Swap_ActionMon},
-    {.id = SWAPACTION_MON, .func = Swap_ActionMon},
-    {.id = SWAPACTION_PKMN_FOR_SWAP, .func = Swap_ActionPkmnForSwap},
-    {.id = SWAPACTION_CANCEL, .func = Swap_ActionCancel},
+    {.id = SWAPACTION_MON, .func = Island_Swap_ActionMon},
+    {.id = SWAPACTION_MON, .func = Island_Swap_ActionMon},
+    {.id = SWAPACTION_MON, .func = Island_Swap_ActionMon},
+    {.id = SWAPACTION_PKMN_FOR_SWAP, .func = Island_Swap_ActionPkmnForSwap},
+    {.id = SWAPACTION_CANCEL, .func = Island_Swap_ActionCancel},
 };
 
 */
@@ -1100,7 +1107,7 @@ static void SpriteCB_Pokeball(struct Sprite *sprite)
     }
 }
 
-static void CB2_Island_SelectScreen(void)
+static void CB2_IslandSelectScreen(void)
 {
     AnimateSprites();
     BuildOamBuffer();
@@ -1119,7 +1126,7 @@ static void VBlankCB_SelectScreen(void)
 void DoSurvivalIslandSelectScreen(void)
 {
     sIslandSelectScreen = NULL;
-    SetMainCallback2(CB2_Island_InitSelectScreen);
+    SetMainCallback2(CB2_IslandInitSelectScreen);
 }
 
 static void SelectInitialRentalMons(void)
@@ -1149,7 +1156,7 @@ static void SelectInitialRentalMons(void)
 #define STATE_MENU_REINIT 12
 #define STATE_MENU_RESHOW 13
 
-static void CB2_Island_InitSelectScreen(void)
+static void CB2_IslandInitSelectScreen(void)
 {
     u8 taskId;
 
@@ -1167,7 +1174,7 @@ static void CB2_Island_InitSelectScreen(void)
         gMain.state++;
         break;
     case 1:
-        sSelectMenuTilesetBuffer = Alloc(sizeof(gSurvivalIslandMenu_Gfx));
+        sSelectIslandMenuTilesetBuffer = Alloc(sizeof(gSurvivalIslandMenu_Gfx));
 #ifdef BUGFIX
         sSelectMonPicBgTilesetBuffer = AllocZeroed(sizeof(sMonPicBg_Gfx));
 #else
@@ -1198,9 +1205,9 @@ static void CB2_Island_InitSelectScreen(void)
         ResetSpriteData();
         ResetTasks();
         FreeAllSpritePalettes();
-        CpuCopy16(gSurvivalIslandMenu_Gfx, sSelectMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx));
+        CpuCopy16(gSurvivalIslandMenu_Gfx, sSelectIslandMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx));
         CpuCopy16(sMonPicBg_Gfx, sSelectMonPicBgTilesetBuffer, sizeof(sMonPicBg_Gfx));
-        LoadBgTiles(1, sSelectMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx), 0);
+        LoadBgTiles(1, sSelectIslandMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx), 0);
         LoadBgTiles(3, sSelectMonPicBgTilesetBuffer, sizeof(sMonPicBg_Gfx), 0);
         CpuCopy16(gSurvivalIslandMenu_Tilemap, sSelectMenuTilemapBuffer, BG_SCREEN_SIZE);
         LoadBgTilemap(1, sSelectMenuTilemapBuffer, BG_SCREEN_SIZE, 0);
@@ -1298,7 +1305,7 @@ static void CB2_Island_InitSelectScreen(void)
             taskId = CreateTask(Island_SelectTask_HandleMenu, 0);
             gTasks[taskId].tState = STATE_MENU_RESHOW;
         }
-        SetMainCallback2(CB2_SelectScreen);
+        SetMainCallback2(CB2_IslandSelectScreen);
         break;
     }
 }
@@ -1488,7 +1495,7 @@ static void Island_SelectTask_OpenSummaryScreen(u8 taskId)
             DestroyTask(sIslandSelectScreen->fadeSpeciesNameTaskId);
             HideMonPic(sIslandSelectScreen->monPics[1], &sIslandSelectScreen->monPicAnimating);
             Island_SelectDestroyAllSprites();
-            FREE_AND_SET_NULL(sSelectMenuTilesetBuffer);
+            FREE_AND_SET_NULL(sSelectIslandMenuTilesetBuffer);
             FREE_AND_SET_NULL(sSelectMonPicBgTilesetBuffer);
             FREE_AND_SET_NULL(sSelectMenuTilemapBuffer);
             FREE_AND_SET_NULL(sSelectMonPicBgTilemapBuffer);
@@ -1504,7 +1511,7 @@ static void Island_SelectTask_OpenSummaryScreen(u8 taskId)
         sIslandSelectMons = AllocZeroed(sizeof(struct Pokemon) * SELECTABLE_MONS_COUNT);
         for (i = 0; i < SELECTABLE_MONS_COUNT; i++)
             sIslandSelectMons[i] = sIslandSelectScreen->mons[i].monData;
-        ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, sIslandSelectMons, currMonId, SELECTABLE_MONS_COUNT - 1, CB2_Island_InitSelectScreen);
+        ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, sIslandSelectMons, currMonId, SELECTABLE_MONS_COUNT - 1, CB2_IslandInitSelectScreen);
         break;
     }
 }
@@ -1526,7 +1533,7 @@ static void Island_SelectTask_Exit(u8 taskId)
             Island_SelectCopyMonsToPlayerParty();
             DestroyTask(sIslandSelectScreen->fadeSpeciesNameTaskId);
             Island_SelectDestroyAllSprites();
-            FREE_AND_SET_NULL(sSelectMenuTilesetBuffer);
+            FREE_AND_SET_NULL(sSelectIslandMenuTilesetBuffer);
             FREE_AND_SET_NULL(sSelectMenuTilemapBuffer);
             FREE_AND_SET_NULL(sSelectMonPicBgTilemapBuffer);
             FREE_AND_SET_NULL(sIslandSelectScreen);
@@ -1750,10 +1757,53 @@ static void Island_SelectTask_HandleChooseMons(u8 taskId)
 #undef STATE_MENU_REINIT
 #undef STATE_MENU_RESHOW
 
+static const u8 sFixedIVTable2[] =
+{
+    8,
+    15,
+    24,
+    31,
+};
+
+/*
+u8 GetSurvivalIslandMonFixedIV(void)
+{
+
+    /*
+    u8 ivSet;
+    bool8 useHigherIV = isLastBattle ? TRUE : FALSE;
+    */
+
+//   u8 difficulty = DIFFICULTY;
+
+// The Factory has an out-of-bounds access when generating the rental draft for round 9 (challengeNum==8),
+// or the "elevated" rentals from round 8 (challengeNum+1==8)
+// This happens to land on a number higher than 31, which is interpreted as "random IVs"
+/*#ifdef BUGFIX
+    if (challengeNum >= ARRAY_COUNT(sFixedIVTable))
+#else
+    if (challengeNum > ARRAY_COUNT(sFixedIVTable))
+#endif
+        ivSet = ARRAY_COUNT(sFixedIVTable) - 1;
+    else
+        ivSet = challengeNum;*/
+/*
+    
+    if (difficulty == DIFFICULTY_EASY)
+        return sFixedIVTable2[0];
+    else if (difficulty == DIFFICULTY_NORMAL)
+        return sFixedIVTable2[1];
+    if (difficulty == DIFFICULTY_HARD)
+        return sFixedIVTable2[2];
+    else
+        return sFixedIVTable2[3];
+}
+*/
+
 static void CreateSurvivalIslandSelectableMons(u8 firstMonId)
 {
     u8 i = 0;
-    u8 ivs = 0;
+    u8 ivs = 31;
     u8 level = 5;
     u32 otId = 0;
 //    u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
@@ -1778,7 +1828,7 @@ static void CreateSurvivalIslandSelectableMons(u8 firstMonId)
 //        if (i < rentalRank)
 //            ivs = GetSurvivalIslandMonFixedIV;
 //        else
-            ivs = GetSurvivalIslandMonFixedIV;
+//            ivs = GetSurvivalIslandMonFixedIV;
         
         CreateFacilityMon(&gFacilityTrainerMons[monId],
                 level, ivs, otId, FLAG_FRONTIER_MON_FACTORY,
@@ -2125,7 +2175,7 @@ static void SpriteCB_CloseChosenMonPics(struct Sprite *sprite)
 #define tWinTop       data[5]
 #define tWinBottom    data[8]
 #define tSpriteId     data[6] // TODO: Clarify, what sprite
-#define tIsSwapScreen data[7]
+#define tIsIslandSwapScreen data[7]
 
 static void Island_SelectTask_OpenChosenMonPics(u8 taskId)
 {
@@ -2331,7 +2381,7 @@ static void Island_SelectTask_FadeSpeciesName(u8 taskId)
 // Swap Screen's section begins here.
 
 /*
-static void Swap_CB2(void)
+static void Island_Swap_CB2(void)
 {
     AnimateSprites();
     BuildOamBuffer();
@@ -2340,7 +2390,7 @@ static void Swap_CB2(void)
     RunTasks();
 }
 
-static void Swap_VblankCb(void)
+static void Island_Swap_VblankCb(void)
 {
     LoadOam();
     ProcessSpriteCopyRequests();
@@ -2361,8 +2411,8 @@ static void CopySwappedMonData(void)
 }
 
 // Main swap states
-// States for the main tasks of the Swap_ functions after initialization, including:
-// Swap_Task_OpenSummaryScreen, Swap_Task_HandleYesNo, Swap_Task_HandleMenu, and Swap_Task_HandleChooseMons
+// States for the main tasks of the Island_Swap_ functions after initialization, including:
+// Island_Swap_Task_OpenSummaryScreen, Island_Swap_Task_HandleYesNo, Island_Swap_Task_HandleMenu, and Island_Swap_Task_HandleChooseMons
 // Tasks sharing states was unnecessary, see "Main select states"
 #define STATE_CHOOSE_MONS_INIT 0
 #define STATE_CHOOSE_MONS_HANDLE_INPUT 1
@@ -2375,7 +2425,7 @@ static void CopySwappedMonData(void)
 #define STATE_SUMMARY_SHOW 8
 #define STATE_MENU_SHOW_OPTIONS 9
 
-static void Swap_Task_OpenSummaryScreen(u8 taskId)
+static void Island_Swap_Task_OpenSummaryScreen(u8 taskId)
 {
     switch (gTasks[taskId].tState)
     {
@@ -2388,11 +2438,11 @@ static void Swap_Task_OpenSummaryScreen(u8 taskId)
         {
             DestroyTask(sIslandSwapScreen->fadeSpeciesNameTaskId);
             HideMonPic(sIslandSwapScreen->monPic, &sIslandSwapScreen->monPicAnimating);
-            Swap_DestroyAllSprites();
-            FREE_AND_SET_NULL(sSwapMenuTilesetBuffer);
-            FREE_AND_SET_NULL(sSwapMonPicBgTilesetBuffer);
-            FREE_AND_SET_NULL(sSwapMenuTilemapBuffer);
-            FREE_AND_SET_NULL(sSwapMonPicBgTilemapBuffer);
+            Island_Swap_DestroyAllSprites();
+            FREE_AND_SET_NULL(sIslandSwapMenuTilesetBuffer);
+            FREE_AND_SET_NULL(sIslandSwapMonPicBgTilesetBuffer);
+            FREE_AND_SET_NULL(sIslandSwapMenuTilemapBuffer);
+            FREE_AND_SET_NULL(sIslandSwapMonPicBgTilemapBuffer);
             FreeAllWindowBuffers();
             gTasks[taskId].tState = STATE_SUMMARY_SHOW;
         }
@@ -2406,7 +2456,7 @@ static void Swap_Task_OpenSummaryScreen(u8 taskId)
     }
 }
 
-static void Swap_Task_Exit(u8 taskId)
+static void Island_Swap_Task_Exit(u8 taskId)
 {
     if (sIslandSwapScreen->monPicAnimating == TRUE)
         return;
@@ -2443,11 +2493,11 @@ static void Swap_Task_Exit(u8 taskId)
         if (!UpdatePaletteFade())
         {
             DestroyTask(sIslandSwapScreen->fadeSpeciesNameTaskId);
-            Swap_DestroyAllSprites();
-            FREE_AND_SET_NULL(sSwapMenuTilesetBuffer);
-            FREE_AND_SET_NULL(sSwapMonPicBgTilesetBuffer);
-            FREE_AND_SET_NULL(sSwapMenuTilemapBuffer);
-            FREE_AND_SET_NULL(sSwapMonPicBgTilemapBuffer);
+            Island_Swap_DestroyAllSprites();
+            FREE_AND_SET_NULL(sIslandSwapMenuTilesetBuffer);
+            FREE_AND_SET_NULL(sIslandSwapMonPicBgTilesetBuffer);
+            FREE_AND_SET_NULL(sIslandSwapMenuTilemapBuffer);
+            FREE_AND_SET_NULL(sIslandSwapMonPicBgTilemapBuffer);
             FREE_AND_SET_NULL(sIslandSwapScreen);
             FreeAllWindowBuffers();
             SetMainCallback2(CB2_ReturnToFieldContinueScript);
@@ -2462,7 +2512,7 @@ static void Swap_Task_Exit(u8 taskId)
 #define tFollowUpTaskPtrHi data[6]
 #define tFollowUpTaskPtrLo data[7]
 
-static void Swap_Task_HandleYesNo(u8 taskId)
+static void Island_Swap_Task_HandleYesNo(u8 taskId)
 {
     u16 loPtr, hiPtr;
 
@@ -2472,7 +2522,7 @@ static void Swap_Task_HandleYesNo(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case STATE_YESNO_SHOW:
-        Swap_ShowYesNoOptions();
+        Island_Swap_ShowYesNoOptions();
         gTasks[taskId].tState = STATE_YESNO_HANDLE_INPUT;
         break;
     case STATE_YESNO_HANDLE_INPUT:
@@ -2491,7 +2541,7 @@ static void Swap_Task_HandleYesNo(u8 taskId)
             {
                 // Selected No
                 gTasks[taskId].tSaidYes = FALSE;
-                Swap_ErasePopupMenu(SWAP_WIN_YES_NO);
+                Island_Swap_ErasePopupMenu(SWAP_WIN_YES_NO);
                 hiPtr = gTasks[taskId].tFollowUpTaskPtrHi;
                 loPtr = gTasks[taskId].tFollowUpTaskPtrLo;
                 gTasks[taskId].func = (void *)((hiPtr << 16) | loPtr);
@@ -2501,7 +2551,7 @@ static void Swap_Task_HandleYesNo(u8 taskId)
         {
             PlaySE(SE_SELECT);
             gTasks[taskId].tSaidYes = FALSE;
-            Swap_ErasePopupMenu(SWAP_WIN_YES_NO);
+            Island_Swap_ErasePopupMenu(SWAP_WIN_YES_NO);
             hiPtr = gTasks[taskId].tFollowUpTaskPtrHi;
             loPtr = gTasks[taskId].tFollowUpTaskPtrLo;
             gTasks[taskId].func = (void *)((hiPtr << 16) | loPtr);
@@ -2509,80 +2559,80 @@ static void Swap_Task_HandleYesNo(u8 taskId)
         else if (JOY_REPEAT(DPAD_UP))
         {
             PlaySE(SE_SELECT);
-            Swap_UpdateYesNoCursorPosition(-1);
+            Island_Swap_UpdateYesNoCursorPosition(-1);
         }
         else if (JOY_REPEAT(DPAD_DOWN))
         {
             PlaySE(SE_SELECT);
-            Swap_UpdateYesNoCursorPosition(1);
+            Island_Swap_UpdateYesNoCursorPosition(1);
         }
         break;
     }
 }
 
-static void Swap_HandleQuitSwappingResponse(u8 taskId)
+static void Island_Swap_HandleQuitSwappingResponse(u8 taskId)
 {
     if (gTasks[taskId].tSaidYes == TRUE)
     {
         gTasks[taskId].tState = 0;
-        gTasks[taskId].func = Swap_Task_Exit;
+        gTasks[taskId].func = Island_Swap_Task_Exit;
     }
     else
     {
         gTasks[taskId].tState = 0;
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_HandleChooseMons) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_HandleChooseMons);
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_HandleChooseMons) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_HandleChooseMons);
         gTasks[taskId].tFollowUpTaskState = STATE_CHOOSE_MONS_HANDLE_INPUT;
-        gTasks[taskId].func = Swap_Task_ScreenInfoTransitionIn;
+        gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionIn;
     }
 }
 
-static void Swap_AskQuitSwapping(u8 taskId)
+static void Island_Swap_AskQuitSwapping(u8 taskId)
 {
     if (gTasks[taskId].tState == 0)
     {
-        Swap_PrintOnInfoWindow(gText_QuitSwapping);
+        Island_Swap_PrintOnInfoWindow(gText_QuitSwapping);
         sIslandSwapScreen->monSwapped = FALSE;
         gTasks[taskId].tState = STATE_YESNO_SHOW;
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_HandleQuitSwappingResponse) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_HandleQuitSwappingResponse);
-        gTasks[taskId].func = Swap_Task_HandleYesNo;
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_HandleQuitSwappingResponse) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_HandleQuitSwappingResponse);
+        gTasks[taskId].func = Island_Swap_Task_HandleYesNo;
     }
 }
 
-static void Swap_HandleAcceptMonResponse(u8 taskId)
+static void Island_Swap_HandleAcceptMonResponse(u8 taskId)
 {
     CloseMonPic(sIslandSwapScreen->monPic, &sIslandSwapScreen->monPicAnimating, TRUE);
     if (gTasks[taskId].tSaidYes == TRUE)
     {
         gTasks[taskId].tState = 0;
-        gTasks[taskId].func = Swap_Task_Exit;
+        gTasks[taskId].func = Island_Swap_Task_Exit;
     }
     else
     {
         gTasks[taskId].tState = 0;
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_HandleChooseMons) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_HandleChooseMons);
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_HandleChooseMons) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_HandleChooseMons);
         gTasks[taskId].tFollowUpTaskState = STATE_CHOOSE_MONS_HANDLE_INPUT;
-        gTasks[taskId].func = Swap_Task_ScreenInfoTransitionIn;
+        gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionIn;
     }
 }
 
-static void Swap_AskAcceptMon(u8 taskId)
+static void Island_Swap_AskAcceptMon(u8 taskId)
 {
     if (gTasks[taskId].tState == 0)
     {
         OpenMonPic(&sIslandSwapScreen->monPic.bgSpriteId, &sIslandSwapScreen->monPicAnimating, TRUE);
-        Swap_PrintOnInfoWindow(gText_AcceptThisPkmn);
+        Island_Swap_PrintOnInfoWindow(gText_AcceptThisPkmn);
         sIslandSwapScreen->monSwapped = TRUE;
         gTasks[taskId].tState = STATE_YESNO_SHOW;
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_HandleAcceptMonResponse) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_HandleAcceptMonResponse);
-        gTasks[taskId].func = Swap_Task_HandleYesNo;
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_HandleAcceptMonResponse) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_HandleAcceptMonResponse);
+        gTasks[taskId].func = Island_Swap_Task_HandleYesNo;
     }
 }
 
-static void Swap_Task_HandleMenu(u8 taskId)
+static void Island_Swap_Task_HandleMenu(u8 taskId)
 {
     switch (gTasks[taskId].tState)
     {
@@ -2594,7 +2644,7 @@ static void Swap_Task_HandleMenu(u8 taskId)
     case STATE_MENU_SHOW_OPTIONS:
         if (sIslandSwapScreen->monPicAnimating != TRUE)
         {
-            Swap_ShowMenuOptions();
+            Island_Swap_ShowMenuOptions();
             gTasks[taskId].tState = STATE_MENU_HANDLE_INPUT;
         }
         break;
@@ -2604,26 +2654,26 @@ static void Swap_Task_HandleMenu(u8 taskId)
             if (JOY_NEW(A_BUTTON))
             {
                 PlaySE(SE_SELECT);
-                Swap_RunMenuOptionFunc(taskId);
+                Island_Swap_RunMenuOptionFunc(taskId);
             }
             else if (JOY_NEW(B_BUTTON))
             {
                 PlaySE(SE_SELECT);
                 CloseMonPic(sIslandSwapScreen->monPic, &sIslandSwapScreen->monPicAnimating, TRUE);
-                Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
+                Island_Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
                 gTasks[taskId].tState = 0;
-                gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_HandleChooseMons) >> 16;
-                gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_HandleChooseMons);
+                gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_HandleChooseMons) >> 16;
+                gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_HandleChooseMons);
                 gTasks[taskId].tFollowUpTaskState = STATE_CHOOSE_MONS_HANDLE_INPUT;
-                gTasks[taskId].func = Swap_Task_ScreenInfoTransitionIn;
+                gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionIn;
             }
             else if (JOY_REPEAT(DPAD_UP))
             {
-                Swap_UpdateMenuCursorPosition(-1);
+                Island_Swap_UpdateMenuCursorPosition(-1);
             }
             else if (JOY_REPEAT(DPAD_DOWN))
             {
-                Swap_UpdateMenuCursorPosition(1);
+                Island_Swap_UpdateMenuCursorPosition(1);
             }
         }
         break;
@@ -2631,7 +2681,7 @@ static void Swap_Task_HandleMenu(u8 taskId)
 }
 
 // Handles input on the two main swap screens (choosing a current pokeon to get rid of, and choosing a new Pokémon to receive)
-static void Swap_Task_HandleChooseMons(u8 taskId)
+static void Island_Swap_Task_HandleChooseMons(u8 taskId)
 {
     switch (gTasks[taskId].tState)
     {
@@ -2648,52 +2698,52 @@ static void Swap_Task_HandleChooseMons(u8 taskId)
             // Run whatever action is currently selected (a Poké Ball, the Cancel button, etc.)
             PlaySE(SE_SELECT);
             sIslandSwapScreen->fadeSpeciesNameActive = FALSE;
-            Swap_PrintMonSpeciesAtFade();
-            Swap_EraseSpeciesWindow();
-            Swap_RunActionFunc(taskId);
+            Island_Swap_PrintMonSpeciesAtFade();
+            Island_Swap_EraseSpeciesWindow();
+            Island_Swap_RunActionFunc(taskId);
         }
         else if (JOY_NEW(B_BUTTON))
         {
             // Ask if player wants to quit swapping
             PlaySE(SE_SELECT);
             sIslandSwapScreen->fadeSpeciesNameActive = FALSE;
-            Swap_PrintMonSpeciesAtFade();
-            Swap_EraseSpeciesWindow();
-            gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_AskQuitSwapping) >> 16;
-            gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_AskQuitSwapping);
+            Island_Swap_PrintMonSpeciesAtFade();
+            Island_Swap_EraseSpeciesWindow();
+            gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_AskQuitSwapping) >> 16;
+            gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_AskQuitSwapping);
             gTasks[taskId].tState = 0;
             gTasks[taskId].tFollowUpTaskState = 0;
-            gTasks[taskId].func = Swap_Task_ScreenInfoTransitionOut;
+            gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionOut;
         }
         else if (JOY_REPEAT(DPAD_LEFT))
         {
-            Swap_UpdateBallCursorPosition(-1);
-            Swap_PrintMonCategory();
-            Swap_PrintMonSpecies();
+            Island_Swap_UpdateBallCursorPosition(-1);
+            Island_Swap_PrintMonCategory();
+            Island_Swap_PrintMonSpecies();
         }
         else if (JOY_REPEAT(DPAD_RIGHT))
         {
-            Swap_UpdateBallCursorPosition(1);
-            Swap_PrintMonCategory();
-            Swap_PrintMonSpecies();
+            Island_Swap_UpdateBallCursorPosition(1);
+            Island_Swap_PrintMonCategory();
+            Island_Swap_PrintMonSpecies();
         }
         else if (JOY_REPEAT(DPAD_DOWN))
         {
-            Swap_UpdateActionCursorPosition(1);
-            Swap_PrintMonCategory();
-            Swap_PrintMonSpecies();
+            Island_Swap_UpdateActionCursorPosition(1);
+            Island_Swap_PrintMonCategory();
+            Island_Swap_PrintMonSpecies();
         }
         else if (JOY_REPEAT(DPAD_UP))
         {
-            Swap_UpdateActionCursorPosition(-1);
-            Swap_PrintMonCategory();
-            Swap_PrintMonSpecies();
+            Island_Swap_UpdateActionCursorPosition(-1);
+            Island_Swap_PrintMonCategory();
+            Island_Swap_PrintMonSpecies();
         }
         break;
     }
 }
 
-static void Swap_Task_FadeSpeciesName(u8 taskId)
+static void Island_Swap_Task_FadeSpeciesName(u8 taskId)
 {
     switch (gTasks[taskId].tState)
     {
@@ -2750,7 +2800,7 @@ static void Swap_Task_FadeSpeciesName(u8 taskId)
 
 #define tFadeOutFinished data[4]
 
-static void Swap_Task_FadeOutSpeciesName(u8 taskId)
+static void Island_Swap_Task_FadeOutSpeciesName(u8 taskId)
 {
     switch (gTasks[taskId].tState)
     {
@@ -2784,7 +2834,7 @@ static void Swap_Task_FadeOutSpeciesName(u8 taskId)
 // Slide current pokeballs offscreen to the right and new pokeballs onscreen from
 // the left during transition between player's/enemy's party screens
 #define tBallCycled(i) data[(i) + 1]
-static void Swap_Task_SlideCycleBalls(u8 taskId)
+static void Island_Swap_Task_SlideCycleBalls(u8 taskId)
 {
     s8 i;
     u8 lastX;
@@ -2877,7 +2927,7 @@ static void Swap_Task_SlideCycleBalls(u8 taskId)
 #define tSlideFinishedPkmn   data[3]
 #define tSlideFinishedCancel data[4]
 
-static void Swap_Task_SlideButtonOnOffScreen(u8 taskId)
+static void Island_Swap_Task_SlideButtonOnOffScreen(u8 taskId)
 {
     u8 i, j;
     s32 posX = 0;
@@ -2998,7 +3048,7 @@ static void Swap_Task_SlideButtonOnOffScreen(u8 taskId)
 }
 
 // Slide action buttons offscreen
-static void Swap_Task_ScreenInfoTransitionOut(u8 taskId)
+static void Island_Swap_Task_ScreenInfoTransitionOut(u8 taskId)
 {
     u8 slideTaskId;
     u16 hiPtr, loPtr;
@@ -3006,13 +3056,13 @@ static void Swap_Task_ScreenInfoTransitionOut(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case 0:
-        LoadPalette(sSwapText_Pal, BG_PLTT_ID(PALNUM_FADE_TEXT), sizeof(sSwapText_Pal));
-        Swap_PrintActionStrings();
+        LoadPalette(sIslandSwapText_Pal, BG_PLTT_ID(PALNUM_FADE_TEXT), sizeof(sIslandSwapText_Pal));
+        Island_Swap_PrintActionStrings();
         PutWindowTilemap(SWAP_WIN_ACTION_FADE);
         gTasks[taskId].tState++;
         break;
     case 1:
-        Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
+        Island_Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
         gTasks[taskId].tState++;
         break;
     case 2:
@@ -3027,7 +3077,7 @@ static void Swap_Task_ScreenInfoTransitionOut(u8 taskId)
             if (sIslandSwapScreen->inEnemyScreen == TRUE)
             {
                 // Start "Pkmn for Swap" button slide offscreen
-                slideTaskId = CreateTask(Swap_Task_SlideButtonOnOffScreen, 0);
+                slideTaskId = CreateTask(Island_Swap_Task_SlideButtonOnOffScreen, 0);
                 gTasks[taskId].tSlideFinishedPkmn = FALSE;
                 gTasks[slideTaskId].tTaskId = taskId;
                 gTasks[slideTaskId].tState = SLIDE_BUTTON_PKMN;
@@ -3039,7 +3089,7 @@ static void Swap_Task_ScreenInfoTransitionOut(u8 taskId)
             else
             {
                 // Start "Cancel" button slide offscreen
-                slideTaskId = CreateTask(Swap_Task_SlideButtonOnOffScreen, 0);
+                slideTaskId = CreateTask(Island_Swap_Task_SlideButtonOnOffScreen, 0);
                 gTasks[taskId].tSlideFinishedPkmn = TRUE;
                 gTasks[taskId].tSlideFinishedCancel = FALSE;
                 gTasks[slideTaskId].tTaskId = taskId;
@@ -3054,7 +3104,7 @@ static void Swap_Task_ScreenInfoTransitionOut(u8 taskId)
         // Start "Cancel" button slide offscreen for screens with both buttons
         if (gTasks[taskId].tSecondSlideDelay == 0)
         {
-            slideTaskId = CreateTask(Swap_Task_SlideButtonOnOffScreen, 0);
+            slideTaskId = CreateTask(Island_Swap_Task_SlideButtonOnOffScreen, 0);
             gTasks[taskId].tSlideFinishedCancel = FALSE;
             gTasks[slideTaskId].tTaskId = taskId;
             gTasks[slideTaskId].tState = SLIDE_BUTTON_CANCEL;
@@ -3081,7 +3131,7 @@ static void Swap_Task_ScreenInfoTransitionOut(u8 taskId)
 }
 
 // Slide action buttons onscreen, reprint swap dialogue and mon info
-static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
+static void Island_Swap_Task_ScreenInfoTransitionIn(u8 taskId)
 {
     u8 slideTaskId;
     u16 hiPtr, loPtr;
@@ -3094,7 +3144,7 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
         if (sIslandSwapScreen->inEnemyScreen == TRUE)
         {
             // Start "Pkmn for Swap" button slide onscreen
-            slideTaskId = CreateTask(Swap_Task_SlideButtonOnOffScreen, 0);
+            slideTaskId = CreateTask(Island_Swap_Task_SlideButtonOnOffScreen, 0);
             gTasks[taskId].tSlideFinishedPkmn = FALSE;
             gTasks[slideTaskId].tTaskId = taskId;
             gTasks[slideTaskId].tState = SLIDE_BUTTON_PKMN;
@@ -3106,7 +3156,7 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
         else
         {
             // Start "Cancel" button slide onscreen
-            slideTaskId = CreateTask(Swap_Task_SlideButtonOnOffScreen, 0);
+            slideTaskId = CreateTask(Island_Swap_Task_SlideButtonOnOffScreen, 0);
             gTasks[taskId].tSlideFinishedPkmn = TRUE;
             gTasks[taskId].tSlideFinishedCancel = FALSE;
             gTasks[slideTaskId].tTaskId = taskId;
@@ -3120,7 +3170,7 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
         // Start "Cancel" button slide onscreen for screens with both buttons
         if (gTasks[taskId].tSecondSlideDelay == 0)
         {
-            slideTaskId = CreateTask(Swap_Task_SlideButtonOnOffScreen, 0);
+            slideTaskId = CreateTask(Island_Swap_Task_SlideButtonOnOffScreen, 0);
             gTasks[taskId].tSlideFinishedCancel = FALSE;
             gTasks[slideTaskId].tTaskId = taskId;
             gTasks[slideTaskId].tState = SLIDE_BUTTON_CANCEL;
@@ -3138,7 +3188,7 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
          && gTasks[taskId].tSlideFinishedCancel == TRUE)
         {
             gPlttBufferFaded[BG_PLTT_ID(PALNUM_FADE_TEXT) + 2] = sPokeballGray_Pal[37];
-            Swap_PrintActionStrings();
+            Island_Swap_PrintActionStrings();
             PutWindowTilemap(SWAP_WIN_ACTION_FADE);
             gTasks[taskId].tState++;
         }
@@ -3150,12 +3200,12 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
     case 4:
         if (!gPaletteFade.active)
         {
-            Swap_PrintOneActionString(0);
+            Island_Swap_PrintOneActionString(0);
             gTasks[taskId].tState++;
         }
         break;
     case 5:
-        Swap_PrintOneActionString(1);
+        Island_Swap_PrintOneActionString(1);
         PutWindowTilemap(SWAP_WIN_OPTIONS);
         gTasks[taskId].tState++;
         break;
@@ -3166,17 +3216,17 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
         break;
     case 7:
         if (!sIslandSwapScreen->inEnemyScreen)
-            Swap_PrintOnInfoWindow(gText_SelectPkmnToSwap);
+            Island_Swap_PrintOnInfoWindow(gText_SelectPkmnToSwap);
         else
-            Swap_PrintOnInfoWindow(gText_SelectPkmnToAccept);
+            Island_Swap_PrintOnInfoWindow(gText_SelectPkmnToAccept);
         if (sIslandSwapScreen->cursorPos < FRONTIER_PARTY_SIZE)
             gSprites[sIslandSwapScreen->cursorSpriteId].invisible = FALSE;
-        Swap_PrintMonCategory();
+        Island_Swap_PrintMonCategory();
         gTasks[taskId].tState++;
         break;
     case 8:
-        Swap_PrintMonSpeciesForTransition();
-        Swap_EraseSpeciesAtFadeWindow();
+        Island_Swap_PrintMonSpeciesForTransition();
+        Island_Swap_EraseSpeciesAtFadeWindow();
         sIslandSwapScreen->fadeSpeciesNameActive = TRUE;
         gTasks[taskId].tState = gTasks[taskId].tFollowUpTaskState;
         hiPtr = gTasks[taskId].tFollowUpTaskPtrHi;
@@ -3193,7 +3243,7 @@ static void Swap_Task_ScreenInfoTransitionIn(u8 taskId)
 #undef tSlideFinishedCancel
 
 // For switching between the swap screens with the player's / enemy's parties
-static void Swap_Task_SwitchPartyScreen(u8 taskId)
+static void Island_Swap_Task_SwitchPartyScreen(u8 taskId)
 {
     u8 i;
     if (sIslandSwapScreen->monPicAnimating == TRUE)
@@ -3202,38 +3252,38 @@ static void Swap_Task_SwitchPartyScreen(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case 0:
-        Swap_PrintMonSpeciesForTransition();
+        Island_Swap_PrintMonSpeciesForTransition();
         gTasks[taskId].tState++;
         break;
     case 1:
-        Swap_EraseSpeciesAtFadeWindow();
+        Island_Swap_EraseSpeciesAtFadeWindow();
         gSprites[sIslandSwapScreen->cursorSpriteId].invisible = TRUE;
         gTasks[taskId].tState++;
         break;
     case 2:
-        CreateTask(Swap_Task_SlideCycleBalls, 0);
-        gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].func = Swap_Task_FadeOutSpeciesName;
+        CreateTask(Island_Swap_Task_SlideCycleBalls, 0);
+        gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].func = Island_Swap_Task_FadeOutSpeciesName;
         gTasks[taskId].tState++;
         break;
     case 3:
-        if (!FuncIsActiveTask(Swap_Task_SlideCycleBalls)
+        if (!FuncIsActiveTask(Island_Swap_Task_SlideCycleBalls)
          && gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].tFadeOutFinished == TRUE)
         {
-            Swap_EraseSpeciesWindow();
+            Island_Swap_EraseSpeciesWindow();
             if (!sIslandSwapScreen->inEnemyScreen)
             {
-                Swap_InitActions(SWAP_ENEMY_SCREEN);
+                Island_Swap_InitActions(SWAP_ENEMY_SCREEN);
             }
             else
             {
-                Swap_InitActions(SWAP_PLAYER_SCREEN);
+                Island_Swap_InitActions(SWAP_PLAYER_SCREEN);
 
                 // Hide "Pkmn for Swap" button
                 for (i = 0; i < ARRAY_COUNT(sIslandSwapScreen->pkmnForSwapButtonSpriteIds[0]); i++)
                     gSprites[sIslandSwapScreen->pkmnForSwapButtonSpriteIds[1][i]].invisible = TRUE;
             }
             gSprites[sIslandSwapScreen->cursorSpriteId].x = gSprites[sIslandSwapScreen->ballSpriteIds[sIslandSwapScreen->cursorPos]].x;
-            gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].func = Swap_Task_FadeSpeciesName;
+            gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].func = Island_Swap_Task_FadeSpeciesName;
             sIslandSwapScreen->fadeSpeciesNameCoeffDelay = 0;
             sIslandSwapScreen->fadeSpeciesNameCoeff = 6;
             sIslandSwapScreen->fadeSpeciesNameFadeOut = FALSE;
@@ -3243,17 +3293,17 @@ static void Swap_Task_SwitchPartyScreen(u8 taskId)
         break;
     case 4:
         gTasks[taskId].tState = 0;
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_HandleChooseMons) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_HandleChooseMons);
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_HandleChooseMons) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_HandleChooseMons);
         gTasks[taskId].tFollowUpTaskState = STATE_CHOOSE_MONS_HANDLE_INPUT;
-        gTasks[taskId].func = Swap_Task_ScreenInfoTransitionIn;
+        gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionIn;
         break;
     }
 }
 
 #undef tFadeOutFinished
 
-static void Swap_InitStruct(void)
+static void Island_Swap_InitStruct(void)
 {
     if (sIslandSwapScreen == NULL)
     {
@@ -3264,7 +3314,7 @@ static void Swap_InitStruct(void)
     }
 }
 
-void DoBattleIslandSwapScreen(void)
+void DoSurvivalIslandSwapScreen(void)
 {
     sIslandSwapScreen = NULL;
     SetMainCallback2(CB2_InitSwapScreen);
@@ -3281,20 +3331,20 @@ static void CB2_InitSwapScreen(void)
         SetVBlankCallback(NULL);
         CpuFill32(0, (void *)VRAM, VRAM_SIZE);
         ResetBgsAndClearDma3BusyFlags(0);
-        InitBgsFromTemplates(0, sSwap_BgTemplates, ARRAY_COUNT(sSwap_BgTemplates));
-        InitWindows(sSwap_WindowTemplates);
+        InitBgsFromTemplates(0, sIsland_Swap_BgTemplates, ARRAY_COUNT(sIsland_Swap_BgTemplates));
+        InitWindows(sIsland_Swap_WindowTemplates);
         DeactivateAllTextPrinters();
         gMain.state++;
         break;
     case 1:
-        sSwapMenuTilesetBuffer = Alloc(sizeof(gSurvivalIslandMenu_Gfx));
+        sIslandSwapMenuTilesetBuffer = Alloc(sizeof(gSurvivalIslandMenu_Gfx));
 #ifdef BUGFIX
-        sSwapMonPicBgTilesetBuffer = AllocZeroed(sizeof(sMonPicBg_Gfx));
+        sIslandSwapMonPicBgTilesetBuffer = AllocZeroed(sizeof(sMonPicBg_Gfx));
 #else
-        sSwapMonPicBgTilesetBuffer = AllocZeroed(sizeof(gSurvivalIslandMenu_Gfx)); // Incorrect size
+        sIslandSwapMonPicBgTilesetBuffer = AllocZeroed(sizeof(gSurvivalIslandMenu_Gfx)); // Incorrect size
 #endif
-        sSwapMenuTilemapBuffer = Alloc(BG_SCREEN_SIZE);
-        sSwapMonPicBgTilemapBuffer = AllocZeroed(BG_SCREEN_SIZE);
+        sIslandSwapMenuTilemapBuffer = Alloc(BG_SCREEN_SIZE);
+        sIslandSwapMonPicBgTilemapBuffer = AllocZeroed(BG_SCREEN_SIZE);
         ChangeBgX(0, 0, BG_COORD_SET);
         ChangeBgY(0, 0, BG_COORD_SET);
         ChangeBgX(1, 0, BG_COORD_SET);
@@ -3319,29 +3369,29 @@ static void CB2_InitSwapScreen(void)
         ResetTasks();
         FreeAllSpritePalettes();
         ResetAllPicSprites();
-        CpuCopy16(gSurvivalIslandMenu_Gfx, sSwapMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx));
-        CpuCopy16(sMonPicBg_Gfx, sSwapMonPicBgTilesetBuffer, sizeof(sMonPicBg_Gfx));
-        LoadBgTiles(1, sSwapMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx), 0);
-        LoadBgTiles(3, sSwapMonPicBgTilesetBuffer, sizeof(sMonPicBg_Gfx), 0);
-        CpuCopy16(gSurvivalIslandMenu_Tilemap, sSwapMenuTilemapBuffer, BG_SCREEN_SIZE);
-        LoadBgTilemap(1, sSwapMenuTilemapBuffer, BG_SCREEN_SIZE, 0);
+        CpuCopy16(gSurvivalIslandMenu_Gfx, sIslandSwapMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx));
+        CpuCopy16(sMonPicBg_Gfx, sIslandSwapMonPicBgTilesetBuffer, sizeof(sMonPicBg_Gfx));
+        LoadBgTiles(1, sIslandSwapMenuTilesetBuffer, sizeof(gSurvivalIslandMenu_Gfx), 0);
+        LoadBgTiles(3, sIslandSwapMonPicBgTilesetBuffer, sizeof(sMonPicBg_Gfx), 0);
+        CpuCopy16(gSurvivalIslandMenu_Tilemap, sIslandSwapMenuTilemapBuffer, BG_SCREEN_SIZE);
+        LoadBgTilemap(1, sIslandSwapMenuTilemapBuffer, BG_SCREEN_SIZE, 0);
         LoadPalette(gSurvivalIslandMenu_Pal, 0, 2 * PLTT_SIZE_4BPP);
-        LoadPalette(sSwapText_Pal, BG_PLTT_ID(PALNUM_TEXT), sizeof(sSwapText_Pal));
-        LoadPalette(sSwapText_Pal, BG_PLTT_ID(PALNUM_FADE_TEXT), sizeof(sSwapText_Pal));
+        LoadPalette(sIslandSwapText_Pal, BG_PLTT_ID(PALNUM_TEXT), sizeof(sIslandSwapText_Pal));
+        LoadPalette(sIslandSwapText_Pal, BG_PLTT_ID(PALNUM_FADE_TEXT), sizeof(sIslandSwapText_Pal));
         LoadPalette(sMonPicBg_Pal, BG_PLTT_ID(2), PLTT_SIZEOF(2));
         gMain.state++;
         break;
     case 3:
-        SetBgTilemapBuffer(3, sSwapMonPicBgTilemapBuffer);
+        SetBgTilemapBuffer(3, sIslandSwapMonPicBgTilemapBuffer);
         CopyToBgTilemapBufferRect(3, sMonPicBg_Tilemap, 11, 4, 8, 8);
         CopyBgTilemapBufferToVram(3);
         gMain.state++;
         break;
     case 4:
-        LoadSpritePalettes(sSwap_SpritePalettes);
-        LoadSpriteSheets(sSwap_SpriteSheets);
-        LoadCompressedSpriteSheet(sSwap_BallGfx);
-        SetVBlankCallback(Swap_VblankCb);
+        LoadSpritePalettes(sIsland_Swap_SpritePalettes);
+        LoadSpriteSheets(sIsland_Swap_SpriteSheets);
+        LoadCompressedSpriteSheet(sIsland_Swap_BallGfx);
+        SetVBlankCallback(Island_Swap_VblankCb);
         gMain.state++;
         break;
     case 5:
@@ -3354,31 +3404,31 @@ static void CB2_InitSwapScreen(void)
         gMain.state++;
         break;
     case 6:
-        Swap_InitStruct();
-        Swap_InitAllSprites();
+        Island_Swap_InitStruct();
+        Island_Swap_InitAllSprites();
         if (sIslandSwapScreen->fromSummaryScreen == TRUE)
-            Swap_ShowSummaryMonSprite();
-        Swap_InitActions(SWAP_PLAYER_SCREEN);
+            Island_Swap_ShowSummaryMonSprite();
+        Island_Swap_InitActions(SWAP_PLAYER_SCREEN);
         gMain.state++;
         break;
     case 7:
-        Swap_PrintOnInfoWindow(gText_SelectPkmnToSwap);
+        Island_Swap_PrintOnInfoWindow(gText_SelectPkmnToSwap);
         PutWindowTilemap(SWAP_WIN_INFO);
         gMain.state++;
         break;
     case 8:
-        Swap_PrintMonCategory();
+        Island_Swap_PrintMonCategory();
         PutWindowTilemap(SWAP_WIN_MON_CATEGORY);
         gMain.state++;
         break;
     case 9:
         if (!sIslandSwapScreen->fromSummaryScreen)
-            Swap_PrintMonSpecies();
+            Island_Swap_PrintMonSpecies();
         PutWindowTilemap(SWAP_WIN_SPECIES);
         gMain.state++;
         break;
     case 10:
-        Swap_PrintPkmnSwap();
+        Island_Swap_PrintPkmnSwap();
         PutWindowTilemap(SWAP_WIN_TITLE);
         gMain.state++;
         break;
@@ -3387,11 +3437,11 @@ static void CB2_InitSwapScreen(void)
         break;
     case 12:
         if (sIslandSwapScreen->fromSummaryScreen)
-            Swap_PrintMonSpeciesAtFade();
+            Island_Swap_PrintMonSpeciesAtFade();
         gMain.state++;
         break;
     case 13:
-        Swap_PrintActionStrings2();
+        Island_Swap_PrintActionStrings2();
         PutWindowTilemap(SWAP_WIN_OPTIONS);
         gMain.state++;
         break;
@@ -3414,33 +3464,33 @@ static void CB2_InitSwapScreen(void)
         gMain.state++;
         break;
     case 15:
-        sIslandSwapScreen->fadeSpeciesNameTaskId = CreateTask(Swap_Task_FadeSpeciesName, 0);
+        sIslandSwapScreen->fadeSpeciesNameTaskId = CreateTask(Island_Swap_Task_FadeSpeciesName, 0);
         if (!sIslandSwapScreen->fromSummaryScreen)
         {
             gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].tState = FADESTATE_INIT;
-            taskId = CreateTask(Swap_Task_HandleChooseMons, 0);
+            taskId = CreateTask(Island_Swap_Task_HandleChooseMons, 0);
             gTasks[taskId].tState = STATE_CHOOSE_MONS_INIT;
         }
         else
         {
-            Swap_EraseActionFadeWindow();
+            Island_Swap_EraseActionFadeWindow();
             gTasks[sIslandSwapScreen->fadeSpeciesNameTaskId].tState = FADESTATE_RUN;
             sIslandSwapScreen->fadeSpeciesNameActive = FALSE;
-            taskId = CreateTask(Swap_Task_HandleMenu, 0);
+            taskId = CreateTask(Island_Swap_Task_HandleMenu, 0);
             gTasks[taskId].tState = STATE_MENU_INIT;
         }
-        SetMainCallback2(Swap_CB2);
+        SetMainCallback2(Island_Swap_CB2);
         break;
     }
 }
 
-static void Swap_InitAllSprites(void)
+static void Island_Swap_InitAllSprites(void)
 {
     u8 i;
     u8 x;
     struct SpriteTemplate spriteTemplate;
 
-    spriteTemplate = sSpriteTemplate_Swap_Pokeball;
+    spriteTemplate = sSpriteTemplate_Island_Swap_Pokeball;
     spriteTemplate.paletteTag = PALTAG_BALL_SELECTED;
 
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
@@ -3448,9 +3498,9 @@ static void Swap_InitAllSprites(void)
         sIslandSwapScreen->ballSpriteIds[i] = CreateSprite(&spriteTemplate, (48 * i) + 72, 64, 1);
         gSprites[sIslandSwapScreen->ballSpriteIds[i]].data[0] = 0;
     }
-    sIslandSwapScreen->cursorSpriteId = CreateSprite(&sSpriteTemplate_Swap_Arrow, gSprites[sIslandSwapScreen->ballSpriteIds[sIslandSwapScreen->cursorPos]].x, 88, 0);
-    sIslandSwapScreen->menuCursor1SpriteId = CreateSprite(&sSpriteTemplate_Swap_MenuHighlightLeft, 176, 112, 0);
-    sIslandSwapScreen->menuCursor2SpriteId = CreateSprite(&sSpriteTemplate_Swap_MenuHighlightRight, 176, 144, 0);
+    sIslandSwapScreen->cursorSpriteId = CreateSprite(&sSpriteTemplate_Island_Swap_Arrow, gSprites[sIslandSwapScreen->ballSpriteIds[sIslandSwapScreen->cursorPos]].x, 88, 0);
+    sIslandSwapScreen->menuCursor1SpriteId = CreateSprite(&sSpriteTemplate_Island_Swap_MenuHighlightLeft, 176, 112, 0);
+    sIslandSwapScreen->menuCursor2SpriteId = CreateSprite(&sSpriteTemplate_Island_Swap_MenuHighlightRight, 176, 144, 0);
     gSprites[sIslandSwapScreen->menuCursor1SpriteId].invisible = TRUE;
     gSprites[sIslandSwapScreen->menuCursor2SpriteId].invisible = TRUE;
     gSprites[sIslandSwapScreen->menuCursor1SpriteId].centerToCornerVecX = 0;
@@ -3466,38 +3516,38 @@ static void Swap_InitAllSprites(void)
     // Unusual way to create sprites
     // The sprite template for the selector arrow is re-used
     // with the tiles swapped out
-    spriteTemplate = sSpriteTemplate_Swap_Arrow;
+    spriteTemplate = sSpriteTemplate_Island_Swap_Arrow;
     spriteTemplate.tileTag = GFXTAG_ACTION_BOX_LEFT;
     sIslandSwapScreen->pkmnForSwapButtonSpriteIds[0][0] = CreateSprite(&spriteTemplate, DISPLAY_WIDTH, 120, 10);
 
-    spriteTemplate = sSpriteTemplate_Swap_MenuHighlightLeft;
+    spriteTemplate = sSpriteTemplate_Island_Swap_MenuHighlightLeft;
     spriteTemplate.tileTag = GFXTAG_ACTION_BOX_RIGHT;
     sIslandSwapScreen->pkmnForSwapButtonSpriteIds[0][1] = CreateSprite(&spriteTemplate, DISPLAY_WIDTH + 16, 120, 10);
     sIslandSwapScreen->pkmnForSwapButtonSpriteIds[0][2] = CreateSprite(&spriteTemplate, DISPLAY_WIDTH + 48, 120, 10);
 
-    spriteTemplate = sSpriteTemplate_Swap_Arrow;
+    spriteTemplate = sSpriteTemplate_Island_Swap_Arrow;
     spriteTemplate.tileTag = GFXTAG_ACTION_HIGHLIGHT_LEFT;
     sIslandSwapScreen->pkmnForSwapButtonSpriteIds[1][0] = CreateSprite(&spriteTemplate, DISPLAY_WIDTH, 120, 1);
 
-    spriteTemplate = sSpriteTemplate_Swap_MenuHighlightLeft;
+    spriteTemplate = sSpriteTemplate_Island_Swap_MenuHighlightLeft;
     spriteTemplate.tileTag = GFXTAG_ACTION_HIGHLIGHT_MIDDLE;
     sIslandSwapScreen->pkmnForSwapButtonSpriteIds[1][1] = CreateSprite(&spriteTemplate, DISPLAY_WIDTH + 16, 120, 1);
     spriteTemplate.tileTag = GFXTAG_ACTION_HIGHLIGHT_RIGHT;
     sIslandSwapScreen->pkmnForSwapButtonSpriteIds[1][2] = CreateSprite(&spriteTemplate, DISPLAY_WIDTH + 48, 120, 1);
 
-    spriteTemplate = sSpriteTemplate_Swap_Arrow;
+    spriteTemplate = sSpriteTemplate_Island_Swap_Arrow;
     spriteTemplate.tileTag = GFXTAG_ACTION_BOX_LEFT;
     sIslandSwapScreen->cancelButtonSpriteIds[0][0] = CreateSprite(&spriteTemplate, x, 144, 10);
 
-    spriteTemplate = sSpriteTemplate_Swap_MenuHighlightLeft;
+    spriteTemplate = sSpriteTemplate_Island_Swap_MenuHighlightLeft;
     spriteTemplate.tileTag = GFXTAG_ACTION_BOX_RIGHT;
     sIslandSwapScreen->cancelButtonSpriteIds[0][1] = CreateSprite(&spriteTemplate, x + 16, 144, 10);
 
-    spriteTemplate = sSpriteTemplate_Swap_Arrow;
+    spriteTemplate = sSpriteTemplate_Island_Swap_Arrow;
     spriteTemplate.tileTag = GFXTAG_ACTION_HIGHLIGHT_LEFT;
     sIslandSwapScreen->cancelButtonSpriteIds[1][0] = CreateSprite(&spriteTemplate, x, 144, 1);
 
-    spriteTemplate = sSpriteTemplate_Swap_MenuHighlightLeft;
+    spriteTemplate = sSpriteTemplate_Island_Swap_MenuHighlightLeft;
     spriteTemplate.tileTag = GFXTAG_ACTION_HIGHLIGHT_RIGHT;
     sIslandSwapScreen->cancelButtonSpriteIds[1][1] = CreateSprite(&spriteTemplate, x + 16, 144, 1);
 
@@ -3528,7 +3578,7 @@ static void Swap_InitAllSprites(void)
     gSprites[sIslandSwapScreen->pkmnForSwapButtonSpriteIds[0][2]].invisible = FALSE;
 }
 
-static void Swap_DestroyAllSprites(void)
+static void Island_Swap_DestroyAllSprites(void)
 {
     u8 i, j;
 
@@ -3549,24 +3599,24 @@ static void Swap_DestroyAllSprites(void)
     }
 }
 
-static void Swap_HandleActionCursorChange(u8 cursorId)
+static void Island_Swap_HandleActionCursorChange(u8 cursorId)
 {
     if (cursorId < FRONTIER_PARTY_SIZE)
     {
         // Cursor is on one of the Pokémon
         gSprites[sIslandSwapScreen->cursorSpriteId].invisible = FALSE;
-        Swap_HideActionButtonHighlights();
+        Island_Swap_HideActionButtonHighlights();
         gSprites[sIslandSwapScreen->cursorSpriteId].x = gSprites[sIslandSwapScreen->ballSpriteIds[cursorId]].x;
     }
     else
     {
         // Cursor is on an action button
         gSprites[sIslandSwapScreen->cursorSpriteId].invisible = TRUE;
-        Swap_HighlightActionButton(sIslandSwapScreen->actionsData[cursorId].id);
+        Island_Swap_HighlightActionButton(sIslandSwapScreen->actionsData[cursorId].id);
     }
 }
 
-static void Swap_UpdateBallCursorPosition(s8 direction)
+static void Island_Swap_UpdateBallCursorPosition(s8 direction)
 {
     u8 cursorPos;
     PlaySE(SE_SELECT);
@@ -3586,10 +3636,10 @@ static void Swap_UpdateBallCursorPosition(s8 direction)
     }
 
     cursorPos = sIslandSwapScreen->cursorPos;
-    Swap_HandleActionCursorChange(cursorPos);
+    Island_Swap_HandleActionCursorChange(cursorPos);
 }
 
-static void Swap_UpdateActionCursorPosition(s8 direction)
+static void Island_Swap_UpdateActionCursorPosition(s8 direction)
 {
     u8 cursorPos;
     PlaySE(SE_SELECT);
@@ -3613,10 +3663,10 @@ static void Swap_UpdateActionCursorPosition(s8 direction)
     }
 
     cursorPos = sIslandSwapScreen->cursorPos;
-    Swap_HandleActionCursorChange(cursorPos);
+    Island_Swap_HandleActionCursorChange(cursorPos);
 }
 
-static void Swap_UpdateYesNoCursorPosition(s8 direction)
+static void Island_Swap_UpdateYesNoCursorPosition(s8 direction)
 {
     if (direction > 0) // Move cursor down.
     {
@@ -3637,12 +3687,12 @@ static void Swap_UpdateYesNoCursorPosition(s8 direction)
     gSprites[sIslandSwapScreen->menuCursor2SpriteId].y = (sIslandSwapScreen->yesNoCursorPos * 16) + 112;
 }
 
-static void Swap_UpdateMenuCursorPosition(s8 direction)
+static void Island_Swap_UpdateMenuCursorPosition(s8 direction)
 {
     PlaySE(SE_SELECT);
     if (direction > 0) // Move cursor down.
     {
-        if (sIslandSwapScreen->menuCursorPos != ARRAY_COUNT(sSwap_MenuOptionFuncs) - 1)
+        if (sIslandSwapScreen->menuCursorPos != ARRAY_COUNT(sIsland_Swap_MenuOptionFuncs) - 1)
             sIslandSwapScreen->menuCursorPos++;
         else
             sIslandSwapScreen->menuCursorPos = 0;
@@ -3652,14 +3702,14 @@ static void Swap_UpdateMenuCursorPosition(s8 direction)
         if (sIslandSwapScreen->menuCursorPos != 0)
             sIslandSwapScreen->menuCursorPos--;
         else
-            sIslandSwapScreen->menuCursorPos = ARRAY_COUNT(sSwap_MenuOptionFuncs) - 1;
+            sIslandSwapScreen->menuCursorPos = ARRAY_COUNT(sIsland_Swap_MenuOptionFuncs) - 1;
     }
 
     gSprites[sIslandSwapScreen->menuCursor1SpriteId].y = (sIslandSwapScreen->menuCursorPos * 16) + 112;
     gSprites[sIslandSwapScreen->menuCursor2SpriteId].y = (sIslandSwapScreen->menuCursorPos * 16) + 112;
 }
 
-static void Swap_HighlightActionButton(u8 actionId)
+static void Island_Swap_HighlightActionButton(u8 actionId)
 {
     u8 i;
 
@@ -3686,7 +3736,7 @@ static void Swap_HighlightActionButton(u8 actionId)
     }
 }
 
-static void Swap_HideActionButtonHighlights(void)
+static void Island_Swap_HideActionButtonHighlights(void)
 {
     u8 i;
 
@@ -3701,7 +3751,7 @@ static void Swap_HideActionButtonHighlights(void)
     }
 }
 
-static void Swap_ShowMenuOptions(void)
+static void Island_Swap_ShowMenuOptions(void)
 {
     if (sIslandSwapScreen->fromSummaryScreen == TRUE)
         sIslandSwapScreen->fromSummaryScreen = FALSE;
@@ -3716,10 +3766,10 @@ static void Swap_ShowMenuOptions(void)
     gSprites[sIslandSwapScreen->menuCursor1SpriteId].invisible = FALSE;
     gSprites[sIslandSwapScreen->menuCursor2SpriteId].invisible = FALSE;
 
-    Swap_PrintMenuOptions();
+    Island_Swap_PrintMenuOptions();
 }
 
-static void Swap_ShowYesNoOptions(void)
+static void Island_Swap_ShowYesNoOptions(void)
 {
     sIslandSwapScreen->yesNoCursorPos = 0;
 
@@ -3731,10 +3781,10 @@ static void Swap_ShowYesNoOptions(void)
     gSprites[sIslandSwapScreen->menuCursor1SpriteId].invisible = FALSE;
     gSprites[sIslandSwapScreen->menuCursor2SpriteId].invisible = FALSE;
 
-    Swap_PrintYesNoOptions();
+    Island_Swap_PrintYesNoOptions();
 }
 
-static void Swap_ErasePopupMenu(u8 windowId)
+static void Island_Swap_ErasePopupMenu(u8 windowId)
 {
     gSprites[sIslandSwapScreen->menuCursor1SpriteId].invisible = TRUE;
     gSprites[sIslandSwapScreen->menuCursor2SpriteId].invisible = TRUE;
@@ -3743,36 +3793,36 @@ static void Swap_ErasePopupMenu(u8 windowId)
     ClearWindowTilemap(windowId);
 }
 
-static void Swap_EraseSpeciesWindow(void)
+static void Island_Swap_EraseSpeciesWindow(void)
 {
     PutWindowTilemap(SWAP_WIN_SPECIES);
     FillWindowPixelBuffer(SWAP_WIN_SPECIES, PIXEL_FILL(0));
     CopyWindowToVram(SWAP_WIN_SPECIES, COPYWIN_GFX);
 }
 
-static void Swap_EraseSpeciesAtFadeWindow(void)
+static void Island_Swap_EraseSpeciesAtFadeWindow(void)
 {
     PutWindowTilemap(SWAP_WIN_SPECIES_AT_FADE);
     FillWindowPixelBuffer(SWAP_WIN_SPECIES_AT_FADE, PIXEL_FILL(0));
     CopyWindowToVram(SWAP_WIN_SPECIES_AT_FADE, COPYWIN_GFX);
 }
 
-static void Swap_EraseActionFadeWindow(void)
+static void Island_Swap_EraseActionFadeWindow(void)
 {
-    Swap_EraseSpeciesWindow();
+    Island_Swap_EraseSpeciesWindow();
     PutWindowTilemap(SWAP_WIN_ACTION_FADE);
     FillWindowPixelBuffer(SWAP_WIN_ACTION_FADE, PIXEL_FILL(0));
     CopyWindowToVram(SWAP_WIN_ACTION_FADE, COPYWIN_GFX);
 }
 
-static void Swap_PrintPkmnSwap(void)
+static void Island_Swap_PrintPkmnSwap(void)
 {
     FillWindowPixelBuffer(SWAP_WIN_TITLE, PIXEL_FILL(1));
     AddTextPrinterParameterized(SWAP_WIN_TITLE, FONT_NORMAL, gText_PkmnSwap, 2, 1, 0, NULL);
     CopyWindowToVram(SWAP_WIN_TITLE, COPYWIN_FULL);
 }
 
-static void Swap_PrintMonSpecies(void)
+static void Island_Swap_PrintMonSpecies(void)
 {
     u16 species;
     u8 x;
@@ -3791,99 +3841,99 @@ static void Swap_PrintMonSpecies(void)
             species = GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL);
         StringCopy(gStringVar4, GetSpeciesName(species));
         x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 86);
-        AddTextPrinterParameterized3(SWAP_WIN_SPECIES, FONT_NORMAL, x, 1, sSwapSpeciesNameTextColors, 0, gStringVar4);
+        AddTextPrinterParameterized3(SWAP_WIN_SPECIES, FONT_NORMAL, x, 1, sIslandSwapSpeciesNameTextColors, 0, gStringVar4);
         CopyWindowToVram(SWAP_WIN_SPECIES, COPYWIN_FULL);
     }
 }
 
-static void Swap_PrintOnInfoWindow(const u8 *str)
+static void Island_Swap_PrintOnInfoWindow(const u8 *str)
 {
     FillWindowPixelBuffer(SWAP_WIN_INFO, PIXEL_FILL(0));
     AddTextPrinterParameterized(SWAP_WIN_INFO, FONT_NORMAL, str, 2, 5, 0, NULL);
     CopyWindowToVram(SWAP_WIN_INFO, COPYWIN_GFX);
 }
 
-static void Swap_PrintMenuOptions(void)
+static void Island_Swap_PrintMenuOptions(void)
 {
     PutWindowTilemap(SWAP_WIN_OPTIONS);
     FillWindowPixelBuffer(SWAP_WIN_OPTIONS, PIXEL_FILL(0));
-    AddTextPrinterParameterized3(SWAP_WIN_OPTIONS, FONT_NORMAL, 15,  1, sSwapMenuOptionsTextColors, 0, gText_Summary2);
-    AddTextPrinterParameterized3(SWAP_WIN_OPTIONS, FONT_NORMAL, 15, 17, sSwapMenuOptionsTextColors, 0, gText_Swap);
-    AddTextPrinterParameterized3(SWAP_WIN_OPTIONS, FONT_NORMAL, 15, 33, sSwapMenuOptionsTextColors, 0, gText_Rechoose);
+    AddTextPrinterParameterized3(SWAP_WIN_OPTIONS, FONT_NORMAL, 15,  1, sIslandSwapMenuOptionsTextColors, 0, gText_Summary2);
+    AddTextPrinterParameterized3(SWAP_WIN_OPTIONS, FONT_NORMAL, 15, 17, sIslandSwapMenuOptionsTextColors, 0, gText_Swap);
+    AddTextPrinterParameterized3(SWAP_WIN_OPTIONS, FONT_NORMAL, 15, 33, sIslandSwapMenuOptionsTextColors, 0, gText_Rechoose);
     CopyWindowToVram(SWAP_WIN_OPTIONS, COPYWIN_FULL);
 }
 
-static void Swap_PrintYesNoOptions(void)
+static void Island_Swap_PrintYesNoOptions(void)
 {
     PutWindowTilemap(SWAP_WIN_YES_NO);
     FillWindowPixelBuffer(SWAP_WIN_YES_NO, PIXEL_FILL(0));
-    AddTextPrinterParameterized3(SWAP_WIN_YES_NO, FONT_NORMAL, 7, 1,  sSwapMenuOptionsTextColors, 0, gText_Yes3);
-    AddTextPrinterParameterized3(SWAP_WIN_YES_NO, FONT_NORMAL, 7, 17, sSwapMenuOptionsTextColors, 0, gText_No3);
+    AddTextPrinterParameterized3(SWAP_WIN_YES_NO, FONT_NORMAL, 7, 1,  sIslandSwapMenuOptionsTextColors, 0, gText_Yes3);
+    AddTextPrinterParameterized3(SWAP_WIN_YES_NO, FONT_NORMAL, 7, 17, sIslandSwapMenuOptionsTextColors, 0, gText_No3);
     CopyWindowToVram(SWAP_WIN_YES_NO, COPYWIN_FULL);
 }
 
-static void Swap_PrintActionString(const u8 *str, u32 y, u32 windowId)
+static void Island_Swap_PrintActionString(const u8 *str, u32 y, u32 windowId)
 {
     s32 x = GetStringRightAlignXOffset(FONT_SMALL, str, 70);
-    AddTextPrinterParameterized3(windowId, FONT_SMALL, x, y, sSwapMenuOptionsTextColors, 0, str);
+    AddTextPrinterParameterized3(windowId, FONT_SMALL, x, y, sIslandSwapMenuOptionsTextColors, 0, str);
 }
 
-static void Swap_PrintActionStrings(void)
+static void Island_Swap_PrintActionStrings(void)
 {
     FillWindowPixelBuffer(SWAP_WIN_ACTION_FADE, PIXEL_FILL(0));
     switch (sIslandSwapScreen->inEnemyScreen)
     {
     case TRUE:
-        Swap_PrintActionString(gText_PkmnForSwap, 0, SWAP_WIN_ACTION_FADE);
+        Island_Swap_PrintActionString(gText_PkmnForSwap, 0, SWAP_WIN_ACTION_FADE);
     case FALSE:
-        Swap_PrintActionString(gText_Cancel3, 24, SWAP_WIN_ACTION_FADE);
+        Island_Swap_PrintActionString(gText_Cancel3, 24, SWAP_WIN_ACTION_FADE);
         break;
     }
     CopyWindowToVram(SWAP_WIN_ACTION_FADE, COPYWIN_FULL);
 }
 
-static void Swap_PrintActionStrings2(void)
+static void Island_Swap_PrintActionStrings2(void)
 {
     FillWindowPixelBuffer(SWAP_WIN_OPTIONS, PIXEL_FILL(0));
     switch (sIslandSwapScreen->inEnemyScreen)
     {
     case TRUE:
-        Swap_PrintActionString(gText_PkmnForSwap, 8, SWAP_WIN_OPTIONS);
+        Island_Swap_PrintActionString(gText_PkmnForSwap, 8, SWAP_WIN_OPTIONS);
     case FALSE:
-        Swap_PrintActionString(gText_Cancel3, 32, SWAP_WIN_OPTIONS);
+        Island_Swap_PrintActionString(gText_Cancel3, 32, SWAP_WIN_OPTIONS);
         break;
     }
     CopyWindowToVram(SWAP_WIN_OPTIONS, COPYWIN_FULL);
 }
 
-static void Swap_PrintOneActionString(u8 which)
+static void Island_Swap_PrintOneActionString(u8 which)
 {
     switch (which)
     {
     case 0:
         if (sIslandSwapScreen->inEnemyScreen == TRUE)
-            Swap_PrintActionString(gText_PkmnForSwap, 8, SWAP_WIN_OPTIONS);
+            Island_Swap_PrintActionString(gText_PkmnForSwap, 8, SWAP_WIN_OPTIONS);
         break;
     case 1:
-        Swap_PrintActionString(gText_Cancel3, 32, SWAP_WIN_OPTIONS);
+        Island_Swap_PrintActionString(gText_Cancel3, 32, SWAP_WIN_OPTIONS);
         break;
     }
     CopyWindowToVram(SWAP_WIN_OPTIONS, COPYWIN_FULL);
 }
 
 // For printing the species name once its selected. Keep the current fade but don't keep fading in and out
-static void Swap_PrintMonSpeciesAtFade(void)
+static void Island_Swap_PrintMonSpeciesAtFade(void)
 {
     u16 species;
     u8 x;
     u16 pal[5];
 
-    CpuCopy16(sSwapText_Pal, pal, 8);
+    CpuCopy16(sIslandSwapText_Pal, pal, 8);
     if (!sIslandSwapScreen->fromSummaryScreen)
         pal[4] = gPlttBufferFaded[BG_PLTT_ID(PALNUM_FADE_TEXT) + 4];
     else
         pal[4] = sIslandSwapScreen->speciesNameColorBackup;
-    LoadPalette(pal, BG_PLTT_ID(PALNUM_TEXT), sizeof(sSwapText_Pal));
+    LoadPalette(pal, BG_PLTT_ID(PALNUM_TEXT), sizeof(sIslandSwapText_Pal));
 
     PutWindowTilemap(SWAP_WIN_SPECIES_AT_FADE);
     FillWindowPixelBuffer(SWAP_WIN_SPECIES_AT_FADE, PIXEL_FILL(0));
@@ -3900,18 +3950,18 @@ static void Swap_PrintMonSpeciesAtFade(void)
             species = GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL);
         StringCopy(gStringVar4, GetSpeciesName(species));
         x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 86);
-        AddTextPrinterParameterized3(SWAP_WIN_SPECIES_AT_FADE, FONT_NORMAL, x, 1, sSwapSpeciesNameTextColors, 0, gStringVar4);
+        AddTextPrinterParameterized3(SWAP_WIN_SPECIES_AT_FADE, FONT_NORMAL, x, 1, sIslandSwapSpeciesNameTextColors, 0, gStringVar4);
         CopyWindowToVram(SWAP_WIN_SPECIES_AT_FADE, COPYWIN_FULL);
     }
 }
 
 // Reprints the species name over the faded one after a transition
-static void Swap_PrintMonSpeciesForTransition(void)
+static void Island_Swap_PrintMonSpeciesForTransition(void)
 {
     u16 species;
     u8 x;
 
-    LoadPalette(sSwapText_Pal, BG_PLTT_ID(PALNUM_FADE_TEXT), sizeof(sSwapText_Pal));
+    LoadPalette(sIslandSwapText_Pal, BG_PLTT_ID(PALNUM_FADE_TEXT), sizeof(sIslandSwapText_Pal));
     CpuCopy16(&gPlttBufferUnfaded[BG_PLTT_ID(PALNUM_TEXT)], &gPlttBufferFaded[BG_PLTT_ID(PALNUM_FADE_TEXT)], PLTT_SIZEOF(5));
 
     if (sIslandSwapScreen->cursorPos >= FRONTIER_PARTY_SIZE)
@@ -3927,12 +3977,12 @@ static void Swap_PrintMonSpeciesForTransition(void)
             species = GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL);
         StringCopy(gStringVar4, GetSpeciesName(species));
         x = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 86);
-        AddTextPrinterParameterized3(SWAP_WIN_SPECIES, FONT_NORMAL, x, 1, sSwapSpeciesNameTextColors, 0, gStringVar4);
+        AddTextPrinterParameterized3(SWAP_WIN_SPECIES, FONT_NORMAL, x, 1, sIslandSwapSpeciesNameTextColors, 0, gStringVar4);
         CopyWindowToVram(SWAP_WIN_SPECIES, COPYWIN_FULL);
     }
 }
 
-static void Swap_PrintMonCategory(void)
+static void Island_Swap_PrintMonCategory(void)
 {
     u16 species;
     u8 text[30];
@@ -3958,7 +4008,7 @@ static void Swap_PrintMonCategory(void)
     }
 }
 
-static void Swap_InitActions(u8 id)
+static void Island_Swap_InitActions(u8 id)
 {
     if (sIslandSwapScreen->fromSummaryScreen != TRUE)
     {
@@ -3967,123 +4017,124 @@ static void Swap_InitActions(u8 id)
         case SWAP_PLAYER_SCREEN:
             sIslandSwapScreen->inEnemyScreen = FALSE;
             sIslandSwapScreen->cursorPos = 0;
-            sIslandSwapScreen->actionsCount = ARRAY_COUNT(sSwap_PlayerScreenActions);
-            sIslandSwapScreen->actionsData = sSwap_PlayerScreenActions;
+            sIslandSwapScreen->actionsCount = ARRAY_COUNT(sIsland_Swap_PlayerScreenActions);
+            sIslandSwapScreen->actionsData = sIsland_Swap_PlayerScreenActions;
             break;
         case SWAP_ENEMY_SCREEN:
             sIslandSwapScreen->inEnemyScreen = TRUE;
             sIslandSwapScreen->cursorPos = 0;
-            sIslandSwapScreen->actionsCount = ARRAY_COUNT(sSwap_EnemyScreenActions);
-            sIslandSwapScreen->actionsData = sSwap_EnemyScreenActions;
+            sIslandSwapScreen->actionsCount = ARRAY_COUNT(sIsland_Swap_EnemyScreenActions);
+            sIslandSwapScreen->actionsData = sIsland_Swap_EnemyScreenActions;
             break;
         }
     }
 }
 
-static void Swap_RunMenuOptionFunc(u8 taskId)
+static void Island_Swap_RunMenuOptionFunc(u8 taskId)
 {
-    sSwap_CurrentOptionFunc = sSwap_MenuOptionFuncs[sIslandSwapScreen->menuCursorPos];
-    sSwap_CurrentOptionFunc(taskId);
+    sIsland_Swap_CurrentOptionFunc = sIsland_Swap_MenuOptionFuncs[sIslandSwapScreen->menuCursorPos];
+    sIsland_Swap_CurrentOptionFunc(taskId);
 }
 
-static void Swap_OptionSwap(u8 taskId)
+static void Island_Swap_OptionSwap(u8 taskId)
 {
     CloseMonPic(sIslandSwapScreen->monPic, &sIslandSwapScreen->monPicAnimating, TRUE);
     sIslandSwapScreen->playerMonId = sIslandSwapScreen->cursorPos;
-    Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
+    Island_Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
     gTasks[taskId].tState = 0;
-    gTasks[taskId].func = Swap_Task_SwitchPartyScreen;
+    gTasks[taskId].func = Island_Swap_Task_SwitchPartyScreen;
 }
 
-static void Swap_OptionSummary(u8 taskId)
+static void Island_Swap_OptionSummary(u8 taskId)
 {
     gTasks[taskId].tState = STATE_SUMMARY_FADE;
-    gTasks[taskId].func = Swap_Task_OpenSummaryScreen;
+    gTasks[taskId].func = Island_Swap_Task_OpenSummaryScreen;
 }
 
-static void Swap_OptionRechoose(u8 taskId)
+static void Island_Swap_OptionRechoose(u8 taskId)
 {
     CloseMonPic(sIslandSwapScreen->monPic, &sIslandSwapScreen->monPicAnimating, TRUE);
-    Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
+    Island_Swap_ErasePopupMenu(SWAP_WIN_OPTIONS);
     gTasks[taskId].tState = 0;
-    gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_HandleChooseMons) >> 16;
-    gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_HandleChooseMons);
+    gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_HandleChooseMons) >> 16;
+    gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_HandleChooseMons);
     gTasks[taskId].tFollowUpTaskState = STATE_CHOOSE_MONS_HANDLE_INPUT;
-    gTasks[taskId].func = Swap_Task_ScreenInfoTransitionIn;
+    gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionIn;
 }
 
-static void Swap_RunActionFunc(u8 taskId)
+static void Island_Swap_RunActionFunc(u8 taskId)
 {
-    sSwap_CurrentOptionFunc = sIslandSwapScreen->actionsData[sIslandSwapScreen->cursorPos].func;
-    sSwap_CurrentOptionFunc(taskId);
+    sIsland_Swap_CurrentOptionFunc = sIslandSwapScreen->actionsData[sIslandSwapScreen->cursorPos].func;
+    sIsland_Swap_CurrentOptionFunc(taskId);
 }
 
-static void Swap_ActionCancel(u8 taskId)
+static void Island_Swap_ActionCancel(u8 taskId)
 {
-    gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_AskQuitSwapping) >> 16;
-    gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_AskQuitSwapping);
+    gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_AskQuitSwapping) >> 16;
+    gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_AskQuitSwapping);
     gTasks[taskId].tState = 0;
     gTasks[taskId].tFollowUpTaskState = 0;
-    gTasks[taskId].func = Swap_Task_ScreenInfoTransitionOut;
+    gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionOut;
 }
 
-static void Swap_ActionPkmnForSwap(u8 taskId)
+static void Island_Swap_ActionPkmnForSwap(u8 taskId)
 {
-    gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_SwitchPartyScreen) >> 16;
-    gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_SwitchPartyScreen);
+    gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_SwitchPartyScreen) >> 16;
+    gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_SwitchPartyScreen);
     gTasks[taskId].tFollowUpTaskState = 0;
     gTasks[taskId].tState = 0;
-    gTasks[taskId].func = Swap_Task_ScreenInfoTransitionOut;
+    gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionOut;
 }
 
-static void Swap_ActionMon(u8 taskId)
+static void Island_Swap_ActionMon(u8 taskId)
 {
     if (!sIslandSwapScreen->inEnemyScreen)
     {
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_Task_HandleMenu) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_Task_HandleMenu);
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_Task_HandleMenu) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_Task_HandleMenu);
         gTasks[taskId].tFollowUpTaskState = STATE_MENU_INIT;
     }
-    else if (Swap_AlreadyHasSameSpecies(sIslandSwapScreen->cursorPos) == TRUE)
+    else if (Island_Swap_AlreadyHasSameSpecies(sIslandSwapScreen->cursorPos) == TRUE)
     {
         OpenMonPic(&sIslandSwapScreen->monPic.bgSpriteId, &sIslandSwapScreen->monPicAnimating, TRUE);
         gTasks[taskId].tState = 0;
         gTasks[taskId].tFollowUpTaskState = STATE_CHOOSE_MONS_HANDLE_INPUT;
-        gTasks[taskId].func = Swap_TaskCantHaveSameMons;
+        gTasks[taskId].func = Island_Swap_TaskCantHaveSameMons;
         return;
     }
     else
     {
-        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Swap_AskAcceptMon) >> 16;
-        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Swap_AskAcceptMon);
+        gTasks[taskId].tFollowUpTaskPtrHi = (u32)(Island_Swap_AskAcceptMon) >> 16;
+        gTasks[taskId].tFollowUpTaskPtrLo = (u32)(Island_Swap_AskAcceptMon);
         gTasks[taskId].tFollowUpTaskState = 0;
     }
     gTasks[taskId].tState = 0;
-    gTasks[taskId].func = Swap_Task_ScreenInfoTransitionOut;
+    gTasks[taskId].func = Island_Swap_Task_ScreenInfoTransitionOut;
 }
-
-#define sIsSwapScreen data[7]
 */
 
-/*
+#define sIsIslandSwapScreen data[7]
+
+
+
 static void OpenMonPic(u8 *spriteId, bool8 *animating, bool8 swapScreen)
 {
-    *spriteId = CreateSprite(&sSpriteTemplate_Swap_MonPicBgAnim, 120, 64, 1);
+    *spriteId = CreateSprite(&sSpriteTemplate_Island_Swap_MonPicBgAnim, 120, 64, 1);
     gSprites[*spriteId].callback = SpriteCB_OpenMonPic;
-    gSprites[*spriteId].sIsSwapScreen = swapScreen;
+    gSprites[*spriteId].sIsIslandSwapScreen = swapScreen;
     *animating = TRUE;
 }
-*/
+
 
 /*
-static void Swap_ShowSummaryMonSprite(void)
+static void Island_Swap_ShowSummaryMonSprite(void)
 {
     struct Pokemon *mon;
     u16 species;
     u32 personality;
     bool8 isShiny;
 
-    sIslandSwapScreen->monPic.bgSpriteId = CreateSprite(&sSpriteTemplate_Swap_MonPicBgAnim, 120, 64, 1);
+    sIslandSwapScreen->monPic.bgSpriteId = CreateSprite(&sSpriteTemplate_Island_Swap_MonPicBgAnim, 120, 64, 1);
     StartSpriteAffineAnim(&gSprites[sIslandSwapScreen->monPic.bgSpriteId], 2);
 
     mon = &gPlayerParty[sIslandSwapScreen->cursorPos];
@@ -4097,9 +4148,11 @@ static void Swap_ShowSummaryMonSprite(void)
 
     gSprites[sIslandSwapScreen->monPic.bgSpriteId].invisible = TRUE;
 }
+
 */
 
-/*
+
+
 
 static void CloseMonPic(struct IslandMonPic pic, bool8 *animating, bool8 swapScreen)
 {
@@ -4107,13 +4160,13 @@ static void CloseMonPic(struct IslandMonPic pic, bool8 *animating, bool8 swapScr
 
     FreeAndDestroyMonPicSprite(pic.monSpriteId);
     taskId = CreateTask(Task_CloseMonPic, 1);
-    gTasks[taskId].tIsSwapScreen = swapScreen;
+    gTasks[taskId].tIsIslandSwapScreen = swapScreen;
     gTasks[taskId].tSpriteId = pic.bgSpriteId;
     gTasks[taskId].func(taskId);
     *animating = TRUE;
 }
 
-*/
+
 
 static void HideMonPic(struct IslandMonPic pic, bool8 *animating)
 {
@@ -4124,7 +4177,7 @@ static void HideMonPic(struct IslandMonPic pic, bool8 *animating)
 }
 
 /*
-static void Swap_TaskCantHaveSameMons(u8 taskId)
+static void Island_Swap_TaskCantHaveSameMons(u8 taskId)
 {
     if (sIslandSwapScreen->monPicAnimating == TRUE)
         return;
@@ -4132,7 +4185,7 @@ static void Swap_TaskCantHaveSameMons(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case 0:
-        Swap_PrintOnInfoWindow(gText_SamePkmnInPartyAlready);
+        Island_Swap_PrintOnInfoWindow(gText_SamePkmnInPartyAlready);
         sIslandSwapScreen->monSwapped = FALSE;
         gTasks[taskId].tState++;
         break;
@@ -4153,20 +4206,20 @@ static void Swap_TaskCantHaveSameMons(u8 taskId)
         }
         break;
     case 3:
-        Swap_PrintOnInfoWindow(gText_SelectPkmnToAccept);
+        Island_Swap_PrintOnInfoWindow(gText_SelectPkmnToAccept);
         gTasks[taskId].tState++;
         break;
     case 4:
-        Swap_PrintMonSpeciesForTransition();
-        Swap_EraseSpeciesAtFadeWindow();
+        Island_Swap_PrintMonSpeciesForTransition();
+        Island_Swap_EraseSpeciesAtFadeWindow();
         sIslandSwapScreen->fadeSpeciesNameActive = TRUE;
         gTasks[taskId].tState = gTasks[taskId].tFollowUpTaskState;
-        gTasks[taskId].func = Swap_Task_HandleChooseMons;
+        gTasks[taskId].func = Island_Swap_Task_HandleChooseMons;
         break;
     }
 }
 
-static bool8 Swap_AlreadyHasSameSpecies(u8 monId)
+static bool8 Island_Swap_AlreadyHasSameSpecies(u8 monId)
 {
     u8 i;
     u16 species = GetMonData(&gEnemyParty[monId], MON_DATA_SPECIES, NULL);
@@ -4178,6 +4231,7 @@ static bool8 Swap_AlreadyHasSameSpecies(u8 monId)
     }
     return FALSE;
 }
+*/
 
 static void SpriteCB_OpenMonPic(struct Sprite *sprite)
 {
@@ -4187,25 +4241,27 @@ static void SpriteCB_OpenMonPic(struct Sprite *sprite)
     {
         sprite->invisible = TRUE;
         taskId = CreateTask(Task_OpenMonPic, 1);
-        gTasks[taskId].tIsSwapScreen = sprite->sIsSwapScreen;
+        gTasks[taskId].tIsIslandSwapScreen = sprite->sIsIslandSwapScreen;
         gTasks[taskId].func(taskId);
         sprite->callback = SpriteCallbackDummy;
     }
 }
-*/
+
 
 static void SpriteCB_CloseMonPic(struct Sprite *sprite)
 {
     if (sprite->affineAnimEnded)
     {
         FreeOamMatrix(sprite->oam.matrixNum);
-        if (sprite->sIsSwapScreen == TRUE)
-            sIslandSwapScreen->monPicAnimating = FALSE;
-        else
+//        if (sprite->sIsIslandSwapScreen == TRUE)
+//            sIslandSwapScreen->monPicAnimating = FALSE;
+//        else
             Island_SelectSetMonPicAnimating(FALSE);
         DestroySprite(sprite);
     }
 }
+
+
 
 static void Task_OpenMonPic(u8 taskId)
 {
@@ -4246,14 +4302,16 @@ static void Task_OpenMonPic(u8 taskId)
     default:
         DestroyTask(taskId);
         // Accessing data of destroyed task. Task data isn't reset until a new task needs that task id.
-        if (gTasks[taskId].tIsSwapScreen == TRUE)
-            Swap_CreateMonSprite();
+        if (gTasks[taskId].tIsIslandSwapScreen == TRUE)
+            Island_Swap_CreateMonSprite();
         else
             Island_SelectCreateMonSprite();
         return;
     }
     task->tState++;
 }
+
+
 
 static void Task_CloseMonPic(u8 taskId)
 {
@@ -4289,7 +4347,7 @@ static void Task_CloseMonPic(u8 taskId)
     default:
         // Hide bg
         HideBg(3);
-        gSprites[task->tSpriteId].sIsSwapScreen = task->tIsSwapScreen;
+        gSprites[task->tSpriteId].sIsIslandSwapScreen = task->tIsIslandSwapScreen;
         gSprites[task->tSpriteId].invisible = FALSE;
         gSprites[task->tSpriteId].callback = SpriteCB_CloseMonPic;
         StartSpriteAffineAnim(&gSprites[task->tSpriteId], 1);
@@ -4298,10 +4356,12 @@ static void Task_CloseMonPic(u8 taskId)
         break;
     }
 }
-/*
 
-static void Swap_CreateMonSprite(void)
+
+
+static void Island_Swap_CreateMonSprite(void)
 {
+/*
     struct Pokemon *mon;
     u16 species;
     u32 personality;
@@ -4321,5 +4381,6 @@ static void Swap_CreateMonSprite(void)
     gSprites[sIslandSwapScreen->monPic.monSpriteId].centerToCornerVecY = 0;
 
     sIslandSwapScreen->monPicAnimating = FALSE;
+
+    */
 }
-*/

@@ -1,6 +1,6 @@
 .set LOCALID_NURSE, 1
 
-SurvivalIsland_HomeBase_Pokecenter_MapScripts::
+SurvivalIsland_Pokecenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_HomeBase_Pokecenter_OnTransition
 	.byte 0
 

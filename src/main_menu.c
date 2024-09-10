@@ -1341,6 +1341,7 @@ static void Task_DisplayNewGameDifficulty(u8 taskId)
 
         // Note: If there is no save file, the save block is zeroed out,
         // so the default gender is MALE.
+
         {
 
                 FillWindowPixelBuffer(0, PIXEL_FILL(0xA));
@@ -1352,13 +1353,7 @@ static void Task_DisplayNewGameDifficulty(u8 taskId)
                 AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_Hard);
                 AddTextPrinterParameterized3(3, FONT_NORMAL, 0, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gText_Ultimate);
                 PutWindowTilemap(0);
-                PutWindowTilemap(1);
-                PutWindowTilemap(2);
-                PutWindowTilemap(3);
                 CopyWindowToVram(0, COPYWIN_GFX);
-                CopyWindowToVram(1, COPYWIN_GFX);
-                CopyWindowToVram(2, COPYWIN_GFX);
-                CopyWindowToVram(3, COPYWIN_GFX);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[0], MAIN_MENU_BORDER_TILE);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[1], MAIN_MENU_BORDER_TILE);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[2], MAIN_MENU_BORDER_TILE);

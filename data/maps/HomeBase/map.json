@@ -112,7 +112,7 @@
       "x": 18,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_HOME_BASE",
+      "dest_map": "MAP_INSIDE_BOAT",
       "dest_warp_id": "2"
     },
     {

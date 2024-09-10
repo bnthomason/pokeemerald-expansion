@@ -169,7 +169,7 @@ static void Task_OpenMonPic(u8);
 static void Task_CloseMonPic(u8);
 
 // Select screen
-static void SelectInitialRentalMons(void);
+void SelectInitialSurvivalMons(void);
 static void CB2_IslandInitSelectScreen(void);
 static void Island_SelectSetWinRegs(s16, s16, s16, s16);
 static void Island_SelectInitMonsData(void);
@@ -1129,7 +1129,7 @@ void DoSurvivalIslandSelectScreen(void)
     SetMainCallback2(CB2_IslandInitSelectScreen);
 }
 
-static void SelectInitialRentalMons(void)
+void SelectInitialSurvivalMons(void)
 {
     ZeroPlayerPartyMons();
     DoSurvivalIslandSelectScreen();

@@ -27,7 +27,7 @@ SurvivalIsland_HomeBase_Pokebag::
 	faceplayer
 	setflag FLAG_PICKED_STARTER_POKEMON
 	fadescreen FADE_TO_BLACK
-	special ChooseStarters
+	special SelectInitialSurvivalMons
 	waitstate
 	special HealPlayerParty
 	setflag FLAG_HIDE_HOMEBASE_STARTERS_BAG

@@ -72,7 +72,7 @@ SurvivalIsland_Area1_Boss_Seth_Battle_Hard:
 	return
 
 SurvivalIsland_Area1_Boss_Seth_Battle_Ultimate:
-	trainerbattle_double ISLAND_BOSS_SETH_UTLIMATE, Area1_Boss_Text_SethIntro, Area1_Boss_Text_SethDefeat, Area1_Boss_Text_SethNotEnoughMons
+	trainerbattle_double ISLAND_BOSS_SETH_ULTIMATE, Area1_Boss_Text_SethIntro, Area1_Boss_Text_SethDefeat, Area1_Boss_Text_SethNotEnoughMons
 	return
 
 
@@ -102,6 +102,12 @@ SurvivalIsland_Area1_Boss_Movement_RightGuardOutOfWay:
 	step_end
 
 
+SurvivalIsland_Area1_Boss_EventScript_Sign::
+	msgbox SurvivalIsland_Area1_Boss_Text_GymSign, MSGBOX_SIGN
+	end
+
+SurvivalIsland_Area1_Boss_Text_GymSign:
+	.string "AREA1 BOSS$"
 
 SurvivalIsland_Area1_Boss_Text_YouMustDefeatTheAreaBoss:
 	.string "You must defeat the Area Boss in\n"

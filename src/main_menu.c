@@ -1072,7 +1072,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
             default:
 //                gPlttBufferUnfaded[0] = RGB_BLACK;
 //                gPlttBufferFaded[0] = RGB_WHITE;
-                gTasks[taskId].func = Task_DisplayNewGameDifficulty;
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -1111,7 +1111,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
                 BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
                 return;
         }
-//        FreeAllWindowBuffers();
+        FreeAllWindowBuffers();
         if (action != ACTION_OPTION)
             sCurrItemAndOptionMenuCheck = 0;
         else

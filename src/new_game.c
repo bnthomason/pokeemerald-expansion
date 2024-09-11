@@ -211,6 +211,14 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_2);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_3);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_4);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_5);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_6);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_7);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_8);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_9);
 }
 
 static void ResetMiniGamesRecords(void)

@@ -18,15 +18,15 @@ SurvivalIsland_HomeBase_Pokecenter_Nurse::
 	lockall
 	faceplayer
 	goto_if_set FLAG_STARTED_CHALLENGE, SurvivalIsland_HomeBase_Pokecenter_Eventscript_PCAdvice
-	message SurvivalIsland_HomeBase_Pokecenter_Text_MustHavePokemonToUsePC
+	msgbox SurvivalIsland_HomeBase_Pokecenter_Text_MustHavePokemonToUsePC, MSGBOX_NPC
 	waitmessage
 	delay 120
-	goto_if_unset FLAG_PICKED_STARTER_POKEMON, SurvivalIsland_HomeBase_Pokecenter_Text_NeedAtLeastOnePokemon
+	goto_if_unset FLAG_PICKED_STARTER_POKEMON, SurvivalIsland_HomeBase_Pokecenter_Eventscript_NeedAtLeastOnePokemon
 	closemessage
 	applymovement LOCALID_NURSE, SurvivalIsland_HomeBase_PokeCenter_Movement_NurseOutOfWay
 	waitmovement 0
 	delay 10
-	message SurvivalIsland_HomeBase_Pokecenter_Eventscript_PCAdvice
+	msgbox SurvivalIsland_HomeBase_Pokecenter_Text_PCAdvice, MSGBOX_NPC
 	waitmessage
 	closemessage
 	copyobjectxytoperm LOCALID_NURSE
@@ -34,10 +34,18 @@ SurvivalIsland_HomeBase_Pokecenter_Nurse::
 	releaseall
 	end
 
+SurvivalIsland_HomeBase_Pokecenter_Eventscript_NeedAtLeastOnePokemon::
+	msgbox SurvivalIsland_HomeBase_Pokecenter_Text_NeedAtLeastOnePokemon, MSGBOX_NPC
+	end
+
 SurvivalIsland_HomeBase_PokeCenter_Movement_NurseOutOfWay::
 	walk_right
 	walk_in_place_faster_down
 	step_end
+
+SurvivalIsland_HomeBase_Pokecenter_Eventscript_PCAdvice::
+	msgbox SurvivalIsland_HomeBase_Pokecenter_Text_PCAdvice, MSGBOX_NPC
+	end
 
 SurvivalIsland_HomeBase_Pokecenter_Text_MustHavePokemonToUsePC:
 	.string "To use the PC, you must have obtained\n"
@@ -51,7 +59,7 @@ SurvivalIsland_HomeBase_Pokecenter_Text_NeedAtLeastOnePokemon:
 	.string "Come back when you have obtained at\n"
 	.string "least 1 POKéMON.$"
 
-SurvivalIsland_HomeBase_Pokecenter_Eventscript_PCAdvice:
+SurvivalIsland_HomeBase_Pokecenter_Text_PCAdvice:
 	.string "Remember, on this island, depositing\n"
 	.string "a POKéMON to the PC won't heal it.\l"
 	.string "You'll need to figure out some other\l"

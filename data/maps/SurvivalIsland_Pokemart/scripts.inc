@@ -22,7 +22,7 @@ SurvivalIsland_HomeBase_Pokemart_EventScript_BattleClerk::
 	goto_if_ge VAR_BATTLE_ITEMS_FOUND, 9, SurvivalIsland_HomeBase_Pokemart_Strong
 	goto_if_ge VAR_BATTLE_ITEMS_FOUND, 6, SurvivalIsland_HomeBase_Pokemart_Normal
 	goto_if_ge VAR_BATTLE_ITEMS_FOUND, 3, SurvivalIsland_HomeBase_Pokemart_Weak
-	goto_if_eq VAR_BATTLE_ITEMS_FOUND, 2, SurvivalIsland_HomeBase_Pokemart_ShopClosed
+	goto_if_le VAR_BATTLE_ITEMS_FOUND, 2, SurvivalIsland_HomeBase_Pokemart_ShopClosed
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -96,7 +96,7 @@ SurvivalIsland_HomeBase_Pokemart_BasicShop:
 	end
 
 SurvivalIsland_HomeBase_Pokemart_ShopClosed:
-	msgbox SurvivalIsland_HomeBase_Pokemart_ShopClosed_Text, MSGBOX_DEFAULT
+	msgbox SurvivalIsland_HomeBase_Pokemart_Text_ShopClosed, MSGBOX_DEFAULT
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -470,8 +470,8 @@ SurvivalIsland_HomeBase_Pokemart_Text_DecidedAgainstBuyingDrink:
 	.string "Decided against buying a drink.$"
 
 
-SurvivalIsland_HomeBase_Pokemart_ShopClosed_Text:
+SurvivalIsland_HomeBase_Pokemart_Text_ShopClosed:
 	.string "Sorry, due to the lack of\n"
 	.string "neccessary research and productive\l"
-	.string "materials, this shop is closed.\p"
+	.string "materials, this shop is closed.$"
 

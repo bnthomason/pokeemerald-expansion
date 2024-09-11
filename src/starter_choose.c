@@ -117,6 +117,70 @@ static const u16 sStarterMon[STARTER_MON_COUNT] =
     SPECIES_MUDKIP,
 };
 
+
+static const u16 sStarterMon1[STARTER_MON_COUNT] =
+{
+    SPECIES_BULBASAUR,
+    SPECIES_CHARMANDER,
+    SPECIES_SQUIRTLE,
+};
+
+static const u16 sStarterMon2[STARTER_MON_COUNT] =
+{
+    SPECIES_CHIKORITA,
+    SPECIES_CYNDAQUIL,
+    SPECIES_TOTODILE,
+};
+
+static const u16 sStarterMon3[STARTER_MON_COUNT] =
+{
+    SPECIES_TREECKO,
+    SPECIES_TORCHIC,
+    SPECIES_MUDKIP,
+};
+
+static const u16 sStarterMon4[STARTER_MON_COUNT] =
+{
+    SPECIES_TURTWIG,
+    SPECIES_CHIMCHAR,
+    SPECIES_PIPLUP,
+};
+
+static const u16 sStarterMon5[STARTER_MON_COUNT] =
+{
+    SPECIES_SNIVY,
+    SPECIES_TEPIG,
+    SPECIES_OSHAWOTT,
+};
+
+static const u16 sStarterMon6[STARTER_MON_COUNT] =
+{
+    SPECIES_CHESPIN,
+    SPECIES_FENNEKIN,
+    SPECIES_FROAKIE,
+};
+
+static const u16 sStarterMon7[STARTER_MON_COUNT] =
+{
+    SPECIES_ROWLET,
+    SPECIES_LITTEN,
+    SPECIES_POPPLIO,
+};
+
+static const u16 sStarterMon8[STARTER_MON_COUNT] =
+{
+    SPECIES_GROOKEY,
+    SPECIES_SCORBUNNY,
+    SPECIES_SOBBLE,
+};
+
+static const u16 sStarterMon9[STARTER_MON_COUNT] =
+{
+    SPECIES_SPRIGATITO,
+    SPECIES_FUECOCO,
+    SPECIES_QUAXLY,
+};
+
 static const struct BgTemplate sBgTemplates[3] =
 {
     {
@@ -351,8 +415,27 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
-        chosenStarterId = 0;
-    return sStarterMon[chosenStarterId];
+        chosenStarterId = 0;    
+    if (VarGet(VAR_BAG_SELECTED) == 1)
+        return sStarterMon1[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 2)
+        return sStarterMon2[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 3)
+        return sStarterMon3[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 4)
+        return sStarterMon4[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 5)
+        return sStarterMon5[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 6)
+        return sStarterMon6[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 7)
+        return sStarterMon7[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 8)
+        return sStarterMon8[chosenStarterId];
+    else if (VarGet(VAR_BAG_SELECTED) == 9)
+        return sStarterMon9[chosenStarterId];
+    else
+        return sStarterMon[chosenStarterId];
 }
 
 static void VblankCB_StarterChoose(void)
@@ -475,7 +558,10 @@ static void Task_StarterChoose(u8 taskId)
 {
     CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
     DrawStdFrameWithCustomTileAndPalette(0, FALSE, 0x2A8, 0xD);
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_BirchInTrouble, 0, 1, 0, NULL);
+    if (VarGet (VAR_BAG_SELECTED) == 0)
+        AddTextPrinterParameterized(0, FONT_NORMAL, gText_BirchInTrouble, 0, 1, 0, NULL);
+    else
+       AddTextPrinterParameterized(0, FONT_NORMAL, gText_ChooseStarter, 0, 1, 0, NULL);
     PutWindowTilemap(0);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_HandleStarterChooseInput;

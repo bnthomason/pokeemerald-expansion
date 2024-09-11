@@ -268,7 +268,7 @@
 #define VAR_BATTLE_ITEMS_FOUND                           0x40F8 // Unused Var
 #define VAR_BERRY_ITEMS_FOUND                            0x40F9 // Unused Var
 #define VAR_GAME_DIFFICULTY                              0x40FA // Unused Var
-#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
+#define VAR_BAG_SELECTED                                 0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
 #define VAR_UNUSED_0x40FE                                0x40FE // Unused Var

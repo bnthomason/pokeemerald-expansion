@@ -77,7 +77,7 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "SurvivalIsland_HomeBase_Pokemart_EventScript_VendingMachine"
@@ -85,7 +85,7 @@
     {
       "type": "sign",
       "x": 9,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "SurvivalIsland_HomeBase_Pokemart_EventScript_VendingMachine"

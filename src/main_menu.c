@@ -1072,7 +1072,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
             default:
 //                gPlttBufferUnfaded[0] = RGB_BLACK;
 //                gPlttBufferFaded[0] = RGB_WHITE;
-                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                gTasks[taskId].func = Task_InitNewGameDifficultyMenu;
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -1465,28 +1465,28 @@ static void Task_HandleNewGameDifficultyAPressed(u8 taskId)
             default:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gSaveBlock1Ptr->difficulty = DIFFICULTY_EASY;
+//                gSaveBlock1Ptr->difficulty = DIFFICULTY_EASY;
                 VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_EASY);
                 gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
                 break;
             case ACTION_NORMAL:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gSaveBlock1Ptr->difficulty = DIFFICULTY_NORMAL;
+//                gSaveBlock1Ptr->difficulty = DIFFICULTY_NORMAL;
                 VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_NORMAL);
                 gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
                 break;
             case ACTION_HARD:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gSaveBlock1Ptr->difficulty = DIFFICULTY_HARD;
+//                gSaveBlock1Ptr->difficulty = DIFFICULTY_HARD;
                 VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_HARD);
                 gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
                 break;
             case ACTION_ULTIMATE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gSaveBlock1Ptr->difficulty = DIFFICULTY_ULTIMATE;
+//                gSaveBlock1Ptr->difficulty = DIFFICULTY_ULTIMATE;
                 VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_ULTIMATE);
                 gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
                 break;

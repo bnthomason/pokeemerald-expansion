@@ -1474,6 +1474,7 @@ const u8 gText_TimesVar1[] = _("Times: {STR_VAR_1}");
 const u8 gText_FloorsCleared[] = _("Floors cleared: {STR_VAR_1}");
 const u8 gText_BerryJuiceAndPrice[] = _("BERRY JUICE{CLEAR_TO 0x48}¥50");
 const u8 gText_MoomooMilkAndPrice[] = _("MOOMOO MILK{CLEAR_TO 0x48}¥500");
+const u8 gText_ChooseYourDifficulty[] = _("Choose the difficulty level.");
 
 ALIGNED(4) const u8 gText_RecordsLv50[] = _("LV. 50");
 ALIGNED(4) const u8 gText_RecordsOpenLevel[] = _("OPEN LEVEL");

@@ -1582,6 +1582,9 @@ static bool8 RunFieldCallback(void)
 
 void CB2_NewGame(void)
 {
+    u8 difficulty;
+
+    difficulty = VarGet(VAR_GAME_DIFFICULTY);
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
@@ -1594,6 +1597,7 @@ void CB2_NewGame(void)
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
+    VarSet(VAR_GAME_DIFFICULTY, difficulty);    
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
 }

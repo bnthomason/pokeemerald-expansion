@@ -2146,29 +2146,29 @@ static void Task_NewGameBirchSpeech_ChooseDifficulty(u8 taskId)
     {
         case DIFFICULTY_EASY:
             PlaySE(SE_SELECT);
-            gSaveBlock1Ptr->difficulty = difficulty;
-            VarSet(VAR_GAME_DIFFICULTY, 0); //DIFFICULTY_EASY
+//            gSaveBlock1Ptr->difficulty = difficulty;
+            VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_EASY);
             NewGameBirchSpeech_ClearDifficultyWindow(3, 1);
             gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway_4;
             break;
         case DIFFICULTY_NORMAL:
             PlaySE(SE_SELECT);
-            gSaveBlock1Ptr->difficulty = difficulty;
-            VarSet(VAR_GAME_DIFFICULTY, 1); //DIFFICULTY_NORMAL
+//            gSaveBlock1Ptr->difficulty = difficulty;
+            VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_NORMAL);
             NewGameBirchSpeech_ClearDifficultyWindow(3, 1);
             gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway_4;
             break;
         case DIFFICULTY_HARD:
             PlaySE(SE_SELECT);
-            gSaveBlock1Ptr->difficulty = difficulty;
-            VarSet(VAR_GAME_DIFFICULTY, 2); //DIFFICULTY_HARD
+//            gSaveBlock1Ptr->difficulty = difficulty;
+            VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_HARD);
             NewGameBirchSpeech_ClearDifficultyWindow(3, 1);
             gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway_4;
             break;        
         case DIFFICULTY_ULTIMATE:
             PlaySE(SE_SELECT);
-            gSaveBlock1Ptr->difficulty = difficulty;
-            VarSet(VAR_GAME_DIFFICULTY, 3); //DIFFICULTY_ULTIMATE
+//            gSaveBlock1Ptr->difficulty = difficulty;
+            VarSet(VAR_GAME_DIFFICULTY, DIFFICULTY_ULTIMATE);
             NewGameBirchSpeech_ClearDifficultyWindow(3, 1);
             gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway_4;
             break;

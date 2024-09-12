@@ -9,7 +9,8 @@ gText_Host_Welcome::
 
 gText_Host_Pokemon::
 	.string "As you are probably aware, this\n"
-	.string "is a POKéMON.\p"
+	.string "is a “POKéMON”.\p"
+	.string "\n"
 	.string "$"
 
 gText_Host_MainSpeech::
@@ -32,7 +33,8 @@ gText_Host_MainSpeech::
 gText_Host_DescribeYourself::
 	.string "To clarify to the audience that\n"
 	.string "will be watching your every move,\l"
-	.string "describe yourself a little.$"
+	.string "describe yourself a little.\p"
+	.string "$"
 
 gText_Host_ManOrWoman::
 	.string "Are you a man?\n"
@@ -50,6 +52,30 @@ gText_Host_YourePlayer::
 	.string "let's welcome {PLAYER}{KUN} to the\l"
 	.string "gameshow SURVIVAL ISLAND!\p" 
     .string "$"
+
+	
+gText_Host_ChallengeDifficultyReminder::
+	.string "Also, before I forget, I must remind\n"
+	.string "the crowd that there are various\l"
+	.string "degrees of difficulties of this\p" 
+    .string "challenge.\p"
+	.string "I recall my briefing with you,\n"
+	.string "{PLAYER}{KUN}, that you wanted a\l"
+	.string "specific difficulty to match your\l"
+	.string "skillsets and talents.\p"
+	.string "$"
+
+gText_Host_HowHardIsThisChallenge::
+	.string "Please, go ahead and tell our viewers\n"
+	.string "how skilled you think you are by\l"
+	.string "announcing the difficulty you requested.\p"
+	.string "$"
+
+gText_Host_DifficultyLevel::
+	.string "And there you have it folks!\n"
+	.string "{PLAYER}{KUN} wants the challenge\l"
+	.string "to be {STR_VAR_1}, plain and simple!\p"
+	.string "$"
 
 gText_Host_AreYouReady::
 	.string "All right, are you ready?\p"

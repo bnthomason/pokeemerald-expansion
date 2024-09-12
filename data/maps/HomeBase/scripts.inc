@@ -1,6 +1,7 @@
 .set LOCALID_GUARD_1, 2
 .set LOCALID_GUARD_2, 3
 .set LOCALID_ITEMBALL, 4
+.set LOCALID_CAPTAIN, 5
 .set LOCALID_POKEBAG_1, 6
 .set LOCALID_POKEBAG_2, 7
 .set LOCALID_POKEBAG_3, 8
@@ -13,19 +14,25 @@
 
 HomeBase_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SurvivalIsland_HomeBase_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SurvivalIsland_HomeBase_OnWarp
 	.byte 0
 
 SurvivalIsland_HomeBase_OnTransition:
 	setrespawn HEAL_LOCATION_SURVIVAL_ISLAND_HOMEBASE
-@	call_if_unset FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorFirstVisit
-@	call_if_set FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorHide
 	call_if_unset FLAG_STARTED_CHALLENGE, SurvivalIsland_HomeBase_EventScript_GuardsBlockDoor
+@	goto_if_unset FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorFirstVisit
+@	goto_if_set FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorHide
+	end
+
+SurvivalIsland_HomeBase_OnWarp:
+	goto_if_unset FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorFirstVisit
+	goto_if_set FLAG_FIRST_VISIT, SurvivalIsland_HomeBase_SailorHide
 	end
 
 SurvivalIsland_HomeBase_SailorHide::
 	setflag FLAG_HIDE_SURVIVALISLAND_SAILOR
 	setflag FLAG_HIDE_SURVIVALISLAND_BOAT
-	return
+	end
 
 SurvivalIsland_HomeBase_EventScript_GuardsBlockDoor::
 	setobjectxyperm LOCALID_GUARD_1, 17, 14
@@ -286,10 +293,18 @@ SurvivalIsland_HomeBase_ItemBall::
 	end
 
 SurvivalIsland_HomeBase_SailorFirstVisit::
-	delay 10
-	message SurvivalIsland_HomeBase_Text_Sailor1
+	applymovement LOCALID_PLAYER Common_Movement_WalkUp
+	waitmovement 0
+	addobject LOCALID_CAPTAIN
+	applymovement LOCALID_PLAYER Common_Movement_WalkUp
+	applymovement LOCALID_CAPTAIN Common_Movement_WalkUp
+	waitmovement 1
+	applymovement LOCALID_PLAYER Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	msgbox SurvivalIsland_HomeBase_Text_Sailor1 MSGBOX_NPC
+	waitmessage
 	closemessage
-	return
+	end
 
 SurvivalIsland_HomeBase_SailorAdvice::
 	msgbox SurvivalIsland_HomeBase_Text_SailorHint MSGBOX_DEFAULT

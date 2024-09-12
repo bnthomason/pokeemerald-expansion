@@ -1029,7 +1029,10 @@ s8 Menu_ProcessInputNoWrap(void)
     if (JOY_NEW(A_BUTTON))
     {
         if (!sMenu.APressMuted)
+            {
             PlaySE(SE_SELECT);
+            DebugPrintf ("selected %d",sMenu.cursorPos);
+            }
         return sMenu.cursorPos;
     }
     else if (JOY_NEW(B_BUTTON))
@@ -1039,13 +1042,19 @@ s8 Menu_ProcessInputNoWrap(void)
     else if (JOY_NEW(DPAD_UP))
     {
         if (oldPos != Menu_MoveCursorNoWrapAround(-1))
+            {
             PlaySE(SE_SELECT);
+            DebugPrintf ("went up");
+            }
         return MENU_NOTHING_CHOSEN;
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
         if (oldPos != Menu_MoveCursorNoWrapAround(1))
+        {
             PlaySE(SE_SELECT);
+            DebugPrintf ("went down");
+        }
         return MENU_NOTHING_CHOSEN;
     }
 

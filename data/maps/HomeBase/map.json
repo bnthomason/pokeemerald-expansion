@@ -19,7 +19,7 @@
       "x": 18,
       "y": 23,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -69,7 +69,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_CAPTAIN",
       "x": 18,
-      "y": 21,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -214,7 +214,7 @@
     },
     {
       "x": 18,
-      "y": 20,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_HOME_BASE",
       "dest_warp_id": "2"

@@ -214,7 +214,23 @@
 #define MAPSEC_ALTERING_CAVE                0xD2
 #define MAPSEC_NAVEL_ROCK                   0xD3
 #define MAPSEC_TRAINER_HILL                 0xD4
-#define MAPSEC_NONE                         0xD5
+#define MAPSEC_INSIDE_BOAT                  0xD5
+#define MAPSEC_BEACH                        0xD6
+#define MAPSEC_AREA_1                       0xD7
+#define MAPSEC_AREA_1_BOSS                  0xD8
+#define MAPSEC_AREA_2                       0xD9
+#define MAPSEC_AREA_2_BOSS                  0xDA
+#define MAPSEC_AREA_3                       0xDB
+#define MAPSEC_AREA_3_BOSS                  0xDC
+#define MAPSEC_AREA_4                       0xDD
+#define MAPSEC_AREA_4_BOSS                  0xDE
+#define MAPSEC_AREA_5                       0xDF
+#define MAPSEC_AREA_5_BOSS                  0xE0
+#define MAPSEC_AREA_6                       0xE1
+#define MAPSEC_AREA_6_BOSS                  0xE2
+#define MAPSEC_AREA_F                       0xE3
+#define MAPSEC_AREA_F_BOSS                  0xE4
+#define MAPSEC_NONE                         0xE5
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

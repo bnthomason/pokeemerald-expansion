@@ -554,6 +554,7 @@
 #define MAP_NAVEL_ROCK_DOWN11                               (86 | (26 << 8))
 #define MAP_NAVEL_ROCK_BOTTOM                               (87 | (26 << 8))
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
+#define MAP_INSIDE_BOAT_ROOM2                               (89 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))
@@ -591,6 +592,20 @@
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
-#define MAP_GROUPS_COUNT 34
+// gMapGroup_TrainerIsland
+#define MAP_INSIDE_BOAT_ROOM           (0 | (34 << 8))
+#define MAP_INSIDE_BOAT                (1 | (34 << 8))
+#define MAP_HOME_BASE                  (2 | (34 << 8))
+#define MAP_SURVIVAL_ISLAND_POKEMART   (3 | (34 << 8))
+#define MAP_SURVIVAL_ISLAND_POKECENTER (4 | (34 << 8))
+#define MAP_AREA1_ZONE1                (5 | (34 << 8))
+#define MAP_AREA1_ZONE2                (6 | (34 << 8))
+#define MAP_AREA1_ZONE3                (7 | (34 << 8))
+#define MAP_AREA1_ZONE4                (8 | (34 << 8))
+#define MAP_AREA1_ZONE5                (9 | (34 << 8))
+#define MAP_AREA1_ZONE6                (10 | (34 << 8))
+#define MAP_AREA1_BOSS                 (11 | (34 << 8))
+
+#define MAP_GROUPS_COUNT 35
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

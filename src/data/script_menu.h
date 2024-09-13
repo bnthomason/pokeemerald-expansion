@@ -778,6 +778,32 @@ static const struct MenuAction MultichoiceList_BerryPlot[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_VendingMachine1[] =
+{
+    {gText_BerryJuiceAndPrice},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_VendingMachine2[] =
+{
+    {gText_BerryJuiceAndPrice},
+    {gText_FreshWaterAndPrice},
+    {gText_SodaPopAndPrice},
+    {gText_LemonadeAndPrice},
+    {gText_Exit},
+};
+static const struct MenuAction MultichoiceList_VendingMachine3[] =
+{
+    {gText_BerryJuiceAndPrice},
+    {gText_FreshWaterAndPrice},
+    {gText_SodaPopAndPrice},
+    {gText_LemonadeAndPrice},
+    {gText_MoomooMilkAndPrice},
+    {gText_Exit},
+};
+
+
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -906,6 +932,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
+    [MULTI_VENDING_MACHINE_1]          = MULTICHOICE(MultichoiceList_VendingMachine1),
+    [MULTI_VENDING_MACHINE_2]          = MULTICHOICE(MultichoiceList_VendingMachine2),
+    [MULTI_VENDING_MACHINE_3]          = MULTICHOICE(MultichoiceList_VendingMachine3),
 };
 
 const u8 *const gStdStrings[] =

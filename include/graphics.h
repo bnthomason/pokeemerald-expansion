@@ -3363,4 +3363,9 @@ extern const u8 gMailTilemap_Retro[];
 extern const u8 gMonMarkingsMenu_Gfx[];
 extern const u16 gMonMarkingsMenu_Pal[];
 
+//Survival Island
+extern const u16 gSurvivalIslandMenu_Gfx[34 * TILE_SIZE_4BPP / 2];
+extern const u16 gSurvivalIslandMenu_Tilemap[];
+extern const u16 gSurvivalIslandMenu_Pal[];
+
 #endif //GUARD_GRAPHICS_H

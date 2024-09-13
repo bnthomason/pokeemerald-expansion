@@ -40,6 +40,12 @@
 #define GAME_VERSION (VERSION_EMERALD)
 #define GAME_LANGUAGE (LANGUAGE_ENGLISH)
 
+// Difficulty settings
+#define DIFFICULTY_EASY 0
+#define DIFFICULTY_NORMAL 1
+#define DIFFICULTY_HARD 2
+#define DIFFICULTY_ULTIMATE 3
+
 // party sizes
 #define PARTY_SIZE 6
 #define MULTI_PARTY_SIZE (PARTY_SIZE / 2)

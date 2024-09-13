@@ -1099,5 +1099,3 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Area1_Zone6/scripts.inc"
 
 	.include "data/maps/Area1_Boss/scripts.inc"
-	
-	.include "data/maps/InsideBoat_Room2/scripts.inc"

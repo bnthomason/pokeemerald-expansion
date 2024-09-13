@@ -4530,16 +4530,6 @@
       "secondary_tileset": "gTileset_TrainerIsland",
       "border_filepath": "data/layouts/Area1_Boss/border.bin",
       "blockdata_filepath": "data/layouts/Area1_Boss/map.bin"
-    },
-    {
-      "id": "LAYOUT_INSIDE_BOAT_ROOM2",
-      "name": "InsideBoat_Room2_Layout",
-      "width": 9,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/InsideBoat_Room2/border.bin",
-      "blockdata_filepath": "data/layouts/InsideBoat_Room2/map.bin"
     }
   ]
 }

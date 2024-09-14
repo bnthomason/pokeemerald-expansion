@@ -858,13 +858,41 @@
 #define TRAINER_LEAF                        852
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
+#define ISLAND_BOSS_SETH_EASY               855
+#define ISLAND_BOSS_SETH_NORMAL             856
+#define ISLAND_BOSS_SETH_HARD               857
+#define ISLAND_BOSS_SETH_ULTIMATE           858
+#define ISLAND_BOSS_JOSHUA_EASY             859
+#define ISLAND_BOSS_JOSHUA_NORMAL           860
+#define ISLAND_BOSS_JOSHUA_HARD             861
+#define ISLAND_BOSS_JOSHUA_ULTIMATE         862
+#define ISLAND_BOSS_DAVID_EASY              863
+#define ISLAND_BOSS_DAVID_NORMAL            864
+#define ISLAND_BOSS_DAVID_HARD              865
+#define ISLAND_BOSS_DAVID_ULTIMATE          866
+#define ISLAND_BOSS_RODERICK_EASY           867
+#define ISLAND_BOSS_RODERICK_NORMAL         868
+#define ISLAND_BOSS_RODERICK_HARD           869
+#define ISLAND_BOSS_RODERICK_ULTIMATE       870
+#define ISLAND_BOSS_VOLIVIA_EASY            871
+#define ISLAND_BOSS_VOLIVIA_NORMAL          872
+#define ISLAND_BOSS_VOLIVIA_HARD            873
+#define ISLAND_BOSS_VOLIVIA_ULTIMATE        874
+#define ISLAND_BOSS_ANNABEL_EASY            875
+#define ISLAND_BOSS_ANNABEL_NORMAL          876
+#define ISLAND_BOSS_ANNABEL_HARD            877
+#define ISLAND_BOSS_ANNABEL_ULTIMATE        878
+#define ISLAND_BOSS_THOMAS_EASY             879
+#define ISLAND_BOSS_THOMAS_NORMAL           880
+#define ISLAND_BOSS_THOMAS_HARD             881
+#define ISLAND_BOSS_THOMAS_ULTIMATE         882
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      855
-#define MAX_TRAINERS_COUNT                  864
+#define TRAINERS_COUNT                      883
+#define MAX_TRAINERS_COUNT                 1023
 #define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

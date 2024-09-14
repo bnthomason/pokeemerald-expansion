@@ -42,6 +42,10 @@ extern const u8 gText_Super[];
 extern const u8 gText_Hyper[];
 extern const u8 gText_Master[];
 
+extern const u8 gText_Easy[];
+extern const u8 gText_Hard[];
+extern const u8 gText_Ultimate[];
+
 extern const u8 gText_Cool2[];
 extern const u8 gText_Beauty2[];
 extern const u8 gText_Cute2[];
@@ -339,6 +343,7 @@ extern const u8 gText_MysteryGiftCantUse[];
 extern const u8 gText_MysteryEventsCantUse[];
 extern const u8 gText_Birch_Welcome[];
 extern const u8 gText_ThisIsAPokemon[];
+extern const u8 gText_ThisIsAPokemon2[];
 extern const u8 gText_Birch_MainSpeech[];
 extern const u8 gText_Birch_AndYouAre[];
 extern const u8 gText_Birch_BoyOrGirl[];
@@ -346,12 +351,26 @@ extern const u8 gText_Birch_WhatsYourName[];
 extern const u8 gText_Birch_SoItsPlayer[];
 extern const u8 gText_Birch_YourePlayer[];
 extern const u8 gText_Birch_AreYouReady[];
+extern const u8 gText_Host_Welcome[];
+extern const u8 gText_Host_Pokemon[];
+extern const u8 gText_Host_MainSpeech[];
+extern const u8 gText_Host_DescribeYourself[];
+extern const u8 gText_Host_ManOrWoman[];
+extern const u8 gText_Host_WhatsYourName[];
+extern const u8 gText_Host_SoItsPlayer[];
+extern const u8 gText_Host_YourePlayer[];
+extern const u8 gText_Host_ChallengeDifficultyReminder[];
+extern const u8 gText_Host_HowHardIsThisChallenge[];
+extern const u8 gText_Host_DifficultyLevel[];
+extern const u8 gText_Host_AreYouReady[];
 extern const u8 gText_ContinueMenuPlayer[];
 extern const u8 gText_ContinueMenuTime[];
 extern const u8 gText_ContinueMenuPokedex[];
 extern const u8 gText_ContinueMenuBadges[];
 extern const u8 gText_BirchBoy[];
 extern const u8 gText_BirchGirl[];
+extern const u8 gText_HostMan[];
+extern const u8 gText_HostWoman[];
 extern const u8 gText_DefaultNameStu[];
 extern const u8 gText_DefaultNameMilton[];
 extern const u8 gText_DefaultNameTom[];
@@ -395,6 +414,8 @@ extern const u8 gText_DefaultNameHalie[];
 
 extern const u8 gText_BirchInTrouble[];
 extern const u8 gText_ConfirmStarterChoice[];
+extern const u8 gText_ChooseStarter[];
+extern const u8 gText_ChooseYourDifficulty[];
 
 // mystery event menu text
 extern const u8 gText_EventSafelyLoaded[];
@@ -1312,6 +1333,8 @@ extern const u8 gText_TrainerHill1F[];
 extern const u8 gText_TrainerHill2F[];
 extern const u8 gText_TrainerHill3F[];
 extern const u8 gText_TrainerHill4F[];
+extern const u8 gText_BerryJuiceAndPrice[];
+extern const u8 gText_MoomooMilkAndPrice[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];

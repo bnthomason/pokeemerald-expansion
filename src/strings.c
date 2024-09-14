@@ -57,6 +57,8 @@ ALIGNED(4) const u8 gText_PickCancel[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}{B_BUTTO
 ALIGNED(4) const u8 gText_AButtonExit[] = _("{A_BUTTON}EXIT");
 const u8 gText_BirchBoy[] = _("BOY");
 const u8 gText_BirchGirl[] = _("GIRL");
+const u8 gText_HostMan[] = _("MAN");
+const u8 gText_HostWoman[] = _("WOMAN");
 const u8 gText_DefaultNameStu[] = _("STU");
 const u8 gText_DefaultNameMilton[] = _("MILTON");
 const u8 gText_DefaultNameTom[] = _("TOM");
@@ -255,6 +257,8 @@ const u8 gText_TheBattle[] = _("the battle");
 const u8 gText_ThePokemonList[] = _("the POKéMON LIST");
 const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
+const u8 gText_ThisIsAPokemon2[] = _("As you are probably aware, this\nthis is a “POKéMON”.{PAUSE 96}\p");
+const u8 gText_ChooseStarter[] = _("Please choose a starting\nPOKéMON.");
 
 const u8 *const gBagMenu_ReturnToStrings[] =
 {
@@ -703,6 +707,9 @@ const u8 gText_Cute[] = _("CUTE");
 const u8 gText_Smart[] = _("SMART");
 const u8 gText_Tough[] = _("TOUGH");
 const u8 gText_Normal[] = _("NORMAL");
+const u8 gText_Easy[] = _("EASY");
+const u8 gText_Hard[] = _("HARD");
+const u8 gText_Ultimate[] = _("ULTIMATE");
 const u8 gText_Super[] = _("SUPER");
 const u8 gText_Hyper[] = _("HYPER");
 const u8 gText_Master[] = _("MASTER");
@@ -1468,6 +1475,9 @@ const u8 gText_TimesCleared[] = _("Times cleared:{CLEAR 0x05}{STR_VAR_1}");
 const u8 gText_KOsInARow[] = _("KOs in a row: {STR_VAR_1}");
 const u8 gText_TimesVar1[] = _("Times: {STR_VAR_1}");
 const u8 gText_FloorsCleared[] = _("Floors cleared: {STR_VAR_1}");
+const u8 gText_BerryJuiceAndPrice[] = _("BERRY JUICE{CLEAR_TO 0x48}¥50");
+const u8 gText_MoomooMilkAndPrice[] = _("MOOMOO MILK{CLEAR_TO 0x48}¥500");
+const u8 gText_ChooseYourDifficulty[] = _("Choose the difficulty level.");
 
 ALIGNED(4) const u8 gText_RecordsLv50[] = _("LV. 50");
 ALIGNED(4) const u8 gText_RecordsOpenLevel[] = _("OPEN LEVEL");

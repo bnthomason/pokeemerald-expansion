@@ -454,3 +454,11 @@ const u16 gObjectEventPal_BeastBall[] = INCBIN_U16("graphics/object_events/pics/
 const u16 gObjectEventPal_StrangeBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_strange.gbapal");
 #endif //ITEM_STRANGE_BALL
 #endif //OW_FOLLOWERS_POKEBALLS
+
+const u32 gObjectEventPic_Captain[] = INCBIN_U32("graphics/object_events/pics/people/captain.4bpp");
+const u32 gObjectEventPic_MasterThomas[] = INCBIN_U32("graphics/object_events/pics/people/lance.4bpp");
+const u32 gObjectEventPic_Scientist3[] = INCBIN_U32("graphics/object_events/pics/people/scientist_3.4bpp");
+const u32 gObjectEventPic_Biker[] = INCBIN_U32("graphics/object_events/pics/people/biker.4bpp");
+const u32 gObjectEventPic_Beauty2[] = INCBIN_U32("graphics/object_events/pics/people/beauty_2.4bpp");
+const u32 gObjectEventPic_Boss[] = INCBIN_U32("graphics/object_events/pics/people/giovanni.4bpp");
+//const u32 gObjectEventPic_HiddenItem[] = INCBIN_U32("graphics/object_events/pics/misc/hidden_item.4bpp");

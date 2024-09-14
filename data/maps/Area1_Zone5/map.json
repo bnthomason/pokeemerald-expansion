@@ -1,0 +1,69 @@
+{
+  "id": "MAP_AREA1_ZONE5",
+  "name": "Area1_Zone5",
+  "layout": "LAYOUT_AREA1_ZONE5",
+  "music": "MUS_MT_CHIMNEY",
+  "region_map_section": "MAPSEC_AREA_1",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_AREA1_ZONE3",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_AREA1_ZONE6",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_AREA1_ZONE1",
+      "offset": 70,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIDDEN_ITEM",
+      "x": 55,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Area1_HiddenItem_Quick_Ball",
+      "flag": "FLAG_ITEM_AREA1_QUICK_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIDDEN_ITEM",
+      "x": 49,
+      "y": 59,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Area1_HiddenItem_Repeat_Ball",
+      "flag": "FLAG_ITEM_AREA1_REPEAT_BALL"
+    }
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "MAP_AREA1_ZONE1",
+  "name": "Area1_Zone1",
+  "layout": "LAYOUT_AREA1_ZONE1",
+  "music": "MUS_MT_CHIMNEY",
+  "region_map_section": "MAPSEC_AREA_1",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_AREA1_ZONE2",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_AREA1_ZONE3",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_AREA1_ZONE6",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_AREA1_ZONE4",
+      "offset": 70,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_AREA1_ZONE5",
+      "offset": -70,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIDDEN_ITEM",
+      "x": 29,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Area1_HiddenItem_Potion",
+      "flag": "FLAG_ITEM_AREA1_POTION"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIDDEN_ITEM",
+      "x": 1,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Area1_HiddenItem_Pokeball",
+      "flag": "FLAG_ITEM_AREA1_POKEBALL"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 35,
+      "y": 65,
+      "elevation": 0,
+      "dest_map": "MAP_HOME_BASE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 65,
+      "elevation": 0,
+      "dest_map": "MAP_HOME_BASE",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

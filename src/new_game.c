@@ -133,10 +133,9 @@ static void WarpToTruck(void)
 
 static void WarpToBoat(void)
 {
-    SetWarpDestination(MAP_GROUP(INSIDE_OF_BOAT_ROOM), MAP_NUM(INSIDE_OF_BOAT_ROOM), WARP_ID_NONE, 5, 12);
+    SetWarpDestination(MAP_GROUP(INSIDE_BOAT_ROOM2), MAP_NUM(INSIDE_BOAT_ROOM2), WARP_ID_NONE, 5, 3);
     WarpIntoMap();
 }
-
 
 void Sav2_ClearSetDefault(void)
 {
@@ -156,6 +155,7 @@ void ResetMenuAndMonGlobals(void)
 
 void NewGameInitData(void)
 {
+    
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
 
@@ -212,6 +212,14 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_2);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_3);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_4);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_5);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_6);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_7);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_8);
+    FlagSet(FLAG_HIDE_HOMEBASE_STARTERS_BAG_9);    
 }
 
 static void ResetMiniGamesRecords(void)

@@ -1074,9 +1074,30 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+	.include "data/text/host_speech.inc"
 
-	.include "data/maps/InsideOfBoatRoom/scripts.inc"
+	.include "data/maps/InsideBoat_Room/scripts.inc"
 
-	.include "data/maps/InsideofBoat/scripts.inc"
+	.include "data/maps/InsideBoat/scripts.inc"
 
-	.include "data/maps/SurvivalIsland_Beach/scripts.inc"
+	.include "data/maps/HomeBase/scripts.inc"
+
+	.include "data/maps/SurvivalIsland_Pokemart/scripts.inc"
+
+	.include "data/maps/SurvivalIsland_Pokecenter/scripts.inc"
+	
+	.include "data/maps/Area1_Zone1/scripts.inc"
+
+	.include "data/maps/Area1_Zone2/scripts.inc"
+
+	.include "data/maps/Area1_Zone3/scripts.inc"
+
+	.include "data/maps/Area1_Zone4/scripts.inc"
+
+	.include "data/maps/Area1_Zone5/scripts.inc"
+
+	.include "data/maps/Area1_Zone6/scripts.inc"
+
+	.include "data/maps/Area1_Boss/scripts.inc"
+	
+	.include "data/maps/InsideBoat_Room2/scripts.inc"

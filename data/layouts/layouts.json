@@ -4430,6 +4430,26 @@
       "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/InsideofBoat/border.bin",
       "blockdata_filepath": "data/layouts/InsideofBoat/map.bin"
+    },
+    {
+      "id": "LAYOUT_SURVIVAL_ISLAND_BEACH",
+      "name": "SurvivalIsland_Beach_Layout",
+      "width": 38,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrainerIsland",
+      "border_filepath": "data/layouts/SurvivalIsland_Beach/border.bin",
+      "blockdata_filepath": "data/layouts/SurvivalIsland_Beach/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOME_BASE",
+      "name": "HomeBase_Layout",
+      "width": 36,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrainerIsland",
+      "border_filepath": "data/layouts/HomeBase/border.bin",
+      "blockdata_filepath": "data/layouts/HomeBase/map.bin"
     }
   ]
 }

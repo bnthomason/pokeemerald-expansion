@@ -592,8 +592,10 @@
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
 // gMapGroup_SurvivalIsland
-#define MAP_INSIDE_OF_BOAT_ROOM (0 | (34 << 8))
-#define MAP_INSIDEOF_BOAT       (1 | (34 << 8))
+#define MAP_INSIDE_OF_BOAT_ROOM   (0 | (34 << 8))
+#define MAP_INSIDEOF_BOAT         (1 | (34 << 8))
+#define MAP_SURVIVAL_ISLAND_BEACH (2 | (34 << 8))
+#define MAP_HOME_BASE             (3 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

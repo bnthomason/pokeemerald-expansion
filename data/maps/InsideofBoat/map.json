@@ -35,7 +35,7 @@
       "x": 1,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_INSIDEOF_BOAT",
+      "dest_map": "MAP_SURVIVAL_ISLAND_BEACH",
       "dest_warp_id": "0"
     }
   ],

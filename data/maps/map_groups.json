@@ -624,6 +624,8 @@
   ],
   "gMapGroup_SurvivalIsland": [
     "InsideOfBoatRoom",
-    "InsideofBoat"
+    "InsideofBoat",
+    "SurvivalIsland_Beach",
+    "HomeBase"
   ]
 }

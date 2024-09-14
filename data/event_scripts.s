@@ -1078,3 +1078,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/InsideOfBoatRoom/scripts.inc"
 
 	.include "data/maps/InsideofBoat/scripts.inc"
+
+	.include "data/maps/SurvivalIsland_Beach/scripts.inc"

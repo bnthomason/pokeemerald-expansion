@@ -592,10 +592,18 @@
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
 // gMapGroup_SurvivalIsland
-#define MAP_INSIDE_OF_BOAT_ROOM   (0 | (34 << 8))
-#define MAP_INSIDEOF_BOAT         (1 | (34 << 8))
-#define MAP_SURVIVAL_ISLAND_BEACH (2 | (34 << 8))
-#define MAP_HOME_BASE             (3 | (34 << 8))
+#define MAP_INSIDE_OF_BOAT_ROOM        (0 | (34 << 8))
+#define MAP_INSIDEOF_BOAT              (1 | (34 << 8))
+#define MAP_SURVIVAL_ISLAND_BEACH      (2 | (34 << 8))
+#define MAP_SURVIVAL_ISLAND_POKEMART   (3 | (34 << 8))
+#define MAP_SURVIVAL_ISLAND_POKECENTER (4 | (34 << 8))
+#define MAP_AREA1_ZONE1                (5 | (34 << 8))
+#define MAP_AREA1_ZONE2                (6 | (34 << 8))
+#define MAP_AREA1_ZONE3                (7 | (34 << 8))
+#define MAP_AREA1_ZONE4                (8 | (34 << 8))
+#define MAP_AREA1_ZONE5                (9 | (34 << 8))
+#define MAP_AREA1_ZONE6                (10 | (34 << 8))
+#define MAP_AREA1_BOSS                 (11 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

@@ -50,6 +50,7 @@ extern const u8 EventScript_ResetAllMapFlags[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
+static void WarpToBoat(void);
 static void ResetMiniGamesRecords(void);
 
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
@@ -130,6 +131,13 @@ static void WarpToTruck(void)
     WarpIntoMap();
 }
 
+static void WarpToBoat(void)
+{
+    SetWarpDestination(MAP_GROUP(INSIDE_OF_BOAT_ROOM), MAP_NUM(INSIDE_OF_BOAT_ROOM), WARP_ID_NONE, 5, 12);
+    WarpIntoMap();
+}
+
+
 void Sav2_ClearSetDefault(void)
 {
     ClearSav2();
@@ -192,7 +200,7 @@ void NewGameInitData(void)
     InitDewfordTrend();
     ResetFanClub();
     ResetLotteryCorner();
-    WarpToTruck();
+    WarpToBoat();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();

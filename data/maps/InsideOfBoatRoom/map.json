@@ -28,7 +28,7 @@
       "x": 5,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_INSIDE_OF_BOAT_ROOM",
+      "dest_map": "MAP_INSIDEOF_BOAT",
       "dest_warp_id": "0"
     },
     {

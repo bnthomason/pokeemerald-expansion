@@ -4442,14 +4442,24 @@
       "blockdata_filepath": "data/layouts/SurvivalIsland_Beach/map.bin"
     },
     {
-      "id": "LAYOUT_HOME_BASE",
-      "name": "HomeBase_Layout",
-      "width": 36,
+      "id": "LAYOUT_SURVIVAL_ISLAND_POKEMART",
+      "name": "SurvivalIsland_Pokemart_Layout",
+      "width": 38,
       "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_TrainerIsland",
-      "border_filepath": "data/layouts/HomeBase/border.bin",
-      "blockdata_filepath": "data/layouts/HomeBase/map.bin"
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/SurvivalIsland_Pokemart/border.bin",
+      "blockdata_filepath": "data/layouts/SurvivalIsland_Pokemart/map.bin"
+    },
+    {
+      "id": "LAYOUT_SURVIVAL_ISLAND_POKECENTER",
+      "name": "SurvivalIsland_PokeCenter_Layout",
+      "width": 38,
+      "height": 30,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/SurvivalIsland_PokeCenter/border.bin",
+      "blockdata_filepath": "data/layouts/SurvivalIsland_PokeCenter/map.bin"
     }
   ]
 }

@@ -122,8 +122,8 @@ struct PokemonSubstruct0
 {
     u16 species:11; // 2047 species.
     u16 teraType:5; // 30 types.
-    u16 heldItem:10; // 1023 items.
-    u16 unused_02:6;
+    u16 heldItem:11; // 2048 items.
+    u16 unused_02:5;
     u32 experience:21;
     u32 nickname11:8; // 11th character of nickname.
     u32 unused_04:3;
@@ -340,7 +340,9 @@ struct BattlePokemon
     /*0x55*/ u32 otId;
     /*0x59*/ u8 metLevel;
     /*0x5A*/ bool8 isShiny;
+    u32 isStatBoosted:1; //Applies to specific pokemon. 
 };
+
 
 struct Evolution
 {
@@ -441,8 +443,11 @@ struct SpeciesInfo /*0xC4*/
             u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.
             u32 tmIlliterate:1;     // This species will be unable to learn the universal moves.
             u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.
-            u32 padding4:13;
+            u16 suppressEnemyShadow:1; // If set to true, then a shadow will not be drawn beneath an enemy Pokémon's front sprite during battle.
+            u16 padding5:11;
+            // New code here
             // Move Data
+//            const u16 *specialLearnset;
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;
  /* 0x88 */ const u16 *eggMoveLearnset;

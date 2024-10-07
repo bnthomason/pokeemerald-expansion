@@ -646,6 +646,18 @@ extern const u32 gItemIcon_FossilizedDrake[];
 extern const u32 gItemIconPalette_FossilizedDrake[];
 extern const u32 gItemIcon_FossilizedDino[];
 extern const u32 gItemIconPalette_FossilizedDino[];
+extern const u32 gItemIcon_HornFossil[];
+extern const u32 gItemIconPalette_HornFossil[];
+extern const u32 gItemIcon_HideFossil[];
+extern const u32 gItemIconPalette_HideFossil[];
+extern const u32 gItemIcon_BoltFossil[]; //gItemIcon_HoofFossil
+extern const u32 gItemIconPalette_BoltFossil[]; // gItemIconPalette_HoofFossil
+extern const u32 gItemIcon_ScaleFossil[];
+extern const u32 gItemIconPalette_ScaleFossil[];
+extern const u32 gItemIcon_ClawFossil2[];
+extern const u32 gItemIconPalette_ClawFossil2[];
+extern const u32 gItemIcon_FeatherFossil[];
+extern const u32 gItemIconPalette_FeatherFossil[];
 // Mulch
 extern const u32 gItemIcon_Mulch[];
 extern const u32 gItemIconPalette_GrowthMulch[];

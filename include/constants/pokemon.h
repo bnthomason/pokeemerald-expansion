@@ -22,8 +22,10 @@
 #define TYPE_DRAGON           17
 #define TYPE_DARK             18
 #define TYPE_FAIRY            19
-#define TYPE_STELLAR          20
-#define NUMBER_OF_MON_TYPES   21
+#define TYPE_LIGHT            20
+#define TYPE_MAJESTIC		  21
+#define TYPE_STELLAR          22
+#define NUMBER_OF_MON_TYPES   23
 
 // Pokémon egg groups
 #define EGG_GROUP_NONE                0
@@ -41,7 +43,9 @@
 #define EGG_GROUP_WATER_2             12
 #define EGG_GROUP_DITTO               13
 #define EGG_GROUP_DRAGON              14
-#define EGG_GROUP_NO_EGGS_DISCOVERED  15
+//#define EGG_GROUP_DRACOCEROS          15 
+//#define EGG_GROUP_FAERIAL             16
+#define EGG_GROUP_NO_EGGS_DISCOVERED  15 //17
 
 #define EGG_GROUPS_PER_MON            2
 

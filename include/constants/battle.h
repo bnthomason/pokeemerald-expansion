@@ -402,8 +402,13 @@
 #define MOVE_EFFECT_SECRET_POWER        77
 #define MOVE_EFFECT_PSYCHIC_NOISE       78
 #define MOVE_EFFECT_TERA_BLAST          79
+#define MOVE_EFFECT_HP_UP_1             80
+#define MOVE_EFFECT_HP_UP_2             81
+#define MOVE_EFFECT_HP_DOWN_1           82
+#define MOVE_EFFECT_HP_DOWN_2           83
 
-#define NUM_MOVE_EFFECTS                80
+
+#define NUM_MOVE_EFFECTS                84
 
 #define MOVE_EFFECT_AFFECTS_USER        0x2000
 #define MOVE_EFFECT_CERTAIN             0x4000

@@ -504,6 +504,31 @@ const u32 gItemIconPalette_ArmoriteOre[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_DyniteOre[] = INCBIN_U32("graphics/items/icons/dynite_ore.4bpp.lz");
 const u32 gItemIconPalette_DyniteOre[] = INCBIN_U32("graphics/items/icon_palettes/dynite_ore.gbapal.lz");
 
+
+const u32 gItemIcon_HornFossil[] = INCBIN_U32("graphics/items/icons/horn_fossil.4bpp.lz");
+const u32 gItemIconPalette_HornFossil[] = INCBIN_U32("graphics/items/icon_palettes/horn_fossil.gbapal.lz");
+
+
+const u32 gItemIcon_HideFossil[] = INCBIN_U32("graphics/items/icons/hide_fossil.4bpp.lz");
+const u32 gItemIconPalette_HideFossil[] = INCBIN_U32("graphics/items/icon_palettes/hide_fossil.gbapal.lz");
+
+
+const u32 gItemIcon_BoltFossil[] = INCBIN_U32("graphics/items/icons/hide_fossil.4bpp.lz");
+const u32 gItemIconPalette_BoltFossil[] = INCBIN_U32("graphics/items/icon_palettes/hide_fossil.gbapal.lz");
+
+
+const u32 gItemIcon_ScaleFossil[] = INCBIN_U32("graphics/items/icons/scale_fossil.4bpp.lz");
+const u32 gItemIconPalette_ScaleFossil[] = INCBIN_U32("graphics/items/icon_palettes/scale_fossil.gbapal.lz");
+
+
+const u32 gItemIcon_ClawFossil2[] = INCBIN_U32("graphics/items/claw_fossil_2.4bpp.lz");
+const u32 gItemIconPalette_ClawFossil2[] = INCBIN_U32("graphics/items/icon_palettes/law_fossil_2.gbapal.lz");
+
+
+const u32 gItemIcon_FeatherFossil[] = INCBIN_U32("graphics/items/icons/feather_fossil.4bpp.lz");
+const u32 gItemIconPalette_FeatherFossil[] = INCBIN_U32("graphics/items/icon_palettes/feather_fossil.gbapal.lz");
+
+
 // Mail
 
 const u32 gItemIcon_OrangeMail[] = INCBIN_U32("graphics/items/icons/orange_mail.4bpp.lz");

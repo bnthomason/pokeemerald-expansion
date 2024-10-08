@@ -1083,6 +1083,7 @@ BattleScript_EffectJungleHealing::
 	waitanimation
 	copybyte gBattlerTarget, gBattlerAttacker
 	setbyte gBattleCommunication, 0
+	jumpifmove MOVE_HEALING_CIRCLE, HealingCircle_RestoreTargetHealth @ Healing Circle Restores 1/2 HP
 JungleHealing_RestoreTargetHealth:
 	copybyte gBattlerAttacker, gBattlerTarget
 	tryhealquarterhealth BS_TARGET, BattleScript_JungleHealing_TryCureStatus
@@ -1091,8 +1092,18 @@ JungleHealing_RestoreTargetHealth:
 	datahpupdate BS_TARGET
 	printstring STRINGID_PKMNREGAINEDHEALTH
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_JungleHealing_TryCureStatus
+HealingCircle_RestoreTargetHealth:
+	copybyte gBattlerAttacker, gBattlerTarget
+	tryhealhalfhealth BattleScript_JungleHealing_TryCureStatus, BS_TARGET
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
 BattleScript_JungleHealing_TryCureStatus:
 	jumpifmove MOVE_LIFE_DEW, BattleScript_JungleHealingTryRestoreAlly  @ life dew only heals
+	jumpifmove MOVE_HEALING_CIRCLE, BattleScript_JungleHealingTryRestoreAlly  @ healing circle only heals
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_JungleHealingCureStatus
 	goto BattleScript_JungleHealingTryRestoreAlly
 BattleScript_JungleHealingCureStatus:
@@ -1106,7 +1117,7 @@ BattleScript_JungleHealingTryRestoreAlly:
 	jumpifnoally BS_TARGET, BattleScript_MoveEnd
 	setallytonexttarget JungleHealing_RestoreTargetHealth
 	goto BattleScript_MoveEnd
-
+	
 BattleScript_EffectRelicSong::
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
@@ -10022,3 +10033,87 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setfieldweather ENUM_WEATHER_SNOW
 	goto BattleScript_MoveWeatherChange
+
+@@@ New abilities @@@
+
+BattleScript_LightwingActivates::
+	savetarget
+.if B_ABILITY_POP_UP == TRUE
+	call BattleScript_AbilityPopUp
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+.endif
+	updatestats
+	end3
+
+
+BattleScript_LongevityActivates::
+	savetarget
+.if B_ABILITY_POP_UP == TRUE
+	call BattleScript_AbilityPopUp
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+.endif
+	updatestats
+	end3
+
+@@@ New moves @@@
+
+
+
+BattleScript_EffectHolySong::
+	goto BattleScript_EffectSleep2
+BattleScript_EffectSleep2::
+	attackcanceler
+	attackstring
+	ppreduce
+@	setbyte gBattlerTarget, 0
+@	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_HolySongLoopIncrement
+@	jumpiftargetally BattleScript_HolySongLoopIncrement
+@	jumpifabsent BS_TARGET, BattleScript_HolySongLoopIncrement
+@	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_HolySongLoopIncrement
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_AlreadyAsleep
+	jumpifuproarwakes BattleScript_CantMakeAsleep
+	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
+	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_InsomniaProtects
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
+	jumpifflowerveil BattleScript_FlowerVeilProtects
+	jumpifability BS_TARGET_SIDE, ABILITY_SWEET_VEIL, BattleScript_SweetVeilProtects
+	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_ELECTRIC_TERRAIN, BattleScript_ElectricTerrainPrevents
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifsafeguard BattleScript_SafeguardProtected
+@ BattleScript_Sleep2Effect:
+@	copybyte sBATTLER, gBattlerAttacker
+	attackanimation
+	waitanimation
+	seteffectprimary MOVE_EFFECT_SLEEP
+	goto BattleScript_MoveEnd
+BattleScript_HoylSongLoopIncrement:
+@	addbyte gBattlerTarget, 1
+@	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_HolySongLoop
+@	copybyte sBATTLER, gBattlerAttacker
+@	restoretarget
+@	pause B_WAIT_TIME_MED
+@	end3
+
+BattleScript_EffectHPUp::
+	setstatchanger STAT_HP, 1, FALSE
+	goto BattleScript_EffectStatUp
+
+BattleScript_EffectHPDown::
+	setstatchanger STAT_HP, 1, TRUE
+	goto BattleScript_EffectStatDown
+	
+BattleScript_EffectHPUp2::
+	setstatchanger STAT_HP, 2, FALSE
+	goto BattleScript_EffectStatUp
+
+BattleScript_EffectHPDown2::
+	setstatchanger STAT_HP, 2, TRUE
+	goto BattleScript_EffectStatDown

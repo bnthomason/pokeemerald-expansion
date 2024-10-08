@@ -17,6 +17,7 @@
 #include "battle_dynamax.h"
 #include "battle_terastal.h"
 #include "battle_gimmick.h"
+#include "stat_boost.h"
 #include "random.h" // for rng_value_t
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.

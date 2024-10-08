@@ -1545,6 +1545,7 @@
 	.4byte \jumpInstr
 	.endm
 
+
 	.macro tryreflecttype failInstr:req
 	callnative BS_TryReflectType
 	.4byte \failInstr
@@ -1578,6 +1579,10 @@
 	.macro tryrecycleberry, ptr:req
 	callnative BS_TryRecycleBerry
 	.4byte \ptr
+	.endm
+
+	.macro updatestats
+	callnative BS_UpdateStats
 	.endm
 
 	.macro updatedynamax
@@ -2344,6 +2349,7 @@
 	.macro copyword dst:req, src:req
 	copyarray \dst, \src, 0x4
 	.endm
+
 
 	.macro jumpifbytenotequal byte1:req, byte2:req, jumpInstr:req
 	jumpifarraynotequal \byte1, \byte2, 0x1, \jumpInstr

@@ -517,8 +517,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .damagesAirborneDoubleDamage = TRUE,
         .windMove = TRUE,
         .contestEffect = CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
-        .contestCategory = CONTEST_CATEGORY_SMART,
-        .contestComboStarterId = 0,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = COMBO_STARTER_GUST,
         .contestComboMoves = {0},
         .battleAnimScript = Move_GUST,
     },
@@ -873,7 +873,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = COMBO_STARTER_HORN_ATTACK,
-        .contestComboMoves = {COMBO_STARTER_LEER},
+        .contestComboMoves = {COMBO_STARTER_LEER, COMBO_STARTER_HISS},
         .battleAnimScript = Move_HORN_ATTACK,
     },
 
@@ -1093,7 +1093,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .magicCoatAffected = TRUE,
         .contestEffect = CONTEST_EFFECT_BETTER_IF_LAST,
         .contestCategory = CONTEST_CATEGORY_CUTE,
-        .contestComboStarterId = 0,
+        .contestComboStarterId = COMBO_STARTER_TAIL_WHIP,
         .contestComboMoves = {COMBO_STARTER_CHARM},
         .battleAnimScript = Move_TAIL_WHIP,
     },
@@ -2703,7 +2703,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Recovers up to half the\n"
             "user's maximum HP."),
-        #if B_UPDATED_MOVE_DATA >= GEN_9
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
             .pp = 5,
         #elif B_UPDATED_MOVE_DATA >= GEN_4
             .pp = 10,
@@ -2724,7 +2726,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .snatchAffected = TRUE,
         .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
         .contestCategory = CONTEST_CATEGORY_SMART,
-        .contestComboStarterId = 0,
+        .contestComboStarterId = COMBO_STARTER_RECOVER,
         .contestComboMoves = {0},
         .battleAnimScript = Move_RECOVER,
     },
@@ -3814,7 +3816,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .magicCoatAffected = TRUE,
         .contestEffect = CONTEST_EFFECT_SHIFT_JUDGE_ATTENTION,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
-        .contestComboStarterId = 0,
+        .contestComboStarterId = COMBO_STARTER_FLASH,
         .contestComboMoves = {0},
         .battleAnimScript = Move_FLASH,
     },
@@ -5433,10 +5435,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .zMove = { .effect = Z_EFFECT_RESET_STATS },
         .magicCoatAffected = TRUE,
         .ignoresSubstitute = TRUE,
-        .contestEffect = CONTEST_EFFECT_MAKE_FOLLOWING_MONS_NERVOUS,
+        .contestEffect = CONTEST_EFFECT_MAKE_FOLLOWING_MON_NERVOUS,
         .contestCategory = CONTEST_CATEGORY_CUTE,
-        .contestComboStarterId = 0,
-        .contestComboMoves = {0},
+        .contestComboStarterId = COMBO_STARTER_ATTRACT,
+        .contestComboMoves = {COMBO_STARTER_CHARM},
         .battleAnimScript = Move_ATTRACT,
     },
 
@@ -5949,7 +5951,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 5,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -5975,7 +5985,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 0,
-        .pp = 5,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -6001,7 +6019,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = B_UPDATED_MOVE_TYPES >= GEN_6 ? TYPE_FAIRY : TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 5,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -6083,8 +6109,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         }),
         .contestEffect = CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
         .contestCategory = CONTEST_CATEGORY_COOL,
-        .contestComboStarterId = 0,
-        .contestComboMoves = {0},
+        .contestComboStarterId = COMBO_STARTER_TWISTER,
+        .contestComboMoves = {COMBO_STARTER_GUST},
         .battleAnimScript = Move_TWISTER,
     },
 
@@ -6372,7 +6398,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         }),
         .contestEffect = CONTEST_EFFECT_DONT_EXCITE_AUDIENCE,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
-        .contestComboStarterId = 0,
+        .contestComboStarterId = COMBO_STARTER_WHIRLPOOL,
         .contestComboMoves = {COMBO_STARTER_RAIN_DANCE},
         .battleAnimScript = Move_WHIRLPOOL,
     },
@@ -6514,7 +6540,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -6941,7 +6975,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -7686,7 +7728,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 5 : 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -8971,7 +9021,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
-        .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 5 : 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -11433,7 +11491,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
-        .pp = 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -15481,7 +15547,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_GROUND,
         .accuracy = 0,
-        .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 5 : 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -15660,7 +15734,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_FAIRY,
         .accuracy = 0,
-        .pp = 10,
+        #if B_UPDATED_MOVE_DATA >= GEN_X
+            .pp = 20,
+        #elif B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 10,
+        #else
+            .pp = 20,
+        #endif
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -17844,7 +17926,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_WATER,
         .accuracy = 0,
-        .pp = 10,
+        .pp = 15,
         .target = MOVE_TARGET_ALL_BATTLERS,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -19475,7 +19557,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 1,
+        .pp = 5,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -20673,6 +20755,466 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         }),
         .battleAnimScript = Move_MALIGNANT_CHAIN,
     },
+    [MOVE_FLASH_GLEAM] =
+    {
+        .name = COMPOUND_STRING("Flash Gleam"),
+        .description = COMPOUND_STRING(
+            "Damages foes by emitting\n"
+            "a bright flash."),
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_LIGHT,
+        .accuracy = 100,
+        .pp = 25,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_FLASH},
+        .battleAnimScript = Move_FLASH_GLEAM,
+    },
+
+    [MOVE_HEALING_TOUCH] =
+    {
+        .name = COMPOUND_STRING("Healing Touch"),
+        .description = COMPOUND_STRING(
+            "Recovers up to half the\n"
+            "target's maximum HP."),
+        .effect = EFFECT_HEAL_PULSE,
+        .power = 0,
+        .type = TYPE_LIGHT,
+        .accuracy = 0,
+        .pp = 10,
+        .target = MOVE_TARGET_USER_OR_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .healingMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = COMBO_STARTER_HEALING_TOUCH,
+        .contestComboMoves = {0},
+        .battleAnimScript = Move_HEALING_TOUCH,
+    },
+
+    [MOVE_TORNADO] =
+    {
+        .name = COMPOUND_STRING("Tornado"),
+        .description = COMPOUND_STRING(
+            "Whips up a mighty tornado.\n"
+            "May make the foe flinch."),
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_FLYING,
+        .accuracy = 90,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .windMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_FLINCH,
+            .chance = 30,
+        }),
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GUST, COMBO_STARTER_TWISTER},
+        .battleAnimScript = Move_TORNADO,
+    },
+
+    [MOVE_LIGHT_PULSE] =
+    {
+        .name = COMPOUND_STRING("Light Pulse"),
+        .description = COMPOUND_STRING(
+            "Fires a pulse of light.\n"
+            "May lower accuracy."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_LIGHT,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .pulseMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_ACC_MINUS_1,
+            .chance = 20,
+        }),
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLES_MONS_IN_GOOD_CONDITION,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_FLASH},
+        .battleAnimScript = Move_LIGHT_PULSE,
+    },
+
+
+    [MOVE_ALICORN_CHARGE] =
+    {
+        .name = COMPOUND_STRING("Alicorn Charge"),
+        .description = COMPOUND_STRING(
+            "Lowers head and charges\n"
+            "at the foe with its horn."),
+        .effect = EFFECT_HIT,
+        .power = 85,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_HORN_ATTACK, COMBO_STARTER_HISS, COMBO_STARTER_LEER},
+        .battleAnimScript = Move_ALICORN_CHARGE,
+    },
+
+    [MOVE_HEALING_CIRCLE] =
+    {
+        .name = COMPOUND_STRING("Healing Circle"),
+        .description = COMPOUND_STRING(
+            "Recovers up to half the\n"
+            "of the party's maximum HP."),
+        .effect = EFFECT_JUNGLE_HEALING,
+        .power = 0,
+        .type = TYPE_LIGHT,
+        .accuracy = 0,
+        .pp = 5,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .healingMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_BETTER_WHEN_AUDIENCE_EXCITED,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_HEALING_TOUCH},
+        .battleAnimScript = Move_HEALING_CIRCLE,
+    },
+
+    [MOVE_FEATHER_STORM] =
+    {
+        .name = COMPOUND_STRING("Feather Storm"),
+        .description = COMPOUND_STRING(
+            "Beats its wings to whip\n"
+            "up a storm of feathers."),
+        .effect = EFFECT_HIT,
+        .power = 150,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GUST, COMBO_STARTER_TWISTER},
+        .battleAnimScript = Move_FEATHER_STORM,
+    },
+
+    [MOVE_PHOTON_BLAST] =
+    {
+        .name = COMPOUND_STRING("Photon Beam"),
+        .description = COMPOUND_STRING(
+            "Deals more damage in,\n"
+            "sunlight."),
+        .effect = EFFECT_SUNLIGHT_HIT,
+        .power = 150,
+        .type = TYPE_LIGHT,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_GREAT_APPEAL_BUT_NO_MORE_MOVES,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GROWTH, COMBO_STARTER_SUNNY_DAY, COMBO_STARTER_FLASH},
+        .battleAnimScript = Move_PHOTON_BLAST,
+    },
+
+    [MOVE_LIGHT_OF_REVIVAL] =
+    {
+      .name = COMPOUND_STRING("Light of Revival"),
+        .description = COMPOUND_STRING(
+            "Revives a fainted party {PKMN}\n"
+            "and restores half of its HP."),
+        .effect = EFFECT_REVIVAL_BLESSING,
+        .power = 0,
+        .type = TYPE_LIGHT,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .healingMove = TRUE,
+        .sketchBanned = (B_SKETCH_BANS >= GEN_9),
+        .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GROWTH, COMBO_STARTER_SUNNY_DAY, COMBO_STARTER_FLASH},
+        .battleAnimScript = Move_LIGHT_OF_REVIVAL,
+    },
+
+    [MOVE_HOLY_SONG] =
+    {
+        .name = COMPOUND_STRING("Holy Song"),
+        .description = COMPOUND_STRING(
+            "Sings an lullaby to all\n"
+            "foes, inducing Sleep."),
+        .effect = EFFECT_DARK_VOID,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 75,
+        .pp = 10,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .magicCoatAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .sketchBanned = (B_SKETCH_BANS >= GEN_9),
+        .contestEffect = CONTEST_EFFECT_MAKE_FOLLOWING_MONS_NERVOUS,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SING},
+        .battleAnimScript = Move_HOLY_SONG,
+    },
+
+    [MOVE_HISS] =
+    {
+        .name = COMPOUND_STRING("Hiss"),
+        .description = COMPOUND_STRING(
+            "Hisses agitatedly at the\n"
+            "target, lowering its SPDEF."),
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 75,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_SPATK_UP_1 },
+        .magicCoatAffected = TRUE,
+        .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = COMBO_STARTER_HISS,
+        .contestComboMoves = {COMBO_STARTER_LEER},
+        .battleAnimScript = Move_HISS,
+    },
+
+    [MOVE_TAIL_ATTACK] =
+    {
+        .name = COMPOUND_STRING("Tail Attack"),
+        .description = COMPOUND_STRING(
+            "Turns and pounds the target\n"
+            "with its tail."),
+        .effect = EFFECT_HIT,
+        .power = 65,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 25,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = COMBO_STARTER_TAIL_ATTACK,
+        .contestComboMoves = {COMBO_STARTER_TAIL_WHIP, COMBO_STARTER_CHARM},
+        .battleAnimScript = Move_TAIL_ATTACK,
+    },
+
+    [MOVE_TAIL_SLAM] =
+    {
+        .name = COMPOUND_STRING("Tail Slam"),
+        .description = COMPOUND_STRING(
+            "Strikes the target as hard\n"
+            "as it can with its tail."),
+        .effect = EFFECT_HIT,
+        .power = 85,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_TAIL_ATTACK, COMBO_STARTER_TAIL_WHIP},
+        .battleAnimScript = Move_TAIL_SLAM,
+    },
+
+    [MOVE_MAELSTROM] =
+    {
+        .name = COMPOUND_STRING("Whirlpool"),
+        .description = COMPOUND_STRING(
+            "Whips up a massive\n"
+            "whirlpool to damage the foe."),
+        .effect = EFFECT_HIT,
+        .power = 120,
+        .type = TYPE_WATER,
+        .accuracy = 90,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .damagesUnderwater = TRUE,
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_RAIN_DANCE, COMBO_STARTER_WHIRLPOOL},
+        .battleAnimScript = Move_MAELSTROM,
+    },
+
+    [MOVE_MYSTIC_BEAM] =
+    {
+        .name = COMPOUND_STRING("Mystic Beam"),
+        .description = COMPOUND_STRING(
+            "Absorbs the field,\n"
+            "then attacks next turn."),
+        .effect = EFFECT_MYSTIC_BEAM,
+        .power = 120,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+        .argument = TWO_TURN_ARG(STRINGID_PKMNGATHEREDMYSTICISM, STATUS_FIELD_MISTY_TERRAIN),
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GROWTH, COMBO_STARTER_MISTY_TERRAIN},
+        .battleAnimScript = Move_MYSTIC_BEAM,
+    },
+
+
+    [MOVE_PIXIE_BLAST] =
+    {
+        .name = COMPOUND_STRING("Pixie Blast"),
+        .description = COMPOUND_STRING(
+            "Deals more damage on,\n"
+            "misty terrain."),
+        .effect = EFFECT_MISTY_HIT,
+        .power = 150,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_GREAT_APPEAL_BUT_NO_MORE_MOVES,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GROWTH, COMBO_STARTER_MISTY_TERRAIN},
+        .battleAnimScript = Move_PIXIE_BLAST,
+    },
+
+
+    [MOVE_SPRING_OF_REBIRTH] =
+    {
+      .name = COMPOUND_STRING("Spring of Rebirth"),
+        .description = COMPOUND_STRING(
+            "Revives a fainted party {PKMN}\n"
+            "and restores half of its HP."),
+        .effect = EFFECT_REVIVAL_BLESSING,
+        .power = 0,
+        .type = TYPE_LIGHT,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .healingMove = TRUE,
+        .sketchBanned = (B_SKETCH_BANS >= GEN_9),
+        .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_HEAL_BELL, COMBO_STARTER_RAIN_DANCE, COMBO_STARTER_WATER_SPORT},
+        .battleAnimScript = Move_SPRING_OF_REBIRTH,
+    },
+
+    [MOVE_MASS_ATTRACTION] =
+    {
+      .name = COMPOUND_STRING("Mass Attraction"),
+        .description = COMPOUND_STRING(
+            "Infatuates both foes\n"
+            "simultaneously."),
+        .effect = EFFECT_ATTRACT,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .magicCoatAffected = TRUE,
+        .ignoresSubstitute = TRUE,
+        .contestEffect = CONTEST_EFFECT_MAKE_FOLLOWING_MONS_NERVOUS,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_ATTRACT},
+        .battleAnimScript = Move_MASS_ATTRACTION,
+    },
+
+    [MOVE_GROOM] =
+    {
+        .name = COMPOUND_STRING("Groom"),
+        .description = COMPOUND_STRING(
+            "Grooms and beautifies itself,\n"
+            "sharply raising Maximum HP."),
+        .effect = EFFECT_HP_UP_2,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 30,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RECOVER_HP },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+        .sketchBanned = (B_SKETCH_BANS >= GEN_9),
+        .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = COMBO_STARTER_GROOM,
+        .contestComboMoves = {COMBO_STARTER_RECOVER},
+        .battleAnimScript = Move_GROOM,
+    },
+
 
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =

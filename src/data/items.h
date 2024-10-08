@@ -3262,6 +3262,110 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_FossilizedDino,
     },
 
+    [ITEM_HORN_FOSSIL] =
+    {
+        .name = _("Horn Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n"
+            "piece of a horn.\n"
+            "It dimly glows."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_HornFossil,
+        .iconPalette = gItemIconPalette_HornFossil,
+    },
+
+    [ITEM_HIDE_FOSSIL] =
+    {
+        .name = _("Hide Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n"
+            "scale of a hide.\n"
+            "Glistens dully."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_HideFossil,
+        .iconPalette = gItemIconPalette_HideFossil,
+    },
+
+    [ITEM_BOLT_FOSSIL] = // [ITEM_HOOF_FOSSIL] =
+    {
+        .name = _("Bolt Fossil"), //        .name = _("Hoof Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n" //"A fossilized\n"
+            "bolt of a 'mon.\n" //"hoof of a 'mon.\n"
+            "Slightly static."), //"Hard like stone."
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_BoltFossil, //        .iconPic = gItemIcon_HoofFossil,
+        .iconPalette = gItemIconPalette_BoltFossil, //        .iconPalette = gItemIconPalette_HoofFossil,
+    },
+
+    [ITEM_SCALE_FOSSIL] =
+    {
+        .name = _("Scale Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n"
+            "scale of a tail.\n"
+            "Somewhat dull."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_ScaleFossil,
+        .iconPalette = gItemIconPalette_ScaleFossil,
+    },
+
+    [ITEM_CLAW_FOSSIL_2] =
+    {
+        .name = _("Claw Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n"
+            "claw of a 'mon.\n"
+            "Not very sharp."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_ClawFossil2,
+        .iconPalette = gItemIconPalette_ClawFossil2,
+    },
+
+    [ITEM_FEATHER_FOSSIL] =
+    {
+        .name = HANDLE_EXPANDED_ITEM_NAME("FeatherFossl", "Feather Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n"
+            "white feather.\n"
+            "Somewhat stiff."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_FeatherFossil,
+        .iconPalette = gItemIconPalette_FeatherFossil,
+    },
+
+
+
 // Mulch
 
     [ITEM_GROWTH_MULCH] =

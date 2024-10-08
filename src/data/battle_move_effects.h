@@ -2255,4 +2255,40 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0, // TODO: Assign points
     },
+    [EFFECT_SUNLIGHT_HIT] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 0,
+    },
+
+    [EFFECT_MISTY_HIT] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 0,
+    },
+
+    [EFFECT_HOLY_SONG] =
+    {
+        .battleScript = BattleScript_EffectHolySong,
+        .battleTvScore = 7,
+    },
+
+    [EFFECT_MYSTIC_BEAM] =
+    {
+        .battleScript = BattleScript_EffectTwoTurnsAttack,
+        .battleTvScore = 1,
+        .twoTurnEffect = TRUE,
+    },
+
+    [EFFECT_MASS_ATTRACTION] =
+    {
+        .battleScript = BattleScript_EffectMassAttraction,
+        .battleTvScore = 7,
+    },
+
+    [EFFECT_HP_UP_2] =
+    {
+        .battleScript = BattleScript_EffectHPUp2,
+        .battleTvScore = 1,
+    },
 };

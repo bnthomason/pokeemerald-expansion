@@ -2606,5 +2606,76 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
+    },    
+
+[ABILITY_LIGHTWING] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Lightwing"),
+    #else
+        .name = _("Lightwing"),
+    #endif
+        .description = COMPOUND_STRING("Doubles SPEED"),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
     },
+
+    [ABILITY_PHOTOSYNTHESIS] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Photosynthesis"),
+    #else
+        .name = _("Phtsyntss"),
+    #endif
+        .description = COMPOUND_STRING("Restores HP during sunlight"),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_D_HEALING_LIGHT] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Healing Light"),
+    #else
+        .name = _("HealLight"),
+    #endif
+        .description = COMPOUND_STRING("Restores HP and doubles SPEED"),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_LONGEVITY] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Longevity"),
+    #else
+        .name = _("Longevity"),
+    #endif
+        .description = COMPOUND_STRING("Doubles HP in battle."),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_D_HEALING_STORM] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Healing Storm"),
+    #else
+        .name = _("HealStorm"),
+    #endif
+        .description = COMPOUND_STRING("Doubles and restores HP."),
+        .aiRating = 10,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
 };

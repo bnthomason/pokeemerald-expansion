@@ -521,8 +521,8 @@ const u32 gItemIcon_ScaleFossil[] = INCBIN_U32("graphics/items/icons/scale_fossi
 const u32 gItemIconPalette_ScaleFossil[] = INCBIN_U32("graphics/items/icon_palettes/scale_fossil.gbapal.lz");
 
 
-const u32 gItemIcon_ClawFossil2[] = INCBIN_U32("graphics/items/claw_fossil_2.4bpp.lz");
-const u32 gItemIconPalette_ClawFossil2[] = INCBIN_U32("graphics/items/icon_palettes/law_fossil_2.gbapal.lz");
+const u32 gItemIcon_ClawFossil2[] = INCBIN_U32("graphics/items/icons/claw_fossil_2.4bpp.lz");
+const u32 gItemIconPalette_ClawFossil2[] = INCBIN_U32("graphics/items/icon_palettes/claw_fossil_2.gbapal.lz");
 
 
 const u32 gItemIcon_FeatherFossil[] = INCBIN_U32("graphics/items/icons/feather_fossil.4bpp.lz");

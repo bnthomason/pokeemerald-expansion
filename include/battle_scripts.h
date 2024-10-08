@@ -555,6 +555,16 @@ extern const u8 BattleScript_DynamaxBegins[];
 extern const u8 BattleScript_DynamaxEnds[];
 extern const u8 BattleScript_MoveBlockedByDynamax[];
 
+// special abilities
+extern const u8 BattleScript_PhotosynthesisActivates[];
+extern const u8 BattleScript_LightwingActivates[];
+extern const u8 BattleScript_HealingLightActivates_InitEffect[];
+extern const u8 BattleScript_HealingLightActivates_HealEffect[];
+extern const u8 BattleScript_LongevityActivates[];
+extern const u8 BattleScript_HealingStormActivates_InitEffect[];
+extern const u8 BattleScript_HealingStormActivates_HealEffect[];
+
+
 // Battle move scripts
 extern const u8 BattleScript_EffectSleep[];
 extern const u8 BattleScript_EffectAbsorb[];

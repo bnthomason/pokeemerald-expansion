@@ -4355,6 +4355,7 @@ BattleScript_TryDestinyKnotAttacker:
 BattleScript_TryDestinyKnotAttackerRet:
 	return
 
+BattleScript_EffectMassAttraction::
 BattleScript_EffectAttract::
 	attackcanceler
 	attackstring

@@ -22050,8 +22050,8 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_DracocerosHolyChild[] = INCBIN_COMP("graphics/pokemon/dracoceros_holy_child/overworld.4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u32 gOverworldPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_child/overworld_normal.gbapal.lz");
-    const u32 gShinyOverworldPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_child/overworld_shiny.gbapal.lz");
+//    const u32 gOverworldPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_child/overworld_normal.gbapal.lz");
+//    const u32 gShinyOverworldPalette_DracocerosHolyChild[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_child/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
@@ -22069,8 +22069,8 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_DracocerosHolyJuvenile[] = INCBIN_COMP("graphics/pokemon/dracoceros_holy_juvenile/overworld.4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u32 gOverworldPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_juvenile/overworld_normal.gbapal.lz");
-    const u32 gShinyOverworldPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_juvenile/overworld_shiny.gbapal.lz");
+//    const u32 gOverworldPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_juvenile/overworld_normal.gbapal.lz");
+//    const u32 gShinyOverworldPalette_DracocerosHolyJuvenile[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_juvenile/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 
@@ -22088,8 +22088,8 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_DracocerosHolyAdult[] = INCBIN_COMP("graphics/pokemon/dracoceros_holy_adult/overworld.4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const u32 gOverworldPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_adult/overworld_normal.gbapal.lz");
-    const u32 gShinyOverworldPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_adult/overworld_shiny.gbapal.lz");
+//    const u32 gOverworldPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_adult/overworld_normal.gbapal.lz");
+//    const u32 gShinyOverworldPalette_DracocerosHolyAdult[] = INCBIN_U32("graphics/pokemon/dracoceros_holy_adult/overworld_shiny.gbapal.lz");
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 

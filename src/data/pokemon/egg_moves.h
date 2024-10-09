@@ -6301,3 +6301,43 @@ static const u16 sFrigibaxEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_FRIGIBAX
+
+#if P_FAMILY_DRACOCEROS_HERO
+static const u16 sDracocerosHolyEggMoveLearnset[] = {
+        MOVE_LEER,
+        MOVE_HISS,
+        MOVE_RECOVER,
+        MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_DRACOCEROS_HERO
+
+#if P_FAMILY_FAERIAL_HERO
+static const u16 sFaerialBeautyEggMoveLearnset[] = {
+    MOVE_CHARM,
+    MOVE_TAIL_WHIP,
+    MOVE_GROOM,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_FAERIAL_HERO
+
+#if P_FAMILY_DRACOCEROS_HERO
+static const u16 sDracocerosHolyFormSpeciesIdTable[] = {
+//    SPECIES_DRACOCEROS_HOLY_JUVENILE,
+    SPECIES_DRACOCEROS_HOLY_ADULT,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_DRACOCEROS_HOLY_MEGA,
+//#endif
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_DRACOCEROS_HERO
+
+#if P_FAMILY_FAERIAL_HERO
+static const u16 sFaerialBeautyFormSpeciesIdTable[] = {
+//    SPECIES_FAERIAL_BEAUTY_JUVENILE,
+    SPECIES_FAERIAL_BEAUTY_ADULT,
+//#if P_MEGA_EVOLUTIONS
+//    SPECIES_FAERIAL_BEAUTY_MEGA,
+//#endif
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_FAERIAL_HERO

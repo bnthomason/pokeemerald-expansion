@@ -29,37 +29,37 @@ void ApplyStatMultiplier(u32 battler, struct Pokemon *mon)
     u16 hp = 0;
     u16 maxHP = 0;
 
-    if (gBattleMons[battler].ability == ABILITY_LIGHTWING)
+    if (gBattleMons[battler].ability == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT))
     {
         u32 speed = (GetMonData(mon, MON_DATA_SPEED) * 2);
         SetMonData(mon, MON_DATA_SPEED, &speed);
         gBattleMons[battler].isStatBoosted = TRUE;
     }
-    if ((gBattleMons[battler].ability == ABILITY_LONGEVITY) || ((gBattleMons[battler].ability == ABILITY_D_HEALING_STORM) && (gBattleWeather & B_WEATHER_RAIN) || (gBattleMons[battler].ability == ABILITY_D_HEALING_LIGHT) && (gBattleWeather & B_WEATHER_RAIN)) 
-    {
-        if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
-            return;
-        else
+    if (gBattleMons[battler].ability == (ABILITY_LONGEVITY || ABILITY_D_HEALING_STORM))
         {
-            hp = (GetMonData(mon, MON_DATA_HP) * 2);
-            maxHP = (GetMonData(mon, MON_DATA_MAX_HP) * 2);
+            if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
+                return;
+            else
+            {
+                hp = (GetMonData(mon, MON_DATA_HP) * 2);
+                maxHP = (GetMonData(mon, MON_DATA_MAX_HP) * 2);
 
-            DebugPrintf("Mon HP was %d", GetMonData(mon, MON_DATA_HP));
-            DebugPrintf("Mon HP should be %d", GetMonData(mon, MON_DATA_HP) * 2);
-            DebugPrintf("Mon HP shouldn't be %d", &hp);
+                DebugPrintf("Mon HP was %d", GetMonData(mon, MON_DATA_HP));
+                DebugPrintf("Mon HP should be %d", GetMonData(mon, MON_DATA_HP) * 2);
+                DebugPrintf("Mon HP shouldn't be %d", &hp);
 
-            DebugPrintf("Mon Max HP was %d", GetMonData(mon, MON_DATA_MAX_HP));
-            DebugPrintf("Mon Max HP should be %d", GetMonData(mon, MON_DATA_MAX_HP) * 2);
-            DebugPrintf("Mon Max HP shouldn't be %d", &maxHP);
+                DebugPrintf("Mon Max HP was %d", GetMonData(mon, MON_DATA_MAX_HP));
+                DebugPrintf("Mon Max HP should be %d", GetMonData(mon, MON_DATA_MAX_HP) * 2);
+                DebugPrintf("Mon Max HP shouldn't be %d", &maxHP);
 
-            SetMonData(mon, MON_DATA_HP, &hp);
-            SetMonData(mon, MON_DATA_MAX_HP, &maxHP);
+                SetMonData(mon, MON_DATA_HP, &hp);
+                SetMonData(mon, MON_DATA_MAX_HP, &maxHP);
 
-            DebugPrintf("Mon HP is now %d", GetMonData(mon, MON_DATA_HP));
-            DebugPrintf("Mon Max HP is now %d", GetMonData(mon, MON_DATA_MAX_HP));
-            gBattleMons[battler].isStatBoosted = TRUE;
+                DebugPrintf("Mon HP is now %d", GetMonData(mon, MON_DATA_HP));
+                DebugPrintf("Mon Max HP is now %d", GetMonData(mon, MON_DATA_MAX_HP));
+                gBattleMons[battler].isStatBoosted = TRUE;
+            }
         }
-    }
 }
 
 // Updates stats like HP multipliers and healthboxes.

@@ -584,6 +584,12 @@ struct DynamaxData
     u16 levelUpHP;
 };
 
+struct StatBoostData
+{
+    u16 levelUpHP;
+    u16 levelUpSpeed;
+};
+
 struct BattleGimmickData
 {
     u8 usableGimmick[MAX_BATTLERS_COUNT];                // first usable gimmick that can be selected for each battler
@@ -805,6 +811,7 @@ struct BattleStruct
     u8 fickleBeamBoosted:1;
     u8 obedienceResult:3;
     u8 usedMicleBerry;
+
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,

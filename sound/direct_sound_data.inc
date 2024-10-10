@@ -6154,7 +6154,36 @@ Cry_Terapagos::
 Cry_Pecharunt::
 	.incbin "sound/direct_sound_samples/cries/pecharunt.bin"
 .endif @ P_FAMILY_PECHARUNT
+
+.if P_FAMILY_DRACOCEROS_HERO == TRUE
+	.align 2
+Cry_DracocerosHolyChild::
+	.incbin "sound/direct_sound_samples/cries/dracocerosholychild.bin"
+
+	.align 2
+Cry_DracocerosHolyJuvenile::
+	.incbin "sound/direct_sound_samples/cries/dracocerosholyjuvenile.bin"
+
+	.align 2
+Cry_DracocerosHolyAdult::
+	.incbin "sound/direct_sound_samples/cries/dracocerosholyadult.bin"
+.endif @ P_FAMILY_DRACOCEROS_HERO
+
+.if P_FAMILY_FAERIAL_HERO == TRUE
+	.align 2
+Cry_FaerialBeautyChild::
+	.incbin "sound/direct_sound_samples/cries/faerialbeautychild.bin"
+
+	.align 2
+Cry_FaerialBeautyJuvenile::
+	.incbin "sound/direct_sound_samples/cries/faerialbeautyjuvenile.bin"
+
+	.align 2
+Cry_FaerialBeautyAdult::
+	.incbin "sound/direct_sound_samples/cries/faerialbeautyadult.bin"
+.endif @ P_FAMILY_FAERIAL_HERO
 .endif @ P_CRIES_ENABLED
+
 
 	.align 2
 DirectSoundWaveData_register_noise::

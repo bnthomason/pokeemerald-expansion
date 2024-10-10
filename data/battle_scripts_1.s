@@ -10058,6 +10058,11 @@ BattleScript_LongevityActivates::
 	updatestats
 	end3
 
+BattleScript_PhotosynthesisActivates::
+	call BattleScript_AbilityHpHeal
+	end3
+
+
 @@@ New moves @@@
 
 

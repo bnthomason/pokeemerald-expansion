@@ -730,6 +730,7 @@ struct BattleStruct
     bool8 throwingPokeBall;
     struct ZMoveData zmove;
     struct DynamaxData dynamax;
+    struct StatBoostData statboost;
     struct BattleGimmickData gimmick;
     const u8 *trainerSlideMsg;
     bool8 trainerSlideLowHpMsgDone;
@@ -922,6 +923,7 @@ struct BattleScripting
     u8 switchCase;  // Special switching conditions, eg. red card
     u8 overrideBerryRequirements;
     u8 stickyWebStatDrop; // To prevent Defiant activating on a Court Change'd Sticky Web
+    u8 levelUpSpeed;
 };
 
 struct BattleSpriteInfo

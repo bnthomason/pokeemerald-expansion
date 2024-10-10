@@ -447,7 +447,7 @@ struct SpeciesInfo /*0xC4*/
             u16 padding5:11;
             // New code here
             // Move Data
-//            const u16 *specialLearnset;
+            const u16 *specialLearnset;
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;
  /* 0x88 */ const u16 *eggMoveLearnset;

@@ -2251,6 +2251,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .formSpeciesIdTable = sFlorgesFormSpeciesIdTable
 
 #else
+#define FLORGES_MISC_INFO(Form, iconPal)                                        \
         .baseHP        = 78,                                                    \
         .baseAttack    = 65,                                                    \
         .baseDefense   = 68,                                                    \

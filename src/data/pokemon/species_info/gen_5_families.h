@@ -11270,7 +11270,6 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_COBALION
     [SPECIES_COBALION] =
     {
-    {
     #if P_UPDATED_STATS >= GEN_X
         .baseHP        = 90,
         .baseAttack    = 90,

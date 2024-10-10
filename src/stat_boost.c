@@ -35,7 +35,7 @@ void ApplyStatMultiplier(u32 battler, struct Pokemon *mon)
         SetMonData(mon, MON_DATA_SPEED, &speed);
         gBattleMons[battler].isStatBoosted = TRUE;
     }
-    if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
+    if ((gBattleMons[battler].ability == ABILITY_LONGEVITY) || ((gBattleMons[battler].ability == ABILITY_D_HEALING_STORM) && (gBattleWeather & B_WEATHER_RAIN) || (gBattleMons[battler].ability == ABILITY_D_HEALING_LIGHT) && (gBattleWeather & B_WEATHER_RAIN)) 
     {
         if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
             return;

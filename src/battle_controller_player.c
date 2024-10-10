@@ -31,6 +31,7 @@
 #include "text.h"
 #include "util.h"
 #include "window.h"
+#include "constants/abilities.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_partner.h"
@@ -1416,7 +1417,6 @@ static s32 GetTaskExpValue(u8 taskId)
 {
     return (u16)(gTasks[taskId].tExpTask_gainedExp_1) | (gTasks[taskId].tExpTask_gainedExp_2 << 16);
 }
-
 static void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
@@ -1434,8 +1434,11 @@ static void Task_GiveExpToMon(u8 taskId)
         if (currExp + gainedExp >= nextLvlExp)
         {
             SetMonData(mon, MON_DATA_EXP, &nextLvlExp);
-            gBattleStruct->dynamax.levelUpHP = GetMonData(mon, MON_DATA_HP) \
-                + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
+            gBattleStruct->dynamax.levelUpHP = GetMonData(mon, MON_DATA_HP) + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
+            if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
+                gBattleStruct->statboost.levelUpHP = GetMonData(mon, MON_DATA_HP) + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(2.0)) + UQ_4_12_ROUND);
+            if (gBattleMons[battler].ability == ABILITY_LIGHTWING)
+                gBattleStruct->statboost.levelUpSpeed = GetMonData(mon, MON_DATA_SPEED) + UQ_4_12_TO_INT((gBattleScripting.levelUpSpeed * UQ_4_12(2.0)) + UQ_4_12_ROUND);
             CalculateMonStats(mon);
 
             // Reapply Dynamax HP multiplier after stats are recalculated.
@@ -1446,11 +1449,28 @@ static void Task_GiveExpToMon(u8 taskId)
                 SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
             }
 
+            // Reapply Stat multiplier after stats are recalculated.
+            if (IsStatBoosted(battler))
+            {
+                ApplyStatMultiplier(battler, mon);
+                if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
+                {
+                    DebugPrintf ("gBattleStruct StatBoost LevelUpHp %d", gBattleStruct->statboost.levelUpHP);
+                    gBattleMons[battler].hp = gBattleStruct->statboost.levelUpHP;
+                    SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
+                }
+                if (gBattleMons[battler].ability == ABILITY_LIGHTWING)
+                {
+                   DebugPrintf ("gBattleStruct StatBoost LevelUpSpeed %d", gBattleStruct->statboost.levelUpSpeed);
+                    gBattleMons[battler].speed = gBattleStruct->statboost.levelUpSpeed;
+                    SetMonData(mon, MON_DATA_SPEED, &gBattleMons[battler].speed);
+                }
+            }
+
             gainedExp -= nextLvlExp - currExp;
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, RET_VALUE_LEVELED_UP, gainedExp);
 
-            if (IsDoubleBattle() == TRUE
-             && (monId == gBattlerPartyIndexes[battler] || monId == gBattlerPartyIndexes[BATTLE_PARTNER(battler)]))
+            if (IsDoubleBattle() == TRUE && (monId == gBattlerPartyIndexes[battler] || monId == gBattlerPartyIndexes[BATTLE_PARTNER(battler)]))
                 gTasks[taskId].func = Task_LaunchLvlUpAnim;
             else
                 gTasks[taskId].func = Task_SetControllerToWaitForString;
@@ -1468,6 +1488,7 @@ static void Task_GiveExpToMon(u8 taskId)
         gTasks[taskId].func = Task_PrepareToGiveExpWithExpBar;
     }
 }
+
 
 static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
 {
@@ -1518,8 +1539,11 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             if (currExp + gainedExp >= expOnNextLvl)
             {
                 SetMonData(&gPlayerParty[monId], MON_DATA_EXP, &expOnNextLvl);
-                gBattleStruct->dynamax.levelUpHP = GetMonData(&gPlayerParty[monId], MON_DATA_HP) \
-                    + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
+                gBattleStruct->dynamax.levelUpHP = GetMonData(&gPlayerParty[monId], MON_DATA_HP) + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
+                if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
+                    gBattleStruct->statboost.levelUpHP = GetMonData((&gPlayerParty[monId]), MON_DATA_HP) + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(2.0)) + UQ_4_12_ROUND);
+                if (gBattleMons[battler].ability == ABILITY_LIGHTWING)
+                    gBattleStruct->statboost.levelUpSpeed = GetMonData((&gPlayerParty[monId]), MON_DATA_SPEED) + UQ_4_12_TO_INT((gBattleScripting.levelUpSpeed * UQ_4_12(2.0)) + UQ_4_12_ROUND);   
                 CalculateMonStats(&gPlayerParty[monId]);
 
                 // Reapply Dynamax HP multiplier after stats are recalculated.
@@ -1528,6 +1552,22 @@ static void Task_GiveExpWithExpBar(u8 taskId)
                     ApplyDynamaxHPMultiplier(battler, &gPlayerParty[monId]);
                     gBattleMons[battler].hp = gBattleStruct->dynamax.levelUpHP;
                     SetMonData(&gPlayerParty[monId], MON_DATA_HP, &gBattleMons[battler].hp);
+                }
+
+                // Reapply Stat multiplier after stats are recalculated.
+                if (IsStatBoosted(battler))
+                {
+                    ApplyStatMultiplier(battler, (&gPlayerParty[monId]));
+                    if (gBattleMons[battler].ability == ABILITY_LONGEVITY)
+                    {
+                        gBattleMons[battler].hp = gBattleStruct->statboost.levelUpHP;
+                        SetMonData((&gPlayerParty[monId]), MON_DATA_HP, &gBattleMons[battler].hp);
+                    }
+                    if (gBattleMons[battler].ability == ABILITY_LIGHTWING)
+                    {
+                        gBattleMons[battler].speed = gBattleStruct->statboost.levelUpSpeed;
+                        SetMonData((&gPlayerParty[monId]), MON_DATA_SPEED, &gBattleMons[battler].speed);
+                    }
                 }
 
                 gainedExp -= expOnNextLvl - currExp;
@@ -1544,6 +1584,8 @@ static void Task_GiveExpWithExpBar(u8 taskId)
         }
     }
 }
+
+
 
 static void Task_LaunchLvlUpAnim(u8 taskId)
 {

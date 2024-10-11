@@ -3594,14 +3594,22 @@ const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
     return learnset;
 }
 
+/*const u16 *GetSpeciesSpecialLearnset(u16 species)
+{
+    const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].specialLearnset;
+    if (learnset == NULL)
+        return gSpeciesInfo[SPECIES_NONE].specialLearnset;
+    return learnset;
+}*/
 
-/*const u16 *GetSpeciesTeachableLearnset(u16 species)
+
+const u16 *GetSpeciesTeachableLearnset(u16 species)
 {
     const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].teachableLearnset;
     if (learnset == NULL)
         return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
     return learnset;
-}*/
+}
 
 const u16 *GetSpeciesEggMoves(u16 species)
 {

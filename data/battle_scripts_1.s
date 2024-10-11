@@ -10038,7 +10038,7 @@ BattleScript_EffectSnow::
 
 @@@ New abilities @@@
 
-BattleScript_HealingLightActivates_InitlEffect::
+BattleScript_HealingLightActivates_InitEffect::
 BattleScript_LightwingActivates::
 	savetarget
 .if B_ABILITY_POP_UP == TRUE

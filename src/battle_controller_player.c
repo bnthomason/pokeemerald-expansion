@@ -1437,7 +1437,7 @@ static void Task_GiveExpToMon(u8 taskId)
             gBattleStruct->dynamax.levelUpHP = GetMonData(mon, MON_DATA_HP) + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
             if (gBattleMons[battler].ability == (ABILITY_LONGEVITY || ABILITY_D_HEALING_STORM))
                 gBattleStruct->statboost.levelUpHP = GetMonData(mon, MON_DATA_HP) + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(2.0)) + UQ_4_12_ROUND);
-            if (gBattleMons[battler].ability == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT )
+            if (gBattleMons[battler].ability == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT))
                 gBattleStruct->statboost.levelUpSpeed = GetMonData(mon, MON_DATA_SPEED) + UQ_4_12_TO_INT((gBattleScripting.levelUpSpeed * UQ_4_12(2.0)) + UQ_4_12_ROUND);
             CalculateMonStats(mon);
 

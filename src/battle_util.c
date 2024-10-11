@@ -5029,7 +5029,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 BattleScriptPushCursorAndCallback(BattleScript_HealingStormActivates_InitEffect);
                 effect++;
             }
-            break
+            break;
         }
         break;
     case ABILITYEFFECT_ENDTURN:
@@ -9216,7 +9216,6 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             && CanBattlerGetOrLoseItem(battlerDef, gBattleMons[battlerDef].item))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
-    }
     case EFFECT_SUNLIGHT_HIT:
         if (IsBattlerWeatherAffected(battlerAtk, (B_WEATHER_HAIL | B_WEATHER_SANDSTORM | B_WEATHER_RAIN | B_WEATHER_SNOW | B_WEATHER_FOG)))
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
@@ -9224,12 +9223,12 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
     case EFFECT_MISTY_HIT:
-        if (IsBattlerTerrainAffected(battlerAtk, (STATUS_FIELD_PSYCHIC_TERRAIN | STATUS_FIGHTING_TERRAIN)))
+        if (IsBattlerTerrainAffected(battlerAtk, (STATUS_FIELD_PSYCHIC_TERRAIN)))
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
         else if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_MISTY_TERRAIN))
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
-
+    }
 
     // various effects
     if (gProtectStructs[battlerAtk].helpingHand)
@@ -11624,7 +11623,7 @@ void RecalcBattlerStats(u32 battler, struct Pokemon *mon)
     CalculateMonStats(mon);
     if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX && gChosenActionByBattler[battler] != B_ACTION_SWITCH)
         ApplyDynamaxHPMultiplier(battler, mon);
-    if (gBattleMons[battler].ability == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT || ABILITY_LONGEVITY || ABILITY_D_HEALING_STORM)
+    if (gBattleMons[battler].ability == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT || ABILITY_LONGEVITY || ABILITY_D_HEALING_STORM))
         {
             ApplyStatMultiplier(battler, mon);
 //            DebugPrintf("We are in the loop!");

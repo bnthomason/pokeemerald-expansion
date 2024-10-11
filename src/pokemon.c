@@ -679,7 +679,9 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"
 
-#if P_LVL_UP_LEARNSETS >= GEN_9
+#if P_LVL_UP_LEARNSETS >= GEN_X
+#include "data/pokemon/level_up_learnsets/gen_X.h" // Fake Game
+#elif P_LVL_UP_LEARNSETS >= GEN_9
 #include "data/pokemon/level_up_learnsets/gen_9.h" // Scarlet/Violet
 #elif P_LVL_UP_LEARNSETS >= GEN_8
 #include "data/pokemon/level_up_learnsets/gen_8.h" // Sword/Shield
@@ -701,10 +703,12 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 
 #include "data/pokemon/teachable_learnsets.h"
 #include "data/pokemon/egg_moves.h"
+#include "data/pokemon/special_moves.h"
 #include "data/pokemon/form_species_tables.h"
 #include "data/pokemon/form_change_tables.h"
 #include "data/pokemon/form_change_table_pointers.h"
 #include "data/object_events/object_event_pic_tables_followers.h"
+
 
 #include "data/pokemon/species_info.h"
 
@@ -3590,13 +3594,14 @@ const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
     return learnset;
 }
 
-const u16 *GetSpeciesTeachableLearnset(u16 species)
+
+/*const u16 *GetSpeciesTeachableLearnset(u16 species)
 {
     const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].teachableLearnset;
     if (learnset == NULL)
         return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
     return learnset;
-}
+}*/
 
 const u16 *GetSpeciesEggMoves(u16 species)
 {
@@ -5618,6 +5623,27 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
 
      return numMoves;
 }
+
+/*u8 GetSpecialMovesBySpecies(u16 species, u16 moveNum)
+{
+    u16 move;
+    int i;
+
+    if (moveNum < NUM_SPECIAL_MOVES)
+        move = gSpeciesInfo[species].specialLearnset[moveNum];
+    else
+        move = MOVE_UNAVAILABLE;
+
+    for (i = 0; i < NUM_SPECIAL_MOVES && move == MOVE_UNAVAILABLE; i++) // look for any non-empty move
+    {
+        move = gSpeciesInfo[species].specialLearnset[i];
+    }
+
+    DebugPrintf("Assigned move is %x", move);
+
+    return move;
+}*/
+
 
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 {

@@ -98,13 +98,13 @@ void UndoStatBoost(u32 battler)
     {
         struct Pokemon *mon = (side == B_SIDE_PLAYER) ? &gPlayerParty[monId] : &gEnemyParty[monId];
         u16 mult = UQ_4_12(1.0 / 2.0); // placeholder
-        if (GetMonAbility(mon) == ABILITY_LIGHTWING)
+        if (GetMonAbility(mon) == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT))
         {
             gBattleMons[battler].speed = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_SPEED) * mult + 1) + UQ_4_12_ROUND); // round up
             SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].speed);
             CalculateMonStats(mon);
         }
-        if (GetMonAbility(mon) == ABILITY_LONGEVITY)
+        if (GetMonAbility(mon) == (ABILITY_LONGEVITY || ABILITY_D_HEALING_STORM))
         {
             gBattleMons[battler].hp = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_HP) * mult + 1) + UQ_4_12_ROUND); // round up
             SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);

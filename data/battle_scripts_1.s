@@ -7710,6 +7710,7 @@ BattleScript_AbilityHpHeal:
 	datahpupdate BS_ATTACKER
 	return
 
+BattleScript_HealingStormActivates_HealEffect::
 BattleScript_RainDishActivates::
 	call BattleScript_AbilityHpHeal
 	end3
@@ -10037,6 +10038,7 @@ BattleScript_EffectSnow::
 
 @@@ New abilities @@@
 
+BattleScript_HealingLightActivates_InitlEffect::
 BattleScript_LightwingActivates::
 	savetarget
 .if B_ABILITY_POP_UP == TRUE
@@ -10047,7 +10049,7 @@ BattleScript_LightwingActivates::
 	updatestats
 	end3
 
-
+BattleScript_HealingStormActivates_InitEffect::
 BattleScript_LongevityActivates::
 	savetarget
 .if B_ABILITY_POP_UP == TRUE
@@ -10058,6 +10060,7 @@ BattleScript_LongevityActivates::
 	updatestats
 	end3
 
+BattleScript_HealingLightActivates_HealEffect::
 BattleScript_PhotosynthesisActivates::
 	call BattleScript_AbilityHpHeal
 	end3

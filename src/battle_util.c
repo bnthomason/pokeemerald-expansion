@@ -244,6 +244,7 @@ void HandleAction_UseMove(void)
             {
                 var = GetBattlerTurnOrderNum(battler);
             }
+            
         }
         if (var == 4)
         {
@@ -425,6 +426,10 @@ void HandleAction_Switch(void)
 
     if (gBattleResults.playerSwitchesCounter < 255)
         gBattleResults.playerSwitchesCounter++;
+    
+    if (gBattleMons[gBattlerAttacker].isStatBoosted)
+        UndoStatBoost(gBattlerAttacker); // this is better performed here instead of SwitchInClearSetData
+
 
     if (GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX)
         UndoDynamax(gBattlerAttacker); // this is better performed here instead of SwitchInClearSetData
@@ -4981,6 +4986,50 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+           case ABILITY_LIGHTWING:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_LIGHTWING;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                //SET_STATCHANGER(STAT_SPEED, 1, TRUE);
+                BattleScriptPushCursorAndCallback(BattleScript_LightwingActivates);
+                effect++;
+            }
+            break;          
+        case ABILITY_D_HEALING_LIGHT:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_HEALING_LIGHT;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                //SET_STATCHANGER(STAT_HP, 1, TRUE);
+                BattleScriptPushCursorAndCallback(BattleScript_HealingLightActivates_InitEffect);
+                effect++;
+            }
+            break;             
+        case ABILITY_LONGEVITY:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_LONGEVITY;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                //SET_STATCHANGER(STAT_HP, 1, TRUE);
+                BattleScriptPushCursorAndCallback(BattleScript_LongevityActivates);
+                effect++;
+            }
+            break;
+        case ABILITY_D_HEALING_STORM:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_HEALING_STORM;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                //SET_STATCHANGER(STAT_HP, 1, TRUE);
+                BattleScriptPushCursorAndCallback(BattleScript_HealingStormActivates_InitEffect);
+                effect++;
+            }
+            break
         }
         break;
     case ABILITYEFFECT_ENDTURN:
@@ -9168,6 +9217,19 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     }
+    case EFFECT_SUNLIGHT_HIT:
+        if (IsBattlerWeatherAffected(battlerAtk, (B_WEATHER_HAIL | B_WEATHER_SANDSTORM | B_WEATHER_RAIN | B_WEATHER_SNOW | B_WEATHER_FOG)))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        else if (IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
+    case EFFECT_MISTY_HIT:
+        if (IsBattlerTerrainAffected(battlerAtk, (STATUS_FIELD_PSYCHIC_TERRAIN | STATUS_FIGHTING_TERRAIN)))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        else if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_MISTY_TERRAIN))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
+
 
     // various effects
     if (gProtectStructs[battlerAtk].helpingHand)
@@ -11543,14 +11605,36 @@ void CopyMonAbilityAndTypesToBattleMon(u32 battler, struct Pokemon *mon)
     gBattleMons[battler].types[2] = TYPE_MYSTERY;
 }
 
+void ApplyHPStageMultiplier(u32 battler, struct Pokemon *mon)
+{
+    u16 statstage = (gBattleMons[battler].statStages[STAT_HP]);
+
+    u32 hp = (GetMonData(mon, MON_DATA_HP));
+    u32 maxhp = (GetMonData(mon, MON_DATA_MAX_HP));
+
+    u32 newhp = UQ_4_12((hp * statstage) / 20 + hp);
+    u32 newmaxhp = UQ_4_12((maxhp * statstage) / 20 + maxhp);
+    SetMonData(mon, MON_DATA_HP, &newhp);
+    SetMonData(mon, MON_DATA_MAX_HP, &newmaxhp);
+}
+
+
 void RecalcBattlerStats(u32 battler, struct Pokemon *mon)
 {
     CalculateMonStats(mon);
     if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX && gChosenActionByBattler[battler] != B_ACTION_SWITCH)
         ApplyDynamaxHPMultiplier(battler, mon);
+    if (gBattleMons[battler].ability == (ABILITY_LIGHTWING || ABILITY_D_HEALING_LIGHT || ABILITY_LONGEVITY || ABILITY_D_HEALING_STORM)
+        {
+            ApplyStatMultiplier(battler, mon);
+//            DebugPrintf("We are in the loop!");
+        }
+//    if (gBattleMons[battler].statStages[STAT_HP] != 0)
+//        ApplyHPStageMultiplier(battler, mon);
     CopyMonLevelAndBaseStatsToBattleMon(battler, mon);
     CopyMonAbilityAndTypesToBattleMon(battler, mon);
 }
+
 
 void RemoveConfusionStatus(u32 battler)
 {

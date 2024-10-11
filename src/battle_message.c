@@ -849,6 +849,12 @@ static const u8 sText_PkmnTerastallizedInto[] = _("{B_ATK_NAME_WITH_PREFIX} tera
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going all\nout for this attack!");
+static const u8 sText_PkmnGatheredMysticism[] = _("{B_ATK_NAME_WITH_PREFIX} gathered\nin mysticism from the field!");
+static const u8 sText_LightwingActivates[] = _("{B_ATK_NAME_WITH_PREFIX} is super fast!");
+static const u8 sText_LightwingActivatesandSunlightGotStrong[] = _("{B_ATK_NAME_WITH_PREFIX} is super fast! The sunlight got bright!");
+static const u8 sText_LongLifeActivates[] = _("{B_ATK_NAME_WITH_PREFIX} has a long life!");
+static const u8 sText_LongLifeActivatesandStartedtoRain[] = _("{B_ATK_NAME_WITH_PREFIX} has a long life! It started to rain!");
+
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1553,6 +1559,12 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ITEMWASUSEDUP - BATTLESTRINGS_TABLE_START] = sText_ItemWasUsedUp,
     [STRINGID_ATTACKERLOSTITSTYPE - BATTLESTRINGS_TABLE_START] = sText_AttackerLostItsType,
     [STRINGID_CLOAKEDINAHARSHLIGHT - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCloakedInAHarshLight,
+    [STRINGID_PKMNGATHEREDMYSTICISM - BATTLESTRINGS_TABLE_START] = sText_PkmnGatheredMysticism,
+    [STRINGID_SUPERSPEEDENTERS - BATTLESTRINGS_TABLE_START] = sText_LightwingActivates,
+    [STRINGID_SUPERSPEEDENTERSANDSUNLIGHTGOTSTRONG - BATTLESTRINGS_TABLE_START] = sText_LightwingActivatesandSunlightGotStrong, 
+    [STRINGID_LONGLIFEENTERS - BATTLESTRINGS_TABLE_START] = sText_LongLifeActivates,
+    [STRINGID_LONGLIFEENTERSANDSTARTEDTORAIN- BATTLESTRINGS_TABLE_START] = sText_LongLifeActivatesandStartedtoRain,
+
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1652,6 +1664,10 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_CURIOUS_MEDICINE] = STRINGID_CURIOUSMEDICINEENTERS,
     [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
+    [B_MSG_SWITCHIN_LIGHTWING] = STRINGID_SUPERSPEEDENTERS,
+    [B_MSG_SWITCHIN_HEALING_LIGHT] = STRINGID_SUPERSPEEDENTERS,
+    [B_MSG_SWITCHIN_LONGEVITY] = STRINGID_LONGLIFEENTERS,
+    [B_MSG_SWITCHIN_HEALING_STORM] = STRINGID_LONGLIFEENTERS,
 };
 
 const u16 gMissStringIds[] =

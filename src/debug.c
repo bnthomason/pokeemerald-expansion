@@ -3209,28 +3209,28 @@ static void DebugAction_Give_PokemonComplex(u8 taskId)
 
 static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
 {
-    if (JOY_NEW(DPAD_ANY))
+    if (JOY_REPEAT(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput >= NUM_SPECIES)
                 gTasks[taskId].tInput = NUM_SPECIES - 1;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
-        if (JOY_NEW(DPAD_LEFT))
+        if (JOY_REPEAT(DPAD_LEFT))
         {
             if (gTasks[taskId].tDigit > 0)
                 gTasks[taskId].tDigit -= 1;
         }
-        if (JOY_NEW(DPAD_RIGHT))
+        if (JOY_REPEAT(DPAD_RIGHT))
         {
             if (gTasks[taskId].tDigit < DEBUG_NUMBER_DIGITS_ITEMS - 1)
                 gTasks[taskId].tDigit += 1;
@@ -3276,28 +3276,28 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
 
 static void DebugAction_Give_Pokemon_SelectLevel(u8 taskId)
 {
-    if (JOY_NEW(DPAD_ANY))
+    if (JOY_REPEAT(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_LEVEL)
                 gTasks[taskId].tInput = MAX_LEVEL;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 1)
                 gTasks[taskId].tInput = 1;
         }
-        if (JOY_NEW(DPAD_LEFT))
+        if (JOY_REPEAT(DPAD_LEFT))
         {
             if (gTasks[taskId].tDigit > 0)
                 gTasks[taskId].tDigit -= 1;
         }
-        if (JOY_NEW(DPAD_RIGHT))
+        if (JOY_REPEAT(DPAD_RIGHT))
         {
             if (gTasks[taskId].tDigit < 2)
                 gTasks[taskId].tDigit += 1;
@@ -3352,10 +3352,10 @@ static void DebugAction_Give_Pokemon_SelectShiny(u8 taskId)
 {
     static const u8 *txtStr;
 
-    if (JOY_NEW(DPAD_ANY))
+    if (JOY_REPEAT(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
-        gTasks[taskId].tInput ^= JOY_NEW(DPAD_UP | DPAD_DOWN) > 0;
+        gTasks[taskId].tInput ^= JOY_REPEAT(DPAD_UP | DPAD_DOWN) > 0;
         txtStr = (gTasks[taskId].tInput == TRUE) ? sDebugText_True : sDebugText_False;
         StringCopyPadded(gStringVar2, txtStr, CHAR_SPACE, 15);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 0);
@@ -3393,13 +3393,13 @@ static void DebugAction_Give_Pokemon_SelectNature(u8 taskId)
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > NUM_NATURES-1)
                 gTasks[taskId].tInput = NUM_NATURES-1;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
@@ -3445,17 +3445,17 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
     u8 abilityCount = NUM_ABILITY_SLOTS - 1; //-1 for proper iteration
     u8 i = 0;
 
-    if (JOY_NEW(DPAD_ANY))
+    if (JOY_REPEAT(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > abilityCount)
                 gTasks[taskId].tInput = abilityCount;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
@@ -3499,28 +3499,28 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
 
 static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId)
 {
-    if (JOY_NEW(DPAD_ANY))
+    if (JOY_REPEAT(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_PER_STAT_IVS)
                 gTasks[taskId].tInput = MAX_PER_STAT_IVS;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
-        if (JOY_NEW(DPAD_LEFT))
+        if (JOY_REPEAT(DPAD_LEFT))
         {
             if (gTasks[taskId].tDigit > 0)
                 gTasks[taskId].tDigit -= 1;
         }
-        if (JOY_NEW(DPAD_RIGHT))
+        if (JOY_REPEAT(DPAD_RIGHT))
         {
             if (gTasks[taskId].tDigit < 2)
                 gTasks[taskId].tDigit += 1;
@@ -3649,28 +3649,28 @@ static void DebugAction_Give_Pokemon_SelectEVs(u8 taskId)
 {
     u16 totalEV = GetDebugPokemonTotalEV();
 
-    if (JOY_NEW(DPAD_ANY))
+    if (JOY_REPEAT(DPAD_ANY))
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput > MAX_PER_STAT_EVS)
                 gTasks[taskId].tInput = MAX_PER_STAT_EVS;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
-        if (JOY_NEW(DPAD_LEFT))
+        if (JOY_REPEAT(DPAD_LEFT))
         {
             if (gTasks[taskId].tDigit > 0)
                 gTasks[taskId].tDigit -= 1;
         }
-        if (JOY_NEW(DPAD_RIGHT))
+        if (JOY_REPEAT(DPAD_RIGHT))
         {
             if (gTasks[taskId].tDigit < 3)
                 gTasks[taskId].tDigit += 1;
@@ -3814,24 +3814,24 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
     {
         PlaySE(SE_SELECT);
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_REPEAT(DPAD_UP))
         {
             gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput >= MOVES_COUNT)
                 gTasks[taskId].tInput = MOVES_COUNT - 1;
         }
-        if (JOY_NEW(DPAD_DOWN))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
             if (gTasks[taskId].tInput < 0)
                 gTasks[taskId].tInput = 0;
         }
-        if (JOY_NEW(DPAD_LEFT))
+        if (JOY_REPEAT(DPAD_LEFT))
         {
             if (gTasks[taskId].tDigit > 0)
                 gTasks[taskId].tDigit -= 1;
         }
-        if (JOY_NEW(DPAD_RIGHT))
+        if (JOY_REPEAT(DPAD_RIGHT))
         {
             if (gTasks[taskId].tDigit < 3)
                 gTasks[taskId].tDigit += 1;

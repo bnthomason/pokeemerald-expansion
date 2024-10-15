@@ -242,23 +242,18 @@
 #define OBJ_EVENT_GFX_HOOH                       238
 #define OBJ_EVENT_GFX_POKE_BALL                  239
 #define OBJ_EVENT_GFX_OW_MON                     240
-#define OBJ_EVENT_GFX_BEAUTY2                    241
-#define OBJ_EVENT_GFX_BIKER                      242
-#define OBJ_EVENT_GFX_MAN_IN_SUIT                243
-#define OBJ_EVENT_GFX_CAPTAIN                    244
-#define OBJ_EVENT_GFX_SCIENTIST3                 245
-#define OBJ_EVENT_GFX_DRAGON_MASTER              246
-#define OBJ_EVENT_GFX_HORN_FOSSIL                247
-#define OBJ_EVENT_GFX_HIDE_FOSSIL                248
-#define OBJ_EVENT_GFX_BOLT_FOSSIL                249 //HOOF FOSSIL
-#define OBJ_EVENT_GFX_SCALE_FOSSIL               250
-#define OBJ_EVENT_GFX_CLAW_FOSSIL                251
-#define OBJ_EVENT_GFX_FEATHER_FOSSIL             252
+#define OBJ_EVENT_GFX_HORN_FOSSIL                241
+#define OBJ_EVENT_GFX_HIDE_FOSSIL                242
+#define OBJ_EVENT_GFX_BOLT_FOSSIL                243 //HOOF FOSSIL
+#define OBJ_EVENT_GFX_SCALE_FOSSIL               244
+#define OBJ_EVENT_GFX_CLAW_FOSSIL                245
+#define OBJ_EVENT_GFX_FEATHER_FOSSIL             246
+#define OBJ_EVENT_GFX_STEEL_FOSSIL               247
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        253
+#define NUM_OBJ_EVENT_GFX                        248
 
 
 // These are dynamic object gfx ids.
@@ -350,6 +345,7 @@
 #define LOCALID_SOOTOPOLIS_MART_CLERK 1
 #define LOCALID_BATTLE_FRONTIER_MART_CLERK 1
 #define LOCALID_SLATEPORT_ENERGY_GURU 25
+#define LOCALID_ROUTE103_PLAYER_FALLING 21
 
 // Moved from src/event_object_movement.c so that they're accesible from other files.
 #define OBJ_EVENT_PAL_TAG_BRENDAN                 0x1100

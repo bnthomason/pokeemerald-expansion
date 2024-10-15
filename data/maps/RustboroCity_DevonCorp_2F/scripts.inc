@@ -66,6 +66,20 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist::
 	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil
 	checkitem ITEM_CLAW_FOSSIL
 	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil
+	checkitem ITEM_HORN_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeHornFossil
+	checkitem ITEM_HIDE_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeHideFossil
+	checkitem ITEM_BOLT_FOSSIL @	checkitem ITEM_HIDE_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeBoltFossil	@	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeHoofFossil
+	checkitem ITEM_SCALE_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeScaleFossil
+	checkitem ITEM_CLAW_FOSSIL_2
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil2
+	checkitem ITEM_FEATHER_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeFeatherFossil
+	checkitem ITEM_STEEL_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeIronFossil
 	release
 	end
 
@@ -116,6 +130,168 @@ RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil::
 	release
 	end
 
+
+@ Dracoceros
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeHornFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveHornFossil
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveHornFossil::
+	bufferitemname STR_VAR_1, ITEM_HORN_FOSSIL
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_HORN_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 3
+	release
+	end
+
+@ Nebugon
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeHideFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveHideFossil
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveHideFossil::
+	bufferitemname STR_VAR_1, ITEM_HIDE_FOSSIL
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_HIDE_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 4
+	release
+	end
+
+@ Kirin
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeBoltFossil:: @RustboroCity_DevonCorp_2F_EventScript_NoticeHoofFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveBoltFossil @			goto RustboroCity_DevonCorp_2F_EventScript_GiveHoofFossil
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveBoltFossil:: @ RustboroCity_DevonCorp_2F_EventScript_GiveHoofFossil::
+	bufferitemname STR_VAR_1, ITEM_BOLT_FOSSIL @	bufferitemname STR_VAR_1, ITEM_HOOF_FOSSIL
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_BOLT_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 5
+	release
+	end
+
+@ Faerial
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeScaleFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveScaleFossil
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveScaleFossil::
+	bufferitemname STR_VAR_1, ITEM_SCALE_FOSSIL
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_SCALE_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 6
+	release
+	end
+
+@ Impyrian
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil2::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil2
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil2::
+	bufferitemname STR_VAR_1, ITEM_CLAW_FOSSIL_2
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_CLAW_FOSSIL_2
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 7
+	release
+	end
+
+@ Wintego
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeFeatherFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveFeatherFossil
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveFeatherFossil::
+	bufferitemname STR_VAR_1, ITEM_FEATHER_FOSSIL
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_FEATHER_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 7
+	release
+	end
+
+@ Prototype
+
+RustboroCity_DevonCorp_2F_EventScript_NoticeIronFossil::
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_GiveIronFossil
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_GiveIronFossil::
+	bufferitemname STR_VAR_1, ITEM_STEEL_FOSSIL
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
+	removeitem ITEM_STEEL_FOSSIL
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	setvar VAR_WHICH_FOSSIL_REVIVED, 9
+	release
+	end	
+
 RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil::
 	msgbox RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_DEFAULT
 	release
@@ -129,6 +305,13 @@ RustboroCity_DevonCorp_2F_EventScript_StillRegenerating::
 RustboroCity_DevonCorp_2F_EventScript_FossilMonReady::
 	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 1, RustboroCity_DevonCorp_2F_EventScript_LileepReady
 	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 2, RustboroCity_DevonCorp_2F_EventScript_AnorithReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 3, RustboroCity_DevonCorp_2F_EventScript_DracocerosReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 4, RustboroCity_DevonCorp_2F_EventScript_NebugonReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 5, RustboroCity_DevonCorp_2F_EventScript_KirinReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 6, RustboroCity_DevonCorp_2F_EventScript_FaerialReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 7, RustboroCity_DevonCorp_2F_EventScript_ImpyrianReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 8, RustboroCity_DevonCorp_2F_EventScript_WintegoReady
+	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 9, RustboroCity_DevonCorp_2F_EventScript_PrototypeReady
 	end
 
 RustboroCity_DevonCorp_2F_EventScript_LileepReady::
@@ -142,6 +325,50 @@ RustboroCity_DevonCorp_2F_EventScript_AnorithReady::
 	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
 	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorith
 	end
+
+RustboroCity_DevonCorp_2F_EventScript_DracocerosReady::
+	bufferspeciesname STR_VAR_2, SPECIES_DRACOCEROS_HOLY_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveDracoceros
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_NebugonReady::
+	bufferspeciesname STR_VAR_2, SPECIES_NEBUGON_TANK_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveNebugon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_KirinReady::
+	bufferspeciesname STR_VAR_2, SPECIES_KIRIN_MAGE_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveKirin
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_FaerialReady::
+	bufferspeciesname STR_VAR_2, SPECIES_FAERIAL_BEAUTY_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveFaerial
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ImpyrianReady::
+	bufferspeciesname STR_VAR_2, SPECIES_IMPYRIAN_IMPERIAL_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveImpyrian
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_WintegoReady::
+	bufferspeciesname STR_VAR_2, SPECIES_WINTEGO_WINTER_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveWintego
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_PrototypeReady::
+	bufferspeciesname STR_VAR_2, SPECIES_PROTOTYPE_VILLAIN_CHILD
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
+	goto RustboroCity_DevonCorp_2F_EventScript_ReceivePrototype
+	end
+
+@ Lileep
 
 RustboroCity_DevonCorp_2F_EventScript_ReceiveLileep::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LILEEP
@@ -188,6 +415,8 @@ RustboroCity_DevonCorp_2F_EventScript_FinishReceivingLileep::
 	release
 	end
 
+@ Anorith
+
 RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorith::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ANORITH
 	givemon SPECIES_ANORITH, 20
@@ -233,6 +462,330 @@ RustboroCity_DevonCorp_2F_EventScript_FinishReceivingAnorith::
 	release
 	end
 
+@ Dracoceros
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveDracoceros::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOCEROS_HOLY_CHILD
+	givemon SPECIES_DRACOCEROS_HOLY_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveDracocerosParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveDracocerosPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveDracocerosParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedDracocerosFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingDracoceros
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingDracoceros
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveDracocerosPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedDracocerosFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferDracocerosToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferDracocerosToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferDracocerosToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingDracoceros
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedDracocerosFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_DRACOCEROS_HOLY_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_DRACOCEROS_HOLY_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingDracoceros::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end
+
+@ Nebugon
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveNebugon::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_NEBUGON_TANK_CHILD
+	givemon SPECIES_NEBUGON_TANK_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveNebugonParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveNebugonPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveNebugonParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedNebugonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingNebugon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingNebugon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveNebugonPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedNebugonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferNebugonToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferNebugonToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferNebugonToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingNebugon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedNebugonFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_NEBUGON_TANK_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_NEBUGON_TANK_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingNebugon::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end	
+
+@ Kirin
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveKirin::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_KIRIN_MAGE_CHILD
+	givemon SPECIES_KIRIN_MAGE_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveKirinParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveKirinPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveKirinParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedKirinFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingKirin
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingKirin
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveKirinPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedKirinFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferKirinToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferKirinToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferKirinToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingKirin
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedKirinFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_KIRIN_MAGE_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_KIRIN_MAGE_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingKirin::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end	
+
+@ Faerial
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveFaerial::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FAERIAL_BEAUTY_CHILD
+	givemon SPECIES_FAERIAL_BEAUTY_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveFaerialParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveFaerialPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveFaerialParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedFaerialFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingFaerial
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingFaerial
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveFaerialPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedFaerialFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferFaerialToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferFaerialToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferFaerialToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingFaerial
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedFaerialFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_FAERIAL_BEAUTY_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_FAERIAL_BEAUTY_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingFaerial::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end	
+
+@ Impyrian
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveImpyrian::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_IMPYRIAN_IMPERIAL_CHILD
+	givemon SPECIES_IMPYRIAN_IMPERIAL_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveImpyrianParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveImpyrianPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveImpyrianParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedImpyrianFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingImpyrian
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingImpyrian
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveImpyrianPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedImpyrianFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferImpyrianToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferImpyrianToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferImpyrianToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingImpyrian
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedImpyrianFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_IMPYRIAN_IMPERIAL_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_IMPYRIAN_IMPERIAL_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingImpyrian::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end	
+
+
+@ Wintego
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveWintego::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_WINTEGO_WINTER_CHILD
+	givemon SPECIES_WINTEGO_WINTER_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveWintegoParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveWintegoPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveWintegoParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedWintegoFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingWintego
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingWintego
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceiveWintegoPC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedWintegoFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferWintegoToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferWintegoToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferWintegoToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingWintego
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedWintegoFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_WINTEGO_WINTER_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_WINTEGO_WINTER_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingWintego::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end	
+
+
+@ Prototype
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivePrototype::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PROTOTYPE_VILLAIN_CHILD
+	givemon SPECIES_PROTOTYPE_VILLAIN_CHILD, 20
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceivePrototypeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceivePrototypePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivePrototypeParty::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedPrototypeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPrototype
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPrototype
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivePrototypePC::
+	call RustboroCity_DevonCorp_2F_EventScript_ReceivedPrototypeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferPrototypeToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_2F_EventScript_TransferPrototypeToPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TransferPrototypeToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPrototype
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_ReceivedPrototypeFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_PROTOTYPE_VILLAIN_CHILD
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_PROTOTYPE_VILLAIN_CHILD
+	return
+
+RustboroCity_DevonCorp_2F_EventScript_FinishReceivingPrototype::
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
+	release
+	end	
+
 RustboroCity_DevonCorp_2F_EventScript_ChooseFossil::
 	message RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne
 	waitmessage
@@ -243,6 +796,7 @@ RustboroCity_DevonCorp_2F_EventScript_ChooseFossil::
 	case 2, RustboroCity_DevonCorp_2F_EventScript_CancelFossilSelect
 	case MULTI_B_PRESSED, RustboroCity_DevonCorp_2F_EventScript_CancelFossilSelect
 	end
+
 
 RustboroCity_DevonCorp_2F_EventScript_ChooseClawFossil::
 	goto RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil

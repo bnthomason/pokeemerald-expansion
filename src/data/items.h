@@ -3364,6 +3364,24 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_FeatherFossil,
     },
 
+    [ITEM_STEEL_FOSSIL] =
+    {
+        .name = HANDLE_EXPANDED_ITEM_NAME("Iron Fossil", "Iron Fossil"),
+        .description = COMPOUND_STRING(
+            "A fossilized\n"
+            "silver ingot.\n"
+            "A bit faded."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+        .iconPic = gItemIcon_SteelFossil,
+        .iconPalette = gItemIconPalette_SteelFossil,
+    },
+
+
 
 
 // Mulch

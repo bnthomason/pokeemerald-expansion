@@ -1,0 +1,46 @@
+{
+  "id": "MAP_FOSSIL_CAVE_FIRE",
+  "name": "FossilCave_Fire",
+  "layout": "LAYOUT_FOSSIL_CAVE_FIRE",
+  "music": "MUS_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_FOSSIL_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CLAW_FOSSIL",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FossilCave_Fire_EventScript_ClawFossil",
+      "flag": "FLAG_HIDE_FOSSIL_CAVE_FIRE_FOSSIL"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -528,6 +528,11 @@ const u32 gItemIconPalette_ClawFossil2[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_FeatherFossil[] = INCBIN_U32("graphics/items/icons/feather_fossil.4bpp.lz");
 const u32 gItemIconPalette_FeatherFossil[] = INCBIN_U32("graphics/items/icon_palettes/feather_fossil.gbapal.lz");
 
+const u32 gItemIcon_SteelFossil[] = INCBIN_U32("graphics/items/icons/steel_fossil.4bpp.lz");
+const u32 gItemIconPalette_SteelFossil[] = INCBIN_U32("graphics/items/icon_palettes/steel_fossil.gbapal.lz");
+
+
+
 
 // Mail
 

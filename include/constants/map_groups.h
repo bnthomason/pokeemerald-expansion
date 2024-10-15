@@ -400,6 +400,14 @@
 #define MAP_TERRA_CAVE_END                           (105 | (24 << 8))
 #define MAP_ALTERING_CAVE                            (106 | (24 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (107 | (24 << 8))
+#define MAP_FOSSIL_CAVE                              (108 | (24 << 8))
+#define MAP_FOSSIL_CAVE_ICE                          (109 | (24 << 8))
+#define MAP_FOSSIL_CAVE_FIRE                         (110 | (24 << 8))
+#define MAP_FOSSIL_CAVE_WATER                        (111 | (24 << 8))
+#define MAP_FOSSIL_CAVE_FLYING                       (112 | (24 << 8))
+#define MAP_FOSSIL_CAVE_EARTH                        (113 | (24 << 8))
+#define MAP_FOSSIL_CAVE_ELECTRIC                     (114 | (24 << 8))
+#define MAP_FOSSIL_CAVE_STEEL                        (115 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

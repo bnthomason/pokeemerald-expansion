@@ -1,0 +1,141 @@
+{
+  "id": "MAP_FOSSIL_CAVE",
+  "name": "FossilCave",
+  "layout": "LAYOUT_FOSSIL_CAVE",
+  "music": "MUS_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_FOSSIL_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIDE_FOSSIL",
+      "x": 16,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOLT_FOSSIL",
+      "x": 12,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 9,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCALE_FOSSIL",
+      "x": 14,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 29,
+      "y": 39,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE103",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE_ICE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE_FIRE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 69,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE_FLYING",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 66,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE_WATER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 36,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE_ELECTRIC",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE_EARTH",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

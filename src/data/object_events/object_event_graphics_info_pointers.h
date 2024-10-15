@@ -236,6 +236,13 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphir
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HornFossil;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HideFossil;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BoltFossil; //extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoofFossil;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScaleFossil;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ClawFossil2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FeatherFossil;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SteelFossil;
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -490,6 +497,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
+    [OBJ_EVENT_GFX_HORN_FOSSIL] =              &gObjectEventGraphicsInfo_HornFossil,
+    [OBJ_EVENT_GFX_HIDE_FOSSIL] =              &gObjectEventGraphicsInfo_HideFossil,
+    [OBJ_EVENT_GFX_BOLT_FOSSIL] =              &gObjectEventGraphicsInfo_BoltFossil, //    [OBJ_EVENT_GFX_HOOF_FOSSIL] =              &gObjectEventGraphicsInfo_HoofFossil,
+    [OBJ_EVENT_GFX_SCALE_FOSSIL] =             &gObjectEventGraphicsInfo_ScaleFossil,
+    [OBJ_EVENT_GFX_CLAW_FOSSIL] =              &gObjectEventGraphicsInfo_ClawFossil2,
+    [OBJ_EVENT_GFX_FEATHER_FOSSIL] =           &gObjectEventGraphicsInfo_FeatherFossil,
+    [OBJ_EVENT_GFX_STEEL_FOSSIL] =             &gObjectEventGraphicsInfo_SteelFossil,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

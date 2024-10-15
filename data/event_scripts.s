@@ -1074,3 +1074,19 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/FossilCave/scripts.inc"
+
+	.include "data/maps/FossilCave_Ice/scripts.inc"
+
+	.include "data/maps/FossilCave_Fire/scripts.inc"
+
+	.include "data/maps/FossilCave_Water/scripts.inc"
+
+	.include "data/maps/FossilCave_Flying/scripts.inc"
+
+	.include "data/maps/FossilCave_Earth/scripts.inc"
+
+	.include "data/maps/FossilCave_Electric/scripts.inc"
+
+	.include "data/maps/FossilCave_Steel/scripts.inc"

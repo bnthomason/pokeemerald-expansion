@@ -658,6 +658,8 @@ extern const u32 gItemIcon_ClawFossil2[];
 extern const u32 gItemIconPalette_ClawFossil2[];
 extern const u32 gItemIcon_FeatherFossil[];
 extern const u32 gItemIconPalette_FeatherFossil[];
+extern const u32 gItemIcon_SteelFossil[];
+extern const u32 gItemIconPalette_SteelFossil[];
 // Mulch
 extern const u32 gItemIcon_Mulch[];
 extern const u32 gItemIconPalette_GrowthMulch[];

@@ -185,7 +185,7 @@
       "id": "LAYOUT_ROUTE103",
       "name": "Route103_Layout",
       "width": 80,
-      "height": 22,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route103/border.bin",
@@ -4410,6 +4410,96 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE",
+      "name": "FossilCave_Layout",
+      "width": 75,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FossilCave/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_ICE",
+      "name": "FossilCave_Ice_Layout",
+      "width": 15,
+      "height": 21,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FossilCave_Ice/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Ice/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_FIRE",
+      "name": "FossilCave_Fire_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FossilCave_Fire/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Fire/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_WATER",
+      "name": "FossilCave_Water_Layout",
+      "width": 21,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FossilCave_Water/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Water/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_FLYING",
+      "name": "FossilCave_Flying_Layout",
+      "width": 38,
+      "height": 72,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/FossilCave_Flying/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Flying/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_EARTH",
+      "name": "FossilCave_Earth_Layout",
+      "width": 15,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FossilCave_Earth/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Earth/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_ELECTRIC",
+      "name": "FossilCave_Electric_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/FossilCave_Electric/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Electric/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_CAVE_STEEL",
+      "name": "FossilCave_Steel_Layout",
+      "width": 14,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FossilCave_Steel/border.bin",
+      "blockdata_filepath": "data/layouts/FossilCave_Steel/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE103_NO_FOSSIL_CAVE",
+      "name": "Route103_NoFossilCave_Layout",
+      "width": 80,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route103_NoFossilCave/border.bin",
+      "blockdata_filepath": "data/layouts/Route103_NoFossilCave/map.bin"
     }
   ]
 }

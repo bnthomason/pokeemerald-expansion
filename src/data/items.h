@@ -6260,7 +6260,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_CLOAK_OF_MASTERMIND] =
     {
-        .name = _("Book of Wisdom"),
+        .name = _("CloakofMastermind"),
         .price = 0,
         .holdEffect = HOLD_EFFECT_MEGA_STONE,
         .description = COMPOUND_STRING(

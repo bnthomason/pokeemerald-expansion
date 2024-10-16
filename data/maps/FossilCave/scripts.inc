@@ -5,6 +5,7 @@ FossilCave_MapScripts::
 FossilCave_SetHoleWarp:
 	setstepcallback STEP_CB_CRACKED_FLOOR
 	setholewarp MAP_FOSSIL_CAVE_STEEL
+	setvar VAR_FOSSIL_CAVE_HIDDEN_SPARKLE, 0
 	end
 
 FossilCave_EventScript_SlideEvoItemUnderRock::

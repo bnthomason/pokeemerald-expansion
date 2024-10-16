@@ -28,8 +28,8 @@ FossilCave_Steel_EventScript_LeaveIronFossil::
 	end
 
 FossilCave_Steel_EventScript_DoSparkle::
-	setvar VAR_0x8004, 10  @ x
-	setvar VAR_0x8005, 33  @ y
+	setvar VAR_0x8004, 11  @ x
+	setvar VAR_0x8005, 32  @ y
 	call FossilCave_Steel_EventScript_DoSparkle1
 	return
 
@@ -37,6 +37,8 @@ FossilCave_Steel_EventScript_DoSparkle1::
 	setvar VAR_0x8006, 0
 	dofieldeffectsparkle VAR_0x8004, VAR_0x8005, VAR_0x8006
 	waitfieldeffect FLDEFF_SPARKLE
+	setvar VAR_FOSSIL_CAVE_HIDDEN_SPARKLE, 1
+	delay 10
 	return
 
 

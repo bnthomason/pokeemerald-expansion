@@ -33,8 +33,8 @@
       "x": 8,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_FOSSIL_CAVE_ELECTRIC",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FOSSIL_CAVE",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

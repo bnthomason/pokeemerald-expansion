@@ -29,7 +29,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 10,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_FOSSIL_CAVE",
+      "dest_warp_id": "4"
+    }
   ],
   "coord_events": [
 

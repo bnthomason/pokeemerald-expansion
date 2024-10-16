@@ -28,11 +28,17 @@ FossilCave_Flying_EventScript_StrangeGraveStone_Part2::
 	end
 
 FossilCave_Flying_EventScript_StrangeGraveStone_Part3::
-	msgbox FossilCave_Flying_Text_StrangeAmuletReacted MSGBOX_DEFAULT
-	setflag FLAG_STAFF_OF_MAGIC_PICKED_UP
+	checkitem ITEM_SLIDE_AMULET
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Flying_EventScript_StrangeGraveStone_Part4
+	setflag FLAG_HALO_OF_LIFE_PICKED_UP
 	release
 	end	
 
+FossilCave_Flying_EventScript_StrangeGraveStone_Part4::	
+	msgbox FossilCave_Flying_Text_StrangeAmuletReacted MSGBOX_DEFAULT
+	setflag FLAG_HALO_OF_LIFE_PICKED_UP
+	release
+	end	
 
 
 FossilCave_Flying_EventScript_HornFossil::

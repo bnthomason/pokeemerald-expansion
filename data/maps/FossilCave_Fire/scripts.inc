@@ -58,15 +58,24 @@ FossilCave_Fire_EventScript_MysteriousStone_Part2::
 	giveitem ITEM_IMPERIAL_SWORD
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	closemessage
+	checkitem ITEM_SLIDE_AMULET
 	goto_if_eq VAR_RESULT, TRUE, FossilCave_Fire_EventScript_MysteriousStone_Part3
 	release
 	end
 
 FossilCave_Fire_EventScript_MysteriousStone_Part3::
+	checkitem ITEM_SLIDE_AMULET
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Fire_EventScript_MysteriousStone_Part4
+	setflag FLAG_IMPERIAL_SWORD_PICKED_UP
+	release
+	end	
+
+FossilCave_Fire_EventScript_MysteriousStone_Part4::	
 	msgbox FossilCave_Fire_Text_StrangeAmuletReacted MSGBOX_DEFAULT
 	setflag FLAG_IMPERIAL_SWORD_PICKED_UP
 	release
 	end	
+	
 
 FossilCave_Fire_Text_StoneWasStoneCold:
 	.string "This mysterious stone appears warm\n"

@@ -39,7 +39,7 @@ FossilCave_Text_FoundAStrangeObjectUndertheRock:
 	.string "it.$"
 
 FossilCave_Text_TheObjectYouJustPickedUp:
-	.string "The object you just picked up.\n"
+	.string "The object you just picked up\n"
 	.string "briefly flashed with power and\l"
 	.string "then faded.\p"
 	.string "Perhaps it's reacting to\n"

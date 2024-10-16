@@ -21,6 +21,13 @@ FossilCave_Electric_EventScript_StrangeTrashCan_Part2::
 	end
 
 FossilCave_Electric_EventScript_StrangeTrashCan_Part3::
+	checkitem ITEM_SLIDE_AMULET
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Electric_EventScript_StrangeTrashCan_Part4
+	setflag FLAG_STAFF_OF_MAGIC_PICKED_UP
+	release
+	end	
+
+FossilCave_Electric_EventScript_StrangeTrashCan_Part4::	
 	msgbox FossilCave_Electric_Text_StrangeAmuletReacted MSGBOX_DEFAULT
 	setflag FLAG_STAFF_OF_MAGIC_PICKED_UP
 	release

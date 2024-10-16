@@ -62,6 +62,13 @@ FossilCave_Water_EventScript_WetRock_Part2::
 	end
 
 FossilCave_Water_EventScript_WetRock_Part3::
+	checkitem ITEM_SLIDE_AMULET
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Water_EventScript_WetRock_Part4
+	setflag FLAG_MIRROR_OF_REFLECTION_PICKED_UP
+	release
+	end	
+
+FossilCave_Water_EventScript_WetRock_Part4::	
 	msgbox FossilCave_Water_Text_StrangeAmuletReacted MSGBOX_DEFAULT
 	setflag FLAG_MIRROR_OF_REFLECTION_PICKED_UP
 	release

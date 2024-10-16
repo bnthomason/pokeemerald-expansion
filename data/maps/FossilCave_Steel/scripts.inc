@@ -76,6 +76,13 @@ FossilCave_Steel_EventScript_GroundFlashes_Part2::
 	end
 
 FossilCave_Steel_EventScript_GroundFlashes_Part3::
+	checkitem ITEM_SLIDE_AMULET
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Steel_EventScript_GroundFlashes_Part4
+	setflag FLAG_CLOAK_OF_MASTERMIND_PICKED_UP
+	release
+	end	
+
+FossilCave_Steel_EventScript_GroundFlashes_Part4::	
 	msgbox FossilCave_Steel_Text_StrangeAmuletReacted MSGBOX_DEFAULT
 	setflag FLAG_CLOAK_OF_MASTERMIND_PICKED_UP
 	release

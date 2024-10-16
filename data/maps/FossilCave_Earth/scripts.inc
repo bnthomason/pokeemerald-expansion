@@ -62,6 +62,13 @@ FossilCave_Earth_EventScript_DustPile_Part2::
 	end
 
 FossilCave_Earth_EventScript_DustPile_Part3::
+	checkitem ITEM_SLIDE_AMULET
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Earth_EventScript_DustPile_Part4
+	setflag FLAG_SHIELD_OF_DEFENDING_PICKED_UP
+	release
+	end	
+
+FossilCave_Earth_EventScript_DustPile_Part4::	
 	msgbox FossilCave_Earth_Text_StrangeAmuletReacted MSGBOX_DEFAULT
 	setflag FLAG_SHIELD_OF_DEFENDING_PICKED_UP
 	release

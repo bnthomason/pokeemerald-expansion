@@ -1220,9 +1220,37 @@
 #define ITEM_CLAW_FOSSIL_2 1042
 #define ITEM_FEATHER_FOSSIL 1043
 #define ITEM_STEEL_FOSSIL 1044
+//SLIDE_EVO_ITEM (KEY)
 
+#define ITEM_SLIDE_AMULET 1045
+//SPECIAL_EVO_HELD_ITEMS << These will mega evolve the fossil dragons. If a Slide Evo item is present in the inventory, they will go transcendent mode after mega evolving.
 
-#define ITEMS_COUNT 1044
+#define ITEM_HALO_OF_LIFE 1046
+#define ITEM_SHIELD_OF_DEFENDING 1047
+#define ITEM_STAFF_OF_MAGIC 1048
+#define ITEM_MIRROR_OF_REFLECTION 1049
+#define ITEM_IMPERIAL_SWORD 1050
+#define ITEM_BOOK_OF_WILL 1051
+#define ITEM_CLOAK_OF_MASTERMIND 1052
+#define ITEM_CROSS_OF_DEATH 1053
+#define ITEM_SWORD_OF_ATTACKING 1054
+#define ITEM_FEATHER_OF_FLIGHT 1055
+#define ITEM_BOOK_OF_WISDOM 1056
+#define ITEM_EMPYREAL_STAFF 1057
+#define ITEM_SCROLL_OF_SUMMONING 1058
+#define ITEM_CAPE_OF_HEROES 1059
+
+//Gym Items
+#define ITEM_SPACE_CUBE 1060 //Dragon Gym
+#define ITEM_TIME_QUARTZ 1061 //Dragon Gym
+#define ITEM_LIFE_ORB_2 1062 //Fairy Gym
+#define ITEM_DESTRUCTION_CRYSTAL 1063 //Dark Gym
+#define ITEM_POWER_SPHERE 1064 //Fighting-Psychic Gym
+#define ITEM_AUTHORITY_CROWN 1065 //Majestic - Light Gym
+#define ITEM_TARNISHED_ROCK 1066 //Normal Gym
+#define ITEM_RAINBOW_PRISM 1067 //Tera Gym
+
+#define ITEMS_COUNT 1066
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

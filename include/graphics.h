@@ -992,6 +992,11 @@ extern const u32 gItemIcon_Audinite[];
 extern const u32 gItemIconPalette_Audinite[];
 extern const u32 gItemIcon_Diancite[];
 extern const u32 gItemIconPalette_Diancite[];
+
+extern const u32 gItemIcon_HaloofLife[];
+extern const u32 gItemIconPalette_HaloofLife[];
+extern const u32 gItemIcon_MirrorofReflection[];
+extern const u32 gItemIconPalette_MirrorofReflection[];
 // Gems
 extern const u32 gItemIcon_NormalGem[];
 extern const u32 gItemIconPalette_NormalGem[];
@@ -1540,6 +1545,8 @@ extern const u32 gItemIcon_ZPowerRing[];
 extern const u32 gItemIconPalette_ZPowerRing[];
 extern const u32 gItemIcon_DynamaxBand[];
 extern const u32 gItemIconPalette_DynamaxBand[];
+extern const u32 gItemIcon_Dummy[];
+extern const u32 gItemIconPalette_Dummy[];
 // Misc. Key Items
 extern const u32 gItemIcon_Bicycle[];
 extern const u32 gItemIconPalette_Bicycle[];

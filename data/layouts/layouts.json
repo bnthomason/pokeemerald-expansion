@@ -184,7 +184,7 @@
     {
       "id": "LAYOUT_ROUTE103",
       "name": "Route103_Layout",
-      "width": 80,
+      "width": 86,
       "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -4494,8 +4494,8 @@
     {
       "id": "LAYOUT_ROUTE103_NO_FOSSIL_CAVE",
       "name": "Route103_NoFossilCave_Layout",
-      "width": 80,
-      "height": 22,
+      "width": 86,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route103_NoFossilCave/border.bin",

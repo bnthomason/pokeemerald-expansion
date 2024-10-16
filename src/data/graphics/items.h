@@ -985,6 +985,12 @@ const u32 gItemIconPalette_Audinite[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIcon_Diancite[] = INCBIN_U32("graphics/items/icons/diancite.4bpp.lz");
 const u32 gItemIconPalette_Diancite[] = INCBIN_U32("graphics/items/icon_palettes/diancite.gbapal.lz");
 
+const u32 gItemIcon_HaloofLife[] = INCBIN_U32("graphics/items/icons/halo_life.4bpp.lz");
+const u32 gItemIconPalette_HaloofLife[] = INCBIN_U32("graphics/items/icon_palettes/halo_life.gbapal.lz");
+
+const u32 gItemIcon_MirrorofReflection[] = INCBIN_U32("graphics/items/icons/mirror_reflection.4bpp.lz");
+const u32 gItemIconPalette_MirrorofReflection[] = INCBIN_U32("graphics/items/icon_palettes/mirror_reflection.gbapal.lz");
+
 // Gems
 
 const u32 gItemIcon_NormalGem[] = INCBIN_U32("graphics/items/icons/normal_gem.4bpp.lz");
@@ -1831,6 +1837,10 @@ const u32 gItemIconPalette_ZRing[] = INCBIN_U32("graphics/items/icon_palettes/z_
 
 const u32 gItemIcon_DynamaxBand[] = INCBIN_U32("graphics/items/icons/dynamax_band.4bpp.lz");
 const u32 gItemIconPalette_DynamaxBand[] = INCBIN_U32("graphics/items/icon_palettes/dynamax_band.gbapal.lz");
+
+const u32 gItemIcon_Dummy[] = INCBIN_U32("graphics/items/icons/dummy.4bpp.lz");
+const u32 gItemIconPalette_Dummy[] = INCBIN_U32("graphics/items/icon_palettes/dummy.gbapal.lz");
+
 
 // Misc. Key Items
 

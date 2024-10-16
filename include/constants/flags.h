@@ -98,7 +98,7 @@
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
 #define FLAG_FOSSIL_CAVE_VISIBLE             0x54  // Unused Flag
-#define FLAG_UNUSED_0x055                    0x55  // Unused Flag
+#define FLAG_FORCE_FOSSIL_CAVE_VISIBLE       0x55  // Unused Flag
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
 #define FLAG_MET_RIVAL_MOM                   0x57
@@ -652,14 +652,14 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
+#define FLAG_SLIDE_EVO_UNDERROCK_PICKED_UP  0x264 // Unused Flag
+#define FLAG_HALO_OF_LIFE_PICKED_UP  0x265 // Unused Flag
+#define FLAG_SHIELD_OF_DEFENDING_PICKED_UP  0x266 // Unused Flag
+#define FLAG_STAFF_OF_MAGIC_PICKED_UP  0x267 // Unused Flag
+#define FLAG_MIRROR_OF_REFLECTION_PICKED_UP  0x268 // Unused Flag
+#define FLAG_IMPERIAL_SWORD_PICKED_UP  0x269 // Unused Flag
+#define FLAG_BOOK_OF_WILL_PICKED_UP  0x26A // Unused Flag
+#define FLAG_CLOAK_OF_MASTERMIND_PICKED_UP  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag

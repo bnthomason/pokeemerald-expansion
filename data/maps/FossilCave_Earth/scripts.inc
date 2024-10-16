@@ -44,6 +44,59 @@ FossilCave_Earth_EventScript_CollapseFossilCave::
 	release
 	end
 
+FossilCave_Earth_EventScript_DustPile_Part1::
+	lock
+	faceplayer
+	goto_if_unset FLAG_SHIELD_OF_DEFENDING_PICKED_UP FossilCave_Earth_EventScript_DustPile_Part2
+	msgbox FossilCave_Earth_Text_DustPileNothingExtraordinary MSGBOX_AUTOCLOSE
+	release
+	end
+
+FossilCave_Earth_EventScript_DustPile_Part2::
+	msgbox FossilCave_Earth_Text_DustPileSparkles, MSGBOX_DEFAULT
+	giveitem ITEM_SHIELD_OF_DEFENDING
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	closemessage
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Earth_EventScript_DustPile_Part3
+	release
+	end
+
+FossilCave_Earth_EventScript_DustPile_Part3::
+	msgbox FossilCave_Earth_Text_StrangeAmuletReacted MSGBOX_DEFAULT
+	setflag FLAG_SHIELD_OF_DEFENDING_PICKED_UP
+	release
+	end	
+
+FossilCave_Earth_Text_DustPileNothingExtraordinary:
+	.string "This dust pile sparkles like\n"
+	.string "the night sky.\p"
+	.string "{PLAYER} examined the dust pile\p"
+	.string "Upon closer inspection, it\n"
+	.string "appeared to be nothing\l"
+	.string "extraordinary…$"
+
+
+FossilCave_Earth_Text_DustPileSparkles:
+	.string "This dust pile sparkles like\n"
+	.string "the night sky.\p"
+	.string "{PLAYER} examined the dust pile\n"
+	.string "and found a something hiding.\l"
+	.string "underneath.\p"
+	.string "{PLAYER} pulled the shield\n"
+	.string "out of the dust pile.$"
+
+FossilCave_Earth_Text_StrangeAmuletReacted:
+	.string "The amulet within {PLAYER}'s bag\n"
+	.string "flashed brightly.\p"
+	.string "{PLAYER} took out the amulet\n"
+	.string "inspected it.\p"
+	.string "The closer you moved the amulet\n"
+	.string "to the shield, the brighter it\l"
+	.string "became.\p"
+	.string "It seems to be reacting to the\n"
+	.string "shield…\l"
+	.string "and something else…$" 
+
 
 FossilCave_Earth_Text_TakeHideFossil:
 	.string "You found the HIDE FOSSIL.\p"

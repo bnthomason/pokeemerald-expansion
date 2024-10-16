@@ -3,6 +3,29 @@
 FossilCave_Ice_MapScripts::
 	.byte 0
 
+FossilCave_Ice_EventScript_StrangeRock::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BOOK_OF_WILL_PICKED_UP FossilCave_Ice_EventScript_StrangeRock_Part2
+	msgbox FossilCave_Ice_Text_StrangeRockWasEmpty MSGBOX_AUTOCLOSE
+	release
+	end
+
+FossilCave_Ice_EventScript_StrangeRock_Part2::
+	msgbox FossilCave_Ice_Text_StrangeRockHoldsSomekindofPower, MSGBOX_DEFAULT
+	giveitem ITEM_BOOK_OF_WILL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	closemessage
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Ice_EventScript_StrangeRockPart3
+	release
+	end
+
+FossilCave_Ice_EventScript_StrangeRockPart3::
+	msgbox FossilCave_Ice_Text_StrangeAmuletReacted MSGBOX_DEFAULT
+	setflag FLAG_BOOK_OF_WILL_PICKED_UP
+	release
+	end	
+
 FossilCave_Ice_EventScript_FeatherFossil::
 	lock
 	faceplayer
@@ -44,6 +67,29 @@ FossilCave_Ice_EventScript_CollapseFossilCave::
 	release
 	end
 
+FossilCave_Ice_Text_StrangeRockHoldsSomekindofPower:
+	.string "This strange rock seems to hold.\n"
+	.string "some kind of mystical power.\p"
+	.string "{PLAYER} checked the rock and…\n"
+	.string "found a spell book within.$"
+
+FossilCave_Ice_Text_StrangeAmuletReacted:
+	.string "The amulet within {PLAYER}'s bag\n"
+	.string "flashed brightly.\p"
+	.string "{PLAYER} took out the amulet\n"
+	.string "inspected it.\p"
+	.string "The closer you moved the amulet\n"
+	.string "to the book, the brighter it\l"
+	.string "became.\p"
+	.string "It seems to be reacting to the\n"
+	.string "book…\l" 
+	.string "and something else…$"
+
+FossilCave_Ice_Text_StrangeRockWasEmpty:
+	.string "This strange rock appears to be\n"
+	.string "exuding a faint hint of magic.\p"
+	.string "Checked inside the rock…\p"
+	.string "But it was empty…$"
 
 FossilCave_Ice_Text_TakeFeatherFossil:
 	.string "You found the FEATHER FOSSIL.\p"

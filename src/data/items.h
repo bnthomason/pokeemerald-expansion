@@ -6156,6 +6156,126 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Diancite,
     },
 
+    [ITEM_HALO_OF_LIFE] =
+    {
+        .name = _("Halo of Life"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Dracoceros to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_HaloofLife,
+        .iconPalette = gItemIconPalette_HaloofLife,
+    },
+
+    [ITEM_SHIELD_OF_DEFENDING] =
+    {
+        .name = _("Shield of Defending"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Nebugon to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Dummy,
+        .iconPalette = gItemIconPalette_Dummy,
+    },
+
+    [ITEM_STAFF_OF_MAGIC] =
+    {
+        .name = _("Staff of Magic"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Kirin to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Dummy,
+        .iconPalette = gItemIconPalette_Dummy,
+    },
+
+    [ITEM_MIRROR_OF_REFLECTION] =
+    {
+        .name = _("MirrorofReflection"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Faerial to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_MirrorofReflection,
+        .iconPalette = gItemIconPalette_MirrorofReflection,
+    },
+
+    [ITEM_IMPERIAL_SWORD] =
+    {
+        .name = _("Imperial Sword"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Impyrian to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Dummy,
+        .iconPalette = gItemIconPalette_Dummy,
+    },
+
+    [ITEM_BOOK_OF_WILL] =
+    {
+        .name = _("Book of Wisdom"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Wintego to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Dummy,
+        .iconPalette = gItemIconPalette_Dummy,
+    },
+
+    [ITEM_CLOAK_OF_MASTERMIND] =
+    {
+        .name = _("Book of Wisdom"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Prototype to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Dummy,
+        .iconPalette = gItemIconPalette_Dummy,
+    },
+
+
 // Gems
 
     [ITEM_NORMAL_GEM] =
@@ -12259,6 +12379,24 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_DynamaxBand,
         .iconPalette = gItemIconPalette_DynamaxBand,
     },
+
+    [ITEM_SLIDE_AMULET] =
+    {
+        .name = _("Slide Amulet"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "An amulet that\n"
+            "enables slide\n"
+            "evolution"),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Dummy,
+        .iconPalette = gItemIconPalette_Dummy,
+    },
+
+
 
 // Misc. Key Items
 

@@ -44,6 +44,57 @@ FossilCave_Water_EventScript_CollapseFossilCave::
 	release
 	end
 
+FossilCave_Water_EventScript_WetRock_Part1::
+	lock
+	faceplayer
+	goto_if_unset FLAG_MIRROR_OF_REFLECTION_PICKED_UP FossilCave_Water_EventScript_WetRock_Part2
+	msgbox FossilCave_Water_Text_WetRockWasOnceBeautiful MSGBOX_AUTOCLOSE
+	release
+	end
+
+FossilCave_Water_EventScript_WetRock_Part2::
+	msgbox FossilCave_Water_Text_WetRockIsBeautiful, MSGBOX_DEFAULT
+	giveitem ITEM_MIRROR_OF_REFLECTION
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	closemessage
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Water_EventScript_WetRock_Part3
+	release
+	end
+
+FossilCave_Water_EventScript_WetRock_Part3::
+	msgbox FossilCave_Water_Text_StrangeAmuletReacted MSGBOX_DEFAULT
+	setflag FLAG_MIRROR_OF_REFLECTION_PICKED_UP
+	release
+	end	
+
+FossilCave_Water_Text_WetRockWasOnceBeautiful:
+	.string "This wet rock is beautiful\n"
+	.string "and inviting to look at.\p"
+	.string "{PLAYER} examined the wet rock\p"
+	.string "Upon closer inspection, its\n"
+	.string "luster had already faded…$"
+
+
+FossilCave_Water_Text_WetRockIsBeautiful:
+	.string "This wet rock is beautiful\n"
+	.string "and inviting to look at.\p"
+	.string "{PLAYER} examined the wet rock\n"
+	.string "and found a mirror sitting atop.\l"
+	.string "of it.\p"
+	.string "{PLAYER} reached out and took\n"
+	.string "the mirror from the rock.$"
+
+FossilCave_Water_Text_StrangeAmuletReacted:
+	.string "The amulet within {PLAYER}'s bag\n"
+	.string "flashed brightly.\p"
+	.string "{PLAYER} took out the amulet\n"
+	.string "inspected it.\p"
+	.string "The closer you moved the amulet\n"
+	.string "to the mirror, the brighter it\l"
+	.string "became.\p"
+	.string "It seems to be reacting to the\n"
+	.string "mirror…\l"
+	.string "and something else…$" 
 
 FossilCave_Water_Text_TakeScaleFossil:
 	.string "You found the SCALE FOSSIL.\p"

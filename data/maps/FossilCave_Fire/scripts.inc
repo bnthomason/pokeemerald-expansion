@@ -45,6 +45,59 @@ FossilCave_Fire_EventScript_CollapseFossilCave::
 	end
 
 
+FossilCave_Fire_EventScript_MysteriousStone_Part1::
+	lock
+	faceplayer
+	goto_if_unset FLAG_IMPERIAL_SWORD_PICKED_UP FossilCave_Fire_EventScript_MysteriousStone_Part2
+	msgbox FossilCave_Fire_Text_StoneWasStoneCold MSGBOX_AUTOCLOSE
+	release
+	end
+
+FossilCave_Fire_EventScript_MysteriousStone_Part2::
+	msgbox FossilCave_Fire_Text_MysteriousStoneIsWarmAndVibrant, MSGBOX_DEFAULT
+	giveitem ITEM_IMPERIAL_SWORD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	closemessage
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Fire_EventScript_MysteriousStone_Part3
+	release
+	end
+
+FossilCave_Fire_EventScript_MysteriousStone_Part3::
+	msgbox FossilCave_Fire_Text_StrangeAmuletReacted MSGBOX_DEFAULT
+	setflag FLAG_IMPERIAL_SWORD_PICKED_UP
+	release
+	end	
+
+FossilCave_Fire_Text_StoneWasStoneCold:
+	.string "This mysterious stone appears warm\n"
+	.string "and vibrant… you can't seem to\l"
+	.string "resist touching it..\p"
+	.string "{PLAYER} reached for the stone\n"
+	.string "and touched it.\l"
+	.string "But it was stone cold…$"
+
+FossilCave_Fire_Text_MysteriousStoneIsWarmAndVibrant:
+	.string "This mysterious stone appears warm\n"
+	.string "and vibrant… you can't seem to\l"
+	.string "resist touching it..\p"
+	.string "{PLAYER} reached for the stone\p"
+	.string "and found a sword stuck within.\l"
+	.string "{PLAYER} pulled upon the sword\n"
+	.string "and dislodged it from the stone.$"
+
+FossilCave_Fire_Text_StrangeAmuletReacted:
+	.string "The amulet within {PLAYER}'s bag\n"
+	.string "flashed brightly.\p"
+	.string "{PLAYER} took out the amulet\n"
+	.string "inspected it.\p"
+	.string "The closer you moved the amulet\n"
+	.string "to the sword, the brighter it\l"
+	.string "became.\p"
+	.string "It seems to be reacting to the\n"
+	.string "sword…\l" 
+	.string "and something else…$"
+
+
 FossilCave_Fire_Text_TakeClawFossil:
 	.string "You found the CLAW FOSSIL.\p"
 	.string "If this FOSSIL is taken, the ground\n"

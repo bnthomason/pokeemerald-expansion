@@ -3,6 +3,30 @@
 FossilCave_Electric_MapScripts::
 	.byte 0
 
+FossilCave_Electric_EventScript_StrangeTrashCan::
+	lock
+	faceplayer
+	goto_if_unset FLAG_STAFF_OF_MAGIC_PICKED_UP FossilCave_Electric_EventScript_StrangeTrashCan_Part2
+	msgbox FossilCave_Electric_Text_TrashWasEmpty MSGBOX_AUTOCLOSE
+	release
+	end
+
+FossilCave_Electric_EventScript_StrangeTrashCan_Part2::
+	msgbox FossilCave_Electric_Text_StrangeTrashIsOutofPlaceandDangerous, MSGBOX_DEFAULT
+	giveitem ITEM_STAFF_OF_MAGIC
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	closemessage
+	goto_if_eq VAR_RESULT, TRUE, FossilCave_Electric_EventScript_StrangeTrashCan_Part3
+	release
+	end
+
+FossilCave_Electric_EventScript_StrangeTrashCan_Part3::
+	msgbox FossilCave_Electric_Text_StrangeAmuletReacted MSGBOX_DEFAULT
+	setflag FLAG_STAFF_OF_MAGIC_PICKED_UP
+	release
+	end	
+
+
 FossilCave_Electric_EventScript_BoltFossil:: @FossilCave_Electric_EventScript_HoofFossil::
 	lock
 	faceplayer
@@ -53,3 +77,32 @@ FossilCave_Electric_Text_TakeBoltFossil: @ FossilCave_Electric_Text_TakeHoofFoss
 
 FossilCave_Electric_Text_LeftBoltFossilAlone: @FossilCave_Electric_Text_LeftHoofFossilAlone
 	.string "{PLAYER} left the BOLT FOSSIL alone.$" @ 	.string "{PLAYER} left the HOOF FOSSIL alone.$"
+
+FossilCave_Electric_Text_TrashWasEmpty:
+	.string "This trash can is strange and out\n"
+	.string "of place.\p"
+	.string "{PLAYER} peered inside the trash\n"
+	.string "can…\p"
+	.string "But it was empty…$"
+
+FossilCave_Electric_Text_StrangeTrashIsOutofPlaceandDangerous:
+	.string "This strange trash can appears\n"
+	.string "of place and positioned in a.\l"
+	.string "dangerous location.\p"
+	.string "{PLAYER} peered inside the trash\n"
+	.string "can and found a source of powerful\l"
+	.string "magic eminating from within.\p"
+	.string "{PLAYER} reached inside and pulled\n"
+	.string "out a STAFF hidden within!$"
+
+FossilCave_Electric_Text_StrangeAmuletReacted:
+	.string "The amulet within {PLAYER}'s bag\n"
+	.string "flashed brightly.\p"
+	.string "{PLAYER} took out the amulet\n"
+	.string "inspected it.\p"
+	.string "The closer you moved the amulet\n"
+	.string "to the staff, the brighter it\l"
+	.string "became.\p"
+	.string "It seems to be reacting to the\n"
+	.string "staff…\l" 
+	.string "and something else…$"

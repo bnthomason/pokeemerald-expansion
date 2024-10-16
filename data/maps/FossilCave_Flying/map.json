@@ -41,6 +41,21 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "FossilCave_Flying_EventScript_MessageSign"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FossilCave_Flying_EventScript_StrangeGraveStone"
+    }
   ]
 }

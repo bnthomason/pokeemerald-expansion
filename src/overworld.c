@@ -6,6 +6,7 @@
 #include "bg.h"
 #include "cable_club.h"
 #include "clock.h"
+#include "debug.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -1042,6 +1043,7 @@ void SetCurrentMapLayout(u16 mapLayoutId)
 {
     gSaveBlock1Ptr->mapLayoutId = mapLayoutId;
     gMapHeader.mapLayout = GetMapLayout(mapLayoutId);
+    DebugPrintf("%d", gMapHeader.mapLayout);
 }
 
 void SetObjectEventLoadFlag(u8 flag)

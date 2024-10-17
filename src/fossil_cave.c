@@ -44,8 +44,6 @@ struct FallAnim_Cave
 
 #define TAG_CEILING_CRUMBLE 4000
 
-#define FOSSIL_CAVE_GFX_LENGTH (sizeof(sBlankTile_Gfx) + sizeof(sFossilCave_Gfx))
-
 static const struct SpriteSheet sCeilingCrumbleSpriteSheets[];
 static const s16 sCeilingCrumblePositions[][3];
 
@@ -63,9 +61,11 @@ static void UpdateDisintegrationEffect(u8 *, u16, u8, u8, u8);
 
 static const u8 ALIGNED(2) sBlankTile_Gfx[32] = {0};
 static const u8 sFossilCave_Gfx[] = INCBIN_U8("graphics/misc/fossil_cave.4bpp");
-static const u16 sFossilCaveTilemap[] = INCBIN_U16("graphics/misc/fossil_cave.bin");
+static const u16 sFossilCaveTilemap[] = INCBIN_U16("graphics/misc/Fossil_Cave.bin");
 static const u8 sFossilCaveCrumbles_Gfx[] = INCBIN_U8("graphics/misc/mirage_tower_crumbles.4bpp");
 static const u16 sFossilCrumbles_Palette[] = INCBIN_U16("graphics/misc/mirage_tower_crumbles.gbapal");
+
+#define FOSSIL_CAVE_GFX_LENGTH (sizeof(sBlankTile_Gfx) + sizeof(sFossilCave_Gfx))
 
 static const s16 sCeilingCrumblePositions[][3] =
 {
@@ -87,22 +87,22 @@ static const struct SpriteSheet sCeilingCrumbleSpriteSheets[] =
 
 static const struct MetatileCoords sInvisibleFossilCaveMetatiles[] =
 {
-	{8, 1, 0x001},
-	{9, 1, 0x001},
-	{10, 1, 0x001},
-	{11, 1, 0x001},
-	{12, 1, 0x001},
-	{13, 1, 0x001},
-	{14, 1, 0x001},
-	{15, 1, 0x001},
-	{16, 1, 0x001},
-	{17, 1, 0x001},
-	{18, 1, 0x001},
-	{19, 1, 0x001},
-	{20, 1, 0x001},
-	{21, 1, 0x001},
-	{22, 1, 0x001},
-	{23, 1, 0x001},
+	{8, 1, 0x1E4},
+	{9, 1, 0x1E5},
+	{10, 1, 0x1E4},
+	{11, 1, 0x1E5},
+	{12, 1, 0x1E4},
+	{13, 1, 0x1E5},
+	{14, 1, 0x1E4},
+	{15, 1, 0x1E5},
+	{16, 1, 0x1E4},
+	{17, 1, 0x1E5},
+	{18, 1, 0x1E4},
+	{19, 1, 0x1E5},
+	{20, 1, 0x1E4},
+	{21, 1, 0x1E5},
+	{22, 1, 0x1E4},
+	{23, 1, 0x1E5},
 	{8, 2, 0x001},
 	{9, 2, 0x001},
 	{10, 2, 0x001},
@@ -266,7 +266,7 @@ EWRAM_DATA static u8 *sFossilCaveTilemapBuffer = NULL;
 EWRAM_DATA static struct FallAnim_Cave *sFallingCave = NULL;
 EWRAM_DATA static struct BgRegOffsets *sBgShakeOffsets = NULL;
 
-// Holds data about the disintegration effect for Mirage Tower / the unchosen fossil.
+// Holds data about the disintegration effect for Fossil Cave / the unchosen fossil.
 // Never read, presumably for debugging
 static u16 sDebug_DisintegrationData[8];
 
@@ -284,16 +284,16 @@ void SetFossilCaveVisibility(void)
     if (VarGet(VAR_FOSSIL_CAVE_STATE))
     {
         // Mirage Tower event has already been completed, hide it
-        FlagClear(FLAG_FOSSIL_CAVE_VISIBLE);
+        FlagSet(FLAG_FORCE_FOSSIL_CAVE_NOT_VISIBLE);
         return;
     }
     else
     {
-        FlagSet(FLAG_FOSSIL_CAVE_VISIBLE);
+        FlagClear(FLAG_FORCE_FOSSIL_CAVE_NOT_VISIBLE);
         return;
     }
 
-    FlagClear(FLAG_FOSSIL_CAVE_VISIBLE);
+    FlagSet(FLAG_FORCE_FOSSIL_CAVE_NOT_VISIBLE);
 }
 void StartPlayerDescendFossilCave(void)
 {
@@ -530,6 +530,7 @@ static void InitFossilCaveShake(u8 taskId)
 
 
 
+
 static void DoFossilCaveDisintegration(u8 taskId)
 {
     u8 bgShakeTaskId, j;
@@ -627,26 +628,34 @@ static void UpdateDisintegrationEffect(u8 *tiles, u16 randId, u8 c, u8 size, u8 
 
     height = randId / size;
     sDebug_DisintegrationData[0] = height;
+    DebugPrintf("height = %d", sDebug_DisintegrationData[0]);
 
     width = randId % size;
     sDebug_DisintegrationData[1] = width;
+    DebugPrintf("width = %d", sDebug_DisintegrationData[1]);
 
     row = height & 7;
     col = width & 7;
     sDebug_DisintegrationData[2] = height & 7;
     sDebug_DisintegrationData[3] = width & 7;
+    DebugPrintf("row = %d", sDebug_DisintegrationData[2]);
+    DebugPrintf("col = %d", sDebug_DisintegrationData[3]);
 
     widthTiles = width / 8;
     heightTiles = height / 8;
     sDebug_DisintegrationData[4] = width / 8;
     sDebug_DisintegrationData[5] = height / 8;
+    DebugPrintf("widthTiles = %d", sDebug_DisintegrationData[4]);
+    DebugPrintf("heightTiles = %d", sDebug_DisintegrationData[5]);
 
     var = (size / 8) * (heightTiles * 64) + (widthTiles * 64);
     sDebug_DisintegrationData[6] = var;
+    DebugPrintf("var = %d", sDebug_DisintegrationData[6]);
 
     baseOffset = var + ((row * 8) + col);
     baseOffset /= 2;
     sDebug_DisintegrationData[7] = var + ((row * 8) + col);
+    DebugPrintf("baseoffset = %d", sDebug_DisintegrationData[7]);
 
     flag = ((randId % 2) ^ 1);
     tileMask = (c << (flag << 2)) | 15 << (((flag ^ 1) << 2));

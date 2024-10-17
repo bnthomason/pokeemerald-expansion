@@ -4414,7 +4414,7 @@
     {
       "id": "LAYOUT_FOSSIL_CAVE",
       "name": "FossilCave_Layout",
-      "width": 75,
+      "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",

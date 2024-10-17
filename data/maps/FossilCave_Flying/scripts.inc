@@ -3,13 +3,6 @@
 FossilCave_Flying_MapScripts::
 	.byte 0
 
-FossilCave_Flying_EventScript_StrangeGraveStone::
-	lock
-	faceplayer
-	goto_if_unset FLAG_STAFF_OF_MAGIC_PICKED_UP FossilCave_Flying_EventScript_StrangeGraveStone_Part2
-	msgbox FossilCave_Flying_Text_GraveWasBarren MSGBOX_AUTOCLOSE
-	release
-	end
 
 FossilCave_Flying_EventScript_MessageSign::
 	lock
@@ -18,9 +11,18 @@ FossilCave_Flying_EventScript_MessageSign::
 	release
 	end
 
+FossilCave_Flying_EventScript_StrangeGraveStone::
+	lock
+	faceplayer
+	goto_if_unset FLAG_HALO_OF_LIFE_PICKED_UP FossilCave_Flying_EventScript_StrangeGraveStone_Part2
+	msgbox FossilCave_Flying_Text_GraveWasBarren MSGBOX_AUTOCLOSE
+	release
+	end
+
+
 FossilCave_Flying_EventScript_StrangeGraveStone_Part2::
 	msgbox FossilCave_Flying_Text_StrangeGraveIsDifferentlyColored, MSGBOX_DEFAULT
-	giveitem ITEM_STAFF_OF_MAGIC
+	giveitem ITEM_HALO_OF_LIFE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	closemessage
 	goto_if_eq VAR_RESULT, TRUE, FossilCave_Flying_EventScript_StrangeGraveStone_Part3
@@ -77,7 +79,7 @@ FossilCave_Flying_EventScript_CollapseFossilCave::
 	waitstate
 	setvar VAR_FOSSIL_CAVE_STATE, 1
 	clearflag FLAG_LANDMARK_FOSSIL_CAVE
-	warpteleport MAP_ROUTE103, 8, 8
+	warpteleport MAP_ROUTE103, 15, 8
 	waitstate
 	release
 	end
@@ -102,8 +104,8 @@ FossilCave_Flying_Text_StrangeAmuletReacted:
 
 FossilCave_Flying_Text_StrangeGraveIsDifferentlyColored:
 	.string "This strange gravestone appears\n"
-	.string "differently colored than the.\l"
-	.string "other gravestones..\p"
+	.string "differently colored than the\l"
+	.string "other gravestones…\p"
 	.string "{PLAYER} examined the gravestone\n"
 	.string "closer and discovered a light from\l"
 	.string "within the grave.\p"
@@ -113,7 +115,7 @@ FossilCave_Flying_Text_StrangeGraveIsDifferentlyColored:
 FossilCave_Flying_Text_GraveWasBarren:
 	.string "This strange gravestone appears\n"
 	.string "differently colored than the.\l"
-	.string "other gravestones..\p"
+	.string "other gravestones…\p"
 	.string "{PLAYER} examined the gravestone\n"
 	.string "and found it was barren.$"
 

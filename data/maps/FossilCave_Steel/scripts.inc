@@ -53,7 +53,7 @@ FossilCave_Steel_EventScript_CollapseFossilCave::
 	waitstate
 	setvar VAR_FOSSIL_CAVE_STATE, 1
 	clearflag FLAG_LANDMARK_FOSSIL_CAVE
-	warpteleport MAP_ROUTE103, 8, 8
+	warpteleport MAP_ROUTE103, 15, 8
 	waitstate
 	release
 	end

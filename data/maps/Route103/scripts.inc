@@ -1,17 +1,140 @@
 .set LOCALID_RIVAL, 2
 
 Route103_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, Route103_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Route103_OnWarp
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route103_OnFrame
 	.byte 0
 
+Route103_OnLoad:
+	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
+	call_if_set FLAG_SYS_POKEDEX_GET, Route103_EventScript_OpenFossilCavePreCheck
+	call_if_eq VAR_FOSSIL_CAVE_STATE, 1, Route103_EventScript_HideFossilCave
+@	call_if_eq VAR_FOSSIL_CAVE_STATE, 1, Route103_EventScript_ShowTemporaryFossilCave
+	end
+
+Route103_EventScript_OpenAlteringCave::
+	setmetatile 105, 11, METATILE_General_CaveEntrance_Top, TRUE
+	setmetatile 105, 12, METATILE_General_CaveEntrance_Bottom, FALSE
+	return
+
+Route103_EventScript_OpenFossilCavePreCheck::
+	call_if_eq VAR_FOSSIL_CAVE_STATE, 0, Route103_EventScript_OpenFossilCave
+	return
+
+Route103_EventScript_OpenFossilCave::
+	setmetatile 15, 6, METATILE_General_CaveEntrance_Top, TRUE
+	setmetatile 15, 7, METATILE_General_CaveEntrance_Bottom, FALSE
+	return
+
+Route103_EventScript_HideFossilCave:
+	setflag FLAG_FORCE_FOSSIL_CAVE_NOT_VISIBLE
+@	setmaplayoutindex LAYOUT_ROUTE103_NO_FOSSIL_CAVE
+	return
+
+Route103_EventScript_ShowTemporaryFossilCave::
+	setmetatile 8, 1, 0x089, TRUE
+	setmetatile 9, 1, 0x071, TRUE
+	setmetatile 10, 1, 0x074, TRUE
+	setmetatile 11, 1, 0x089, TRUE
+	setmetatile 12, 1, 0x071, TRUE
+	setmetatile 13, 1, 0x071, TRUE
+	setmetatile 14, 1, 0x073, TRUE
+	setmetatile 15, 1, 0x075, TRUE
+	setmetatile 16, 1, 0x071, TRUE
+	setmetatile 17, 1, 0x074, TRUE
+	setmetatile 18, 1, 0x07C, TRUE
+	setmetatile 19, 1, 0x07C, TRUE
+	setmetatile 20, 1, 0x07C, TRUE
+	setmetatile 21, 1, 0x07C, TRUE
+	setmetatile 22, 1, 0x07C, TRUE
+	setmetatile 23, 1, 0x07C, TRUE
+	setmetatile 8, 2, 0x089, FALSE
+	setmetatile 9, 2, 0x071, FALSE
+	setmetatile 10, 2, 0x074, FALSE
+	setmetatile 11, 2, 0x089, FALSE
+	setmetatile 12, 2, 0x071, FALSE
+	setmetatile 13, 2, 0x071, FALSE
+	setmetatile 14, 2, 0x073, FALSE
+	setmetatile 15, 2, 0x075, FALSE
+	setmetatile 16, 2, 0x071, FALSE
+	setmetatile 17, 2, 0x074, FALSE
+	setmetatile 18, 2, 0x07C, FALSE
+	setmetatile 19, 2, 0x07C, FALSE
+	setmetatile 20, 2, 0x07C, FALSE
+	setmetatile 21, 2, 0x07C, FALSE
+	setmetatile 22, 2, 0x07C, FALSE
+	setmetatile 23, 2, 0x07C, FALSE
+	setmetatile 8, 3, 0x089, FALSE
+	setmetatile 9, 3, 0x071, FALSE
+	setmetatile 10, 3, 0x074, FALSE
+	setmetatile 11, 3, 0x089, FALSE
+	setmetatile 12, 3, 0x071, FALSE
+	setmetatile 13, 3, 0x071, FALSE
+	setmetatile 14, 3, 0x073, FALSE
+	setmetatile 15, 3, 0x075, FALSE
+	setmetatile 16, 3, 0x071, FALSE
+	setmetatile 17, 3, 0x074, FALSE
+	setmetatile 18, 3, 0x07C, FALSE
+	setmetatile 19, 3, 0x07C, FALSE
+	setmetatile 20, 3, 0x07C, FALSE
+	setmetatile 21, 3, 0x07C, FALSE
+	setmetatile 22, 3, 0x07C, FALSE
+	setmetatile 23, 3, 0x07C, FALSE
+	setmetatile 8, 4, 0x07B, FALSE
+	setmetatile 9, 4, 0x09C, FALSE
+	setmetatile 10, 4, 0x07D, FALSE
+	setmetatile 11, 4, 0x07B, FALSE
+	setmetatile 12, 4, 0x07C, FALSE
+	setmetatile 13, 4, 0x089, FALSE
+	setmetatile 14, 4, 0x07B, FALSE
+	setmetatile 15, 4, 0x07D, FALSE
+	setmetatile 16, 4, 0x074, FALSE
+	setmetatile 17, 4, 0x07D, FALSE
+	setmetatile 18, 4, 0x071, FALSE
+	setmetatile 19, 4, 0x071, FALSE
+	setmetatile 20, 4, 0x071, FALSE
+	setmetatile 21, 4, 0x071, FALSE
+	setmetatile 22, 4, 0x071, FALSE
+	setmetatile 23, 4, 0x071, FALSE
+	setmetatile 8, 5, 0x1F0, FALSE
+	setmetatile 9, 5, 0x1F1, FALSE
+	setmetatile 10, 5, 0x1F0, FALSE
+	setmetatile 11, 5, 0x1F1, FALSE
+	setmetatile 12, 5, 0x089, FALSE
+	setmetatile 13, 5, 0x073, FALSE
+	setmetatile 14, 5, 0x071, FALSE
+	setmetatile 15, 5, 0x071, FALSE
+	setmetatile 16, 5, 0x075, FALSE
+	setmetatile 17, 5, 0x074, FALSE
+	setmetatile 18, 5, 0x1F0, FALSE
+	setmetatile 19, 5, 0x1F1, FALSE
+	setmetatile 20, 5, 0x1F0, FALSE
+	setmetatile 21, 5, 0x1F1, FALSE
+	setmetatile 22, 5, 0x1F0, FALSE
+	setmetatile 23, 5, 0x1F1, FALSE
+	setmetatile 12, 6, 0x070, FALSE
+	setmetatile 13, 6, 0x07B, FALSE
+	setmetatile 14, 6, 0x09F, FALSE
+	setmetatile 15, 6, 0x07C, FALSE
+	setmetatile 16, 6, 0x07D, FALSE
+	setmetatile 17, 6, 0x072, FALSE
+	setmetatile 12, 7, 0x078, FALSE
+	setmetatile 13, 7, 0x079, FALSE
+	setmetatile 14, 7, 0x0A7, FALSE
+	setmetatile 15, 7, 0x079, FALSE
+	setmetatile 16, 7, 0x079, FALSE
+	setmetatile 17, 7, 0x07A, FALSE
+	return
+
+
 Route103_OnTransition:
+	special SetFossilCaveVisibility
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
-	call_if_set FLAG_FORCE_FOSSIL_CAVE_VISIBLE Route103_EventScript_SetFossilCaveVisible
-	call_if_unset FLAG_FOSSIL_CAVE_VISIBLE, Route103_EventScript_SetLayoutNoFossilCave
+@	call_if_unset FLAG_FOSSIL_CAVE_VISIBLE, Route103_EventScript_SetLayoutNoFossilCave
+	call_if_set FLAG_FORCE_FOSSIL_CAVE_NOT_VISIBLE Route103_EventScript_SetLayoutNoFossilCave @ Route103_EventScript_SetFossilCaveVisible
 	call_if_eq VAR_FOSSIL_CAVE_STATE, 1, Route103_EventScript_SetFallingPlayerGfx
 	call_if_eq VAR_FOSSIL_CAVE_STATE, 2, Route103_EventScript_SetFossilCaveGone
 	end
@@ -30,133 +153,22 @@ Route103_EventScript_SetFallingPlayerGfxFemale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
 	return
 
+Route103_EventScript_SetFossilCaveGone::
+	setvar VAR_FOSSIL_CAVE_STATE, 3
+	return
+
 Route103_EventScript_SetFossilCaveVisible::
 	setflag FLAG_FOSSIL_CAVE_VISIBLE
-	clearflag FLAG_FORCE_FOSSIL_CAVE_VISIBLE
 	return
 
-Route103_OnLoad:
-	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
-	call_if_set FLAG_SYS_POKEDEX_GET, Route103_EventScript_OpenFossilCave
-	call_if_eq VAR_FOSSIL_CAVE_STATE, 1, Route103_EventScript_ShowTemporaryFossilCave
-	end
-
-Route103_EventScript_OpenAlteringCave::
-	setmetatile 105, 11, METATILE_General_CaveEntrance_Top, TRUE
-	setmetatile 105, 12, METATILE_General_CaveEntrance_Bottom, FALSE
-	return
-
-Route103_EventScript_OpenFossilCave::
-	setmetatile 15, 6, METATILE_General_CaveEntrance_Top, TRUE
-	setmetatile 15, 7, METATILE_General_CaveEntrance_Bottom, FALSE
-	return
 
 Route103_EventScript_SetLayoutNoFossilCave::
 	setmaplayoutindex LAYOUT_ROUTE103_NO_FOSSIL_CAVE
 	return
 
-Route103_EventScript_SetFossilCaveGone::
-	setvar VAR_FOSSIL_CAVE_STATE, 3
-	return
-
 Route103_OnWarp:
 	map_script_2 VAR_FOSSIL_CAVE_STATE, 1, Route103_EventScript_HidePlayerForFossilCave
 	.2byte 0
-
-Route103_EventScript_ShowTemporaryFossilCave::
-	setmetatile 8, 1, 0x089, FALSE
-	setmetatile 9, 1, 0x071, FALSE
-	setmetatile 10, 1, 0x074, FALSE
-	setmetatile 11, 1, 0x089, FALSE
-	setmetatile 12, 1, 0x071, FALSE
-	setmetatile 13, 1, 0x071, FALSE
-	setmetatile 14, 1, 0x073, FALSE
-	setmetatile 15, 1, 0x075, FALSE
-	setmetatile 16, 1, 0x071, FALSE
-	setmetatile 17, 1, 0x074, FALSE
-	setmetatile 18, 1, 0x07C, FALSE
-	setmetatile 19, 1, 0x07C, FALSE
-	setmetatile 80, 1, 0x07C, FALSE
-	setmetatile 81, 1, 0x07C, FALSE
-	setmetatile 82, 1, 0x07C, FALSE
-	setmetatile 83, 1, 0x07C, FALSE
-	setmetatile 8, 2, 0x089, FALSE
-	setmetatile 9, 2, 0x071, FALSE
-	setmetatile 10, 2, 0x074, FALSE
-	setmetatile 11, 2, 0x089, FALSE
-	setmetatile 12, 2, 0x071, FALSE
-	setmetatile 13, 2, 0x071, FALSE
-	setmetatile 14, 2, 0x073, FALSE
-	setmetatile 15, 2, 0x075, FALSE
-	setmetatile 16, 2, 0x071, FALSE
-	setmetatile 17, 2, 0x074, FALSE
-	setmetatile 18, 2, 0x07C, FALSE
-	setmetatile 19, 2, 0x07C, FALSE
-	setmetatile 80, 2, 0x07C, FALSE
-	setmetatile 81, 2, 0x07C, FALSE
-	setmetatile 82, 2, 0x07C, FALSE
-	setmetatile 83, 2, 0x07C, FALSE
-	setmetatile 8, 3, 0x089, FALSE
-	setmetatile 9, 3, 0x071, FALSE
-	setmetatile 10, 3, 0x074, FALSE
-	setmetatile 11, 3, 0x089, FALSE
-	setmetatile 12, 3, 0x071, FALSE
-	setmetatile 13, 3, 0x071, FALSE
-	setmetatile 14, 3, 0x073, FALSE
-	setmetatile 15, 3, 0x075, FALSE
-	setmetatile 16, 3, 0x071, FALSE
-	setmetatile 17, 3, 0x074, FALSE
-	setmetatile 18, 3, 0x07C, FALSE
-	setmetatile 19, 3, 0x07C, FALSE
-	setmetatile 80, 3, 0x07C, FALSE
-	setmetatile 81, 3, 0x07C, FALSE
-	setmetatile 82, 3, 0x07C, FALSE
-	setmetatile 83, 3, 0x07C, FALSE
-	setmetatile 8, 4, 0x07B, FALSE
-	setmetatile 9, 4, 0x09C, FALSE
-	setmetatile 10, 4, 0x07D, FALSE
-	setmetatile 11, 4, 0x07B, FALSE
-	setmetatile 12, 4, 0x07C, FALSE
-	setmetatile 13, 4, 0x089, FALSE
-	setmetatile 14, 4, 0x07B, FALSE
-	setmetatile 15, 4, 0x07D, FALSE
-	setmetatile 16, 4, 0x074, FALSE
-	setmetatile 17, 4, 0x07D, FALSE
-	setmetatile 18, 4, 0x071, FALSE
-	setmetatile 19, 4, 0x071, FALSE
-	setmetatile 80, 4, 0x071, FALSE
-	setmetatile 81, 4, 0x071, FALSE
-	setmetatile 82, 4, 0x071, FALSE
-	setmetatile 83, 4, 0x071, FALSE
-	setmetatile 8, 5, 0x1F0, FALSE
-	setmetatile 9, 5, 0x1F1, FALSE
-	setmetatile 10, 5, 0x1F0, FALSE
-	setmetatile 11, 5, 0x1F1, FALSE
-	setmetatile 12, 5, 0x089, FALSE
-	setmetatile 13, 5, 0x073, FALSE
-	setmetatile 14, 5, 0x071, FALSE
-	setmetatile 15, 5, 0x071, FALSE
-	setmetatile 16, 5, 0x075, FALSE
-	setmetatile 17, 5, 0x074, FALSE
-	setmetatile 18, 5, 0x1F0, FALSE
-	setmetatile 19, 5, 0x1F1, FALSE
-	setmetatile 80, 5, 0x1F0, FALSE
-	setmetatile 81, 5, 0x1F1, FALSE
-	setmetatile 82, 5, 0x1F0, FALSE
-	setmetatile 83, 5, 0x1F1, FALSE
-	setmetatile 12, 6, 0x070, FALSE
-	setmetatile 13, 6, 0x07B, FALSE
-	setmetatile 14, 6, 0x09F, FALSE
-	setmetatile 15, 6, 0x07C, FALSE
-	setmetatile 16, 6, 0x07D, FALSE
-	setmetatile 17, 6, 0x072, FALSE
-	setmetatile 12, 7, 0x078, FALSE
-	setmetatile 13, 7, 0x079, FALSE
-	setmetatile 14, 7, 0x0A7, FALSE
-	setmetatile 15, 7, 0x079, FALSE
-	setmetatile 16, 7, 0x079, FALSE
-	setmetatile 17, 7, 0x07A, FALSE
-	return
 
 Route103_EventScript_HidePlayerForFossilCave::
 	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
@@ -168,9 +180,9 @@ Route103_OnFrame:
 
 Route103_EventScript_FossilCaveDisappear::
 	lockall
-	special StartFossilCaveShake
-	waitstate
-	delay 24
+@	special StartFossilCaveShake
+@	waitstate
+@	delay 24
 	playse SE_FALL
 	addobject LOCALID_ROUTE103_PLAYER_FALLING
 	special StartPlayerDescendFossilCave
@@ -180,8 +192,8 @@ Route103_EventScript_FossilCaveDisappear::
 	delay 16
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	delay 16
-	special StartFossilCaveDisintegration
-	waitstate
+@	special StartFossilCaveDisintegration
+@	waitstate
 	setvar VAR_FOSSIL_CAVE_STATE, 2
 	msgbox Route103_Text_LostOtherFossils, MSGBOX_DEFAULT
 	releaseall
@@ -523,4 +535,4 @@ Route103_Text_RouteSign:
 
 Route103_Text_LostOtherFossils:
 	.string "Seems we lost all the other\n"
-	.string "fossils..."
+	.string "fossils...$"

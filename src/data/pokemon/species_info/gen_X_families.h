@@ -21,7 +21,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LIGHTWING, ABILITY_PHOTOSYNTHESIS, ABILITY_HEALING_LIGHT},
+        .abilities = { ABILITY_LIGHTWING, ABILITY_PHOTOSYNTHESIS, ABILITY_D_HEALING_LIGHT},
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Dracoceros"),
         .cryId = CRY_DRACOCEROS_HOLY_CHILD,
@@ -57,14 +57,14 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .iconSprite = gMonIcon_DracocerosHolyChild,
         .iconPalIndex = 0,
         FOOTPRINT(DracocerosHolyChild)
-        OVERWORLD(
+        /*OVERWORLD(
             sPicTable_DracocerosHolyChild,
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             gOverworldPalette_DracocerosHolyChild,
             gShinyOverworldPalette_DracocerosHolyChild
-        )
+        )*/
         .specialLearnset = sDracocerosHolySpecialMoveLearnset,
         .levelUpLearnset = sDracocerosHolyChildLevelUpLearnset,
         .teachableLearnset = sDracocerosHolyChildTeachableLearnset,
@@ -89,7 +89,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LIGHTWING, ABILITY_PHOTOSYNTHESIS, ABILITY_HEALING_LIGHT},
+        .abilities = { ABILITY_LIGHTWING, ABILITY_PHOTOSYNTHESIS, ABILITY_D_HEALING_LIGHT},
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Dracoceros"),
         .cryId = CRY_DRACOCEROS_HOLY_JUVENILE,
@@ -125,14 +125,14 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .iconSprite = gMonIcon_DracocerosHolyJuvenile,
         .iconPalIndex = 0,
         FOOTPRINT(DracocerosHolyJuvenile)
-        OVERWORLD(
+        /*OVERWORLD(
             sPicTable_DracocerosHolyJuvenile,
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             gOverworldPalette_DracocerosHolyJuvenile,
             gShinyOverworldPalette_DracocerosHolyJuvenile
-        )
+        )*/
         .specialLearnset = sDracocerosHolySpecialMoveLearnset,
         .levelUpLearnset = sDracocerosHolyJuvenileLevelUpLearnset,
         .teachableLearnset = sDracocerosHolyJuvenileTeachableLearnset,
@@ -158,7 +158,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             .friendship = STANDARD_FRIENDSHIP,
             .growthRate = GROWTH_SLOW,
             .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
-            .abilities = { ABILITY_LIGHTWING, ABILITY_PHOTOSYNTHESIS, ABILITY_HEALING_LIGHT},
+            .abilities = { ABILITY_LIGHTWING, ABILITY_PHOTOSYNTHESIS, ABILITY_D_HEALING_LIGHT},
             .bodyColor = BODY_COLOR_WHITE,
             .speciesName = _("Dracoceros"),
             .cryId = CRY_DRACOCEROS_HOLY_ADULT,
@@ -194,14 +194,14 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             .iconSprite = gMonIcon_DracocerosHolyAdult,
             .iconPalIndex = 0,
             FOOTPRINT(DracocerosHolyAdult)
-            OVERWORLD(
+            /*OVERWORLD(
                 sPicTable_DracocerosHolyAdult,
                 SIZE_32x32,
                 SHADOW_SIZE_M,
                 TRACKS_FOOT,
                 gOverworldPalette_DracocerosHolyAdult,
                 gShinyOverworldPalette_DracocerosHolyAdult
-            )
+            )*/
             .specialLearnset = sDracocerosHolySpecialMoveLearnset,
             .levelUpLearnset = sDracocerosHolyAdultLevelUpLearnset,
             .teachableLearnset = sDracocerosHolyAdultTeachableLearnset,
@@ -227,7 +227,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LONGEVITY, ABILITY_RAIN_DISH, ABILITY_HEALING_STORM },
+        .abilities = { ABILITY_LONGEVITY, ABILITY_RAIN_DISH, ABILITY_D_HEALING_STORM },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Faerial"),
         .cryId = CRY_FAERIAL_BEAUTY_CHILD,
@@ -292,7 +292,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LONGEVITY, ABILITY_RAIN_DISH, ABILITY_HEALING_STORM },
+        .abilities = { ABILITY_LONGEVITY, ABILITY_RAIN_DISH, ABILITY_D_HEALING_STORM },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Faerial"),
         .cryId = CRY_FAERIAL_BEAUTY_JUVENILE,
@@ -357,7 +357,7 @@ const struct SpeciesInfo gSpeciesInfoGenX[] =
             .friendship = STANDARD_FRIENDSHIP,
             .growthRate = GROWTH_SLOW,
             .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON, EGG_GROUP_DRAGON),
-            .abilities = { ABILITY_LONGEVITY, ABILITY_RAIN_DISH, ABILITY_HEALING_STORM },
+            .abilities = { ABILITY_LONGEVITY, ABILITY_RAIN_DISH, ABILITY_D_HEALING_STORM },
             .bodyColor = BODY_COLOR_WHITE,
             .speciesName = _("Faerial"),
             .cryId = CRY_FAERIAL_BEAUTY_ADULT,

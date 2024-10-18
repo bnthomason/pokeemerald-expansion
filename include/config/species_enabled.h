@@ -18,7 +18,7 @@
 #define P_GEN_7_POKEMON                  TRUE // Generation 7 Pokémon (SM, USUM, LGPE)
 #define P_GEN_8_POKEMON                  TRUE // Generation 8 Pokémon (SwSh, BDSP, LA)
 #define P_GEN_9_POKEMON                  TRUE // Generation 9 Pokémon (SV)
-#define P_GEN_X_POKEMON                  TRUE // Fakemon (XO)
+#define P_GEN_X_POKEMON                  TRUE // Fakemon (Pokemon Fossil Saga (Fossil Hunt, Fossil Fighters, Fossil Wars, Fossil Destiny))
 
 // Setting this to TRUE will add the new evolutions to the Regional Dex.
 #define P_NEW_EVOS_IN_REGIONAL_DEX       TRUE
@@ -610,13 +610,13 @@
 #define P_DRAGON_HERO_POKEMON            P_GEN_X_DRAGONS
 
 //Phase 1
-#define P_FAMILY_DRACOCEROS_HERO          P_DRAGON_HERO_POKEMON
-#define P_FAMILY_NEBUGON_HERO             P_DRAGON_HERO_POKEMON
-#define P_FAMILY_RAIKYU_HERO              P_DRAGON_HERO_POKEMON
-#define P_FAMILY_FAERIAL_HERO             P_DRAGON_HERO_POKEMON
-#define P_FAMILY_IMPYRIAN_HERO            P_DRAGON_HERO_POKEMON
-#define P_FAMILY_WINTEGO_HERO             P_DRAGON_HERO_POKEMON
-#define P_FAMILY_PROTOYPE_VILLAIN         P_DRAGON_HERO_POKEMON //Phase 1
+#define P_FAMILY_DRACOCEROS_HERO          P_GEN_X_POKEMON
+#define P_FAMILY_NEBUGON_HERO             P_GEN_X_POKEMON
+#define P_FAMILY_RAIKYU_HERO              P_GEN_X_POKEMON
+#define P_FAMILY_FAERIAL_HERO             P_GEN_X_POKEMON
+#define P_FAMILY_IMPYRIAN_HERO            P_GEN_X_POKEMON
+#define P_FAMILY_WINTEGO_HERO             P_GEN_X_POKEMON
+#define P_FAMILY_PROTOYPE_VILLAIN         P_GEN_X_POKEMON //Phase 1
 
 
 #endif // GUARD_CONFIG_SPECIES_ENABLED_H

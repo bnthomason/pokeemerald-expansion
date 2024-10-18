@@ -7741,12 +7741,21 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_GLASTRIER
     [SPECIES_GLASTRIER] =
     {
+    #if P_UPDATED_STATS >= GEN_X
+        .baseHP        = 45,
+        .baseAttack    = 60,
+        .baseDefense   = 120,
+        .baseSpeed     = 135,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 150,
+    #else
         .baseHP        = 100,
         .baseAttack    = 145,
         .baseDefense   = 130,
         .baseSpeed     = 30,
         .baseSpAttack  = 65,
         .baseSpDefense = 110,
+    #endif
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 3,
         .expYield = 290,
@@ -7803,12 +7812,21 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_SPECTRIER
     [SPECIES_SPECTRIER] =
     {
+    #if P_UPDATED_STATS >= GEN_X
+        .baseHP        = 45,
+        .baseAttack    = 120,
+        .baseDefense   = 60,
+        .baseSpeed     = 135,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 60,
+    #else
         .baseHP        = 100,
         .baseAttack    = 65,
         .baseDefense   = 60,
         .baseSpeed     = 130,
         .baseSpAttack  = 145,
         .baseSpDefense = 80,
+    #endif
         .types = MON_TYPES(TYPE_GHOST),
         .catchRate = 3,
         .expYield = 290,
@@ -7866,12 +7884,21 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_CALYREX
     [SPECIES_CALYREX] =
     {
+    #if P_UPDATED_STATS >= GEN_X
+        .baseHP        = 135,
+        .baseAttack    = 75,
+        .baseDefense   = 75,
+        .baseSpeed     = 75,
+        .baseSpAttack  = 75,
+        .baseSpDefense = 75,
+    #else
         .baseHP        = 100,
         .baseAttack    = 80,
         .baseDefense   = 80,
         .baseSpeed     = 80,
         .baseSpAttack  = 80,
         .baseSpDefense = 80,
+    #endif
         .types = MON_TYPES(TYPE_PSYCHIC, TYPE_GRASS),
         .catchRate = 3,
         .expYield = 250,
@@ -7930,12 +7957,21 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FUSION_FORMS
     [SPECIES_CALYREX_ICE_RIDER] =
     {
+    #if P_UPDATED_STATS >= GEN_X
+        .baseHP        = 140,
+        .baseAttack    = 90,
+        .baseDefense   = 105,
+        .baseSpeed     = 125,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 140,
+    #else
         .baseHP        = 100,
-        .baseAttack    = 165,
-        .baseDefense   = 150,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 85,
-        .baseSpDefense = 130,
+        .baseAttack    = 85,
+        .baseDefense   = 80,
+        .baseSpeed     = 150,
+        .baseSpAttack  = 165,
+        .baseSpDefense = 100,
+    #endif
         .types = MON_TYPES(TYPE_PSYCHIC, TYPE_ICE),
         .catchRate = 3,
         .expYield = 340,
@@ -8061,12 +8097,21 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_ENAMORUS
     [SPECIES_ENAMORUS_INCARNATE] =
     {
+    #if P_UPDATED_STATS >= GEN_X
+        .baseHP        = 90,
+        .baseAttack    = 60,
+        .baseDefense   = 90,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 150,
+    #else
         .baseHP        = 74,
         .baseAttack    = 115,
         .baseDefense   = 70,
         .baseSpeed     = 106,
         .baseSpAttack  = 135,
         .baseSpDefense = 80,
+    #endif
         .types = MON_TYPES(TYPE_FAIRY, TYPE_FLYING),
         .catchRate = 3,
         .expYield = 116,
@@ -8124,12 +8169,21 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_ENAMORUS_THERIAN] =
     {
+    #if P_UPDATED_STATS >= GEN_X
+        .baseHP        = 120,
+        .baseAttack    = 60,
+        .baseDefense   = 90,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 150,
+    #else
         .baseHP        = 74,
         .baseAttack    = 115,
         .baseDefense   = 110,
         .baseSpeed     = 46,
         .baseSpAttack  = 135,
         .baseSpDefense = 100,
+    #endif
         .types = MON_TYPES(TYPE_FAIRY, TYPE_FLYING),
         .catchRate = 3,
         .expYield = 116,
